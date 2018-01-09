@@ -275,6 +275,7 @@ global.location = "";
 global.locationP = "";
 global.nextstage = "";
 global.lastroom = room;
+global.energy = 0;
 
 global.trialcharacter = -1;
 

@@ -54,10 +54,12 @@ if instance_exists (objWaterSurface)
     }
     if drown <= 0
     {
-        if instance_exists (objSonicModified) && !instance_exists (objKnuckles) && !instance_exists (objAmy)
+        if instance_exists (objSonicModified) && !instance_exists (objKnuckles) && !instance_exists (objShadow) && !instance_exists (objAmy)
             instance_change (objSonicDie, true);
         else if instance_exists (objKnuckles)
             instance_change (objKnucklesDie, true);
+        else if instance_exists (objShadow)
+            instance_change (objShadowDie, true);
         else if instance_exists (objAmy)
             instance_change (objAmyDie, true);
     }

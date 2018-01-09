@@ -72,7 +72,6 @@ col_playersonic.action = 9.5;
 
 audio_play_sound (col_playersonic.hurtvoice, 10, false);*/
 with objSonicModified instance_change (deathobj, true);
-with objKnuckles instance_change (deathobj, true);
 }
 }
 }

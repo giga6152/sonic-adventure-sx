@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>objWall</parentName>
+  <parentName>objDestructive</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -55,8 +55,9 @@ if instance_exists (objSonicModified)
 {
     with objSonicModified
     {
-        if action == 15 &amp;&amp; ground &amp;&amp; ((place_meeting (x+hsp+23, y, objBrickVer) &amp;&amp; hsp &gt; 0) or (place_meeting (x+hsp-23, y, objBrickVer) &amp;&amp; hsp &lt; 0))
+        if action == groundSpecial &amp;&amp; ground &amp;&amp; ((place_meeting (x+hsp+23, y, objBrickVer) &amp;&amp; hsp &gt; 0) or (place_meeting (x+hsp-23, y, objBrickVer) &amp;&amp; hsp &lt; 0))
         {
+            audio_play_sound (sndCrate, 10, false);
             with instance_nearest (x, y, objBrickVer) instance_destroy();
         }
     }

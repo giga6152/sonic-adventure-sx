@@ -68,6 +68,27 @@
           <sound>sound\sndShantaeUseFire</sound>
           <sound>sound\sndShantaeUseTripleFire</sound>
         </sounds>
+        <sounds name="Knuckles">
+          <sound>sound\sndKnucklesAlright</sound>
+          <sound>sound\sndKnucklesHurt</sound>
+          <sound>sound\sndKnucklesDie</sound>
+          <sound>sound\sndKnucklesFall</sound>
+        </sounds>
+        <sounds name="Sky">
+          <sound>sound\sndSkyJump</sound>
+          <sound>sound\sndSkyHurt</sound>
+          <sound>sound\sndSkyDie</sound>
+          <sound>sound\sndSkyFall</sound>
+        </sounds>
+        <sounds name="Shadow">
+          <sound>sound\sndShadowJump</sound>
+          <sound>sound\sndShadowAttack</sound>
+          <sound>sound\sndShadowTrick</sound>
+          <sound>sound\sndShadowHurt</sound>
+          <sound>sound\sndShadowDie</sound>
+          <sound>sound\sndShadowHitDie</sound>
+          <sound>sound\sndShadowUltimatePower</sound>
+        </sounds>
         <sounds name="Tails">
           <sound>sound\sndTailsJump</sound>
           <sound>sound\sndTailsFly</sound>
@@ -76,18 +97,6 @@
           <sound>sound\sndTailsHurt</sound>
           <sound>sound\sndTailsDie</sound>
           <sound>sound\sndTailsHitDie</sound>
-        </sounds>
-        <sounds name="Sky">
-          <sound>sound\sndSkyJump</sound>
-          <sound>sound\sndSkyHurt</sound>
-          <sound>sound\sndSkyDie</sound>
-          <sound>sound\sndSkyFall</sound>
-        </sounds>
-        <sounds name="Knuckles">
-          <sound>sound\sndKnucklesAlright</sound>
-          <sound>sound\sndKnucklesHurt</sound>
-          <sound>sound\sndKnucklesDie</sound>
-          <sound>sound\sndKnucklesFall</sound>
         </sounds>
         <sounds name="Amy">
           <sound>sound\sndAmyDie</sound>
@@ -294,12 +303,18 @@
         <sprite>sprites\sprWrenchPlayer</sprite>
       </sprites>
       <sprites name="Shadow">
+        <sprites name="Normal Shadow">
+          <sprite>sprites\sprShadowActions</sprite>
+          <sprite>sprites\sprShadowActions2</sprite>
+          <sprite>sprites\sprShadowAfterImage</sprite>
+          <sprite>sprites\sprShadowAfterImage2</sprite>
+          <sprite>sprites\sprShadowDie</sprite>
+          <sprite>sprites\sprShadowHitDie</sprite>
+          <sprite>sprites\spr_circleshadow</sprite>
+        </sprites>
         <sprite>sprites\sprite361</sprite>
         <sprite>sprites\sprite835</sprite>
         <sprite>sprites\sprite898</sprite>
-        <sprite>sprites\sprite591</sprite>
-        <sprite>sprites\sprite705</sprite>
-        <sprite>sprites\sprShadowActions</sprite>
       </sprites>
       <sprites name="Silver">
         <sprite>sprites\sprite766</sprite>
@@ -777,6 +792,10 @@
             <sprite>sprites\sprBulletL3</sprite>
             <sprite>sprites\sprBulletL4</sprite>
           </sprites>
+          <sprites name="Chaos Spear">
+            <sprite>sprites\sprSpearGround</sprite>
+            <sprite>sprites\sprSpearCharged</sprite>
+          </sprites>
           <sprite>sprites\bullet_sheet</sprite>
           <sprite>sprites\fx_sheet</sprite>
         </sprites>
@@ -788,6 +807,7 @@
             <sprite>sprites\sprBulletL4HIt</sprite>
           </sprites>
           <sprite>sprites\sprFireballHit</sprite>
+          <sprite>sprites\sprWhite</sprite>
         </sprites>
       </sprites>
       <sprites name="Chest">
@@ -1648,20 +1668,6 @@
         <object>objects\objMskDuckWhip</object>
         <object>objects\objMaskLines</object>
       </objects>
-      <objects name="Tails">
-        <object>objects\objTails</object>
-        <object>objects\objTailsAfterImage</object>
-        <object>objects\objTailsAfterImage2</object>
-        <object>objects\objTailsDie</object>
-        <object>objects\objTailsHitDie</object>
-        <object>objects\obj_tailscircle</object>
-      </objects>
-      <objects name="Sky">
-        <object>objects\objSkyPlayer</object>
-        <object>objects\objSkyClear</object>
-        <object>objects\objSkyHitDie</object>
-        <object>objects\objWrenchPlayer</object>
-      </objects>
       <objects name="Knuckles">
         <object>objects\objChangeKnuckles</object>
         <object>objects\objKnuckles</object>
@@ -1676,6 +1682,29 @@
         <object>objects\objKnucklesClear</object>
         <object>objects\obj_circleknuckles</object>
         <object>objects\obj_circleknucklesSuper</object>
+      </objects>
+      <objects name="Sky">
+        <object>objects\objSkyPlayer</object>
+        <object>objects\objSkyClear</object>
+        <object>objects\objSkyHitDie</object>
+        <object>objects\objWrenchPlayer</object>
+      </objects>
+      <objects name="Shadow">
+        <object>objects\objChangeShadow</object>
+        <object>objects\objShadow</object>
+        <object>objects\objShadowAfterImage</object>
+        <object>objects\objShadowAfterImage2</object>
+        <object>objects\objShadowDie</object>
+        <object>objects\objShadowHitDie</object>
+        <object>objects\obj_circleshadow</object>
+      </objects>
+      <objects name="Tails">
+        <object>objects\objTails</object>
+        <object>objects\objTailsAfterImage</object>
+        <object>objects\objTailsAfterImage2</object>
+        <object>objects\objTailsDie</object>
+        <object>objects\objTailsHitDie</object>
+        <object>objects\obj_tailscircle</object>
       </objects>
       <objects name="Amy">
         <object>objects\objAmy</object>
@@ -2033,6 +2062,11 @@
           <objects name="Bullets">
             <object>objects\objBulletGun</object>
           </objects>
+          <objects name="Chaos Spear">
+            <object>objects\objSpearGround</object>
+            <object>objects\objSpearAir</object>
+            <object>objects\objSpearCharged</object>
+          </objects>
         </objects>
         <objects name="FX">
           <object>objects\objFireballHit</object>
@@ -2040,6 +2074,7 @@
           <object>objects\objBulletL2Hit</object>
           <object>objects\objBulletL3Hit</object>
           <object>objects\objBulletL4Hit</object>
+          <object>objects\objWhiteBlast</object>
         </objects>
       </objects>
       <objects name="Chest">
@@ -2279,6 +2314,7 @@
         <objects name="Crates">
           <object>objects\objCrateWooden</object>
         </objects>
+        <object>objects\objDestructive</object>
       </objects>
     </objects>
     <objects name="HUD">
@@ -2300,9 +2336,10 @@
           <objects name="Lives">
             <object>objects\objLivesCounter</object>
             <object>objects\objLivesCounter2</object>
-            <object>objects\objLivesCounterTails</object>
-            <object>objects\objLivesCounterSky</object>
             <object>objects\objLivesCounterKnuckles</object>
+            <object>objects\objLivesCounterSky</object>
+            <object>objects\objLivesCounterShadow</object>
+            <object>objects\objLivesCounterTails</object>
             <object>objects\objLivesCounterAmy</object>
           </objects>
           <objects name="Bosses">

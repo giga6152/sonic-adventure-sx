@@ -52,10 +52,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite (sprBarOut, 0, view_xview[0]+336, view_yview[0]+336);
-
-if instance_exists (objTails)
-    draw_sprite_ext (sprBarIn, 0, view_xview[0]+336, view_yview[0]+336, (objTails.flight/100), 1, 0, c_white, 1);
+            <string>draw_sprite_ext (sprBarIn, 0, view_xview[0]+336, view_yview[0]+336, (global.energy/100), 1, 0, c_white, 1);
+draw_sprite (sprBarOut, 0, view_xview[0]+336, view_yview[0]+336);
 </string>
           </argument>
         </arguments>

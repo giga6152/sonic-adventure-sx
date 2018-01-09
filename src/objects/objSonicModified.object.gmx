@@ -178,6 +178,8 @@
     tube                = false;
     global.face = xdir;
     deathobj = objSonicHitDieM;
+    airSpecial = 14;
+    groundSpecial = 15;
 </string>
           </argument>
         </arguments>

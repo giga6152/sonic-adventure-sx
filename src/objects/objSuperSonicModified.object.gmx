@@ -155,6 +155,9 @@
     rebounce_action     = 7; //Use this on enemy to tell Sonic to bounce up after using homing atk 
                              //(number must be the same as the action in draw event)
     ldash               = 0; //Tell when light dash is activated
+    
+    airSpecial = 14;
+    tube_action = 19;
 </string>
           </argument>
         </arguments>
@@ -1211,14 +1214,14 @@ instance_create (0, 0, objScore);
     }
 
     // -&gt; Jump animation
-    if (action==1) {
+    if (action==1 or action==tube_action) {
         animation=2;
         animations_framemin=10;
         animations_framemax=13;
         animations_return=10;
         animations_speed=18+abs(hsp);
         atk=1
-        draw_sprite_ext(spr_supercircle,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_supercircle)
+        if action == 1 {draw_sprite_ext(spr_supercircle,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_supercircle)}
     }
     
     // -&gt; Duck animation

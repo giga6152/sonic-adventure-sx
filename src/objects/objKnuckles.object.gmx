@@ -168,6 +168,10 @@
     hurtvoice = sndKnucklesHurt;
     global.face = xdir;
     deathobj = objKnucklesHitDie;
+    airSpecial = 16;
+    groundSpecial = 7;
+    
+    tube_action = 19;
 </string>
           </argument>
         </arguments>
@@ -302,7 +306,9 @@ instance_activate_object (objWaterSurface);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if x &lt; hspm
+            <string>global.face = xdir;
+
+if x &lt; hspm
    x = hspm;
 else if x &gt; room_width-hspm
      x = room_width-hspm;
@@ -1517,7 +1523,7 @@ y = global.start_y;
     }
 
     // -&gt; Jump animation
-    if (action==1) {
+    if (action==1 or action==tube_action) {
         animation=6;
         animations_framemin=61;
         animations_framemax=64;
@@ -1525,7 +1531,7 @@ y = global.start_y;
         animations_speed=18+abs(hsp);
         atk=1
         enable = 1;
-        draw_sprite_ext(spr_circleknuckles,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_circleknuckles)
+        if action == 1 {draw_sprite_ext(spr_circleknuckles,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_circleknuckles)}
     }
     
     // -&gt; Duck animation
