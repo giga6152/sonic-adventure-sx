@@ -1083,6 +1083,7 @@
         </sprites>
         <sprite>sprites\sprMusicDanceHUD</sprite>
         <sprite>sprites\sprBarDanceHUD</sprite>
+        <sprite>sprites\sprite959</sprite>
         <sprite>sprites\sprite831</sprite>
         <sprite>sprites\sprDrownTimer</sprite>
       </sprites>
@@ -1449,6 +1450,7 @@
       <sprite>sprites\sprStorySelect2</sprite>
       <sprite>sprites\sprSectionMove</sprite>
       <sprite>sprites\sprOnMark</sprite>
+      <sprite>sprites\sprite960</sprite>
       <sprite>sprites\sprGo</sprite>
       <sprite>sprites\sprScuttleSelect</sprite>
       <sprite>sprites\sprStreamSelect</sprite>
