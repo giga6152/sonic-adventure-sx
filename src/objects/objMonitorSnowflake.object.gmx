@@ -76,8 +76,10 @@ audio_play_sound (sndBreakBox, 10, false);
           <argument>
             <kind>1</kind>
             <string>instance_destroy();
-global.points += 100000;
 audio_play_sound (sndBreakBox, 10, false);
+
+if instance_exists (objShadow)
+    objShadow.chaos_energy += 50;
 </string>
           </argument>
         </arguments>

@@ -1084,6 +1084,7 @@
         <sprite>sprites\sprMusicDanceHUD</sprite>
         <sprite>sprites\sprBarDanceHUD</sprite>
         <sprite>sprites\sprite959</sprite>
+        <sprite>sprites\sprite961</sprite>
         <sprite>sprites\sprite831</sprite>
         <sprite>sprites\sprDrownTimer</sprite>
       </sprites>
@@ -1352,6 +1353,9 @@
       <sprite>sprites\sprStoryMenu12</sprite>
       <sprite>sprites\sprStoryMenu13</sprite>
       <sprite>sprites\sprStoryMenu14</sprite>
+      <sprite>sprites\sprStoryMenu15</sprite>
+      <sprite>sprites\sprStoryMenu16</sprite>
+      <sprite>sprites\sprStoryMenu17</sprite>
       <sprite>sprites\sprTrialStage</sprite>
     </sprites>
     <sprites name="Shop">

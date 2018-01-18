@@ -81,8 +81,8 @@
 //==============================================================================*/
 
     hsp                 = 0;                     /* Horizontal Speed */
-    hspm                = 13;                    /* Max Horizontal Speed */
-    hspl                = 19;
+    hspm                = 11;                    /* Max Horizontal Speed */
+    hspl                = 17;
     
     effect_clear();
     
@@ -370,7 +370,7 @@ if y &lt; 5
    if action == 15 dcc = 0.2; else dcc = 0.1;
    
    if mach == false hspl = 19; else hspl = 38;
-   if mach == false hspm = 13; else hspm = 26;
+   if mach == false hspm = 11; else hspm = 26;
    
    // Limit the values of the movement
    if (hsp&gt;hspl)     hsp = hspl;
@@ -1511,7 +1511,7 @@ y = global.start_y;
     }
     
     // -&gt; Sprint animation
-    if (abs(hsp)&gt;=9 &amp;&amp; abs(hsp)&lt;12 &amp;&amp; ground &amp;&amp; action==0) {
+    if (abs(hsp)&gt;=9 &amp;&amp; abs(hsp)&lt;14 &amp;&amp; ground &amp;&amp; action==0) {
         spriteset=sprShadowActions;
         animation=4;
         animations_framemin=34;
@@ -1526,7 +1526,7 @@ y = global.start_y;
     }
     
     // -&gt; Dash animation
-    if (abs(hsp)&gt;=12 &amp;&amp; ground &amp;&amp; action==0) {
+    if (abs(hsp)&gt;=14 &amp;&amp; ground &amp;&amp; action==0) {
         spriteset=sprShadowActions;
         animation=5;
         animations_framemin=48;
