@@ -28,7 +28,7 @@
             <string>if instance_exists (objBar)
 {
     if instance_exists (objShadow)
-        objShadow.chaos_energy += 5;
+        objShadow.chaos_energy += 15;
 }
 </string>
           </argument>

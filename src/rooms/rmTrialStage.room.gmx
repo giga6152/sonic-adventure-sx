@@ -51,8 +51,13 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="objText" x="208" y="32" name="inst_37DB311A" locked="0" code="char = &quot;&quot;;&#xA;&#xA;if global.trialcharacter == 0&#xA;    char = &quot;SONIC&quot;;&#xA;if global.trialcharacter == 1&#xA;    char = &quot;SHANTAE&quot;;&#xA;if global.trialcharacter == 2&#xA;    char = &quot;TAILS&quot;;&#xA;if global.trialcharacter == 3&#xA;    char = &quot;SKY&quot;;&#xA;if global.trialcharacter == 4&#xA;    char = &quot;KNUCKLES&quot;;&#xA;if global.trialcharacter == 5&#xA;    char = &quot;BOLO&quot;;&#xA;if global.trialcharacter == 6&#xA;    char = &quot;AMY&quot;;&#xA;    &#xA;txt = &quot;SELECTED CHARACTER: &quot;+char;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objTrialStage" x="160" y="96" name="inst_761A717F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTrialModeBorder" x="0" y="0" name="inst_AF57027A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTrialModeStage" x="32" y="144" name="inst_30B5C8D3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objMenuArrowL" x="64" y="432" name="inst_9AFAE581" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objMenuArrowR" x="576" y="432" name="inst_70640D10" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ" x="144" y="432" name="inst_053DDA05" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objX" x="416" y="432" name="inst_44F92B12" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTrialCharacter" x="256" y="96" name="inst_0A2CE0BC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

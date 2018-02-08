@@ -25,9 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if instance_exists (objEggHammerVehichle)
+            <string>if instance_exists (objSEB)
 {
-    image_index = objEggHammerVehichle.hits;
+    image_index = objSEB.hits;
 }
 else if instance_exists (objRisky)
 {

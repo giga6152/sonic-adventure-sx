@@ -190,6 +190,8 @@
     spear_charge = 90; //How long till we can shoot a charged chaos spear
     chaos_control = 50; //Amount required for chaos control (must be purchased first)
     chaos_blast = 100; //Amount required for chaos blast (must be purchased first)
+    
+    powersneakers = false;
 </string>
           </argument>
         </arguments>
@@ -241,8 +243,8 @@ if room == rmAmyHub1
           <argument>
             <kind>1</kind>
             <string>global.invincible = false;
-audio_stop_all();
-if room = rmZ1_1rm1 or room = rmZ1_1rm2
+if audio_is_playing (bgmInvincible) audio_stop_sound(bgmInvincible);
+/*if room = rmZ1_1rm1 or room = rmZ1_1rm2
     audio_play_sound (bgmEmeraldGarden, 10, true);
 if room = rmZ2_1rm1M
     audio_play_sound (bgmLavaFilter, 10, true);
@@ -268,8 +270,9 @@ if room = rmZ2_1rm1M
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_stop_all();
-if room = rmZ1_1rm1 or room = rmZ1_1rm2
+            <string>powersneakers = false;
+if audio_is_playing (bgmSpeedup) audio_stop_sound(bgmSpeedup);
+/*if room = rmZ1_1rm1 or room = rmZ1_1rm2
     audio_play_sound (bgmEmeraldGarden, 10, true);
 if room = rmZ2_1rm1M
     audio_play_sound (bgmLavaFilter, 10, true);
@@ -330,6 +333,7 @@ instance_activate_object (objButton);
 instance_activate_object (objButton2);
 instance_activate_object (objWaterSurface);
 instance_activate_object (objWhiteBlast);
+instance_activate_object (prtMoving);
 </string>
           </argument>
         </arguments>
@@ -366,10 +370,10 @@ if y &lt; 5
    {
 
    //Extra limit checks
-   if action == 14 vspl = 20; else vspl = 13;
-   if action == 15 dcc = 0.2; else dcc = 0.1;
+   //if action == 14 vspl = 20; else vspl = 13;
+   //if action == 15 dcc = 0.2; else dcc = 0.1;
    
-   if mach == false hspl = 19; else hspl = 38;
+   if mach == false hspl = 17; else hspl = 38;
    if mach == false hspm = 11; else hspm = 26;
    
    // Limit the values of the movement
@@ -784,14 +788,19 @@ if y &lt; 5
    if dead=0
    {
    if collision_circle(x,y+30,20,obj_rail,1,1) &amp;&amp; ground //Grind on rail
-   {action=8 hsp+=acc*2*xdir}
+   {if action!=8 audio_play_sound (sndGrindStart, 10, false); action=8 hsp+=acc*2*xdir}
    else
    if action=8 //If at end of rail
-   {action=0}
+   {action=0 audio_stop_sound (sndGrindRail)}
    }
    
+   //Play sfx
+   if action == 8 &amp;&amp; !audio_is_playing (sndGrindRail)
+        audio_play_sound (sndGrindRail, 10, true);
+   if action != 8 audio_stop_sound (sndGrindRail);
+   
    if action=8 &amp;&amp; KEY_A //This had to be set here to make Sonic jump off rail but not land back on rail
-   {action=1 vsp=jmp ground=0 audio_play_sound (sndJump, 10, false) audio_play_sound (sndSonicHup, 10, false)}
+   {action=1 vsp=jmp ground=0 audio_play_sound (sndJump, 10, false) audio_play_sound (sndShadowJump, 10, false)}
    
    //Lightdash
    if action=0 or action=1 or action=3 or action=5 or action=6 or action=7
@@ -856,11 +865,11 @@ if y &lt; 5
    if dead=1 &amp;&amp; y&gt;view_yview[0]+view_hview[0]+300
    {room_restart()}
    
-//Super/Hyper transformation
+//Super transformation
 if global.canGoSuper == true or global.canGoHyper == true
 {
     if action == 5 &amp;&amp; KEY_A &amp;&amp; global.rings &gt;= 50
-       instance_change (objSuperSonicTransform, true);
+       instance_change (objSuperShadowTransform, true);
 }
 
 if action == animationDash &amp;&amp; ground
@@ -918,7 +927,7 @@ if KEY_C &amp;&amp; (action == 0 or action == 1 or action == 6) &amp;&amp; chaos
     action = 15;
     chaos_energy -= chaos_control;
     
-    hsp += ((xdir*5)+hsp);
+    if hsp &lt; 18 hsp /*+= ((xdir*5)+hsp)*/ = (18*xdir); else hsp += (xdir*2);
     vsp = 0;
 }
 
@@ -1482,6 +1491,10 @@ y = global.start_y;
         animations_return=6;
         animations_speed=12+abs(hsp*2);
         atk=0
+        
+        //Play stepping sound
+        if ground &amp;&amp; (animations_frame == 7 or animations_frame == 11) &amp;&amp; animations_timer == 0
+            audio_play_sound (soundstep, 10, false);
     }
     
     // -&gt; Jog animation
@@ -1493,6 +1506,10 @@ y = global.start_y;
         animations_return=14;
         animations_speed=12+abs(hsp*2);
         atk=0
+        
+        //Play stepping sound
+        if ground &amp;&amp; (animations_frame == 14 or animations_frame == 18) &amp;&amp; animations_timer == 0
+            audio_play_sound (soundstep, 10, false);
     }
     
     // -&gt; Run animation
@@ -1506,8 +1523,10 @@ y = global.start_y;
         atk=0
         
         //Play stepping sound
-        //if ground &amp;&amp; (animations_frame == 25 or animations_frame == 29)
-        //    audio_play_sound (sndStep, 10, false);
+        if ground &amp;&amp; (animations_frame == 23 &amp;&amp; !audio_is_playing (sndShadowSkate))
+            audio_play_sound (sndShadowSkate, 10, false);
+        if ground &amp;&amp; (animations_frame == 29 &amp;&amp; !audio_is_playing (sndShadowSkate2))
+            audio_play_sound (sndShadowSkate2, 10, false);
     }
     
     // -&gt; Sprint animation
@@ -1521,8 +1540,10 @@ y = global.start_y;
         atk=0
         
         //Play stepping sound
-        //if ground &amp;&amp; (animations_frame == 33 or animations_frame == 37)
-        //    audio_play_sound (sndStep, 10, false);
+        if ground &amp;&amp; (animations_frame == 35 &amp;&amp; !audio_is_playing (sndShadowSkate))
+            audio_play_sound (sndShadowSkate, 10, false);
+        if ground &amp;&amp; (animations_frame == 43 &amp;&amp; !audio_is_playing (sndShadowSkate2))
+            audio_play_sound (sndShadowSkate2, 10, false);
     }
     
     // -&gt; Dash animation
@@ -1536,8 +1557,10 @@ y = global.start_y;
         atk=0
         
         //Play stepping sound
-        //if ground &amp;&amp; (animations_frame == 39 or animations_frame == 42)
-        //    audio_play_sound (sndStep, 10, false);
+        if ground &amp;&amp; (animations_frame == 49 &amp;&amp; !audio_is_playing (sndShadowSkate))
+            audio_play_sound (sndShadowSkate, 10, false);
+        if ground &amp;&amp; (animations_frame == 57 &amp;&amp; !audio_is_playing (sndShadowSkate2))
+            audio_play_sound (sndShadowSkate2, 10, false);
     }
 
     // -&gt; Jump animation
@@ -1994,7 +2017,7 @@ if blink&lt;5
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_change (objKnuckles, true);
+            <string>//instance_change (objKnuckles, true);
 </string>
           </argument>
         </arguments>

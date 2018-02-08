@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-3</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>objDeadPlayer</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -88,10 +88,10 @@ audio_play_sound (sndShadowDie, 10, false);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_stop_all();
+            <string>audio_stop_sound(bgmInvincible);
 audio_play_sound (sndShadowDie, 10, false);
 
-if room = rmZ1_1rm1 or room = rmZ1_1rm2
+/*if room = rmZ1_1rm1 or room = rmZ1_1rm2
     audio_play_sound (bgmEmeraldGarden, 10, true);
 if room = rmZ2_1rm1M
     audio_play_sound (bgmLavaFilter, 10, true);
@@ -163,10 +163,10 @@ if room = rmZ2_1rm1M
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_stop_all();
+            <string>audio_stop_sound(bgmSpeedup);
 audio_play_sound (sndShadowDie, 10, false);
 
-if room = rmZ1_1rm1 or room = rmZ1_1rm2
+/*if room = rmZ1_1rm1 or room = rmZ1_1rm2
     audio_play_sound (bgmEmeraldGarden, 10, true);
 if room = rmZ2_1rm1M
     audio_play_sound (bgmLavaFilter, 10, true);
@@ -204,7 +204,7 @@ if room = rmZ2_1rm1M
         <arguments>
           <argument>
             <kind>6</kind>
-            <sound>bgmSuperSonic2</sound>
+            <sound>bgmSuperShadow</sound>
           </argument>
         </arguments>
       </action>
@@ -238,10 +238,10 @@ if room = rmZ2_1rm1M
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_stop_all();
+            <string>audio_stop_sound(bgmSuperShadow);
 audio_play_sound (sndShadowDie, 10, false);
 
-if room = rmZ1_1rm1 or room = rmZ1_1rm2
+/*if room = rmZ1_1rm1 or room = rmZ1_1rm2
     audio_play_sound (bgmEmeraldGarden, 10, true);
 if room = rmZ2_1rm1M
     audio_play_sound (bgmLavaFilter, 10, true);

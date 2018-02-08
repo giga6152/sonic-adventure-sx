@@ -89,10 +89,13 @@ audio_play_sound (sndBreakBox, 10, false);
             <kind>1</kind>
             <string>with (objSonicModified)
 {
-    global.invincible = true;
-    alarm[2] = 1200;
-    audio_stop_all();
-    audio_play_sound (bgmInvincible, 10, false)
+    if global.superstate &lt; 1
+    {
+        global.invincible = true;
+        alarm[2] = 1200;
+        audio_stop_all();
+        audio_play_sound (bgmInvincible, 10, false);
+    }
 }
 instance_destroy();
 audio_play_sound (sndBreakBox, 10, false);

@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>objDestructive</parentName>
+  <parentName>objSurfaceW</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -79,6 +79,8 @@ if instance_exists (objSonicModified)
         }
     }
 }
+
+scrPsychokinesis (objCrateWoodenPK);
 
 
 /*If a crate is airborne, fall if it is not fixed

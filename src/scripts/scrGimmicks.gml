@@ -84,3 +84,47 @@ if collision_circle (x, y+30, 30, objJumpThrough, 1, 1) && !collision_circle (x,
 {
     layer = 1;
 }
+
+//Trigger stepping SFX
+//Play certain sounds depending on the surface that the player is walking on
+
+collision_surface_normal = collision_circle (x, y+10, 10, (objSurfaceN /*or (objSurfaceNH && layer == 0) or (objSurfaceNL && layer == 1)*/), true, true);
+collision_surface_grass = collision_circle (x, y+10, 10, (objSurfaceG /*or (objSurfaceGH && layer == 0) or (objSurfaceGL && layer == 1)*/), true, true);
+collision_surface_wood = collision_circle (x, y+10, 10, (objSurfaceW /*or (objSurfaceWH && layer == 0) or (objSurfaceWL && layer == 1)*/), true, true);
+collision_surface_metal = collision_circle (x, y+10, 10, (objSurfaceM /*or (objSurfaceMH && layer == 0) or (objSurfaceML && layer == 1)*/), true, true);
+
+collision_surface_normal_l = collision_circle (x, y+10, 10, (objSurfaceNL /*or (objSurfaceNH && layer == 0) or (objSurfaceNL && layer == 1)*/), true, true) && layer == 1;
+collision_surface_grass_l = collision_circle (x, y+10, 10, (objSurfaceGL /*or (objSurfaceGH && layer == 0) or (objSurfaceGL && layer == 1)*/), true, true) && layer == 1;
+collision_surface_wood_l = collision_circle (x, y+10, 10, (objSurfaceWL /*or (objSurfaceWH && layer == 0) or (objSurfaceWL && layer == 1)*/), true, true) && layer == 1;
+collision_surface_metal_l = collision_circle (x, y+10, 10, (objSurfaceML /*or (objSurfaceMH && layer == 0) or (objSurfaceML && layer == 1)*/), true, true) && layer == 1;
+
+collision_surface_normal_h = collision_circle (x, y+10, 10, (objSurfaceNH /*or (objSurfaceNH && layer == 0) or (objSurfaceNL && layer == 1)*/), true, true) && layer == 0;
+collision_surface_grass_h = collision_circle (x, y+10, 10, (objSurfaceGH /*or (objSurfaceGH && layer == 0) or (objSurfaceGL && layer == 1)*/), true, true) && layer == 0;
+collision_surface_wood_h = collision_circle (x, y+10, 10, (objSurfaceWH /*or (objSurfaceWH && layer == 0) or (objSurfaceWL && layer == 1)*/), true, true) && layer == 0;
+collision_surface_metal_h = collision_circle (x, y+10, 10, (objSurfaceMH /*or (objSurfaceMH && layer == 0) or (objSurfaceML && layer == 1)*/), true, true) && layer == 0;
+
+if collision_surface_normal or collision_surface_normal_l or collision_surface_normal_h //If the player is on a normal surface
+{
+    soundstep = sndStepNormal;
+    soundland = sndLandNormal;
+}
+else if collision_surface_grass or collision_surface_grass_l or collision_surface_grass_h //If the player is on grass
+{
+    soundstep = sndStepGrass;
+    soundland = sndLandGrass;
+}
+else if collision_surface_wood or collision_surface_wood_l or collision_surface_wood_h //If the player is on wood
+{
+    soundstep = sndStepWood;
+    soundland = sndLandWood;
+}
+else if collision_surface_metal or collision_surface_metal_l or collision_surface_metal_h //If the player is on metal
+{
+    soundstep = sndStepMetal;
+    soundland = sndLandGrass;
+}
+else if !collision_circle (x, y+10, 30, objWaterSurface, false, true) //If neither of these are true, act as if it were a normal surface
+{
+    soundstep = sndStepNormal;
+    soundland = sndLandNormal;
+}

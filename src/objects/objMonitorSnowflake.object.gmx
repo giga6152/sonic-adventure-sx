@@ -80,6 +80,8 @@ audio_play_sound (sndBreakBox, 10, false);
 
 if instance_exists (objShadow)
     objShadow.chaos_energy += 50;
+if instance_exists (objSilver)
+    objSilver.pk_left += 50;
 </string>
           </argument>
         </arguments>

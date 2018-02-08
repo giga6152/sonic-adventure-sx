@@ -138,9 +138,16 @@ objMenuCharacters2.persistent = false;
     switch image_index
     {
         case 0:
-             alarm[0] = 40;
-             instance_create (0, 0, objFade);
-             audio_play_sound (sndMenuSelect, 10, false);
+             if access_story
+             {
+                 alarm[0] = 40;
+                 instance_create (0, 0, objFade);
+                 audio_play_sound (sndMenuSelect, 10, false);
+             }
+             else
+             {
+                audio_play_sound (sndMenuCancel, 10, false);
+             }
         break;
         case 1:
             alarm[1] = 40;
@@ -310,9 +317,16 @@ access_story = true;
     switch image_index
     {
         case 0:
-             alarm[0] = 40;
-             instance_create (0, 0, objFade);
-             audio_play_sound (sndMenuSelect, 10, false);
+             if access_story
+             {
+                 alarm[0] = 40;
+                 instance_create (0, 0, objFade);
+                 audio_play_sound (sndMenuSelect, 10, false);
+             }
+             else
+             {
+                audio_play_sound (sndMenuCancel, 10, false);
+             }
         break;
         case 1:
             alarm[1] = 40;

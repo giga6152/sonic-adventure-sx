@@ -2307,11 +2307,11 @@
     <instance objName="objZ2Solid" x="9960" y="3972" name="inst_DB87AB58" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2Solid" x="9992" y="3972" name="inst_7071BE4C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2Solid" x="10024" y="3972" name="inst_49A2BCF9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="10056" y="3972" name="inst_706F3795" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="10088" y="3972" name="inst_E023398F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="10120" y="3972" name="inst_A656D27F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="10152" y="3972" name="inst_20597E07" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="10184" y="3972" name="inst_F94B4572" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10216" y="3972" name="inst_706F3795" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10248" y="3972" name="inst_E023398F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10280" y="3972" name="inst_A656D27F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10376" y="3972" name="inst_20597E07" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10408" y="3972" name="inst_F94B4572" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2Solid" x="9916" y="3808" name="inst_3D3B94AA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2Solid" x="9948" y="3808" name="inst_499F3392" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2Solid" x="9980" y="3808" name="inst_5B1A0937" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -2334,27 +2334,27 @@
     <instance objName="objZ2Solid" x="10524" y="3808" name="inst_70C927AB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2Solid" x="10556" y="3808" name="inst_8FA964BC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2Solid" x="10588" y="3808" name="inst_6FAF52E9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="10436" y="3968" name="inst_BEE9C247" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="10468" y="3968" name="inst_15D55C3B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="10500" y="3968" name="inst_D45873C5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="10564" y="3968" name="inst_ADC09263" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="10596" y="3968" name="inst_8994A86E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="10532" y="3968" name="inst_BCA3FBF6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="10628" y="3968" name="inst_56124B81" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="10660" y="3968" name="inst_D8257EEF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="10692" y="3968" name="inst_16BC0017" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="10724" y="3968" name="inst_395C6C49" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="10756" y="3968" name="inst_C343ADB3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="10788" y="3968" name="inst_DA38C620" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="10964" y="3968" name="inst_05D42A1F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="10996" y="3968" name="inst_ED1FB837" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="11028" y="3968" name="inst_598AA0AA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="11060" y="3968" name="inst_FFC3F993" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="11092" y="3968" name="inst_F577F297" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="11124" y="3968" name="inst_71E9B1D3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="11156" y="3968" name="inst_07BA7AEC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="11188" y="3968" name="inst_95D89565" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="11220" y="3968" name="inst_29E810AC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10436" y="3972" name="inst_BEE9C247" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10468" y="3972" name="inst_15D55C3B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10500" y="3972" name="inst_D45873C5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10564" y="3972" name="inst_ADC09263" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10596" y="3972" name="inst_8994A86E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10532" y="3972" name="inst_BCA3FBF6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10628" y="3972" name="inst_56124B81" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10660" y="3972" name="inst_D8257EEF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10692" y="3972" name="inst_16BC0017" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10724" y="3972" name="inst_395C6C49" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10756" y="3972" name="inst_C343ADB3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10788" y="3972" name="inst_DA38C620" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10964" y="3972" name="inst_05D42A1F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10996" y="3972" name="inst_ED1FB837" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="11028" y="3972" name="inst_598AA0AA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="11060" y="3972" name="inst_FFC3F993" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="11092" y="3972" name="inst_F577F297" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="11124" y="3972" name="inst_71E9B1D3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="11156" y="3972" name="inst_07BA7AEC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="11188" y="3972" name="inst_95D89565" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="11220" y="3972" name="inst_29E810AC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2Solid2" x="10616" y="3736" name="inst_BA283C91" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2Solid2" x="10616" y="3768" name="inst_187CAA42" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2Solid2" x="10616" y="3800" name="inst_C6532EA8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -2382,27 +2382,11 @@
     <instance objName="objZ2Solid2" x="10556" y="3840" name="inst_D7C4476D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2Solid2" x="10588" y="3840" name="inst_100BD68A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2Solid2" x="10616" y="3840" name="inst_3BB76A10" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="10224" y="3932" name="inst_E1CBC67B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="10248" y="3932" name="inst_C95AE397" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="10272" y="3932" name="inst_838EADA0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="10296" y="3932" name="inst_C8CA06C1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="10320" y="3932" name="inst_FE26225E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="10344" y="3932" name="inst_C18AF2C9" locked="0" code="" scaleX="1.11111116409302" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="10372" y="3932" name="inst_6D24D12D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="10396" y="3932" name="inst_49FE5FF3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="10420" y="3932" name="inst_F755EEFD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSpringRed" x="10360" y="3792" name="inst_B8AC0A22" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="10828" y="3936" name="inst_9ED146E0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="10848" y="3936" name="inst_D67A3233" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="10868" y="3936" name="inst_413F88EA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="10888" y="3936" name="inst_055161EF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="10908" y="3936" name="inst_F33C10AF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="10928" y="3936" name="inst_FD3176CB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="10948" y="3936" name="inst_D7B79E93" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="object551" x="11252" y="3888" name="inst_C313E46D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="object545" x="11492" y="3888" name="inst_FB681DD1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="object545" x="11780" y="3888" name="inst_62C45FCB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="object545" x="12068" y="3888" name="inst_18878584" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="object551" x="11252" y="3892" name="inst_C313E46D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="object545" x="11492" y="3892" name="inst_FB681DD1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="object545" x="11780" y="3892" name="inst_62C45FCB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="object545" x="12068" y="3892" name="inst_18878584" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object551" x="11920" y="2692" name="inst_0B9F16C9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object546" x="12160" y="2692" name="inst_86892FA5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object546" x="12352" y="2692" name="inst_8DC12311" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -2416,9 +2400,9 @@
     <instance objName="object545" x="13768" y="2416" name="inst_865EA804" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object545" x="14056" y="2416" name="inst_1AA1DBBB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSpringRedRight" x="9752" y="3952" name="inst_36C88799" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objDashPadRight" x="11208" y="3952" name="inst_5C7D4579" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objDashPadRight" x="11668" y="3872" name="inst_C952A7C4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objDashPadRight" x="12080" y="3872" name="inst_96BD4DC0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objDashPadRight" x="11208" y="3956" name="inst_5C7D4579" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objDashPadRight" x="11668" y="3876" name="inst_C952A7C4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objDashPadRight" x="12080" y="3876" name="inst_96BD4DC0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2LoopBR" x="14156" y="2352" name="inst_296B6F6A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2LoopBL" x="13580" y="2356" name="inst_C0B52FB9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2LoopTR" x="14156" y="2080" name="inst_538395DA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -2582,11 +2566,11 @@
     <instance objName="objKouraAir" x="15816" y="2848" name="inst_8C683F98" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object546" x="16004" y="2868" name="inst_C8DF52A9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object546" x="16196" y="2868" name="inst_F40A3849" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="object550" x="12356" y="3888" name="inst_A316A101" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="object546" x="12596" y="3968" name="inst_2AF7A80E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="object546" x="12788" y="3968" name="inst_31812890" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="object546" x="12980" y="3968" name="inst_AA75B46D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="object545" x="13028" y="3920" name="inst_532C025F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="object550" x="12356" y="3892" name="inst_A316A101" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="object546" x="12596" y="3972" name="inst_2AF7A80E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="object546" x="12788" y="3972" name="inst_31812890" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="object546" x="12980" y="3972" name="inst_AA75B46D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="object545" x="13028" y="3924" name="inst_532C025F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objKuraKura" x="13356" y="3872" name="inst_03CCC857" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objKuraKura" x="13432" y="3872" name="inst_1A952AE4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objKuraKura" x="13508" y="3872" name="inst_38B84948" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -3495,7 +3479,19 @@
     <instance objName="objSpikeLeft" x="21788" y="3356" name="inst_D8E0BF4E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSpikeLeft" x="21788" y="3388" name="inst_D3D07ABA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSectionMove" x="29988" y="3864" name="inst_BFA6C492" locked="0" code="warpRoom = rmZ2_1rm2M;&#xA;" scaleX="0.75" scaleY="7.5" colour="4294967295" rotation="0"/>
-    <instance objName="objLavaFilter" x="172" y="2344" name="inst_C51DD521" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10056" y="3972" name="inst_FE565DC3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10088" y="3972" name="inst_570D96A0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10120" y="3972" name="inst_9C640674" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10152" y="3972" name="inst_02EAB9F9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10184" y="3972" name="inst_112048AB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10344" y="3972" name="inst_7F69C7CE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10312" y="3972" name="inst_F0254783" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10820" y="3972" name="inst_AC332C7C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10884" y="3972" name="inst_D66AB4C0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10916" y="3972" name="inst_43A00ACB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10948" y="3972" name="inst_0196B9D6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2Solid" x="10852" y="3972" name="inst_5321E6E1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objLavaFilter" x="184" y="2332" name="inst_6CFB1798" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

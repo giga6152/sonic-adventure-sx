@@ -50,8 +50,9 @@ canRank = false;
           <argument>
             <kind>1</kind>
             <string>room_goto (myRoom);
+scrSaveM();
 
-if room == rmZ1_1rm2 &amp;&amp; global.Z1_1 == false
+/*if room == rmZ1_1rm2 &amp;&amp; global.Z1_1 == false
     global.Z1_1 = true;
 if room == rmZ1_1Krm2 &amp;&amp; global.Z1_1Knux == false
     global.Z1_1Knux = true;
@@ -147,7 +148,7 @@ then the rank will be given.*/
 /*Also, an X Rank will be given if the player acquires 200K points, which is done by
 getting the traditional S Rank and finding a monitor which gives 100K points or finding
 a Chaos Emerald. The player cannot get an X Rank during boss fights.*/
-if room = rmZ1_1rm2 or room == rmZ2_1rm2 or room == rmZ1_1Krm2 or room == rmZ2_1Krm2 or room == rmZ1_1Arm2 or room == rmZ2_1Arm2
+if room = rmZ1_1rm2 or room == rmZ2_1rm2M or room == rmZ1_1Krm2M or room == rmZ2_1Krm2M or room == rmZ1_1Arm2 or room == rmZ2_1Arm2
 {
     if global.finalPoints &gt;= 200000
        sprite_index = sprRankX; //X Rank
@@ -203,7 +204,31 @@ if room = rmZ1_B or room == rmZ1_BK or room == rmZ2_B or room == rmZ2_BK or room
     alarm[0] = 60;
 }
 
-if room == rmZ1_1rm2
+//Since this is a demo, send us back to the trial select screen if we clear the stage.
+myRoom = rmTrialStage;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///kept rooms
+
+/*if room == rmZ1_1rm2
 {
     if global.Z1_B == false
         myRoom = rmBoss1Cutscene;
@@ -254,7 +279,7 @@ if room == rmS1rm6
     else
         myRoom = rmShantaeHubWait;
 }
-if room == rmZ2_1rm2
+if room == rmZ2_1rm2M
 {
     if global.Z2_B == false
         myRoom = rmBoss2CutsceneOVA;
@@ -299,7 +324,7 @@ if room == rmZ2_BA
 /*if room == rmD2rm17
 {
     myRoom = rmDemoCharacter;
-}
+}*/
 </string>
           </argument>
         </arguments>

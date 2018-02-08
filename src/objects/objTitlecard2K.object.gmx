@@ -55,7 +55,7 @@ global.milC = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto (rmZ2_1Krm1);
+            <string>room_goto (rmZ2_1Krm1M);
 </string>
           </argument>
         </arguments>

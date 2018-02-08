@@ -89,6 +89,8 @@ if room == rmZ1_B
    x += objBossScroll.hspeed;
    
 view_object = self;
+
+instance_activate_object (prtMoving);
 </string>
           </argument>
         </arguments>

@@ -82,9 +82,9 @@ hsp = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_stop_all();
+            <string>audio_stop_sound(bgmInvincible);
 
-if room = rmZ1_1rm1 or room = rmZ1_1rm2
+/*if room = rmZ1_1rm1 or room = rmZ1_1rm2
     audio_play_sound (bgmEmeraldGarden, 10, true);
 </string>
           </argument>

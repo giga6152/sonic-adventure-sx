@@ -178,7 +178,7 @@ if global.seconds == 60
     global.minutes += 1;
 }
 
-if room == rmZ1_1rm2 or room == rmZ1_1Krm2 or room == rmZ1_1Arm2
+if room == rmZ1_1rm2 or room == rmZ1_1Krm2M or room == rmZ1_1Arm2
 {
     if global.mil &lt; 150000
         global.timeBonus = 45000;
@@ -195,32 +195,32 @@ if room == rmZ1_1rm2 or room == rmZ1_1Krm2 or room == rmZ1_1Arm2
 }
 if room == rmZ1_B or room == rmZ1_BK or room == rmZ1_BA
 {
-    if global.mil &lt; 25000
+    if global.mil &lt; 60000
         global.timeBonus = 45000;
-    else if global.mil &gt;= 25000 &amp;&amp; global.mil &lt; 35000
+    else if global.mil &gt;= 60000 &amp;&amp; global.mil &lt; 85000
         global.timeBonus = 30000;
-    else if global.mil &gt;= 35000 &amp;&amp; global.mil &lt; 50000
+    else if global.mil &gt;= 85000 &amp;&amp; global.mil &lt; 100000
         global.timeBonus = 25000;
-    else if global.mil &gt;= 50000 &amp;&amp; global.mil &lt; 60000
+    else if global.mil &gt;= 100000 &amp;&amp; global.mil &lt; 120000
         global.timeBonus = 5000;
-    else if global.mil &gt;= 60000 &amp;&amp; global.mil &lt; 90000
+    else if global.mil &gt;= 120000 &amp;&amp; global.mil &lt; 165000
         global.timeBonus = 2500;
-    else if global.mil &gt;= 90000
+    else if global.mil &gt;= 165000
         global.timeBonus = 0;
 }
-if room == rmZ2_1rm2 or room == rmZ2_1Krm2 or room == rmZ2_1Arm2
+if room == rmZ2_1rm2M or room == rmZ2_1Krm2M or room == rmZ2_1Arm2
 {
-    if global.mil &lt; 90000
+    if global.mil &lt; 210000
         global.timeBonus = 45000;
-    else if global.mil &gt;= 90000 &amp;&amp; global.mil &lt; 135000
+    else if global.mil &gt;= 210000 &amp;&amp; global.mil &lt; 245000
         global.timeBonus = 30000;
-    else if global.mil &gt;= 135000 &amp;&amp; global.mil &lt; 165000
+    else if global.mil &gt;= 245000 &amp;&amp; global.mil &lt; 275000
         global.timeBonus = 25000;
-    else if global.mil &gt;= 165000 &amp;&amp; global.mil &lt; 180000
+    else if global.mil &gt;= 275000 &amp;&amp; global.mil &lt; 300000
         global.timeBonus = 5000;
-    else if global.mil &gt;= 180000 &amp;&amp; global.mil &lt; 210000
+    else if global.mil &gt;= 300000 &amp;&amp; global.mil &lt; 330000
         global.timeBonus = 2500;
-    else if global.mil &gt;= 210000
+    else if global.mil &gt;= 330000
         global.timeBonus = 0;
 }
 if room == rmZ2_B

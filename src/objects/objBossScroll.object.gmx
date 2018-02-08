@@ -33,12 +33,25 @@ if x &gt;= 9520
     objSonicModified.x -= 9280;
     objBorderLeft.x = 0;
     objBorderRight.x = 480;
-    if instance_exists (objEggHammerVehichle)
-        objEggHammerVehichle.x = 416;
-    if instance_exists (objEggHammerDestroy)
-        objEggHammerDestroy.x -= 9280;
-    if instance_exists (objEggHammerHammer)
-        objEggHammerHammer.x = 416;
+    if instance_exists (objSEB)
+    {
+        if objSEB.action &lt; 2 objSEB.x = 416;
+        else objSEB.x -= 9280;
+    }
+    if instance_exists (objSEBSpikeball)
+        objSEBSpikeball.x = 348;
+    if instance_exists (objSEBSpikeball2)
+        objSEBSpikeball2.x = 368;
+    if instance_exists (objSEBSpikeball3)
+        objSEBSpikeball3.x = 388;
+    if instance_exists (objSEBChain)
+        objSEBChain.x = 416;
+    if instance_exists (objSEBPT)
+        objSEBPT.x = 300;
+    if instance_exists (objSEBPlatform)
+        objSEBPlatform.x = 300;
+        if instance_exists (objSEBBall)
+        objSEBBall.x = 416;
 }
 </string>
           </argument>

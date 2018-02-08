@@ -2915,8 +2915,8 @@
     <instance objName="objHighLayer" x="4564" y="1660" name="inst_FF047CC3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objHighLayer" x="4420" y="1660" name="inst_1EE1A802" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objHighLayer" x="4420" y="1580" name="inst_53A63E95" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objSonicModified" x="108" y="1496" name="inst_07F92AB8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objEmeraldGarden" x="136" y="1440" name="inst_E33B381B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSonicModified" x="100" y="1496" name="inst_DB6F42B2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

@@ -56,10 +56,14 @@ audio_play_sound (sndBreakBox, 10, false);
             <kind>1</kind>
             <string>with (objSonicModified)
 {
-    machTimer = 0;
-    alarm[1] = 960;
-    audio_stop_all();
-    audio_play_sound (bgmSpeedup, 10, false);
+    if global.superstate &lt; 1
+    {
+        powersneakers = true;
+        machTimer = 0;
+        alarm[1] = 960;
+        audio_stop_all();
+        audio_play_sound (bgmSpeedup, 10, false);
+    }
 }
 instance_destroy();
 audio_play_sound (sndBreakBox, 10, false);

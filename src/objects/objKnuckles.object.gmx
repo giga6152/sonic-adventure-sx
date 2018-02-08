@@ -171,7 +171,14 @@
     airSpecial = 16;
     groundSpecial = 7;
     
+    imageTimer = 5;
+    
     tube_action = 19;
+    
+    soundstep = sndStepNormal;
+    soundland = sndLandNormal;
+    
+    powersneakers = false;
 </string>
           </argument>
         </arguments>
@@ -195,8 +202,8 @@
           <argument>
             <kind>1</kind>
             <string>global.invincible = false;
-audio_stop_all();
-if room = rmZ1_1Krm1 or room = rmZ1_1Krm2
+if audio_is_playing (bgmInvincible) audio_stop_sound(bgmInvincible);
+/*if room = rmZ1_1Krm1 or room = rmZ1_1Krm2
     audio_play_sound (bgmEmeraldGarden, 10, true);
 if room = rmZ2_1Krm1
     audio_play_sound (bgmLavaFilter, 10, true);
@@ -222,8 +229,9 @@ if room = rmZ2_1Krm1
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hspm = 13;
-audio_stop_all();
+            <string>powersneakers = false;
+if audio_is_playing (bgmSpeedup) audio_stop_sound(bgmSpeedup);
+/*
 if room = rmZ1_1Krm1 or room = rmZ1_1Krm2
     audio_play_sound (bgmEmeraldGarden, 10, true);
 if room = rmZ2_1Krm1
@@ -284,6 +292,7 @@ instance_activate_object (objCamera);
 instance_activate_object (objButton);
 instance_activate_object (objButton2);
 instance_activate_object (objWaterSurface);
+instance_activate_object (prtMoving);
 </string>
           </argument>
         </arguments>
@@ -693,11 +702,16 @@ if y &lt; 5
    if dead=0
    {
    if collision_circle(x,y+30,20,obj_rail,1,1) &amp;&amp; ground //Grind on rail
-   {action=8 hsp+=acc*2*xdir}
+   {if action!=8 audio_play_sound (sndGrindStart, 10, false); action=8 hsp+=acc*2*xdir}
    else
    if action=8 //If at end of rail
-   {action=0}
+   {action=0 audio_stop_sound (sndGrindRail)}
    }
+   
+   //Play sfx
+   if action == 8 &amp;&amp; !audio_is_playing (sndGrindRail)
+        audio_play_sound (sndGrindRail, 10, true);
+   if action != 8 audio_stop_sound (sndGrindRail);
    
    if action=8 &amp;&amp; KEY_A //This had to be set here to make Knuckles jump off rail but not land back on rail
    {action=1 vsp=jmp ground=0 audio_play_sound (sndJump, 10, false)}
@@ -792,7 +806,7 @@ if action == 5 &amp;&amp; KEY_A &amp;&amp; global.rings &gt;= 50 &amp;&amp; (glo
 }
 
 //Boost Mode (NOT the boost, only activates if Sonic hits a high speed)
-if (place_meeting (x, y, objDashPad) &amp;&amp; ground &amp;&amp; action == 0) or audio_is_playing (bgmSpeedup)
+if (place_meeting (x, y, objDashPad) &amp;&amp; ground &amp;&amp; action == 0) or powersneakers
 {
     mach = true;  
     machTimer = 0;
@@ -1477,6 +1491,10 @@ y = global.start_y;
         animations_return=21;
         animations_speed=12+abs(hsp*2);
         atk=0
+        
+        //Play stepping sound
+        if ground &amp;&amp; (animations_frame == 21 or animations_frame == 25) &amp;&amp; animations_timer == 0
+            audio_play_sound (soundstep, 10, false);
     }
     
     // -&gt; Jog animation
@@ -1487,6 +1505,10 @@ y = global.start_y;
         animations_return=29;
         animations_speed=12+abs(hsp*2);
         atk=0
+        
+        //Play stepping sound
+        if ground &amp;&amp; (animations_frame == 29 or animations_frame == 33) &amp;&amp; animations_timer == 0
+            audio_play_sound (soundstep, 10, false);
     }
     
     // -&gt; Run animation
@@ -1498,6 +1520,10 @@ y = global.start_y;
         animations_speed=12+abs(hsp*2);
         atk=0
         enable = 1;
+        
+        //Play stepping sound
+        if ground &amp;&amp; (animations_frame == 37 or animations_frame == 41) &amp;&amp; animations_timer == 0
+            audio_play_sound (soundstep, 10, false);
     }
     
     // -&gt; Sprint animation
@@ -1509,6 +1535,10 @@ y = global.start_y;
         animations_speed=12+abs(hsp*2);
         atk=0
         enable = 1;
+        
+        //Play stepping sound
+        if ground &amp;&amp; (animations_frame == 45 or animations_frame == 49) &amp;&amp; animations_timer == 0
+            audio_play_sound (soundstep, 10, false);
     }
     
     // -&gt; Dash animation
@@ -1520,6 +1550,10 @@ y = global.start_y;
         animations_speed=12+abs(hsp*2);
         atk=0
         enable = 1;
+        
+        //Play stepping sound
+        if ground &amp;&amp; (animations_frame == 53 or animations_frame == 57) &amp;&amp; animations_timer == 0
+            audio_play_sound (soundstep, 10, false);
     }
 
     // -&gt; Jump animation
@@ -1944,7 +1978,7 @@ if blink&lt;5
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_change (objSonicModified, true);
+            <string>//instance_change (objSonicModified, true);
 </string>
           </argument>
         </arguments>

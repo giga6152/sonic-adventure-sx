@@ -61,6 +61,9 @@ audio_play_sound (sndRing, 10, false);                  //&lt;--Play sound here
 global.rings+=1
 instance_destroy()
 }
+
+if instance_exists (objShadow)
+    instance_change (objRing, true);
 </string>
           </argument>
         </arguments>

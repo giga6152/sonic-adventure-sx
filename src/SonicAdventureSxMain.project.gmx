@@ -43,12 +43,13 @@
         <sound>sound\sndCrate</sound>
         <sound>sound\sndStompStart</sound>
         <sound>sound\sndStompLand</sound>
-        <sound>sound\sndStep</sound>
-        <sound>sound\sndLand</sound>
         <sound>sound\sndMagicSeal</sound>
         <sound>sound\sndMenuNavigate</sound>
         <sound>sound\sndMenuSelect</sound>
         <sound>sound\sndMenuCancel</sound>
+        <sound>sound\sndLavaAlarm</sound>
+        <sound>sound\sndLevitateStart</sound>
+        <sound>sound\sndLevitateStop</sound>
       </sounds>
       <sounds name="Voices">
         <sounds name="Sonic">
@@ -89,6 +90,14 @@
           <sound>sound\sndShadowHitDie</sound>
           <sound>sound\sndShadowUltimatePower</sound>
         </sounds>
+        <sounds name="Silver">
+          <sound>sound\sndSilverJump</sound>
+          <sound>sound\sndSilverGrunt</sound>
+          <sound>sound\sndSilverThrow</sound>
+          <sound>sound\sndSilverHurt</sound>
+          <sound>sound\sndSilverDie</sound>
+          <sound>sound\sndSilverHitDie</sound>
+        </sounds>
         <sounds name="Tails">
           <sound>sound\sndTailsJump</sound>
           <sound>sound\sndTailsFly</sound>
@@ -109,6 +118,23 @@
           <sound>sound\sndEggmanLaugh</sound>
           <sound>sound\sndEggmanHurt</sound>
           <sound>sound\sndEggmanNo</sound>
+        </sounds>
+      </sounds>
+      <sounds name="Stepping SFX">
+        <sounds name="Main">
+          <sound>sound\sndStepNormal</sound>
+          <sound>sound\sndStepGrass</sound>
+          <sound>sound\sndStepWood</sound>
+          <sound>sound\sndStepMetal</sound>
+          <sound>sound\sndLandNormal</sound>
+          <sound>sound\sndLandGrass</sound>
+          <sound>sound\sndLandWood</sound>
+          <sound>sound\sndGrindStart</sound>
+          <sound>sound\sndGrindRail</sound>
+        </sounds>
+        <sounds name="Character Specific">
+          <sound>sound\sndShadowSkate</sound>
+          <sound>sound\sndShadowSkate2</sound>
         </sounds>
       </sounds>
     </sounds>
@@ -141,6 +167,7 @@
       <sound>sound\bgmFactory</sound>
       <sound>sound\bgmSuperSonic</sound>
       <sound>sound\bgmSuperSonic2</sound>
+      <sound>sound\bgmSuperShadow</sound>
       <sound>sound\bgmCharacterBoss</sound>
       <sound>sound\bgmTailsBoss</sound>
       <sound>sound\bgmSeelkadoomBoss</sound>
@@ -169,6 +196,7 @@
           <sprite>sprites\sprSonicDie</sprite>
           <sprite>sprites\sprSonicHitDie</sprite>
           <sprite>sprites\sprSonicClear</sprite>
+          <sprite>sprites\sprSonicBoom</sprite>
           <sprite>sprites\spr_circle</sprite>
           <sprite>sprites\sprSonicActions</sprite>
           <sprite>sprites\sprSonicAfterImage</sprite>
@@ -312,14 +340,27 @@
           <sprite>sprites\sprShadowHitDie</sprite>
           <sprite>sprites\spr_circleshadow</sprite>
         </sprites>
-        <sprite>sprites\sprite361</sprite>
+        <sprites name="Super Shadow">
+          <sprite>sprites\sprSuperShadowTransform</sprite>
+          <sprite>sprites\sprSuperShadowActions</sprite>
+          <sprite>sprites\sprSuperShadowActions2</sprite>
+          <sprite>sprites\sprSuperShadowAfterImage</sprite>
+          <sprite>sprites\sprSuperShadowAfterImage2</sprite>
+          <sprite>sprites\spr_circleshadowSuper</sprite>
+        </sprites>
         <sprite>sprites\sprite835</sprite>
         <sprite>sprites\sprite898</sprite>
       </sprites>
       <sprites name="Silver">
-        <sprite>sprites\sprite766</sprite>
-        <sprite>sprites\sprite768</sprite>
-        <sprite>sprites\sprSilverActions</sprite>
+        <sprites name="Normal Silver">
+          <sprite>sprites\sprite766</sprite>
+          <sprite>sprites\sprite768</sprite>
+          <sprite>sprites\sprSilverActions</sprite>
+          <sprite>sprites\sprSilverPK</sprite>
+          <sprite>sprites\sprSilverAfterImage</sprite>
+          <sprite>sprites\sprSilverDie</sprite>
+          <sprite>sprites\sprSilverHitDie</sprite>
+        </sprites>
       </sprites>
       <sprites name="Tails">
         <sprite>sprites\sprite614</sprite>
@@ -649,6 +690,19 @@
           <sprite>sprites\sprEggmanHammerShock</sprite>
           <sprite>sprites\sprEggHammerHammer</sprite>
         </sprites>
+        <sprites name="Spinning Egg Bomber">
+          <sprite>sprites\sprite979</sprite>
+          <sprite>sprites\sprSEBActions</sprite>
+          <sprite>sprites\sprSEBBomb</sprite>
+          <sprite>sprites\sprSEBBombExplosion</sprite>
+          <sprite>sprites\sprSEBPlatform</sprite>
+          <sprite>sprites\sprSEBSpikeball</sprite>
+          <sprite>sprites\sprSEBBall</sprite>
+          <sprite>sprites\sprSEBBall2</sprite>
+          <sprite>sprites\sprite989</sprite>
+          <sprite>sprites\sprite990</sprite>
+          <sprite>sprites\sprSEBChain</sprite>
+        </sprites>
       </sprites>
       <sprites name="Risky">
         <sprite>sprites\sprRiskyRun</sprite>
@@ -860,6 +914,7 @@
         <sprite>sprites\sprPost</sprite>
         <sprite>sprites\sprSignpostSpun</sprite>
         <sprite>sprites\sprSignpostSpunKnuckles</sprite>
+        <sprite>sprites\sprSignpostSpunShadow</sprite>
         <sprite>sprites\sprSignpostSpunAmy</sprite>
       </sprites>
       <sprites name="Grind rails">
@@ -939,6 +994,7 @@
           <sprite>sprites\sprSpike</sprite>
           <sprite>sprites\sprLavaTop</sprite>
           <sprite>sprites\sprLavaBottom</sprite>
+          <sprite>sprites\sprLavaBottom2</sprite>
         </sprites>
       </sprites>
       <sprites name="Maw">
@@ -949,6 +1005,10 @@
       <sprites name="Ramp">
         <sprite>sprites\sprRampRight</sprite>
         <sprite>sprites\sprRampLeft</sprite>
+      </sprites>
+      <sprites name="Conveyor Belts">
+        <sprite>sprites\sprConveyorRight</sprite>
+        <sprite>sprites\sprConveyorLeft</sprite>
       </sprites>
       <sprites name="Water">
         <sprite>sprites\sprWaterSurface</sprite>
@@ -991,6 +1051,7 @@
         </sprites>
         <sprites name="Crates">
           <sprite>sprites\sprCrateWooden</sprite>
+          <sprite>sprites\sprCrateWoodenPK</sprite>
         </sprites>
       </sprites>
     </sprites>
@@ -1104,14 +1165,17 @@
         <sprite>sprites\sprTitlecard2S</sprite>
         <sprite>sprites\sprTitlecard2SD</sprite>
       </sprites>
-      <sprites name="Sky">
-        <sprite>sprites\sprTitlecard1Sk</sprite>
-      </sprites>
       <sprites name="Knuckles">
         <sprite>sprites\sprTitlecard1K</sprite>
         <sprite>sprites\sprTitlecard1BK</sprite>
         <sprite>sprites\sprTitlecard2K</sprite>
         <sprite>sprites\sprTitlecard2BK</sprite>
+      </sprites>
+      <sprites name="Sky">
+        <sprite>sprites\sprTitlecard1Sk</sprite>
+      </sprites>
+      <sprites name="Shadow">
+        <sprite>sprites\sprTitlecard1Sh</sprite>
       </sprites>
       <sprites name="Amy">
         <sprite>sprites\sprTitlecard1A</sprite>
@@ -1338,6 +1402,10 @@
       </sprites>
     </sprites>
     <sprites name="Story Select">
+      <sprites name="Trial Mode">
+        <sprite>sprites\sprTrialModeBorder</sprite>
+        <sprite>sprites\sprTrialModeStage</sprite>
+      </sprites>
       <sprite>sprites\sprStoryBox</sprite>
       <sprite>sprites\sprStoryMenu</sprite>
       <sprite>sprites\sprStoryMenu2</sprite>
@@ -1356,6 +1424,8 @@
       <sprite>sprites\sprStoryMenu15</sprite>
       <sprite>sprites\sprStoryMenu16</sprite>
       <sprite>sprites\sprStoryMenu17</sprite>
+      <sprite>sprites\sprStoryMenu18</sprite>
+      <sprite>sprites\sprStoryMenu19</sprite>
       <sprite>sprites\sprTrialStage</sprite>
     </sprites>
     <sprites name="Shop">
@@ -1548,6 +1618,7 @@
       <script>scripts\scrShantaeGetHit.gml</script>
       <script>scripts\scrGeneratePlatform.gml</script>
       <script>scripts\scrExchange.gml</script>
+      <script>scripts\scrPsychokinesis.gml</script>
     </scripts>
     <scripts name="Draw">
       <script>scripts\scrDrawSelf.gml</script>
@@ -1700,9 +1771,21 @@
         <object>objects\objShadow</object>
         <object>objects\objShadowAfterImage</object>
         <object>objects\objShadowAfterImage2</object>
+        <object>objects\objSuperShadow</object>
+        <object>objects\objSuperShadowAfterImage</object>
+        <object>objects\objSuperShadowAfterImage2</object>
+        <object>objects\objSuperShadowTransform</object>
         <object>objects\objShadowDie</object>
         <object>objects\objShadowHitDie</object>
         <object>objects\obj_circleshadow</object>
+        <object>objects\obj_circleshadowSuper</object>
+      </objects>
+      <objects name="Silver">
+        <object>objects\objSilver</object>
+        <object>objects\objSilverDie</object>
+        <object>objects\objSilverAfterImage</object>
+        <object>objects\objSilverAfterImage2</object>
+        <object>objects\objSilverHitDie</object>
       </objects>
       <objects name="Tails">
         <object>objects\objTails</object>
@@ -1724,6 +1807,26 @@
     </objects>
     <objects name="Ground">
       <objects name="Parents">
+        <objects name="Surfaces">
+          <objects name="Normal">
+            <object>objects\objSurfaceN</object>
+            <object>objects\objSurfaceG</object>
+            <object>objects\objSurfaceW</object>
+            <object>objects\objSurfaceM</object>
+          </objects>
+          <objects name="High Layer">
+            <object>objects\objSurfaceNH</object>
+            <object>objects\objSurfaceGH</object>
+            <object>objects\objSurfaceWH</object>
+            <object>objects\objSurfaceMH</object>
+          </objects>
+          <objects name="Low Layer">
+            <object>objects\objSurfaceNL</object>
+            <object>objects\objSurfaceGL</object>
+            <object>objects\objSurfaceWL</object>
+            <object>objects\objSurfaceML</object>
+          </objects>
+        </objects>
         <object>objects\objNoFallCheck</object>
         <object>objects\objWallStop</object>
         <object>objects\objTopSolid</object>
@@ -1754,6 +1857,7 @@
         <object>objects\objLLayer</object>
         <object>objects\objJumpThrough</object>
         <object>objects\obj_rail</object>
+        <object>objects\prtMoving</object>
       </objects>
       <objects name="Zone 0 (Test)">
         <objects name="Main">
@@ -1973,6 +2077,19 @@
           <object>objects\objEggHammerDestroy</object>
           <object>objects\objEggHammerHammer</object>
         </objects>
+        <objects name="Spinning Egg Bomber">
+          <object>objects\objSEB</object>
+          <object>objects\objSEBStuff</object>
+          <object>objects\objSEBBomb</object>
+          <object>objects\objSEBBombExplode</object>
+          <object>objects\objSEBPlatform</object>
+          <object>objects\objSEBPT</object>
+          <object>objects\objSEBSpikeball</object>
+          <object>objects\objSEBSpikeball2</object>
+          <object>objects\objSEBSpikeball3</object>
+          <object>objects\objSEBBall</object>
+          <object>objects\objSEBChain</object>
+        </objects>
         <object>objects\objEggmobile</object>
       </objects>
       <objects name="Risky">
@@ -2073,6 +2190,9 @@
             <object>objects\objSpearAir</object>
             <object>objects\objSpearCharged</object>
           </objects>
+          <objects name="Psychokinesis">
+            <object>objects\objPKObject</object>
+          </objects>
         </objects>
         <objects name="FX">
           <object>objects\objFireballHit</object>
@@ -2081,6 +2201,7 @@
           <object>objects\objBulletL3Hit</object>
           <object>objects\objBulletL4Hit</object>
           <object>objects\objWhiteBlast</object>
+          <object>objects\objPKFX</object>
         </objects>
       </objects>
       <objects name="Chest">
@@ -2251,9 +2372,14 @@
         </objects>
         <objects name="Instant Kill">
           <object>objects\objSpike</object>
+          <object>objects\objLavaStart</object>
+          <object>objects\objLavaStop</object>
           <object>objects\objLavaTop</object>
+          <object>objects\objLavaTopRise</object>
           <object>objects\objLavaSolid</object>
+          <object>objects\objLavaSolidRise</object>
           <object>objects\objLavaBottom</object>
+          <object>objects\objLavaBottomRise</object>
         </objects>
       </objects>
       <objects name="Maw">
@@ -2263,6 +2389,10 @@
       <objects name="Ramp">
         <object>objects\objRampRight</object>
         <object>objects\objRampLeft</object>
+      </objects>
+      <objects name="Conveyor Belts">
+        <object>objects\objConveyorBeltRight</object>
+        <object>objects\objConveyorBeltLeft</object>
       </objects>
       <objects name="Water">
         <object>objects\objWaterSurface</object>
@@ -2319,6 +2449,7 @@
         </objects>
         <objects name="Crates">
           <object>objects\objCrateWooden</object>
+          <object>objects\objCrateWoodenPK</object>
         </objects>
         <object>objects\objDestructive</object>
       </objects>
@@ -2345,6 +2476,7 @@
             <object>objects\objLivesCounterKnuckles</object>
             <object>objects\objLivesCounterSky</object>
             <object>objects\objLivesCounterShadow</object>
+            <object>objects\objLivesCounterSilver</object>
             <object>objects\objLivesCounterTails</object>
             <object>objects\objLivesCounterAmy</object>
           </objects>
@@ -2414,6 +2546,7 @@
       <object>objects\objCharacterSelect</object>
       <object>objects\objEmeraldGarden</object>
       <object>objects\objLavaFilter</object>
+      <object>objects\objStarfireCarnival</object>
       <object>objects\objBossSonic</object>
       <object>objects\objBossShantae</object>
       <object>objects\objBossCharacter</object>
@@ -2429,7 +2562,6 @@
       <object>objects\objStreamworks</object>
       <object>objects\objWhiteLabyrinth</object>
       <object>objects\objCutsceneTheme</object>
-      <object>objects\objStarfireCarnival</object>
     </objects>
     <objects name="Title Cards">
       <objects name="Modified">
@@ -2454,14 +2586,17 @@
           <object>objects\objTitlecard2S</object>
           <object>objects\objTitlecard2SD</object>
         </objects>
-        <objects name="Sky">
-          <object>objects\objTitlecard1Sk</object>
-        </objects>
         <objects name="Knuckles">
           <object>objects\objTitlecard1K</object>
           <object>objects\objTitlecard1BK</object>
           <object>objects\objTitlecard2K</object>
           <object>objects\objTitlecard2BK</object>
+        </objects>
+        <objects name="Sky">
+          <object>objects\objTitlecard1Sk</object>
+        </objects>
+        <objects name="Shadow">
+          <object>objects\objTitlecard1Sh</object>
         </objects>
         <objects name="Amy">
           <object>objects\objTitlecard1A</object>
@@ -2667,6 +2802,11 @@
       </objects>
     </objects>
     <objects name="Story Select">
+      <objects name="Trial Mode">
+        <object>objects\objTrialModeBorder</object>
+        <object>objects\objTrialCharacter</object>
+        <object>objects\objTrialModeStage</object>
+      </objects>
       <object>objects\objDemoCharacter</object>
       <object>objects\objStoryBox</object>
       <object>objects\objStoryMenu</object>
@@ -2809,14 +2949,18 @@
         <room>rooms\rmTitlecard2S</room>
         <room>rooms\rmTitlecard2SD</room>
       </rooms>
-      <rooms name="Sky">
-        <room>rooms\rmTitlecard1Sk</room>
-      </rooms>
       <rooms name="Knuckles">
         <room>rooms\rmTitlecard1K</room>
         <room>rooms\rmTitlecard1BK</room>
         <room>rooms\rmTitlecard2K</room>
         <room>rooms\rmTitlecard2BK</room>
+      </rooms>
+      <rooms name="Sky">
+        <room>rooms\rmTitlecard1Sk</room>
+      </rooms>
+      <rooms name="Shadow">
+        <room>rooms\rmTitlecard1Sh</room>
+        <room>rooms\rmTitlecard2Sh</room>
       </rooms>
       <rooms name="Amy">
         <room>rooms\rmTitlecard1A</room>
@@ -2840,6 +2984,12 @@
           <room>rooms\rmZ1_1Krm1</room>
           <room>rooms\rmZ1_1Krm2</room>
           <room>rooms\rmZ1_BK</room>
+          <room>rooms\rmZ1_1Krm1M</room>
+          <room>rooms\rmZ1_1Krm2M</room>
+        </rooms>
+        <rooms name="Shadow">
+          <room>rooms\rmZ1_1Shrm1</room>
+          <room>rooms\rmZ1_1Shrm2</room>
         </rooms>
         <rooms name="Amy">
           <room>rooms\rmZ1_1Arm1</room>
@@ -2877,6 +3027,12 @@
           <room>rooms\rmZ2_1Krm1</room>
           <room>rooms\rmZ2_1Krm2</room>
           <room>rooms\rmZ2_BK</room>
+          <room>rooms\rmZ2_1Krm1M</room>
+          <room>rooms\rmZ2_1Krm2M</room>
+        </rooms>
+        <rooms name="Shadow">
+          <room>rooms\rmZ2_1Srm1M</room>
+          <room>rooms\rmZ2_1Srm2M</room>
         </rooms>
         <rooms name="Amy">
           <room>rooms\rmZ2_1Arm1</room>
