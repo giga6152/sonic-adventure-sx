@@ -105,7 +105,7 @@ else
             <string>draw_set_font (fntFont);
 var drawMilli = floor (global.millisecondsG);
 
-if global.secondsG &lt; 10
+/*if global.secondsG &lt; 10
     scrDrawOutlines (x, y, "Time: " + string(global.minutesG) + "'0"  + string(global.secondsG) + '"' + string(drawMilli), c_black, c_white, 2);
 else if drawMilli &lt; 10
     scrDrawOutlines (x, y, "Time: " + string(global.minutesG) + "'" + string(global.secondsG) + '"00' + string(drawMilli), c_black, c_white, 2);
@@ -116,7 +116,31 @@ else if global.secondsG &lt; 10 &amp;&amp; drawMilli &lt; 10
 else if global.secondsG &lt; 10 &amp;&amp; (drawMilli &gt;= 10 &amp;&amp; drawMilli &lt; 100)
     scrDrawOutlines (x, y, "Time: " + string(global.minutesG) + "'0" + string(global.secondsG) + '"0' + string(drawMilli), c_black, c_white, 2);
 else
-   scrDrawOutlines (x, y, "Time: " + string(global.minutesG) + "'" + string(global.secondsG) + '"' + string(drawMilli), c_black, c_white, 2); 
+   scrDrawOutlines (x, y, "Time: " + string(global.minutesG) + "'" + string(global.secondsG) + '"' + string(drawMilli), c_black, c_white, 2);*/
+   
+var dmil, dsec, dmin, brk1, brk2;
+
+if drawMilli &lt; 10
+    dmil = "00"+string(drawMilli);
+else if drawMilli &lt; 100
+    dmil = "0"+string(drawMilli);
+else
+    dmil = string(drawMilli);
+    
+if global.secondsG &lt; 10
+    dsec = "0"+string(global.secondsG);
+else
+    dsec = string(global.secondsG);
+    
+if global.minutesG &lt; 10
+    dmin = "0"+string(global.minutesG);
+else
+    dmin = string(global.minutesG);
+    
+brk1 = "'";
+brk2 = '"';
+
+scrDrawOutlines (x, y, "Time: "+dmin+brk1+dsec+brk2+dmil, c_black, c_white, 2);
 </string>
           </argument>
         </arguments>

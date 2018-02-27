@@ -21,5 +21,6 @@
   <height>1850</height>
   <frames>
     <frame index="0">images\sprite614_0.png</frame>
+    <frame index="1">images\sprite614_1.png</frame>
   </frames>
 </sprite>

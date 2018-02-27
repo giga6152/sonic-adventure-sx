@@ -175,6 +175,10 @@
     flight              = 300;
     
     hurtvoice = sndTailsHurt;
+    deathobj = objTailsHitDie;
+    
+    global.face = xdir;
+    shot_dummy = false;
 </string>
           </argument>
         </arguments>
@@ -338,7 +342,10 @@ instance_activate_object (prtMoving);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if x &lt; hspm
+            <string>global.face = xdir;
+if action != 15 shot_dummy = false;
+
+if x &lt; hspm
    x = hspm;
 else if x &gt; room_width-hspm
      x = room_width-hspm;
@@ -558,10 +565,7 @@ if y &lt; 5
      if (hsp&lt;0) hsp+=dcc;                   // While going to the left, deaccelerate
 
      if (hsp&gt;0 &amp;&amp; hsp&lt;dcc) hsp=0;           // If the speed is lower than deacceleration, set to 0.
-     if (hsp&lt;0 &amp;&amp; hsp&gt;-dcc) hsp=0;
-     
-     if action == 15 &amp;&amp; abs (hsp) &lt; 0.3
-        action = 0;     
+     if (hsp&lt;0 &amp;&amp; hsp&gt;-dcc) hsp=0;    
    }
    
 
@@ -599,7 +603,7 @@ if y &lt; 5
    if (KEY_A &amp;&amp; ground)
    {
    
-        audio_play_sound (sndJump, 10, false);
+        audio_play_sound (sndJumpClassic, 10, false);
         audio_play_sound (sndTailsJump, 10, false);
    
      ground=0;
@@ -637,12 +641,12 @@ if y &lt; 5
    if blink&gt;10
    {blink=0}
    
-   /* Ducking
+   // Ducking
    if KEY_DOWN &amp;&amp; action=0 &amp;&amp; ground &amp;&amp; hsp=0 //(Always remember to set required action in order to perform other action)
    {action=2}
    else
    if action=2 &amp;&amp; not KEY_DOWN
-   {action=0}*/
+   {action=0}
    
    //Roll
    if KEY_DOWN &amp;&amp; abs(hsp)&gt;0.3 &amp;&amp; ground &amp;&amp; action=0
@@ -676,6 +680,31 @@ if y &lt; 5
    if action=3 &amp;&amp; ground=0
    {action=1}
    
+   //Spindash (must be ducking dirst)
+   //Classic way (hold down and press jump repeatedly)
+   if KEY_A &amp;&amp; action == 2
+   {
+        action = 4.5;
+        spin += 1;
+        audio_play_sound (sndSpindashChargeClassic, 10, false);
+   }
+   if KEY_A &amp;&amp; action == 4.5
+   {
+        spin += 1;
+        audio_play_sound (sndSpindashChargeClassic, 10, false);
+   }
+   if spin&gt;6
+   {spin=6}
+   
+   if not KEY_DOWN &amp;&amp; action==4.5
+   {hsp+=spin*xdir*3 spin=0 action=3 audio_play_sound (sndSpindashRelease, 10, false) audio_stop_sound (sndSpindashChargeClassic)}
+   
+   if (action!=4.5 &amp;&amp; action!=4)
+   {spin=0}
+   
+   if action==4.5 or action==4
+   {hsp=0}
+   
    //Flying with Tails
    if (action == 1 or action == 6) &amp;&amp; KEY_A &amp;&amp; delay == 0 &amp;&amp; flight &gt; 0
    {
@@ -686,6 +715,12 @@ if y &lt; 5
    {
         vsp -= 3;
    }
+   if action == animationFly
+    {
+        if !audio_is_playing (sndTailspin)
+            audio_play_sound (sndTailspin, 10, true);
+    }
+   
    if action=animationFly &amp;&amp; vsp&gt;=3
    {vsp=3}
    if action=animationFly &amp;&amp; vsp&lt;-5
@@ -712,14 +747,27 @@ if y &lt; 5
    if dead=0
    {
    if collision_circle(x,y+30,20,obj_rail,1,1) &amp;&amp; ground //Grind on rail
-   {action=8 hsp+=acc*2*xdir}
+   {if action!=8 audio_play_sound (sndGrindStart, 10, false); action=8 hsp+=acc*2*xdir}
    else
    if action=8 //If at end of rail
-   {action=0}
+   {action=0 audio_stop_sound (sndGrindRail)}
    }
    
+   //Play sfx
+   if action == 8 &amp;&amp; !audio_is_playing (sndGrindRail)
+        audio_play_sound (sndGrindRail, 10, true);
+   if action != 8 audio_stop_sound (sndGrindRail);
+   
    if action=8 &amp;&amp; KEY_A //This had to be set here to make Sonic jump off rail but not land back on rail
-   {action=1 vsp=jmp ground=0 audio_play_sound (sndJump, 10, false) audio_play_sound (sndTailsJump, 10, false)}
+   {action=1 vsp=jmp ground=0 audio_play_sound (sndJumpClassic, 10, false) audio_play_sound (sndTailsJump, 10, false) audio_stop_sound (sndGrindRail)}
+   
+   //Tailswipe (attack button while on ground)
+   if KEY_B &amp;&amp; ground &amp;&amp; action == 0
+   {
+        action = 14;
+        audio_play_sound (sndTailsThrow, 10, false);
+        audio_play_sound (sndHoming, 10, false);
+   }
    
    
    //Skidding
@@ -768,6 +816,11 @@ if y &lt; 5
 if action == animationDash &amp;&amp; ground
    action = 0;
 
+//Toss a dummy ring bomb (must be purchased first)
+if (action == 0 or action == animationFly) &amp;&amp; KEY_C &amp;&amp; !instance_exists (objDummyRingBomb)
+{
+    action = 15;
+}
 
 //Boost Mode (NOT the boost, only activates if Sonic hits a high speed)
 if place_meeting (x, y, objDashPad) &amp;&amp; ground &amp;&amp; action == 0
@@ -811,6 +864,12 @@ if mach
        if (machTimer &lt;= 0) machTimer = 20000;
     }
 }
+
+//Stop flying sound
+if action != animationFly &amp;&amp; flight &lt;= 0 &amp;&amp; !(abs(hsp)&gt;=11 &amp;&amp; ground &amp;&amp; action==0)
+    audio_stop_sound (sndTailspin);
+if action != animationFly
+    audio_stop_sound (sndTailspinTired);
 
 //Gimmick properties. These are set in seperate scripts for easy reference.
 
@@ -1013,11 +1072,12 @@ enable=0
 else if global.rings == 0 &amp;&amp; global.shield == 0
 if ready&lt;=0 &amp;&amp; enable=1 //Player dies if there are no rings
 {
-ground = 0;
+/*ground = 0;
 vsp = -5;
 enable = 0;
 action = 9.5;
-audio_play_sound (sndTailsHurt, 10, false);
+audio_play_sound (sndTailsHurt, 10, false);*/
+instance_change (objTailsHitDie, true);
 }
 </string>
           </argument>
@@ -1075,11 +1135,12 @@ enable=0
 else if global.rings == 0 &amp;&amp; global.shield == 0
 if atk=0 &amp;&amp; ready&lt;=0 &amp;&amp; enable=1 //Player dies if there are no rings
 {
-ground = 0;
+/*ground = 0;
 vsp = -5;
 enable = 0;
 action = 9.5;
-audio_play_sound (sndTailsHurt, 10, false);
+audio_play_sound (sndTailsHurt, 10, false);*/
+instance_change (objTailsHitDie, true);
 }
 </string>
           </argument>
@@ -1283,56 +1344,86 @@ y = global.start_y;
         animations_speed=20;
         atk=0
         enable = 1;
+        audio_stop_sound (sndTailspin);
     }
 
-    /* -&gt; Walking animation
-    if (abs(hsp)&gt;0 &amp;&amp; abs(hsp)&lt;0 &amp;&amp; ground &amp;&amp; action==0) {
+    // -&gt; Walking animation
+    if (abs(hsp)&gt;0 &amp;&amp; abs(hsp)&lt;3 &amp;&amp; ground &amp;&amp; action==0) {
         animation=1;
-        animations_framemin=7;
-        animations_framemax=13;
-        animations_return=7;
+        animations_framemin=91;
+        animations_framemax=98;
+        animations_return=91;
         animations_speed=12+abs(hsp*3);
         atk=0
+        enable = 1;
+        audio_stop_sound (sndTailspin);
+        
+        //Play stepping sound
+        if ground &amp;&amp; (animations_frame == 92 or animations_frame == 96) &amp;&amp; animations_timer == 0
+            audio_play_sound (soundstep, 10, false);
     }
     
     // -&gt; Jog animation
-    if (abs(hsp)&gt;=0 &amp;&amp; abs(hsp)&lt;0 &amp;&amp; ground &amp;&amp; action==0) {
+    if (abs(hsp)&gt;=3 &amp;&amp; abs(hsp)&lt;5 &amp;&amp; ground &amp;&amp; action==0) {
         animation=2;
-        animations_framemin=14;
-        animations_framemax=21;
-        animations_return=14;
+        animations_framemin=99;
+        animations_framemax=104;
+        animations_return=99;
         animations_speed=12+abs(hsp*3);
         atk=0
-    }*/
+        enable = 1;
+        audio_stop_sound (sndTailspin);
+        
+        //Play stepping sound
+        if ground &amp;&amp; (animations_frame == 100 or animations_frame == 103) &amp;&amp; animations_timer == 0
+            audio_play_sound (soundstep, 10, false);
+    }
     
     // -&gt; Run animation
-    if (abs(hsp)&gt;0 &amp;&amp; abs(hsp)&lt;4 &amp;&amp; ground &amp;&amp; action==0) {
+    if (abs(hsp)&gt;5 &amp;&amp; abs(hsp)&lt;8 &amp;&amp; ground &amp;&amp; action==0) {
         animation=3;
         animations_framemin=8;
         animations_framemax=15;
         animations_return=8;
-        animations_speed=20;
+        animations_speed=12+abs(hsp*3);
         atk=0
+        enable = 1;
+        audio_stop_sound (sndTailspin);
+        
+        //Play stepping sound
+        if ground &amp;&amp; (animations_frame == 10 or animations_frame == 14) &amp;&amp; animations_timer == 0
+            audio_play_sound (soundstep, 10, false);
     }
     
     // -&gt; Sprint animation
-    if (abs(hsp)&gt;=4 &amp;&amp; abs(hsp)&lt;8 &amp;&amp; ground &amp;&amp; action==0) {
+    if (abs(hsp)&gt;=8 &amp;&amp; abs(hsp)&lt;11 &amp;&amp; ground &amp;&amp; action==0) {
         animation=4;
         animations_framemin=16;
         animations_framemax=23;
         animations_return=16;
-        animations_speed=22;
+        animations_speed=12+abs(hsp*3);
         atk=0
+        enable = 1;
+        audio_stop_sound (sndTailspin);
+        
+        //Play stepping sound
+        if ground &amp;&amp; (animations_frame == 19 or animations_frame == 23) &amp;&amp; animations_timer == 0
+            audio_play_sound (soundstep, 10, false);
     }
     
     // -&gt; Dash animation
-    if (abs(hsp)&gt;=8 &amp;&amp; ground &amp;&amp; action==0) {
+    if (abs(hsp)&gt;=11 &amp;&amp; ground &amp;&amp; action==0) {
         animation=5;
         animations_framemin=24;
         animations_framemax=31;
         animations_return=24;
-        animations_speed=24;
+        animations_speed=12+abs(hsp*3);
         atk=0
+        enable = 1;
+        
+        //Play stepping sound
+        if ground &amp;&amp; !audio_is_playing (sndTailspin)
+            audio_play_sound (sndTailspin, 10, true);
     }
 
     // -&gt; Jump animation
@@ -1343,17 +1434,19 @@ y = global.start_y;
         animations_return=32;
         animations_speed=20;
         atk=1
+        audio_stop_sound (sndTailspin);
         draw_sprite_ext(spr_tailscircle,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_tailscircle)
     }
     
     // -&gt; Duck animation
     if (action==2) {
         animation=7;
-        animations_framemin=51;
-        animations_framemax=54;
-        animations_return=54;
+        animations_framemin=105;
+        animations_framemax=114;
+        animations_return=107;
         animations_speed=30;
         atk=0
+        audio_stop_sound (sndTailspin);
     }
     
     // -&gt; Roll animation
@@ -1364,23 +1457,25 @@ y = global.start_y;
         animations_return=36;
         animations_speed=30;
         atk=1
+        audio_stop_sound (sndTailspin);
         draw_sprite_ext(spr_tailscircle,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_tailscircle)
     }
     
     // -&gt; Spindash animation
-    if (action==4) {
+    if (action==4.5) {
         animation=9;
-        animations_framemin=59;
-        animations_framemax=62;
-        animations_return=59;
+        animations_framemin=115;
+        animations_framemax=121;
+        animations_return=115;
         animations_speed=30+abs(spin*4);
         atk=1
         hsp=0
-        draw_sprite_ext(spr_circle,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_circle)
+        audio_stop_sound (sndTailspin);
+        //if action == 4 draw_sprite_ext(spr_tailscircle,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_tailscircle)
     }
     
     // -&gt; Fly animation
-    if (action==animationFly &amp;&amp; flight &gt; 0) {
+    if ((action==animationFly &amp;&amp; flight &gt; 0) or (action == 15 &amp;&amp; !ground)) {
         animation=10;
         animations_framemin=40;
         animations_framemax=43;
@@ -1389,6 +1484,13 @@ y = global.start_y;
         atk=0
         enable=1
         hspl = 14;
+        
+        if action == 15 &amp;&amp; !instance_exists (objDummyRingBomb) &amp;&amp; !instance_exists (objDummyRingLose) &amp;&amp; !shot_dummy
+        {
+            audio_play_sound (sndTailsThrow, 10, false);
+            instance_create (x, y, objDummyRingBomb);
+            shot_dummy = true;
+        }
         
         if ground action = 0;
     }
@@ -1401,6 +1503,10 @@ y = global.start_y;
         animations_speed=30;
         atk=0
         enable=1
+        audio_stop_sound (sndTailspin);
+        
+        if !audio_is_playing (sndTailspinTired)
+            audio_play_sound (sndTailspinTired, 10, false);
         
         if ground action = 0;
     }
@@ -1414,6 +1520,7 @@ y = global.start_y;
         animations_speed=30+abs(vsp*2);
         atk=0
         enable=1
+        audio_stop_sound (sndTailspin);
     }
 
     // -&gt; Fall animation
@@ -1425,6 +1532,7 @@ y = global.start_y;
         animations_speed=30+abs(vsp*2);
         atk=0
         enable=1
+        audio_stop_sound (sndTailspin);
         
     if  ground
         {action=0}
@@ -1453,6 +1561,7 @@ y = global.start_y;
         animations_speed=30+abs(hsp*2);
         atk=0
         enable=1
+        audio_stop_sound (sndTailspin);
                 
     if  abs(vsp)&gt;0
         {action=0}
@@ -1468,6 +1577,7 @@ y = global.start_y;
         atk=0
         hsp=-xdir*2
         speed=0
+        audio_stop_sound (sndTailspin);
                 
     if  ground
         {action=0 enable=1}
@@ -1483,6 +1593,7 @@ y = global.start_y;
         atk=0
         hsp=-xdir*2
         speed=0
+        audio_stop_sound (sndTailspin);
                 
     if  ground
         {instance_change (objTailsHitDie, true);}}
@@ -1531,6 +1642,7 @@ y = global.start_y;
         animations_return=88;
         animations_speed=20;
         atk=0
+        audio_stop_sound (sndTailspin);
        }
        // -&gt; Dash ring animation
     if (action==animationDash) {
@@ -1540,25 +1652,47 @@ y = global.start_y;
         animations_return=72;
         animations_speed=30;
         atk=1
+        audio_stop_sound (sndTailspin);
         enable=1
     }
-    // -&gt; Stomping animation
+    // -&gt; Tailswipe animation
     if (action==14) {
         animation=21;
-        animations_framemin=104;
-        animations_framemax=105;
-        animations_return=104;
-        animations_speed=20;
+        animations_framemin=122;
+        animations_framemax=130;
+        animations_return=130;
+        animations_speed=40;
         atk=1
+        enable = false;
+        if !mach hsp = (xdir*3); else hsp = (xdir*11);
+        
+        if animations_frame == 130
+        {
+            action = 0;
+            if !mach hsp = 0;
+        }
        }
-    // -&gt; Sliding animation
-    if (action==15) {
+    // -&gt; Toss dummy ring bomb animation
+    if (action==15 &amp;&amp; ground) {
         animation=22;
-        animations_framemin=106;
-        animations_framemax=109;
-        animations_return=106;
-        animations_speed=20;
-        atk=1
+        animations_framemin=131;
+        animations_framemax=146;
+        animations_return=146;
+        animations_speed=30;
+        atk=0
+        enable = 0;
+        
+        if ground hsp = 0;
+        if !ground vsp = 3; else vsp = 0;
+        
+        if animations_frame == 140 &amp;&amp; !instance_exists (objDummyRingBomb) &amp;&amp; !instance_exists (objDummyRingLose) &amp;&amp; !shot_dummy
+        {
+            audio_play_sound (sndTailsThrow, 10, false);
+            instance_create (x, y, objDummyRingBomb);
+            shot_dummy = true;
+        }
+        
+        if animations_frame == 146 action = 0;
        }
        
     //Skydive animation
@@ -1570,6 +1704,7 @@ y = global.start_y;
     animations_speed = 20;
     atk = 0;
     enable = 1;
+    audio_stop_sound (sndTailspin);
     }
     //Trick Animation
     if (action == animationTrick){
@@ -1580,6 +1715,7 @@ y = global.start_y;
     animations_speed = 20;
     atk = 1;
     enable = 0;
+    audio_stop_sound (sndTailspin);
     
     if animations_frame == 87
         action = 6;

@@ -112,7 +112,7 @@ if instance_exists (objDeadPlayer) &amp;&amp; room != rmZ1_B
 
 var drawMilli = floor (global.millisecondsC);
 
-if global.seconds &lt; 10
+/*if global.seconds &lt; 10
     scrDrawOutlines(view_xview[0]+140, view_yview[0]+100, "CHECKPOINT: "+string(global.minutesC)+"'0"+string(global.secondsC)+'"'+string(drawMilli), c_black, c_white, 2);
 else if drawMilli &lt; 10
     scrDrawOutlines(view_xview[0]+140, view_yview[0]+100, "CHECKPOINT: "+string(global.minutesC)+"'"+string(global.secondsC)+'"00'+string(drawMilli), c_black, c_white, 2);
@@ -123,7 +123,30 @@ else if global.seconds &lt; 10 &amp;&amp; drawMilli &lt; 10
 else if global.seconds &lt; 10 &amp;&amp; drawMilli &lt; 100
     scrDrawOutlines(view_xview[0]+140, view_yview[0]+100, "CHECKPOINT: "+string(global.minutesC)+"'0"+string(global.secondsC)+'"0'+string(drawMilli), c_black, c_white, 2);
 else
-    scrDrawOutlines(view_xview[0]+140, view_yview[0]+100, "CHECKPOINT: "+string(global.minutesC)+"'"+string(global.secondsC)+'"'+string(drawMilli), c_black, c_white, 2);
+    scrDrawOutlines(view_xview[0]+140, view_yview[0]+100, "CHECKPOINT: "+string(global.minutesC)+"'"+string(global.secondsC)+'"'+string(drawMilli), c_black, c_white, 2);*/
+    
+var dmil, dsec, dmin, brk1, brk2;
+if drawMilli &lt; 10
+    dmil = "00"+string(drawMilli);
+else if drawMilli &lt; 100
+    dmil = "0"+string(drawMilli);
+else
+    dmil = string(drawMilli);
+    
+if global.secondsC &lt; 10
+    dsec = "0"+string(global.secondsC);
+else
+    dsec = string(global.secondsC);
+    
+if global.minutesC &lt; 10
+    dmin = "0"+string(global.minutesC);
+else
+    dmin = string(global.minutesC);
+    
+brk1 = "'";
+brk2 = '"';
+
+scrDrawOutlines(view_xview[0]+140, view_yview[0]+100, "CHECKPOINT: "+dmin+brk1+dsec+brk2+dmil, c_black, c_white, 2);
 </string>
           </argument>
         </arguments>

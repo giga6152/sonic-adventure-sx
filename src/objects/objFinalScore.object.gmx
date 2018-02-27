@@ -33,6 +33,12 @@ else if instance_exists (objShantaeClear)
     estimateScore = (global.timeBonus+global.heartBonus+global.points);
 else if instance_exists (objKnucklesClear)
     estimateScore = (global.timeBonus+global.ringBonus+global.points);
+else if instance_exists (objShadowClear)
+    estimateScore = (global.timeBonus+global.ringBonus+global.points);
+else if instance_exists (objSilverClear)
+    estimateScore = (global.timeBonus+global.ringBonus+global.points);
+else if instance_exists (objTailsClear)
+    estimateScore = (global.timeBonus+global.ringBonus+global.points);
 else if instance_exists (objAmyClear)
     estimateScore = (global.timeBonus+global.ringBonus+global.points);
 

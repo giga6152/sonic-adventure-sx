@@ -579,6 +579,7 @@ if y &lt; 5
      ground=0;
      
      audio_play_sound (sndJump, 10, false);
+     audio_play_sound (sndKnucklesJump, 10, false);
      
      vsp=cosine*jmp-sine*hsp; // Calculate the speed
      hsp=cosine*hsp+sine*jmp;
@@ -696,7 +697,7 @@ if y &lt; 5
    {action=7 combo+=1 combo_timer=30} //Put punching sounds in here
    
    if combo&gt;3 //Reset after the uppercut
-   {combo=0}
+   {combo=0 audio_play_sound (sndKnucklesDrill, 10, false);}
      
    //Grind on rail
    if dead=0
@@ -714,7 +715,7 @@ if y &lt; 5
    if action != 8 audio_stop_sound (sndGrindRail);
    
    if action=8 &amp;&amp; KEY_A //This had to be set here to make Knuckles jump off rail but not land back on rail
-   {action=1 vsp=jmp ground=0 audio_play_sound (sndJump, 10, false)}
+   {action=1 vsp=jmp ground=0 audio_play_sound (sndJump, 10, false) audio_play_sound (sndKnucklesJump, 10, false);}
    
    //Wall climb (work when knuckles is gliding and is stopped by a wall)
    if action=5 &amp;&amp; hsp=0 &amp;&amp; collision_line(x,y,x+xdir*26,y,objWall,1,1)
@@ -737,7 +738,7 @@ if y &lt; 5
    }
    
    if KEY_A //Jump off wall
-   {vsp=jmp action=1 audio_play_sound (sndJump, 10, false);}
+   {vsp=jmp action=1 audio_play_sound (sndJump, 10, false); audio_play_sound (sndKnucklesJump, 10, false);}
    }
    
    if action=12 &amp;&amp; not collision_line(x,y,x+xdir*26,y,objWall,1,1) //If there is not wall in front, end climb
@@ -792,11 +793,13 @@ if action == animationDash &amp;&amp; ground
         action = 16;
         enable = 0;
         hsp = 0;
+        audio_play_sound (sndKnucklesDrill, 10, false);
    }
    if ground == true &amp;&amp; action == 16
     {
             action = 0;
             enable = 1;
+            audio_play_sound (sndStompLand, 10, false);
     }
    
 //Activte super transformation
@@ -1493,7 +1496,7 @@ y = global.start_y;
         atk=0
         
         //Play stepping sound
-        if ground &amp;&amp; (animations_frame == 21 or animations_frame == 25) &amp;&amp; animations_timer == 0
+        if ground &amp;&amp; (animations_frame == 22 or animations_frame == 26) &amp;&amp; animations_timer == 0
             audio_play_sound (soundstep, 10, false);
     }
     
@@ -1507,7 +1510,7 @@ y = global.start_y;
         atk=0
         
         //Play stepping sound
-        if ground &amp;&amp; (animations_frame == 29 or animations_frame == 33) &amp;&amp; animations_timer == 0
+        if ground &amp;&amp; (animations_frame == 30 or animations_frame == 34) &amp;&amp; animations_timer == 0
             audio_play_sound (soundstep, 10, false);
     }
     
@@ -1522,7 +1525,7 @@ y = global.start_y;
         enable = 1;
         
         //Play stepping sound
-        if ground &amp;&amp; (animations_frame == 37 or animations_frame == 41) &amp;&amp; animations_timer == 0
+        if ground &amp;&amp; (animations_frame == 38 or animations_frame == 42) &amp;&amp; animations_timer == 0
             audio_play_sound (soundstep, 10, false);
     }
     
@@ -1537,7 +1540,7 @@ y = global.start_y;
         enable = 1;
         
         //Play stepping sound
-        if ground &amp;&amp; (animations_frame == 45 or animations_frame == 49) &amp;&amp; animations_timer == 0
+        if ground &amp;&amp; (animations_frame == 46 or animations_frame == 50) &amp;&amp; animations_timer == 0
             audio_play_sound (soundstep, 10, false);
     }
     
@@ -1552,7 +1555,7 @@ y = global.start_y;
         enable = 1;
         
         //Play stepping sound
-        if ground &amp;&amp; (animations_frame == 53 or animations_frame == 57) &amp;&amp; animations_timer == 0
+        if ground &amp;&amp; (animations_frame == 54 or animations_frame == 58) &amp;&amp; animations_timer == 0
             audio_play_sound (soundstep, 10, false);
     }
 
@@ -1722,6 +1725,7 @@ y = global.start_y;
         animations_return=88;
         animations_speed=30+abs(hsp*2);
         atk=0
+        enable = 1;
                 
     if  abs(vsp)&gt;0
         {action=0}

@@ -91,11 +91,12 @@ if instance_exists (objDeadPlayer) &amp;&amp; room != rmZ1_B
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_font (fntFont);
+            <string>draw_sprite (sprTimeScore, 1, view_xview[0]+288, view_yview[0]+40);
+draw_set_font (fntFont);
 
-if global.points &lt; 10
+/*if global.points &lt; 10
 {
-    scrDrawOutlines (view_xview[0]+150, view_yview[0]+30, "0000000", c_navy, c_yellow, 2);
+    scrDrawOutlines (view_xview[0]+288, view_yview[0]+48, "0000000", c_navy, c_yellow, 2);
     //scrDrawOutlines (view_xview[0]+210, view_yview[0]+30, global.points, c_navy, c_yellow, 2);
 }
 else if global.points &lt; 100
@@ -124,7 +125,37 @@ else if global.points &lt; 1000000
     scrDrawOutlines (view_xview[0]+162, view_yview[0]+30, global.points, c_navy, c_yellow, 2);
 }
 else if global.points &gt;= 1000000
-    scrDrawOutlines (view_xview[0]+150, view_yview[0]+30, global.points, c_navy, c_yellow, 2);
+    scrDrawOutlines (view_xview[0]+150, view_yview[0]+30, global.points, c_navy, c_yellow, 2);*/
+    
+if global.points &lt; 10
+{
+    scrDrawOutlines (view_xview[0]+288+85, view_yview[0]+40+4, "0000000", c_navy, c_yellow, 2);
+    //scrDrawOutlines (view_xview[0]+210, view_yview[0]+30, global.points, c_navy, c_yellow, 2);
+}
+else if global.points &lt; 100
+{
+    scrDrawOutlines (view_xview[0]+288+85, view_yview[0]+40+4, "00000"+string(global.points), c_navy, c_yellow, 2);
+}
+else if global.points &lt; 1000
+{
+    scrDrawOutlines (view_xview[0]+288+85, view_yview[0]+40+4, "0000"+string(global.points), c_navy, c_yellow, 2);
+}
+else if global.points &lt; 10000
+{
+    scrDrawOutlines (view_xview[0]+288+85, view_yview[0]+40+4, "000"+string(global.points), c_navy, c_yellow, 2);
+}
+else if global.points &lt; 100000
+{
+    scrDrawOutlines (view_xview[0]+288+85, view_yview[0]+40+4, "00"+string(global.points), c_navy, c_yellow, 2);
+}
+else if global.points &lt; 1000000
+{
+    scrDrawOutlines (view_xview[0]+288+85, view_yview[0]+40+4, "0"+string(global.points), c_navy, c_yellow, 2);
+}
+else if global.points &gt;= 1000000
+{
+    scrDrawOutlines (view_xview[0]+288+85, view_yview[0]+40+4, string(global.points), c_navy, c_yellow, 2);
+}
 </string>
           </argument>
         </arguments>

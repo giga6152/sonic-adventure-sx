@@ -1645,7 +1645,6 @@
     <instance objName="objSpikeUp" x="17408" y="1992" name="inst_7643FBC0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSpikeUp" x="17372" y="1992" name="inst_142C4917" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSpikeUp" x="17336" y="1992" name="inst_E4B83D77" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objPlayer" x="17788" y="1604" name="inst_625CD442" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ1LoopBR" x="18232" y="1648" name="inst_991156DB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ1LoopTR" x="18232" y="1519" name="inst_AE49F733" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ1LoopTL" x="17920" y="1519" name="inst_73878F97" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

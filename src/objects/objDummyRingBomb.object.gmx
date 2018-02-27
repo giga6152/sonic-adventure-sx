@@ -32,32 +32,12 @@ if instance_exists (objTailsBoss)
 {
     hspeed = (objTailsBoss.image_xscale*4.2);
 }
+if instance_exists (objTails)
+{
+    hspeed = (objTails.xdir*4.2);
+}
 vspeed = -4.7;
 gravity = 0.25;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>scrLoseRings (10, x, y, objDummyRingLose);
-audio_play_sound (sndRingLose, 10, false);
 </string>
           </argument>
         </arguments>
@@ -82,10 +62,38 @@ audio_play_sound (sndRingLose, 10, false);
             <kind>1</kind>
             <string>image_angle += 60;
 
-if place_meeting (x, y, objSolid) or place_meeting (x, y, objSolid2) or place_meeting (x, y, objWall)
+if (place_meeting (x, y, objSolid) or place_meeting (x, y, objSolid2) or place_meeting (x, y, objWall)) &amp;&amp; vspeed &gt;= 0
 {
     instance_destroy();
+    scrLoseRings (10, x, y, objDummyRingLose);
+    audio_play_sound (sndRingLose, 10, false);
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="objEnemyParent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_destroy();
+scrLoseRings (10, x, y, objDummyRingLose);
+audio_play_sound (sndRingLose, 10, false);
+with other instance_change (objEnemyDestroy, true);
 </string>
           </argument>
         </arguments>
@@ -134,6 +142,52 @@ else
 {
     //nothing else
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="40">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_destroy();
 </string>
           </argument>
         </arguments>

@@ -80,9 +80,11 @@ option = 0;
             case 0:
                 switch global.trialcharacter
                 {
-                    case 0: room_goto (rmTest); break;
+                    case 0: room_goto (rmTitlecard1); break;
                     case 2: room_goto (rmTitlecard1K); break;
                     case 4: room_goto (rmTitlecard1Sh); break;
+                    case 6: room_goto (rmTitlecard1Sl); break;
+                    case 8: room_goto (rmTitlecard1T); break;
                 }
             break;
             case 1:
@@ -99,6 +101,7 @@ option = 0;
                     case 0: room_goto (rmTitlecard2); break;
                     case 2: room_goto (rmTitlecard2K); break;
                     case 4: room_goto (rmTitlecard2Sh); break;
+                    case 6: room_goto (rmTitlecard2Sl); break;
                 }
             break;
             case 3:
@@ -129,7 +132,7 @@ option = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.trialcharacter == 0 or global.trialcharacter == 2 or global.trialcharacter == 4
+            <string>if global.trialcharacter == 0 or global.trialcharacter == 2 or global.trialcharacter == 4 or global.trialcharacter == 6 or global.trialcharacter == 8 or global.trialcharacter == 10
 {
     stage[0] = 0;
     stage[1] = 2;
@@ -142,18 +145,18 @@ else
 
 if !instance_exists (objFade)
 {
-    if keyboard_check_pressed (vk_left) &amp;&amp; option &gt; 0
+    if keyboard_check_pressed (vk_left) &amp;&amp; option &gt; 0 &amp;&amp; global.trialcharacter != 8 &amp;&amp; global.trialcharacter != 10
     {
         option -= 1;
         audio_play_sound (sndMenuNavigate, 10, false);
     }
-    if keyboard_check_pressed (vk_right) &amp;&amp; option &lt; 1
+    if keyboard_check_pressed (vk_right) &amp;&amp; option &lt; 1 &amp;&amp; global.trialcharacter != 8 &amp;&amp; global.trialcharacter != 10
     {
         option += 1;
         audio_play_sound (sndMenuNavigate, 10, false);
     }
     
-    if keyboard_check_pressed (ord("Z"))
+    if keyboard_check_pressed (ord("Z")) or keyboard_check_pressed (vk_enter)
     {
         audio_play_sound (sndMenuSelect, 10, false);
         alarm[0] = 40;

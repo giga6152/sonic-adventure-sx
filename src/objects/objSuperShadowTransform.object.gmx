@@ -30,7 +30,7 @@ vspeed = 0;
 gravity = 0;
 speed = 0;
 audio_stop_all();
-audio_play_sound (bgmSuperShadow, 10, true);
+//audio_play_sound (bgmSuperShadow, 10, true);
 audio_play_sound (sndShadowUltimatePower, 10, false);
 global.superstate = 1;
 </string>

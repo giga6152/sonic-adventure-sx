@@ -65,6 +65,8 @@ else if room == rmTrialCharacter
              sprite_index = sprShadowPose;
         else if objStoryMenu.option == 5 &amp;&amp; global.S1B == true
              sprite_index = sprBoloModel;
+        else if objStoryMenu.option == 6 &amp;&amp; global.Z1_BAmy == true
+             sprite_index = sprSilverPose;
         else if objStoryMenu.option == 8 &amp;&amp; global.Z1_BTails == true
              sprite_index = sprTailsUnlocked;
         else if objStoryMenu.option == 10 &amp;&amp; global.Z1_BAmy == true

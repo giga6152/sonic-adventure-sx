@@ -185,6 +185,7 @@
     soundland = sndLandNormal;
     
     powersneakers = false;
+    steptimer = 0;
 </string>
           </argument>
         </arguments>
@@ -1442,7 +1443,7 @@ y = global.start_y;
         atk=0
         
         //Play stepping sound
-        if ground &amp;&amp; (animations_frame == 7 or animations_frame == 11) &amp;&amp; animations_timer == 0
+        if ground &amp;&amp; (animations_frame == 8 or animations_frame == 12) &amp;&amp; animations_timer == 0
             audio_play_sound (soundstep, 10, false);
     }
     
@@ -1456,7 +1457,7 @@ y = global.start_y;
         atk=0
         
         //Play stepping sound
-        if ground &amp;&amp; (animations_frame == 14 or animations_frame == 18) &amp;&amp; animations_timer == 0
+        if ground &amp;&amp; (animations_frame == 15 or animations_frame == 19) &amp;&amp; animations_timer == 0
             audio_play_sound (soundstep, 10, false);
     }
     
@@ -1470,7 +1471,7 @@ y = global.start_y;
         atk=0
         
         //Play stepping sound
-        if ground &amp;&amp; (animations_frame == 22 or animations_frame == 26) &amp;&amp; animations_timer == 0
+        if ground &amp;&amp; (animations_frame == 23 or animations_frame == 27) &amp;&amp; animations_timer == 0
             audio_play_sound (soundstep, 10, false);
     }
     
@@ -1484,7 +1485,7 @@ y = global.start_y;
         atk=0
         
         //Play stepping sound
-        if ground &amp;&amp; (animations_frame == 30 or animations_frame == 34) &amp;&amp; animations_timer == 0
+        if ground &amp;&amp; (animations_frame == 31 or animations_frame == 35) &amp;&amp; animations_timer == 0
             audio_play_sound (soundstep, 10, false);
     }
     
@@ -1498,7 +1499,7 @@ y = global.start_y;
         atk=0
         
         //Play stepping sound
-        if ground &amp;&amp; (animations_frame == 39 or animations_frame == 42) &amp;&amp; animations_timer == 0
+        if ground &amp;&amp; (animations_frame == 40 or animations_frame == 43) &amp;&amp; animations_timer == 0
             audio_play_sound (soundstep, 10, false);
     }
 

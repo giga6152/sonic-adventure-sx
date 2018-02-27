@@ -49,10 +49,12 @@ canSpin = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with objSonicModified instance_change (objSonicClear, true)
-with objKnuckles instance_change (objKnucklesClear, true)
-with objShadow instance_change (objSonicClear, true)
-with objAmy instance_change (objAmyClear, true)
+            <string>with objSonicModified instance_change (objSonicClear, true);
+with objKnuckles instance_change (objKnucklesClear, true);
+with objShadow instance_change (objShadowClear, true);
+with objSilver instance_change (objSilverClear, true);
+with objTails instance_change (objTailsClear, true);
+with objAmy instance_change (objAmyClear, true);
 </string>
           </argument>
         </arguments>
@@ -102,6 +104,8 @@ instance_create (0, 0, objFadeWhite);
             <string>if instance_exists (objSonicModified) sprite_index = sprSignpostSpun;
 if instance_exists (objKnuckles) sprite_index = sprSignpostSpunKnuckles;
 if instance_exists (objShadow) sprite_index = sprSignpostSpunShadow;
+if instance_exists (objSilver) sprite_index = sprSignpostSpunSilver;
+if instance_exists (objTails) sprite_index = sprSignpostSpunTails;
 if instance_exists (objAmy) sprite_index = sprSignpostSpunAmy;
 alarm[2] = 60;
 </string>

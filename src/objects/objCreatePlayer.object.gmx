@@ -31,7 +31,7 @@ if global.character == 2 instance_change (objKnuckles, true);
 if global.character == 3 instance_change (objSkyPlayer, true);
 if global.character == 4 instance_change (objShadow, true);
 //if global.character == 5 instance_change (objBolo, true);
-//if global.character == 6 instance_change (objSilver, true);
+if global.character == 6 instance_change (objSilver, true);
 //if global.character == 7 instance_change (objRotty, true);
 if global.character == 8 instance_change (objTails, true);
 //if global.character == 9 instance_change (objVinegar, true);

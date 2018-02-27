@@ -939,6 +939,7 @@
     <instance objName="objCrateWooden" x="408" y="3544" name="inst_BB7ED036" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objCrateWooden" x="576" y="3600" name="inst_29EF5D9E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objCrateWooden" x="632" y="3600" name="inst_7D223560" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objStopMusic" x="80" y="3532" name="inst_7DBCBEF0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

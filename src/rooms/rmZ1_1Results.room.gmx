@@ -59,6 +59,8 @@
     <instance objName="objPlayer" x="128" y="240" name="inst_39F86DBC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objPlayer" x="272" y="144" name="inst_3E5EBE26" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objPlayer" x="272" y="192" name="inst_29206BB1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTimer" x="272" y="16" name="inst_DF9482F5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTimer" x="288" y="48" name="inst_C51B2FB4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

@@ -103,12 +103,12 @@ collision_surface_grass_h = collision_circle (x, y+10, 10, (objSurfaceGH /*or (o
 collision_surface_wood_h = collision_circle (x, y+10, 10, (objSurfaceWH /*or (objSurfaceWH && layer == 0) or (objSurfaceWL && layer == 1)*/), true, true) && layer == 0;
 collision_surface_metal_h = collision_circle (x, y+10, 10, (objSurfaceMH /*or (objSurfaceMH && layer == 0) or (objSurfaceML && layer == 1)*/), true, true) && layer == 0;
 
-if collision_surface_normal or collision_surface_normal_l or collision_surface_normal_h //If the player is on a normal surface
+/*if collision_surface_normal or collision_surface_normal_l or collision_surface_normal_h //If the player is on a normal surface
 {
     soundstep = sndStepNormal;
     soundland = sndLandNormal;
-}
-else if collision_surface_grass or collision_surface_grass_l or collision_surface_grass_h //If the player is on grass
+}*/
+if collision_surface_grass or collision_surface_grass_l or collision_surface_grass_h //If the player is on grass
 {
     soundstep = sndStepGrass;
     soundland = sndLandGrass;

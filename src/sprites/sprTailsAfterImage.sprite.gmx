@@ -8,9 +8,9 @@
   <sepmasks>-1</sepmasks>
   <bboxmode>0</bboxmode>
   <bbox_left>1</bbox_left>
-  <bbox_right>54</bbox_right>
+  <bbox_right>59</bbox_right>
   <bbox_top>0</bbox_top>
-  <bbox_bottom>52</bbox_bottom>
+  <bbox_bottom>53</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
@@ -125,5 +125,47 @@
     <frame index="102">images\sprTailsAfterImage_102.png</frame>
     <frame index="103">images\sprTailsAfterImage_103.png</frame>
     <frame index="104">images\sprTailsAfterImage_104.png</frame>
+    <frame index="105">images\sprTailsAfterImage_105.png</frame>
+    <frame index="106">images\sprTailsAfterImage_106.png</frame>
+    <frame index="107">images\sprTailsAfterImage_107.png</frame>
+    <frame index="108">images\sprTailsAfterImage_108.png</frame>
+    <frame index="109">images\sprTailsAfterImage_109.png</frame>
+    <frame index="110">images\sprTailsAfterImage_110.png</frame>
+    <frame index="111">images\sprTailsAfterImage_111.png</frame>
+    <frame index="112">images\sprTailsAfterImage_112.png</frame>
+    <frame index="113">images\sprTailsAfterImage_113.png</frame>
+    <frame index="114">images\sprTailsAfterImage_114.png</frame>
+    <frame index="115">images\sprTailsAfterImage_115.png</frame>
+    <frame index="116">images\sprTailsAfterImage_116.png</frame>
+    <frame index="117">images\sprTailsAfterImage_117.png</frame>
+    <frame index="118">images\sprTailsAfterImage_118.png</frame>
+    <frame index="119">images\sprTailsAfterImage_119.png</frame>
+    <frame index="120">images\sprTailsAfterImage_120.png</frame>
+    <frame index="121">images\sprTailsAfterImage_121.png</frame>
+    <frame index="122">images\sprTailsAfterImage_122.png</frame>
+    <frame index="123">images\sprTailsAfterImage_123.png</frame>
+    <frame index="124">images\sprTailsAfterImage_124.png</frame>
+    <frame index="125">images\sprTailsAfterImage_125.png</frame>
+    <frame index="126">images\sprTailsAfterImage_126.png</frame>
+    <frame index="127">images\sprTailsAfterImage_127.png</frame>
+    <frame index="128">images\sprTailsAfterImage_128.png</frame>
+    <frame index="129">images\sprTailsAfterImage_129.png</frame>
+    <frame index="130">images\sprTailsAfterImage_130.png</frame>
+    <frame index="131">images\sprTailsAfterImage_131.png</frame>
+    <frame index="132">images\sprTailsAfterImage_132.png</frame>
+    <frame index="133">images\sprTailsAfterImage_133.png</frame>
+    <frame index="134">images\sprTailsAfterImage_134.png</frame>
+    <frame index="135">images\sprTailsAfterImage_135.png</frame>
+    <frame index="136">images\sprTailsAfterImage_136.png</frame>
+    <frame index="137">images\sprTailsAfterImage_137.png</frame>
+    <frame index="138">images\sprTailsAfterImage_138.png</frame>
+    <frame index="139">images\sprTailsAfterImage_139.png</frame>
+    <frame index="140">images\sprTailsAfterImage_140.png</frame>
+    <frame index="141">images\sprTailsAfterImage_141.png</frame>
+    <frame index="142">images\sprTailsAfterImage_142.png</frame>
+    <frame index="143">images\sprTailsAfterImage_143.png</frame>
+    <frame index="144">images\sprTailsAfterImage_144.png</frame>
+    <frame index="145">images\sprTailsAfterImage_145.png</frame>
+    <frame index="146">images\sprTailsAfterImage_146.png</frame>
   </frames>
 </sprite>

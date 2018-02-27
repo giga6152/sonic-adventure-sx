@@ -10,6 +10,7 @@
       <sounds name="Main">
         <sound>sound\sndSEGA</sound>
         <sound>sound\sndJump</sound>
+        <sound>sound\sndJumpClassic</sound>
         <sound>sound\sndHoming</sound>
         <sound>sound\sndBadnikDestroy</sound>
         <sound>sound\sndDash</sound>
@@ -50,6 +51,8 @@
         <sound>sound\sndLavaAlarm</sound>
         <sound>sound\sndLevitateStart</sound>
         <sound>sound\sndLevitateStop</sound>
+        <sound>sound\sndChaosControl</sound>
+        <sound>sound\sndChaosBlast</sound>
       </sounds>
       <sounds name="Voices">
         <sounds name="Sonic">
@@ -70,7 +73,9 @@
           <sound>sound\sndShantaeUseTripleFire</sound>
         </sounds>
         <sounds name="Knuckles">
+          <sound>sound\sndKnucklesJump</sound>
           <sound>sound\sndKnucklesAlright</sound>
+          <sound>sound\sndKnucklesDrill</sound>
           <sound>sound\sndKnucklesHurt</sound>
           <sound>sound\sndKnucklesDie</sound>
           <sound>sound\sndKnucklesFall</sound>
@@ -85,6 +90,8 @@
           <sound>sound\sndShadowJump</sound>
           <sound>sound\sndShadowAttack</sound>
           <sound>sound\sndShadowTrick</sound>
+          <sound>sound\sndShadowChaosSpear</sound>
+          <sound>sound\sndShadowChaosBlast</sound>
           <sound>sound\sndShadowHurt</sound>
           <sound>sound\sndShadowDie</sound>
           <sound>sound\sndShadowHitDie</sound>
@@ -94,6 +101,7 @@
           <sound>sound\sndSilverJump</sound>
           <sound>sound\sndSilverGrunt</sound>
           <sound>sound\sndSilverThrow</sound>
+          <sound>sound\sndSilverTrick</sound>
           <sound>sound\sndSilverHurt</sound>
           <sound>sound\sndSilverDie</sound>
           <sound>sound\sndSilverHitDie</sound>
@@ -135,6 +143,8 @@
         <sounds name="Character Specific">
           <sound>sound\sndShadowSkate</sound>
           <sound>sound\sndShadowSkate2</sound>
+          <sound>sound\sndTailspin</sound>
+          <sound>sound\sndTailspinTired</sound>
         </sounds>
       </sounds>
     </sounds>
@@ -144,12 +154,14 @@
       <sound>sound\bgmTitleModified2</sound>
       <sound>sound\bgmSaveSelect</sound>
       <sound>sound\bgmCharacterSelect</sound>
+      <sound>sound\bgmTrial</sound>
       <sound>sound\bgmEmeraldGarden</sound>
       <sound>sound\bgmScuttleTown</sound>
       <sound>sound\bgmLavaFilter</sound>
       <sound>sound\bgmStreamworks</sound>
       <sound>sound\bgmWhiteLabyrinth</sound>
       <sound>sound\bgmStarfireCarnival</sound>
+      <sound>sound\bgmTestZone</sound>
       <sound>sound\bgmEggman</sound>
       <sound>sound\bgmEggman2</sound>
       <sound>sound\bgmRisky</sound>
@@ -338,6 +350,7 @@
           <sprite>sprites\sprShadowAfterImage2</sprite>
           <sprite>sprites\sprShadowDie</sprite>
           <sprite>sprites\sprShadowHitDie</sprite>
+          <sprite>sprites\sprShadowClear</sprite>
           <sprite>sprites\spr_circleshadow</sprite>
         </sprites>
         <sprites name="Super Shadow">
@@ -348,6 +361,7 @@
           <sprite>sprites\sprSuperShadowAfterImage2</sprite>
           <sprite>sprites\spr_circleshadowSuper</sprite>
         </sprites>
+        <sprite>sprites\sprite1007</sprite>
         <sprite>sprites\sprite835</sprite>
         <sprite>sprites\sprite898</sprite>
       </sprites>
@@ -360,16 +374,27 @@
           <sprite>sprites\sprSilverAfterImage</sprite>
           <sprite>sprites\sprSilverDie</sprite>
           <sprite>sprites\sprSilverHitDie</sprite>
+          <sprite>sprites\sprSilverClear</sprite>
+        </sprites>
+        <sprites name="Super Silver">
+          <sprite>sprites\sprite1000</sprite>
+          <sprite>sprites\sprite1003</sprite>
+          <sprite>sprites\sprSuperSilverTransform</sprite>
+          <sprite>sprites\sprSuperSilverActions</sprite>
+          <sprite>sprites\sprSuperSilverPK</sprite>
+          <sprite>sprites\sprSuperSilverAfterImage</sprite>
+          <sprite>sprites\spr_circlesilverSuper</sprite>
         </sprites>
       </sprites>
       <sprites name="Tails">
         <sprite>sprites\sprite614</sprite>
         <sprite>sprites\sprite708</sprite>
-        <sprite>sprites\sprTailsDie</sprite>
         <sprite>sprites\sprite899</sprite>
         <sprite>sprites\sprTailsActions</sprite>
         <sprite>sprites\sprTailsAfterImage</sprite>
+        <sprite>sprites\sprTailsDie</sprite>
         <sprite>sprites\sprTailsHitDie</sprite>
+        <sprite>sprites\sprTailsClear</sprite>
         <sprite>sprites\sprite786</sprite>
         <sprite>sprites\spr_tailscircle</sprite>
       </sprites>
@@ -862,6 +887,7 @@
           </sprites>
           <sprite>sprites\sprFireballHit</sprite>
           <sprite>sprites\sprWhite</sprite>
+          <sprite>sprites\sprTBEffect</sprite>
         </sprites>
       </sprites>
       <sprites name="Chest">
@@ -915,6 +941,8 @@
         <sprite>sprites\sprSignpostSpun</sprite>
         <sprite>sprites\sprSignpostSpunKnuckles</sprite>
         <sprite>sprites\sprSignpostSpunShadow</sprite>
+        <sprite>sprites\sprSignpostSpunSilver</sprite>
+        <sprite>sprites\sprSignpostSpunTails</sprite>
         <sprite>sprites\sprSignpostSpunAmy</sprite>
       </sprites>
       <sprites name="Grind rails">
@@ -1141,6 +1169,10 @@
         <sprites name="Bars">
           <sprite>sprites\sprBarOut</sprite>
           <sprite>sprites\sprBarIn</sprite>
+          <sprite>sprites\sprTimeScore</sprite>
+          <sprite>sprites\sprLv</sprite>
+          <sprite>sprites\sprite1017</sprite>
+          <sprite>sprites\sprite1013</sprite>
         </sprites>
         <sprite>sprites\sprMusicDanceHUD</sprite>
         <sprite>sprites\sprBarDanceHUD</sprite>
@@ -1176,6 +1208,14 @@
       </sprites>
       <sprites name="Shadow">
         <sprite>sprites\sprTitlecard1Sh</sprite>
+        <sprite>sprites\sprTitlecard2Sh</sprite>
+      </sprites>
+      <sprites name="Silver">
+        <sprite>sprites\sprTitlecard1Sl</sprite>
+        <sprite>sprites\sprTitlecard2Sl</sprite>
+      </sprites>
+      <sprites name="Tails">
+        <sprite>sprites\sprTitlecard1T</sprite>
       </sprites>
       <sprites name="Amy">
         <sprite>sprites\sprTitlecard1A</sprite>
@@ -1367,6 +1407,9 @@
           <sprite>sprites\sprite857</sprite>
           <sprite>sprites\sprite855</sprite>
         </sprites>
+      </sprites>
+      <sprites name="Animated Backgrounds">
+        <sprite>sprites\sprTechnoOutbreakBG</sprite>
       </sprites>
     </sprites>
     <sprites name="Controls">
@@ -1584,6 +1627,7 @@
         <background>background\bgWhiteLabyrinthOutside</background>
         <background>background\bgStarfireCarnival</background>
         <background>background\bgBuildings</background>
+        <background>background\bgTechnoOutbreak</background>
       </backgrounds>
       <backgrounds name="Hubs">
         <background>background\bgSaveRoom</background>
@@ -1777,15 +1821,23 @@
         <object>objects\objSuperShadowTransform</object>
         <object>objects\objShadowDie</object>
         <object>objects\objShadowHitDie</object>
+        <object>objects\objShadowClear</object>
         <object>objects\obj_circleshadow</object>
         <object>objects\obj_circleshadowSuper</object>
       </objects>
       <objects name="Silver">
+        <object>objects\objChangeSilver</object>
         <object>objects\objSilver</object>
-        <object>objects\objSilverDie</object>
         <object>objects\objSilverAfterImage</object>
         <object>objects\objSilverAfterImage2</object>
+        <object>objects\objSuperSilver</object>
+        <object>objects\objSuperSilverAfterImage</object>
+        <object>objects\objSuperSilverAfterImage2</object>
+        <object>objects\objSuperSilverTransform</object>
+        <object>objects\objSilverDie</object>
         <object>objects\objSilverHitDie</object>
+        <object>objects\objSilverClear</object>
+        <object>objects\obj_circlesilverSuper</object>
       </objects>
       <objects name="Tails">
         <object>objects\objTails</object>
@@ -1793,6 +1845,7 @@
         <object>objects\objTailsAfterImage2</object>
         <object>objects\objTailsDie</object>
         <object>objects\objTailsHitDie</object>
+        <object>objects\objTailsClear</object>
         <object>objects\obj_tailscircle</object>
       </objects>
       <objects name="Amy">
@@ -2202,6 +2255,7 @@
           <object>objects\objBulletL4Hit</object>
           <object>objects\objWhiteBlast</object>
           <object>objects\objPKFX</object>
+          <object>objects\objTBEffect</object>
         </objects>
       </objects>
       <objects name="Chest">
@@ -2544,6 +2598,7 @@
       <object>objects\objTitleTheme</object>
       <object>objects\objSaveSelect</object>
       <object>objects\objCharacterSelect</object>
+      <object>objects\objTestZone</object>
       <object>objects\objEmeraldGarden</object>
       <object>objects\objLavaFilter</object>
       <object>objects\objStarfireCarnival</object>
@@ -2597,6 +2652,14 @@
         </objects>
         <objects name="Shadow">
           <object>objects\objTitlecard1Sh</object>
+          <object>objects\objTitlecard2Sh</object>
+        </objects>
+        <objects name="Silver">
+          <object>objects\objTitlecard1Sl</object>
+          <object>objects\objTitlecard2Sl</object>
+        </objects>
+        <objects name="Tails">
+          <object>objects\objTitlecard1T</object>
         </objects>
         <objects name="Amy">
           <object>objects\objTitlecard1A</object>
@@ -2962,6 +3025,13 @@
         <room>rooms\rmTitlecard1Sh</room>
         <room>rooms\rmTitlecard2Sh</room>
       </rooms>
+      <rooms name="Silver">
+        <room>rooms\rmTitlecard1Sl</room>
+        <room>rooms\rmTitlecard2Sl</room>
+      </rooms>
+      <rooms name="Tails">
+        <room>rooms\rmTitlecard1T</room>
+      </rooms>
       <rooms name="Amy">
         <room>rooms\rmTitlecard1A</room>
         <room>rooms\rmTitlecard1BA</room>
@@ -2990,6 +3060,14 @@
         <rooms name="Shadow">
           <room>rooms\rmZ1_1Shrm1</room>
           <room>rooms\rmZ1_1Shrm2</room>
+        </rooms>
+        <rooms name="Silver">
+          <room>rooms\rmZ1_1Slrm1</room>
+          <room>rooms\rmZ1_1Slrm2</room>
+        </rooms>
+        <rooms name="Tails">
+          <room>rooms\rmZ1_1Trm1</room>
+          <room>rooms\rmZ1_1Trm2</room>
         </rooms>
         <rooms name="Amy">
           <room>rooms\rmZ1_1Arm1</room>
@@ -3031,8 +3109,12 @@
           <room>rooms\rmZ2_1Krm2M</room>
         </rooms>
         <rooms name="Shadow">
-          <room>rooms\rmZ2_1Srm1M</room>
-          <room>rooms\rmZ2_1Srm2M</room>
+          <room>rooms\rmZ2_1Shrm1</room>
+          <room>rooms\rmZ2_1Shrm2</room>
+        </rooms>
+        <rooms name="Silver">
+          <room>rooms\rmZ2_1Slrm1</room>
+          <room>rooms\rmZ2_1Slrm2</room>
         </rooms>
         <rooms name="Amy">
           <room>rooms\rmZ2_1Arm1</room>

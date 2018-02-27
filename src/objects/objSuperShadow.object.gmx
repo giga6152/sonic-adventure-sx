@@ -921,17 +921,20 @@ if action == 14
         {
             if spear_charge &lt;= 0 &amp;&amp; !instance_exists (objSpearCharged)
             {
+                audio_play_sound (sndShadowChaosSpear, 10, false);
                 instance_create (x, y, objSpearCharged);
                 chaos_energy -= chaos_spear_charged;
             }
             else if !instance_exists (objSpearGround)
             {
+                audio_play_sound (sndShadowChaosSpear, 10, false);
                 instance_create (x, y, objSpearGround);
                 chaos_energy -= chaos_spear;
             }
         }
         else if !instance_exists (objSpearAir) &amp;&amp; animations_frame == 55
         {
+            audio_play_sound (sndShadowChaosSpear, 10, false);
             instance_create (x, y, objSpearAir);
             chaos_energy -= chaos_spear;
         }
@@ -943,6 +946,7 @@ if KEY_C &amp;&amp; (action == 0 or action == 1 or action == 6) &amp;&amp; chaos
 {
     action = 15;
     chaos_energy -= chaos_control;
+    audio_play_sound (sndChaosControl, 10, false);
     
     if hsp &lt; 36 hsp /*+= ((xdir*5)+hsp)*/ = (36*xdir); else hsp += (xdir*2);
     vsp = 0;
@@ -956,10 +960,12 @@ if KEY_DOWN &amp;&amp; KEY_C &amp;&amp; ground &amp;&amp; chaos_energy &gt;= cha
     
     hsp = 0;
     chaos_energy -= chaos_blast;
+    audio_play_sound (sndShadowChaosBlast, 10, false);
 }
 if animations_frame == 4 &amp;&amp; action == 16
 {
     instance_create (view_xview[0], view_yview[0], objWhiteBlast);
+    audio_play_sound (sndChaosBlast, 10, false);
 }
 
 //Detransform automatically if we hit zero rings
@@ -1764,7 +1770,7 @@ y = global.start_y;
         animation=20;
         animations_framemin=26;
         animations_framemax=27;
-        animations_return=40;
+        animations_return=26;
         animations_speed=30;
         atk=1
         enable=1
