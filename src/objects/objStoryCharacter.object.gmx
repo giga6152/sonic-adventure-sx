@@ -71,6 +71,18 @@ else if room == rmTrialCharacter
              sprite_index = sprTailsUnlocked;
         else if objStoryMenu.option == 10 &amp;&amp; global.Z1_BAmy == true
              sprite_index = sprAmyUnlocked;
+        else if objStoryMenu.option == 13
+             sprite_index = sprSuperSonic;
+        else if objStoryMenu.option == 14
+             sprite_index = sprSuperKnuckles;
+        else if objStoryMenu.option == 15
+             sprite_index = sprSuperShadow;
+        else if objStoryMenu.option == 16
+             sprite_index = sprSuperSilver;
+        else if objStoryMenu.option == 17
+             sprite_index = sprHyperSonic;
+         else if objStoryMenu.option == 18
+             sprite_index = sprDarkSonic;
         else
             sprite_index = sprNoModel;
     }

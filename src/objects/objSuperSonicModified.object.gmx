@@ -146,6 +146,7 @@
     
     global.superstate = 1;
     instance_create (x, y, objCamera);
+    instance_create (x, y, objGamepad);
     
 //==============================================================================
     cosine                = 1;
@@ -285,6 +286,7 @@ audio_play_sound (bgmSuperSonic2, 10, true);
     instance_activate_region (view_xview[0]-16, view_yview[0]-16, view_wview[0]+32, view_hview[0]+32, true);
 }
 
+instance_activate_object (objGamepad);
 instance_activate_object (objCamera);
 instance_activate_object (objButton);
 instance_activate_object (objButton2);
@@ -531,6 +533,9 @@ if y &lt; 5
 
      if (hsp&gt;0 &amp;&amp; hsp&lt;dcc) hsp=0;           // If the speed is lower than deacceleration, set to 0.
      if (hsp&lt;0 &amp;&amp; hsp&gt;-dcc) hsp=0;
+     
+     if action == 15 &amp;&amp; ((hsp &lt; 0.3 &amp;&amp; xdir == 1) or (hsp &gt; -0.3 &amp;&amp; xdir == -1))
+        action = 0;
    }
    
 
@@ -837,11 +842,10 @@ if global.slide == true &amp;&amp; action == 0 &amp;&amp; ground &amp;&amp; (hsp
        hsp += dcc;
     if hsp &gt; 0
        hsp -= dcc;
-    
-    if hsp &lt; dcc or hsp &gt; -dcc
+       
+    if (place_meeting (x+hsp+1, y, objCrateWooden) &amp;&amp; hsp &gt; 0) or (place_meeting (x+hsp-1, y, objCrateWooden) &amp;&amp; hsp &lt; 0)
     {
-        hsp = 0;
-        action = 0;
+        with instance_nearest (x, y, objCrateWooden) instance_destroy();
     }
 }
 

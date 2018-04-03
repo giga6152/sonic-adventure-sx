@@ -31,6 +31,8 @@ else if global.superstate == 1
      instance_change (objSuperSonicModified, true);
 else if global.superstate == 2
      instance_change (objHyperSonicModified, true);
+else if global.superstate == 3
+     instance_change (objDarkSonic, true);
 </string>
           </argument>
         </arguments>

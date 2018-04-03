@@ -2,7 +2,7 @@
 <room>
   <caption></caption>
   <width>640</width>
-  <height>800</height>
+  <height>1100</height>
   <vsnap>16</vsnap>
   <hsnap>16</hsnap>
   <isometric>0</isometric>
@@ -13,7 +13,7 @@
   <code>if !audio_is_playing (bgmTrial)
 {
     audio_stop_all();
-    audio_play_sound (bgmTrial, 10, true);
+    //audio_play_sound (bgmTrial, 10, true);
 }</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
@@ -35,8 +35,8 @@
     <yoffset>0</yoffset>
   </makerSettings>
   <backgrounds>
-    <background visible="-1" foreground="0" name="bgStageSelect6" x="0" y="0" htiled="-1" vtiled="-1" hspeed="6" vspeed="-6" stretch="0"/>
-    <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
+    <background visible="-1" foreground="0" name="background59" x="0" y="0" htiled="0" vtiled="0" hspeed="0" vspeed="0" stretch="0"/>
+    <background visible="-1" foreground="0" name="background58" x="0" y="0" htiled="-1" vtiled="-1" hspeed="2" vspeed="-2" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -56,19 +56,19 @@
   </views>
   <instances>
     <instance objName="objText" x="208" y="32" name="inst_C2E41637" locked="0" code="txt = &quot;TRIAL MODE&quot;;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objStoryMenu" x="256" y="400" name="inst_B686A0DD" locked="0" code="if global.S1B == true&#xA;    sprite_index = sprStoryMenu6;&#xA;else&#xA;    sprite_index = sprStoryMenu14;&#xA;&#xA;optionNumber = 5;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objStoryMenu" x="256" y="448" name="inst_1ECB0FB0" locked="0" code="if global.Z1_BAmy == true&#xA;    sprite_index = sprStoryMenu11;&#xA;else&#xA;    sprite_index = sprStoryMenu14;&#xA;&#xA;optionNumber = 6;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objStoryMenu" x="256" y="496" name="inst_63EAB756" locked="0" code="sprite_index = sprStoryMenu14;&#xA;optionNumber = 7;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objStoryMenu" x="256" y="544" name="inst_F6581530" locked="0" code="if global.Z1_BTails == true&#xA;    sprite_index = sprStoryMenu3;&#xA;else&#xA;    sprite_index = sprStoryMenu14;&#xA;&#xA;optionNumber = 8;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objStoryMenu" x="256" y="592" name="inst_7080E782" locked="0" code="sprite_index = sprStoryMenu14;&#xA;optionNumber = 9;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objStoryMenu" x="256" y="640" name="inst_38D1C367" locked="0" code="if global.Z1_BAmy == true&#xA;    sprite_index = sprStoryMenu7;&#xA;else&#xA;    sprite_index = sprStoryMenu14;&#xA;&#xA;optionNumber = 10;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objStoryMenu" x="256" y="688" name="inst_BF625883" locked="0" code="sprite_index = sprStoryMenu14;&#xA;optionNumber = 11;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objStoryMenu" x="256" y="400" name="inst_B686A0DD" locked="0" code="if global.S1 == true&#xA;    sprite_index = sprStoryMenu6;&#xA;else&#xA;    sprite_index = sprStoryMenu14;&#xA;&#xA;optionNumber = 5;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objStoryMenu" x="256" y="448" name="inst_1ECB0FB0" locked="0" code="if global.Z1_BAmy == true&#xA;    sprite_index = sprStoryMenu11;&#xA;else&#xA;    sprite_index = sprStoryMenu14;&#xA;&#xA;optionNumber = 6;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objStoryMenu" x="256" y="496" name="inst_63EAB756" locked="0" code="sprite_index = sprStoryMenu12;&#xA;optionNumber = 7;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objStoryMenu" x="256" y="544" name="inst_F6581530" locked="0" code="if global.Z1_BTails == true&#xA;    sprite_index = sprStoryMenu3;&#xA;else&#xA;    sprite_index = sprStoryMenu14;&#xA;&#xA;optionNumber = 8;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objStoryMenu" x="256" y="592" name="inst_7080E782" locked="0" code="sprite_index = sprStoryMenu8;&#xA;optionNumber = 9;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objStoryMenu" x="256" y="640" name="inst_38D1C367" locked="0" code="if global.Z1_BAmy == true&#xA;    sprite_index = sprStoryMenu7;&#xA;else&#xA;    sprite_index = sprStoryMenu14;&#xA;&#xA;optionNumber = 10;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objStoryMenu" x="256" y="688" name="inst_BF625883" locked="0" code="sprite_index = sprStoryMenu10;&#xA;optionNumber = 11;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objStoryMenu" x="256" y="736" name="inst_8F7827BD" locked="0" code="sprite_index = sprStoryMenu14;&#xA;optionNumber = 12;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objStoryMenu" x="256" y="352" name="inst_1C70CE9B" locked="0" code="if global.Z1_BShad == true&#xA;    sprite_index = sprStoryMenu9;&#xA;else&#xA;    sprite_index = sprStoryMenu14;&#xA;&#xA;optionNumber = 4;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objStoryMenu" x="256" y="304" name="inst_9DFD0ED5" locked="0" code="if global.S1S == true&#xA;    sprite_index = sprStoryMenu4;&#xA;else&#xA;    sprite_index = sprStoryMenu14;&#xA;&#xA;optionNumber = 3;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objStoryMenu" x="256" y="256" name="inst_2EEC5681" locked="0" code="if global.Z1_BKnux == true&#xA;    sprite_index = sprStoryMenu5;&#xA;else&#xA;    sprite_index = sprStoryMenu14;&#xA;&#xA;optionNumber = 2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objStoryMenu" x="256" y="208" name="inst_EDC89BB8" locked="0" code="if global.S1 = true&#xA;    sprite_index = sprStoryMenu2;&#xA;else&#xA;    sprite_index = sprStoryMenu14;&#xA;&#xA;optionNumber = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objStoryMenu" x="256" y="160" name="inst_2FAE31CE" locked="0" code="sprite_index = sprStoryMenu;&#xA;optionNumber = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objStoryMenu" x="256" y="352" name="inst_1C70CE9B" locked="0" code="if global.Z1_BShad == true&#xA;    sprite_index = sprStoryMenu9;&#xA;else&#xA;    sprite_index = sprStoryMenu14;&#xA;&#xA;optionNumber = 4;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objStoryMenu" x="256" y="304" name="inst_9DFD0ED5" locked="0" code="if global.S1S == true&#xA;    sprite_index = sprStoryMenu4;&#xA;else&#xA;    sprite_index = sprStoryMenu14;&#xA;&#xA;optionNumber = 3;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objStoryMenu" x="256" y="256" name="inst_2EEC5681" locked="0" code="if global.Z1_BKnux == true&#xA;    sprite_index = sprStoryMenu5;&#xA;else&#xA;    sprite_index = sprStoryMenu14;&#xA;&#xA;optionNumber = 2;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objStoryMenu" x="256" y="208" name="inst_EDC89BB8" locked="0" code="if global.S1 = true&#xA;    sprite_index = sprStoryMenu2;&#xA;else&#xA;    sprite_index = sprStoryMenu14;&#xA;&#xA;optionNumber = 1;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objStoryMenu" x="256" y="160" name="inst_2FAE31CE" locked="0" code="sprite_index = sprStoryMenu;&#xA;optionNumber = 0;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objStoryPick" x="208" y="176" name="inst_5FFBE3BD" locked="0" code="" scaleX="2" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="objChaosHUDRed" x="288" y="80" name="inst_07C5F7CE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objChaosHUDBlue" x="336" y="80" name="inst_EA39D7BC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -87,6 +87,12 @@
     <instance objName="objMagicSealHUD" x="480" y="112" name="inst_BC2BA23C" locked="0" code="seal = 4;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMagicSealHUD" x="528" y="112" name="inst_CBA96416" locked="0" code="seal = 5;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMagicSealHUD" x="576" y="112" name="inst_4FF6F0DB" locked="0" code="seal = 6;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objStoryMenu" x="256" y="784" name="inst_E5075F12" locked="0" code="sprite_index = sprStoryMenu15;&#xA;optionNumber = 13;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objStoryMenu" x="256" y="832" name="inst_64F1C268" locked="0" code="sprite_index = sprStoryMenu16;&#xA;optionNumber = 14;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objStoryMenu" x="256" y="880" name="inst_69196242" locked="0" code="sprite_index = sprStoryMenu17;&#xA;optionNumber = 15;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objStoryMenu" x="256" y="928" name="inst_91D45E20" locked="0" code="sprite_index = sprStoryMenu18;&#xA;optionNumber = 16;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objStoryMenu" x="256" y="976" name="inst_80D8A075" locked="0" code="sprite_index = sprStoryMenu19;&#xA;optionNumber = 17;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objStoryMenu" x="256" y="1024" name="inst_DF4CBE01" locked="0" code="sprite_index = sprStoryMenu20;&#xA;optionNumber = 18;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

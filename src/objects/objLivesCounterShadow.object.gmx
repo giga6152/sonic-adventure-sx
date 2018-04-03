@@ -48,9 +48,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.superstate == 0
+            <string>if !global.canGoSuper
    sprite_index = sprLivesCounterShadow;
-else if global.superstate == 1 &amp;&amp; (instance_exists (objSuperShadow))
+else if global.canGoSuper
      sprite_index = sprLivesCounterSuperShadow;
 else
     sprite_index = sprLivesCounterShadow;

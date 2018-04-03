@@ -2890,6 +2890,7 @@
     <instance objName="objGrindRailStartL" x="14276" y="2220" name="inst_414961FE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGrindRailSraight" x="14304" y="2220" name="inst_DA782116" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTails" x="92" y="1496" name="inst_43EE7617" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objEmeraldGarden" x="124" y="1452" name="inst_484B6E13" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

@@ -28,6 +28,8 @@
             <string>image_xscale = -1;
 image_speed = 0.16;
 ground = true;
+hp = 1;
+invulnerable = false;
 </string>
           </argument>
         </arguments>
@@ -72,6 +74,8 @@ if place_meeting (x, y, objSlopeParent)
 if (place_meeting (x+1, y, objWall) or place_meeting (x-1, y, objWall))
     image_xscale = -image_xscale;*/
     
+event_inherited();
+
 x += image_xscale * .5;
 
 //Gravity

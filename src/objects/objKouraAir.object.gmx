@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>image_speed = 0.2;
+hp = 1;
+invulnerable = false;
 </string>
           </argument>
         </arguments>
@@ -48,7 +50,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with objSonicModified
+            <string>event_inherited();
+
+with objSonicModified
 {
     if vsp &gt;= 0 &amp;&amp; place_meeting (x, y, objKouraAir)
     {
@@ -84,10 +88,7 @@
             ready=200
             action=9
             
-            if instance_exists (objSonicModified)audio_play_sound (sndSonicOugh, 10, false)
-            if instance_exists (objTails)audio_play_sound (sndTailsHurt, 10, false)
-            if instance_exists (objKnuckles)audio_play_sound (sndKnucklesHurt, 10, false)
-            if instance_exists (objAmy)audio_play_sound (sndAmyHurt, 10, false)
+            audio_play_sound (hurtvoice, 10, false);
             
             if global.shield == 0 &amp;&amp; global.rings &gt; 0
             {
@@ -114,10 +115,7 @@
             else if global.rings == 0 &amp;&amp; global.shield == 0
             if atk=0 &amp;&amp; ready&lt;=0 &amp;&amp; enable=1 //Player dies if there are no rings
             {
-            if instance_exists (objSonicModified)instance_change (objSonicHitDie, true);
-            if instance_exists (objTails)instance_change (objTailsHitDie, true);
-            if instance_exists (objKnuckles)instance_change (objKnucklesHitDie, true);
-            if instance_exists (objAmy)instance_change (objAmyHitDie, true);
+            instance_change (deathobj, true);
             hsp = 0;
             }
             }

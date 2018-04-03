@@ -3182,6 +3182,17 @@
     <instance objName="objPoleBrown" x="17704" y="1992" name="inst_AFB8E773" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objEmeraldGarden" x="132" y="736" name="inst_3CB9B007" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objChangeKnuckles" x="80" y="772" name="inst_B3BA209D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objChopper" x="8464" y="3820" name="inst_756B1A90" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objChopper" x="8752" y="3820" name="inst_7EC6FF6F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objChopper" x="9124" y="4464" name="inst_88261DAA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objChopper" x="9320" y="4464" name="inst_F472E74F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objChopper" x="7168" y="4436" name="inst_CE4C659F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objChopper" x="6336" y="4440" name="inst_C2022EC2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objChopper" x="5812" y="4348" name="inst_7A530509" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objChopper" x="5068" y="4048" name="inst_196F7E27" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objChopper" x="5868" y="3768" name="inst_C6AFC721" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objChopper" x="6084" y="3764" name="inst_CD806FA5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objChopper" x="6544" y="3488" name="inst_DAA49D36" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

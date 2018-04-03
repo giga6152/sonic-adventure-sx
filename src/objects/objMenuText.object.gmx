@@ -154,14 +154,14 @@ objMenuCharacters2.persistent = false;
             instance_create (0, 0, objFade);
             audio_play_sound (sndMenuSelect, 10, false);
         break;
-        case 3:
+        case 2:
             audio_play_sound (sndMenuCancel, 10, false);
         break;
-        case 4:
+        case 3:
              room_goto (rmHelp);
              audio_play_sound (sndMenuSelect, 10, false);
         break;
-        case 5:
+        case 4:
              audio_play_sound (sndMenuCancel, 10, false);
              game_end();
         break;
@@ -189,8 +189,8 @@ objMenuCharacters2.persistent = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.canGoSuper = true;
-audio_play_sound (sndSonicYeah, 10, false);
+            <string>/*global.canGoSuper = true;
+audio_play_sound (sndSonicYeah, 10, false); super cheat no longer works
 </string>
           </argument>
         </arguments>
@@ -213,8 +213,8 @@ audio_play_sound (sndSonicYeah, 10, false);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.canGoHyper = true;
-audio_play_sound (sndSonicYeah, 10, false);
+            <string>/*global.canGoHyper = true;
+audio_play_sound (sndSonicYeah, 10, false); hyper cheat no longer works
 </string>
           </argument>
         </arguments>
@@ -336,14 +336,14 @@ access_story = true;
             instance_create (0, 0, objFade);
             audio_play_sound (sndMenuSelect, 10, false);
         break;
-        case 3:
+        case 2:
             audio_play_sound (sndMenuCancel, 10, false);
         break;
-        case 4:
+        case 3:
              room_goto (rmHelp);
              audio_play_sound (sndMenuSelect, 10, false);
         break;
-        case 5:
+        case 4:
              audio_play_sound (sndMenuCancel, 10, false);
              game_end();
         break;

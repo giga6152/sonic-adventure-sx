@@ -54,7 +54,7 @@ global.minutesC = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto (rmZ1_1Arm1);
+            <string>room_goto (rmZ1_1Arm1M);
 </string>
           </argument>
         </arguments>

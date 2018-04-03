@@ -48,12 +48,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.superstate == 0
+            <string>if !global.canGoSuper &amp;&amp; !global.canGoHyper &amp;&amp; !global.canGoDark
    sprite_index = sprLivesCounter;
-else if global.superstate == 1 &amp;&amp; (instance_exists (objSuperSonicModified) or instance_exists (objHyperSonicTransform))
+else if global.canGoSuper &amp;&amp; !global.canGoHyper &amp;&amp; !global.canGoDark
      sprite_index = sprLivesCounterSuper;
-else if global.superstate == 2 &amp;&amp; instance_exists (objHyperSonicModified)
+else if global.canGoSuper &amp;&amp; global.canGoHyper &amp;&amp; !global.canGoDark
      sprite_index = sprLivesCounterHyper;
+else if global.canGoDark
+    sprite_index = sprLivesCounterDark;
 else
     sprite_index = sprLivesCounter;
      

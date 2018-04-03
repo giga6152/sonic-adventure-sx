@@ -1214,7 +1214,7 @@ y = global.start_y;
         animations_return=8;
         animations_speed=12+abs(hsp);
         atk=1
-        enable = 1;
+        if action == 1 enable = 1; else enable = 0;
         if action==1 {draw_sprite_ext(spr_circleknucklesSuper,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_circleknucklesSuper)}
     }
     

@@ -31,6 +31,7 @@ gravity = 0;
 speed = 0;
 audio_stop_all();
 audio_play_sound (bgmSuperSonic, 10, true);
+audio_play_sound (sndKnucklesDrill, 10, false);
 global.superstate = 1;
 </string>
           </argument>

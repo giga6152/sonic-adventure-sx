@@ -353,7 +353,6 @@
     <instance objName="objBricks2" x="4976" y="160" name="inst_AA5422C3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objJarXLarge" x="4832" y="304" name="inst_CD297A19" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSectionMove" x="4912" y="224" name="inst_12F9C0ED" locked="0" code="warpRoom = rmS1rm2;&#xA;playerbeginx = 48;&#xA;playerbeginy = 304;&#xA;" scaleX="6" scaleY="6" colour="4294967295" rotation="0"/>
-    <instance objName="objScuttleTown" x="80" y="64" name="inst_42502230" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTopSolid" x="206" y="294" name="inst_DA012833" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTopSolid" x="190" y="302" name="inst_9ADC84B4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTopSolid" x="174" y="310" name="inst_39682138" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

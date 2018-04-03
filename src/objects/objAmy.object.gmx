@@ -80,9 +80,11 @@
                         Setup settings for Sonic
 //==============================================================================*/
 
+    instance_create (x, y, objCamera);
+    
     hsp                 = 0;                     /* Horizontal Speed */
-    hspm                = 7.8;                    /* Max Horizontal Speed */
-    hspl                = 13.8;
+    hspm                = 11;                    /* Max Horizontal Speed */
+    hspl                = 26;
     global.shieldhits = 0;
     
     if room != rmZ1_BA
@@ -96,7 +98,7 @@
         hspm = 8;
     }                                                                            /* Horizontal Speed Limit */
 
-    acc                 = 0.11;                  /* Acceleration */
+    acc                 = 0.09;                  /* Acceleration */
     dcc                 = 0.1;                  /* Deacceleration */
 
     vsp                 = 0;                     /* Vertical Speed */
@@ -129,6 +131,9 @@
     
     xdir                = 1;                     /* Direction */
     mach                = 0;
+    machTimer = 5000;
+    
+    powersneakers = false;
     
 //==============================================================================
     animations_angle = 0;
@@ -157,6 +162,20 @@
     ldash               = 0; //Tell when light dash is activated
     
     hurtvoice = sndAmyHurt;
+    deathobj = objAmyHitDie;
+    
+    animationTrick = 17;
+    tube_action = 22;
+    
+    vfrw = 0.15;
+    hspmw = 4;
+    
+    global.face = xdir;
+    
+    imageTimer = 5;
+    soundstep = sndStepNormal;
+    
+    bounce = false;
 </string>
           </argument>
         </arguments>
@@ -292,7 +311,9 @@ instance_activate_object (prtMoving);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if x &lt; hspm
+            <string>global.face = xdir;
+
+if x &lt; hspm
    x = hspm;
 else if x &gt; room_width-hspm
      x = room_width-hspm;
@@ -303,12 +324,12 @@ if y &lt; 5
    {
    
    // Limit the values of the movement
-   if (hsp&gt;hspm)     hsp = hspm;
-   if (hsp&lt;-hspm)    hsp = -hspm;
+   if (hsp&gt;hspl)     hsp = hspl;
+   if (hsp&lt;-hspl)    hsp = -hspl;
    if (vsp&gt;vspl)     vsp = vspl;
    
-   if mach == false hspm = 7.8; else hspm = 14.5;
-   if mach == false hspl = 13.8; else hspm = 20.5;
+   if mach == false hspm = 10.5; else hspm = 28;
+   if mach == false hspl = 15.5; else hspl = 37;
 
    //================================================================= 
    //Horizontal Movement.
@@ -510,8 +531,8 @@ if y &lt; 5
      if (hsp&gt;0 &amp;&amp; hsp&lt;dcc) hsp=0;           // If the speed is lower than deacceleration, set to 0.
      if (hsp&lt;0 &amp;&amp; hsp&gt;-dcc) hsp=0;
      
-     if action == 15 &amp;&amp; abs (hsp) &lt; 0.3
-        action = 0;     
+     //if action == 15 &amp;&amp; abs (hsp) &lt; 0.3
+     //   action = 0;     
    }
    
 
@@ -549,7 +570,7 @@ if y &lt; 5
    if (KEY_A &amp;&amp; ground)
    {
    
-        audio_play_sound (sndJump, 10, false);
+        audio_play_sound (sndJumpClassic, 10, false);
         audio_play_sound (sndAmyJump, 10, false);
    
      ground=0;
@@ -587,12 +608,12 @@ if y &lt; 5
    if blink&gt;10
    {blink=0}
    
-   /* Ducking
+   // Ducking
    if KEY_DOWN &amp;&amp; action=0 &amp;&amp; ground &amp;&amp; hsp=0 //(Always remember to set required action in order to perform other action)
    {action=2}
    else
    if action=2 &amp;&amp; not KEY_DOWN
-   {action=0}*/
+   {action=0}
    
    //Roll
    if KEY_DOWN &amp;&amp; abs(hsp)&gt;0.3 &amp;&amp; ground &amp;&amp; action=0
@@ -626,18 +647,30 @@ if y &lt; 5
    if action=3 &amp;&amp; ground=0
    {action=1}
    
-   //Spin dash (must be ducking first): Edited for down + z to the x key alone whilst standing still
-   if KEY_BH &amp;&amp; hsp == 0 &amp;&amp; ground //Start spindash
-   {spin+=1 action=4  if KEY_B audio_play_sound (sndSpindashCharge, 10, false)} //Play spindash sound here
-   
-   if spin&gt;0 &amp;&amp; action=4 &amp;&amp; KEY_BH //Charge up spin dash
-   {spin+=1 audio_play_sound (sndSpindashCharge, 10, false)} //Play spindash sound here as well
-   
-   if spin&gt;6 //Set spin limit
+   //Spindash
+   //Classic way (hold down and press jump repeatedly)
+   if KEY_A &amp;&amp; action == 2
+   {
+        action = 4.5;
+        spin += 1;
+        audio_play_sound (sndSpindashChargeClassic, 10, false);
+   }
+   if KEY_A &amp;&amp; action == 4.5
+   {
+        spin += 1;
+        audio_play_sound (sndSpindashChargeClassic, 10, false);
+   }
+   if spin&gt;6
    {spin=6}
    
-   if spin&gt;0 &amp;&amp; not KEY_BH //Take off from spindah
-   {hsp+=xdir*spin*2 spin=0 action=0 audio_play_sound (sndSpindashRelease, 10, false) audio_stop_sound (sndSpindashCharge);} //Play take off sound here
+   if not KEY_DOWN &amp;&amp; action==4.5
+   {hsp+=spin*xdir*3 spin=0 action=3 audio_play_sound (sndSpindashRelease, 10, false) audio_stop_sound (sndSpindashChargeClassic)}
+   
+   if (action!=4.5 &amp;&amp; action!=4)
+   {spin=0}
+   
+   if action==4.5 or action==4
+   {hsp=0}
    
    /*/Homing attack (check animations for drawing sprites)
    if action=1 or action=7
@@ -705,18 +738,40 @@ if y &lt; 5
          delay=5                // Set key delay
    }*/
    
+   //Doublejump (jump while airborne to get some extra height)
+   if KEY_A &amp;&amp; delay == 0 &amp;&amp; !ground &amp;&amp; (action == 1 or action == 6)
+   {
+        action = 6.5;
+        ground = false;
+        audio_play_sound (sndJumpClassic, 10, false);
+        
+        vsp=cosine*jmp-sine*hsp; // Calculate the speed
+         hsp=cosine*hsp+sine*jmp;
+    
+         angle=0;     
+         cosine=1;                // Values at angle 0
+         sine=0;
+         
+         delay=5                // Set key delay
+   }
+   
    //Grind on rail
    if dead=0
    {
    if collision_circle(x,y+30,20,obj_rail,1,1) &amp;&amp; ground //Grind on rail
-   {action=8 hsp+=acc*2*xdir}
+   {if action!=8 audio_play_sound (sndGrindStart, 10, false); action=8 hsp+=acc*xdir}
    else
    if action=8 //If at end of rail
-   {action=0}
+   {action=0 audio_stop_sound (sndGrindRail)}
    }
    
+   //Play sfx
+   if action == 8 &amp;&amp; !audio_is_playing (sndGrindRail)
+        audio_play_sound (sndGrindRail, 10, true);
+   if action != 8 audio_stop_sound (sndGrindRail);
+   
    if action=8 &amp;&amp; KEY_A //This had to be set here to make Sonic jump off rail but not land back on rail
-   {action=6 vsp=jmp ground=0 audio_play_sound (sndJump, 10, false) audio_play_sound (sndAmyJump, 10, false);}
+   {action=1 vsp=jmp ground=0 audio_play_sound (sndJumpClassic, 10, false) audio_play_sound (sndAmyJump, 10, false) audio_stop_sound (sndGrindRail)}
    
    /*Lightdash
    if action=0 or action=1 or action=3 or action=5 or action=6 or action=7
@@ -784,297 +839,63 @@ if y &lt; 5
 if action == animationDash &amp;&amp; ground
    action = 0;
    
+//Hammer attack (press the attack button when on the ground)
+if KEY_B &amp;&amp; action == 0 &amp;&amp; ground
+{
+    action = 14;
+}
+//Downward slam attack (press the special button when in the air)
+if KEY_C &amp;&amp; !ground &amp;&amp; (action == 1 or action == 6 or action == 6.5)
+{
+    action = 15;
+}
+
 //Boost Mode (NOT the boost, only activates if Sonic hits a high speed)
-if place_meeting (x, y, objDashPad) &amp;&amp; ground &amp;&amp; action == 0
+if (place_meeting (x, y, objDashPad) &amp;&amp; ground &amp;&amp; action == 0) or powersneakers
 {
     mach = true;  
+    machTimer = 0;
 }
 
-if global.rings &gt;= 25 &amp;&amp; ground &amp;&amp; action == 0 &amp;&amp; (hsp &gt;= 13 or hsp &lt;= -13)
-   mach = true;
-
-if mach == true
+if ground &amp;&amp; action == 0 &amp;&amp; abs(hsp) &gt;= 5
 {
-    machTimer -= 1;
+    machTimer -= (global.rings+1);
+}
+else
+{
+    if machTimer &gt; 0
+        machTimer = 5000;
+}
+
+if machTimer &lt;= 0
+{
+    mach = true;
+}
+else
+{
+    mach = false;
+}
+
+if mach
+{
+    imageTimer -= 1;
     
-    if machTimer &lt;= 0
+    if imageTimer &lt;= 0
     {
+        imageTimer = 5;
         instance_create (x, y, objAmyAfterImage);
-        machTimer = 5;
     }
     
-    if ground &amp;&amp; ((hsp &gt; 0 &amp;&amp; hsp &lt; 4.5) or (hsp &lt; 0 &amp;&amp; hsp &gt; -4.5))
+    if ground &amp;&amp; abs(hsp) &lt; 5
+    {
        mach = false;
-}
-else
-    machTimer = 5;
-    
-//Trick ramps (must be at a certain speed first)
-if ground &amp;&amp; action == 0
-{
-    if place_meeting (x, y, objRampRight) &amp;&amp; hsp &gt;= 6
-    {
-        action = 6;
-        vsp = -1.2*hsp;
-        hsp = 1.35*hsp;
-        audio_play_sound (sndDash, 10, false);
-    }
-    else if place_meeting (x, y, objRampLeft) &amp;&amp; hsp &lt;= -6
-    {
-        action = 6;
-        vsp = -1.2*hsp;
-        hsp = 1.35*hsp;
-        audio_play_sound (sndDash, 10, false);
+       if (machTimer &lt;= 0) machTimer = 5000;
     }
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="objSpikeRight">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if global.invincible == false &amp;&amp; global.superstate == 0 &amp;&amp; global.rings &gt; 0
-{
-if atk=0 &amp;&amp; ready&lt;=0 &amp;&amp; enable=1
-{
-{
-ready=200
-action=9
-audio_play_sound (sndAmyHurt, 10, false)
-
-if global.shield == 0 &amp;&amp; global.rings &gt; 0
-{
-    audio_play_sound (sndRingLose, 10, false)
     
-    if global.rings &lt;= 32 scrLoseRings(global.rings,x,y,objLoseRing) else scrLoseRings(32,x,y,objLoseRing)
-    
-    global.rings = 0;
-}
-else
-{
-    if global.shield == 1 or global.shield == 2 or (global.shield == 3 &amp;&amp; global.shieldhits = 1)
-        global.shield = 0
-    else if global.shield == 3 &amp;&amp; global.shieldhits &gt; 1
-         global.shieldhits -= 1;
-}
-
-ground=0
-vsp=-5
-enable=0
-}
-}
-}
-else if global.rings == 0 &amp;&amp; global.shield == 0
-if atk=0 &amp;&amp; ready&lt;=0 &amp;&amp; enable=1 //Player dies if there are no rings
-{
-ground = 0;
-vsp = -5;
-enable = 0;
-action = 9.5;
-audio_play_sound (sndAmyHurt, 10, false);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="objSpikeLeft">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if global.invincible == false &amp;&amp; global.superstate == 0 &amp;&amp; global.rings &gt; 0
-{
-if atk=0 &amp;&amp; ready&lt;=0 &amp;&amp; enable=1
-{
-{
-ready=200
-action=9
-audio_play_sound (sndAmyHurt, 10, false)
-
-if global.shield == 0 &amp;&amp; global.rings &gt; 0
-{
-    audio_play_sound (sndRingLose, 10, false)
-    
-    if global.rings &lt;= 32 scrLoseRings(global.rings,x,y,objLoseRing) else scrLoseRings(32,x,y,objLoseRing)
-    
-    global.rings = 0;
-}
-else
-{
-    if global.shield == 1 or global.shield == 2 or (global.shield == 3 &amp;&amp; global.shieldhits = 1)
-        global.shield = 0
-    else if global.shield == 3 &amp;&amp; global.shieldhits &gt; 1
-         global.shieldhits -= 1;
-}
-
-ground=0
-vsp=-5
-enable=0
-}
-}
-}
-else if global.rings == 0 &amp;&amp; global.shield == 0
-if atk=0 &amp;&amp; ready&lt;=0 &amp;&amp; enable=1 //Player dies if there are no rings
-{
-ground = 0;
-vsp = -5;
-enable = 0;
-action = 9.5;
-audio_play_sound (sndAmyHurt, 10, false);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="objSpikeDown">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if global.invincible == false &amp;&amp; global.superstate == 0 &amp;&amp; global.rings &gt; 0
-{
-if atk=0 &amp;&amp; ready&lt;=0 &amp;&amp; enable=1
-{
-{
-ready=200
-action=9
-audio_play_sound (sndAmyHurt, 10, false)
-
-if global.shield == 0 &amp;&amp; global.rings &gt; 0
-{
-    audio_play_sound (sndRingLose, 10, false)
-    
-    if global.rings &lt;= 32 scrLoseRings(global.rings,x,y,objLoseRing) else scrLoseRings(32,x,y,objLoseRing)
-    
-    global.rings = 0;
-}
-else
-{
-    if global.shield == 1 or global.shield == 2 or (global.shield == 3 &amp;&amp; global.shieldhits = 1)
-        global.shield = 0
-    else if global.shield == 3 &amp;&amp; global.shieldhits &gt; 1
-         global.shieldhits -= 1;
-}
-
-ground=0
-vsp=-5
-enable=0
-}
-}
-}
-else if global.rings == 0 &amp;&amp; global.shield == 0
-if atk=0 &amp;&amp; ready&lt;=0 &amp;&amp; enable=1 //Player dies if there are no rings
-{
-ground = 0;
-vsp = -5;
-enable = 0;
-action = 9.5;
-audio_play_sound (sndAmyHurt, 10, false);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="objSpikeUp">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if global.invincible == false &amp;&amp; global.superstate == 0 &amp;&amp; global.rings &gt; 0
-{
-if atk=0 &amp;&amp; ready&lt;=0 &amp;&amp; enable=1
-{
-{
-ready=200
-action=9
-audio_play_sound (sndAmyHurt, 10, false)
-
-if global.shield == 0 &amp;&amp; global.rings &gt; 0
-{
-    audio_play_sound (sndRingLose, 10, false)
-    
-    if global.rings &lt;= 32 scrLoseRings(global.rings,x,y,objLoseRing) else scrLoseRings(32,x,y,objLoseRing)
-    
-    global.rings = 0;
-}
-else
-{
-    if global.shield == 1 or global.shield == 2 or (global.shield == 3 &amp;&amp; global.shieldhits = 1)
-        global.shield = 0
-    else if global.shield == 3 &amp;&amp; global.shieldhits &gt; 1
-         global.shieldhits -= 1;
-}
-
-ground=0
-vsp=-5
-enable=0
-}
-}
-}
-else if global.rings == 0 &amp;&amp; global.shield == 0
-if atk=0 &amp;&amp; ready&lt;=0 &amp;&amp; enable=1 //Player dies if there are no rings
-{
-ground = 0;
-vsp = -5;
-enable = 0;
-action = 9.5;
-audio_play_sound (sndAmyHurt, 10, false);
-}
+//Gimmmicks and water are placed in their own scripts for easy reference
+scrWater();
+scrGimmicks();
 </string>
           </argument>
         </arguments>
@@ -1191,11 +1012,7 @@ enable=0
 else if global.rings == 0 &amp;&amp; global.shield == 0
 if atk=0 &amp;&amp; ready&lt;=0 &amp;&amp; enable=1 //Player dies if there are no rings
 {
-ground = 0;
-vsp = -5;
-enable = 0;
-action = 9.5;
-audio_play_sound (sndAmyHurt, 10, false);
+instance_change (objAmyHitDie, true);
 }
 </string>
           </argument>
@@ -1253,11 +1070,7 @@ enable=0
 else if global.rings == 0 &amp;&amp; global.shield == 0
 if atk=0 &amp;&amp; ready&lt;=0 &amp;&amp; enable=1 //Player dies if there are no rings
 {
-ground = 0;
-vsp = -5;
-enable = 0;
-action = 9.5;
-audio_play_sound (sndAmyHurt, 10, false);
+instance_change (objAmyHitDie, true);
 }
 </string>
           </argument>
@@ -1462,17 +1275,22 @@ y = global.start_y;
         enable = 1;
     }
 
-    /* -&gt; Walking animation
-    if (abs(hsp)&gt;0 &amp;&amp; abs(hsp)&lt;0 &amp;&amp; ground &amp;&amp; action==0) {
+    // -&gt; Walking animation
+    if (abs(hsp)&gt;0 &amp;&amp; abs(hsp)&lt;4 &amp;&amp; ground &amp;&amp; action==0) {
         animation=1;
-        animations_framemin=7;
-        animations_framemax=13;
-        animations_return=7;
+        animations_framemin=64;
+        animations_framemax=71;
+        animations_return=64;
         animations_speed=12+abs(hsp*3);
         atk=0
+        enable = 1;
+        
+        //Play stepping sound
+        if ground &amp;&amp; (animations_frame == 66 or animations_frame == 71) &amp;&amp; animations_timer == 0
+            audio_play_sound (soundstep, 10, false);
     }
     
-    // -&gt; Jog animation
+    /* -&gt; Jog animation
     if (abs(hsp)&gt;=0 &amp;&amp; abs(hsp)&lt;0 &amp;&amp; ground &amp;&amp; action==0) {
         animation=2;
         animations_framemin=14;
@@ -1483,55 +1301,72 @@ y = global.start_y;
     }*/
     
     // -&gt; Run animation
-    if (abs(hsp)&gt;0 &amp;&amp; abs(hsp)&lt;4 &amp;&amp; ground &amp;&amp; action==0) {
-        animation=1;
+    if (abs(hsp)&gt;4 &amp;&amp; abs(hsp)&lt;9 &amp;&amp; ground &amp;&amp; action==0) {
+        animation=1.5;
         animations_framemin=8;
         animations_framemax=14;
         animations_return=8;
-        animations_speed=20;
+        animations_speed=12+abs(hsp*2);
         atk=0
+        enable = 1;
+        
+        //Play stepping sound
+        if ground &amp;&amp; (animations_frame == 9 or animations_frame == 12) &amp;&amp; animations_timer == 0
+            audio_play_sound (soundstep, 10, false);
     }
     
     // -&gt; Sprint animation
-    if (abs(hsp)&gt;=4 &amp;&amp; abs(hsp)&lt;8 &amp;&amp; ground &amp;&amp; action==0) {
+    if (abs(hsp)&gt;=9 &amp;&amp; abs(hsp)&lt;16 &amp;&amp; ground &amp;&amp; action==0) {
         animation=2;
         animations_framemin=15;
         animations_framemax=22;
         animations_return=15;
-        animations_speed=22;
+        animations_speed=12+abs(hsp*2);
         atk=0
+        enable = 1;
+        
+        //Play stepping sound
+        if ground &amp;&amp; (animations_frame == 16 or animations_frame == 20) &amp;&amp; animations_timer == 0
+            audio_play_sound (soundstep, 10, false);
     }
     
     // -&gt; Dash animation
-    if (abs(hsp)&gt;=8 &amp;&amp; ground &amp;&amp; action==0) {
+    if (abs(hsp)&gt;=16 &amp;&amp; ground &amp;&amp; action==0) {
         animation=3;
         animations_framemin=23;
         animations_framemax=30;
         animations_return=23;
-        animations_speed=24;
+        animations_speed=12+abs(hsp*3);
         atk=0
+        enable = 1;
+        
+        //Play stepping sound
+        if ground &amp;&amp; (animations_frame == 24 or animations_frame == 28) &amp;&amp; animations_timer == 0
+            audio_play_sound (soundstep, 10, false);
     }
 
     // -&gt; Jump animation
-    if (action==1) {
+    if (action==1 or action==tube_action) {
         animation=4;
         animations_framemin=43;
         animations_framemax=46;
         animations_return=43;
-        animations_speed=20;
+        animations_speed=12+abs(hsp);
         atk=1
-        draw_sprite_ext(spr_circleAmy,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_circleAmy)
+        enable = 1;
+        if action == 1 {draw_sprite_ext(spr_circleAmy,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_circleAmy)}
     }
     
-    /* -&gt; Duck animation
+    // -&gt; Duck animation
     if (action==2) {
         animation=7;
-        animations_framemin=55;
-        animations_framemax=59;
-        animations_return=59;
+        animations_framemin=72;
+        animations_framemax=74;
+        animations_return=74;
         animations_speed=30;
         atk=0
-    }*/
+        enable = 1;
+    }
     
     // -&gt; Roll animation
     if (action==3) {
@@ -1539,13 +1374,14 @@ y = global.start_y;
         animations_framemin=47;
         animations_framemax=50;
         animations_return=47;
-        animations_speed=30;
+        animations_speed=12+abs(hsp);
         atk=1
+        enable = 1;
         draw_sprite_ext(spr_circleAmy,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_circleAmy)
     }
     
     // -&gt; Spindash animation
-    if (action==4) {
+    if (action==4.5) {
         animation=6;
         animations_framemin=23;
         animations_framemax=30;
@@ -1553,7 +1389,8 @@ y = global.start_y;
         animations_speed=30+abs(spin*4);
         atk=1
         hsp=0
-        draw_sprite_ext(spr_circleAmy,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_circleAmy)
+        enable = 1;
+        //draw_sprite_ext(spr_circleAmy,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_circleAmy)
     }
     
     /* -&gt; Homing attack animation
@@ -1590,6 +1427,20 @@ y = global.start_y;
         animations_framemax=42;
         animations_return=40;
         animations_speed=30+abs(vsp*2);
+        atk=0
+        enable=1
+        
+    if  ground
+        {action=0}
+    }
+    
+    // -&gt; Fall animation
+    if (action==6.5) {
+        animation=8.5;
+        animations_framemin=75;
+        animations_framemax=87;
+        animations_return=87;
+        animations_speed=22;
         atk=0
         enable=1
         
@@ -1689,6 +1540,7 @@ y = global.start_y;
         animations_return=64;
         animations_speed=30;
         atk=1
+        enable = 1;
        }
        
     // -&gt; Skidding animation
@@ -1699,6 +1551,7 @@ y = global.start_y;
         animations_return=63;
         animations_speed=20;
         atk=0
+        enable = 1;
        }
        // -&gt; Dash ring animation
     if (action==animationDash) {
@@ -1710,23 +1563,55 @@ y = global.start_y;
         atk=1
         enable=1
     }
-    // -&gt; Stomping animation
+    // -&gt; Hammer attack animation
     if (action==14) {
         animation=21;
-        animations_framemin=104;
-        animations_framemax=105;
-        animations_return=104;
-        animations_speed=20;
+        animations_framemin=88;
+        animations_framemax=110;
+        animations_return=110;
+        animations_speed=60;
         atk=1
+        hsp = (2*xdir);
+        enable = 0;
+        
+        if animations_frame == 110 action = 0;
        }
-    // -&gt; Sliding animation
+    // -&gt; Downward attack animation
     if (action==15) {
         animation=22;
-        animations_framemin=106;
-        animations_framemax=109;
-        animations_return=106;
+        animations_framemin=111;
+        animations_framemax=115;
+        animations_return=111;
+        animations_speed=60;
+        atk=1
+        enable = false;
+        hsp = 0;
+        vsp = vspl;
+        
+        if ground
+        {
+            if !bounce
+            {
+                bounce = true;
+                vsp = jmp;
+            }
+            else
+            {
+                action = 0;
+            }
+        }
+       }
+       
+    // -&gt; Rainbow trick animation
+    if (action==animationTrick) {
+        animation=22.5;
+        animations_framemin=116;
+        animations_framemax=124;
+        animations_return=124;
         animations_speed=20;
         atk=1
+        
+        if animations_frame == 124 action = 0;
        }
 
 

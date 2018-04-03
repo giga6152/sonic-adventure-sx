@@ -52,9 +52,6 @@
   </views>
   <instances>
     <instance objName="objStartup" x="-208" y="-144" name="inst_E2F343C6" locked="0" code="" scaleX="1.00174522399902" scaleY="0.896414339542389" colour="4294967295" rotation="0"/>
-    <instance objName="objInitialize" x="0" y="176" name="inst_07B4DBC6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGamepad" x="0" y="144" name="inst_040A5864" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objArrows" x="656" y="48" name="inst_46BD6113" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

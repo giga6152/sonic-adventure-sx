@@ -204,7 +204,7 @@ if room = rmZ2_1rm1M
         <arguments>
           <argument>
             <kind>6</kind>
-            <sound>bgmSuperShadow</sound>
+            <sound>bgmSuperSilver</sound>
           </argument>
         </arguments>
       </action>
@@ -238,7 +238,7 @@ if room = rmZ2_1rm1M
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_stop_sound(bgmSuperShadow);
+            <string>audio_stop_sound(bgmSuperSilver);
 audio_play_sound (sndSilverDie, 10, false);
 
 /*if room = rmZ1_1rm1 or room = rmZ1_1rm2

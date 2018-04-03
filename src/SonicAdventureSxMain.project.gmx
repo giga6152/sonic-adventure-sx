@@ -63,6 +63,7 @@
           <sound>sound\sndSonicOkay</sound>
           <sound>sound\sndSonicWhat</sound>
           <sound>sound\sndSonicYeah</sound>
+          <sound>sound\sndSonicDarkTransform</sound>
         </sounds>
         <sounds name="Shantae">
           <sound>sound\sndShantaeHa</sound>
@@ -105,6 +106,7 @@
           <sound>sound\sndSilverHurt</sound>
           <sound>sound\sndSilverDie</sound>
           <sound>sound\sndSilverHitDie</sound>
+          <sound>sound\sndSilverWitness</sound>
         </sounds>
         <sounds name="Tails">
           <sound>sound\sndTailsJump</sound>
@@ -180,6 +182,8 @@
       <sound>sound\bgmSuperSonic</sound>
       <sound>sound\bgmSuperSonic2</sound>
       <sound>sound\bgmSuperShadow</sound>
+      <sound>sound\bgmSuperSilver</sound>
+      <sound>sound\bgmDarkSonic</sound>
       <sound>sound\bgmCharacterBoss</sound>
       <sound>sound\bgmTailsBoss</sound>
       <sound>sound\bgmSeelkadoomBoss</sound>
@@ -273,6 +277,15 @@
             <sprite>sprites\sprHyperSonicActionsStatic</sprite>
           </sprites>
         </sprites>
+        <sprites name="Dark Sonic">
+          <sprite>sprites\sprite1029</sprite>
+          <sprite>sprites\sprite1032</sprite>
+          <sprite>sprites\sprDarkSonicTransform</sprite>
+          <sprite>sprites\sprDarkSonicActions</sprite>
+          <sprite>sprites\sprDarkSonicAfterImage</sprite>
+          <sprite>sprites\sprDarkSonicAura</sprite>
+          <sprite>sprites\spr_darkcircle</sprite>
+        </sprites>
         <sprites name="Hyper Shantic">
           <sprite>sprites\sprHyperShantic</sprite>
           <sprite>sprites\sprite691</sprite>
@@ -299,6 +312,10 @@
           <sprite>sprites\sprShantaeShoot</sprite>
           <sprite>sprites\sprShantaeShootGunG</sprite>
           <sprite>sprites\sprShantaeShootGunA</sprite>
+          <sprite>sprites\sprShantaeGlide</sprite>
+          <sprite>sprites\sprShantaeStrike</sprite>
+          <sprite>sprites\sprShantaeCannon</sprite>
+          <sprite>sprites\sprShantaeBackdash</sprite>
           <sprite>sprites\sprShantaeClear</sprite>
           <sprite>sprites\sprShantaeHit</sprite>
           <sprite>sprites\sprShantaeHitDie</sprite>
@@ -386,6 +403,15 @@
           <sprite>sprites\spr_circlesilverSuper</sprite>
         </sprites>
       </sprites>
+      <sprites name="Rotty">
+        <sprite>sprites\sprite1047</sprite>
+        <sprite>sprites\sprite1050</sprite>
+        <sprite>sprites\sprite1052</sprite>
+        <sprite>sprites\sprRottytopsStand</sprite>
+        <sprite>sprites\sprRottytopsRun</sprite>
+        <sprite>sprites\sprRottytopsJump</sprite>
+        <sprite>sprites\sprRottytopsFall</sprite>
+      </sprites>
       <sprites name="Tails">
         <sprite>sprites\sprite614</sprite>
         <sprite>sprites\sprite708</sprite>
@@ -397,6 +423,13 @@
         <sprite>sprites\sprTailsClear</sprite>
         <sprite>sprites\sprite786</sprite>
         <sprite>sprites\spr_tailscircle</sprite>
+      </sprites>
+      <sprites name="Vinegar">
+        <sprite>sprites\sprite1045</sprite>
+        <sprite>sprites\sprite1043</sprite>
+        <sprite>sprites\sprite1042</sprite>
+        <sprite>sprites\sprVinegarStand</sprite>
+        <sprite>sprites\sprVinegarWalk</sprite>
       </sprites>
       <sprites name="Amy">
         <sprite>sprites\sprite900</sprite>
@@ -426,6 +459,7 @@
         <sprite>sprites\mskShantaeDuck</sprite>
         <sprite>sprites\mskShantaeModified</sprite>
         <sprite>sprites\mskSky</sprite>
+        <sprite>sprites\mskRottytops</sprite>
         <sprite>sprites\mskMonkey</sprite>
         <sprite>sprites\mskMonkeyBullet</sprite>
         <sprite>sprites\sprShantaeStandWhipBox</sprite>
@@ -647,15 +681,35 @@
       <sprite>sprites\sprEnemyDestroy</sprite>
       <sprite>sprites\sprItemDestroy</sprite>
       <sprites name="Sonic">
-        <sprite>sprites\sprSpinner</sprite>
-        <sprite>sprites\sprRhinotank</sprite>
-        <sprite>sprites\sprCrabmeat</sprite>
-        <sprite>sprites\sprKouraAir</sprite>
-        <sprite>sprites\sprKouraAirSpring</sprite>
-        <sprite>sprites\sprKouraGround</sprite>
-        <sprite>sprites\sprKouraGroundSpring</sprite>
-        <sprite>sprites\sprKuraKura</sprite>
-        <sprite>sprites\sprKuraKuraFlame</sprite>
+        <sprites name="Common">
+          <sprite>sprites\sprSpinner</sprite>
+          <sprites name="Egg Pawns">
+            <sprites name="Normal Egg Pawn">
+              <sprite>sprites\sprEggPawnStand</sprite>
+              <sprite>sprites\sprEggPawnWalk</sprite>
+              <sprite>sprites\sprEggPawnRun</sprite>
+            </sprites>
+            <sprites name="Egg Flapper">
+              <sprite>sprites\sprEggFlapper</sprite>
+            </sprites>
+          </sprites>
+        </sprites>
+        <sprites name="Stage Specific">
+          <sprites name="Emerald Garden">
+            <sprite>sprites\sprRhinotank</sprite>
+            <sprite>sprites\sprCrabmeat</sprite>
+            <sprite>sprites\sprChopper</sprite>
+          </sprites>
+          <sprites name="Lava Filter">
+            <sprite>sprites\sprKouraAir</sprite>
+            <sprite>sprites\sprKouraAirSpring</sprite>
+            <sprite>sprites\sprKouraGround</sprite>
+            <sprite>sprites\sprKouraGroundSpring</sprite>
+            <sprite>sprites\sprKuraKura</sprite>
+            <sprite>sprites\sprKuraKuraFlame</sprite>
+          </sprites>
+        </sprites>
+        <sprite>sprites\sprite1058</sprite>
         <sprite>sprites\sprite683</sprite>
       </sprites>
       <sprites name="Shantae">
@@ -1089,31 +1143,26 @@
           <sprite>sprites\sprLivesCounter</sprite>
           <sprite>sprites\sprLivesCounterSuper</sprite>
           <sprite>sprites\sprLivesCounterHyper</sprite>
+          <sprite>sprites\sprLivesCounterDark</sprite>
           <sprite>sprites\sprLivesCounterHyperShantic</sprite>
           <sprite>sprites\sprite833</sprite>
         </sprites>
         <sprites name="Shantae">
           <sprite>sprites\sprLivesCounter2</sprite>
         </sprites>
-        <sprites name="Tails">
-          <sprite>sprites\sprLivesCounterTails</sprite>
-        </sprites>
-        <sprites name="Sky">
-          <sprite>sprites\sprLivesCounterSky</sprite>
-        </sprites>
         <sprites name="Knuckles">
           <sprite>sprites\sprLivesCounterKnuckles</sprite>
           <sprite>sprites\sprLivesCounterSuperKnuckles</sprite>
         </sprites>
-        <sprites name="Bolo">
-          <sprite>sprites\sprLivesCounterBolo</sprite>
-        </sprites>
-        <sprites name="Amy">
-          <sprite>sprites\sprLivesCounterAmy</sprite>
+        <sprites name="Sky">
+          <sprite>sprites\sprLivesCounterSky</sprite>
         </sprites>
         <sprites name="Shadow">
           <sprite>sprites\sprLivesCounterShadow</sprite>
           <sprite>sprites\sprLivesCounterSuperShadow</sprite>
+        </sprites>
+        <sprites name="Bolo">
+          <sprite>sprites\sprLivesCounterBolo</sprite>
         </sprites>
         <sprites name="Silver">
           <sprite>sprites\sprLivesCounterSilver</sprite>
@@ -1121,6 +1170,15 @@
         </sprites>
         <sprites name="Rotty">
           <sprite>sprites\sprLivesCounterRotty</sprite>
+        </sprites>
+        <sprites name="Tails">
+          <sprite>sprites\sprLivesCounterTails</sprite>
+        </sprites>
+        <sprites name="Vinegar">
+          <sprite>sprites\sprLivesCounterVinegar</sprite>
+        </sprites>
+        <sprites name="Amy">
+          <sprite>sprites\sprLivesCounterAmy</sprite>
         </sprites>
         <sprite>sprites\sprite897</sprite>
         <sprite>sprites\sprite373</sprite>
@@ -1167,6 +1225,8 @@
           <sprite>sprites\sprMagicSealHUD</sprite>
         </sprites>
         <sprites name="Bars">
+          <sprite>sprites\sprDarkBarOut</sprite>
+          <sprite>sprites\sprDarkBarIn</sprite>
           <sprite>sprites\sprBarOut</sprite>
           <sprite>sprites\sprBarIn</sprite>
           <sprite>sprites\sprTimeScore</sprite>
@@ -1243,7 +1303,10 @@
       <sprite>sprites\sprite597</sprite>
       <sprite>sprites\sprite599</sprite>
       <sprite>sprites\sprite598</sprite>
+      <sprite>sprites\sprite1056</sprite>
+      <sprite>sprites\sprite1055</sprite>
       <sprite>sprites\sprite785</sprite>
+      <sprite>sprites\sprite1054</sprite>
     </sprites>
     <sprites name="Models">
       <sprite>sprites\sprNoModel</sprite>
@@ -1300,6 +1363,12 @@
       <sprite>sprites\sprShadowPose</sprite>
       <sprite>sprites\sprSilverPose</sprite>
       <sprite>sprites\sprShanticPose</sprite>
+      <sprite>sprites\sprSuperSonic</sprite>
+      <sprite>sprites\sprSuperKnuckles</sprite>
+      <sprite>sprites\sprSuperShadow</sprite>
+      <sprite>sprites\sprSuperSilver</sprite>
+      <sprite>sprites\sprHyperSonic</sprite>
+      <sprite>sprites\sprDarkSonic</sprite>
       <sprite>sprites\sprMonkeyUnlockedText</sprite>
     </sprites>
     <sprites name="Decorations">
@@ -1469,6 +1538,7 @@
       <sprite>sprites\sprStoryMenu17</sprite>
       <sprite>sprites\sprStoryMenu18</sprite>
       <sprite>sprites\sprStoryMenu19</sprite>
+      <sprite>sprites\sprStoryMenu20</sprite>
       <sprite>sprites\sprTrialStage</sprite>
     </sprites>
     <sprites name="Shop">
@@ -1505,6 +1575,7 @@
     </sprites>
     <sprites name="Save Select">
       <sprite>sprites\sprSaveSelectBG</sprite>
+      <sprite>sprites\sprite1057</sprite>
       <sprite>sprites\sprSaveSelect</sprite>
       <sprite>sprites\sprSaveSlotTemplate</sprite>
       <sprite>sprites\sprSaveSlotBorder</sprite>
@@ -1529,10 +1600,10 @@
       <sprite>sprites\sprMenuText</sprite>
       <sprite>sprites\sprMenuArrowL</sprite>
       <sprite>sprites\sprMenuArrowR</sprite>
-      <sprite>sprites\sprMenuCharacters</sprite>
       <sprite>sprites\sprDemoCharacters</sprite>
       <sprite>sprites\sprDemoMenu</sprite>
       <sprite>sprites\sprDemoPick</sprite>
+      <sprite>sprites\sprMenuCharacters</sprite>
     </sprites>
     <sprites name="Options Menu">
       <sprite>sprites\sprOptionFullscreen</sprite>
@@ -1605,6 +1676,7 @@
     <backgrounds name="Menus">
       <backgrounds name="File Select BG">
         <background>background\bgFileSelect</background>
+        <background>background\background58</background>
         <background>background\bgFileSelect2</background>
         <background>background\bgFileSelect3</background>
         <background>background\bgFileSelect4</background>
@@ -1614,6 +1686,13 @@
       <background>background\bgTitleScreenM</background>
       <background>background\bgTitleScreenM2</background>
       <background>background\bgStorySelect</background>
+      <background>background\background53</background>
+      <background>background\background54</background>
+      <background>background\background56</background>
+      <background>background\background55</background>
+      <background>background\background52</background>
+      <background>background\background57</background>
+      <background>background\background59</background>
     </backgrounds>
     <backgrounds name="Environments">
       <backgrounds name="Stages">
@@ -1663,6 +1742,7 @@
       <script>scripts\scrGeneratePlatform.gml</script>
       <script>scripts\scrExchange.gml</script>
       <script>scripts\scrPsychokinesis.gml</script>
+      <script>scripts\scrOptimize.gml</script>
     </scripts>
     <scripts name="Draw">
       <script>scripts\scrDrawSelf.gml</script>
@@ -1754,6 +1834,9 @@
         <object>objects\objHyperSonicModified</object>
         <object>objects\objHyperSonicAfterImage</object>
         <object>objects\objHyperSonicAfterImage2</object>
+        <object>objects\objDarkSonic</object>
+        <object>objects\objDarkSonicAfterImage</object>
+        <object>objects\objDarkSonicAfterImage2</object>
         <object>objects\objSonic</object>
         <object>objects\objSuperSonic</object>
         <object>objects\objHyperSonic</object>
@@ -1762,12 +1845,14 @@
         <object>objects\objSonicHoming</object>
         <object>objects\objSuperSonicTransform</object>
         <object>objects\objHyperSonicTransform</object>
+        <object>objects\objDarkSonicTransform</object>
         <object>objects\objSonicDie</object>
         <object>objects\objSonicHitDieM</object>
         <object>objects\objSonicHitDie</object>
         <object>objects\objSonicClear</object>
         <object>objects\obj_circle</object>
         <object>objects\obj_supercircle</object>
+        <object>objects\obj_darkcircle</object>
         <object>objects\objHomingEffect</object>
         <object>objects\objControl</object>
         <object>objects\objDeactivable</object>
@@ -1838,6 +1923,9 @@
         <object>objects\objSilverHitDie</object>
         <object>objects\objSilverClear</object>
         <object>objects\obj_circlesilverSuper</object>
+      </objects>
+      <objects name="Rotty">
+        <object>objects\objRottytops</object>
       </objects>
       <objects name="Tails">
         <object>objects\objTails</object>
@@ -2086,23 +2174,38 @@
       </objects>
     </objects>
     <objects name="Enemies">
-      <object>objects\objEnemyDestroy</object>
-      <object>objects\objEnemyDestroy2</object>
-      <object>objects\objEnemyParent</object>
-      <object>objects\objEnemyParent2</object>
-      <object>objects\objHarmful</object>
-      <object>objects\objHomingParent</object>
-      <object>objects\objLockParent</object>
+      <objects name="Parents/Effects">
+        <object>objects\objEnemyDestroy</object>
+        <object>objects\objEnemyDestroy2</object>
+        <object>objects\objEnemyParent</object>
+        <object>objects\object939</object>
+        <object>objects\objEnemyParent2</object>
+        <object>objects\objHarmful</object>
+        <object>objects\objHomingParent</object>
+        <object>objects\objLockParent</object>
+      </objects>
       <objects name="Sonic">
-        <object>objects\objSpinner</object>
-        <object>objects\objRhinotank</object>
-        <object>objects\objRhinotankDeactivate</object>
-        <object>objects\objCrabmeat</object>
-        <object>objects\objCrabmeatDeactivate</object>
-        <object>objects\objKuraKura</object>
-        <object>objects\objKuraKuraFlame</object>
-        <object>objects\objKouraAir</object>
-        <object>objects\objKouraGround</object>
+        <objects name="Common">
+          <object>objects\objSpinner</object>
+          <objects name="Egg Pawns">
+            <object>objects\objEggPawn</object>
+          </objects>
+        </objects>
+        <objects name="Stage Specific">
+          <objects name="Emerald Garden">
+            <object>objects\objRhinotank</object>
+            <object>objects\objRhinotankDeactivate</object>
+            <object>objects\objCrabmeat</object>
+            <object>objects\objCrabmeatDeactivate</object>
+            <object>objects\objChopper</object>
+          </objects>
+          <objects name="Lava Filter">
+            <object>objects\objKouraAir</object>
+            <object>objects\objKouraGround</object>
+            <object>objects\objKuraKura</object>
+            <object>objects\objKuraKuraFlame</object>
+          </objects>
+        </objects>
         <object>objects\moveEnemy</object>
       </objects>
       <objects name="Shantae">
@@ -2531,6 +2634,7 @@
             <object>objects\objLivesCounterSky</object>
             <object>objects\objLivesCounterShadow</object>
             <object>objects\objLivesCounterSilver</object>
+            <object>objects\objLivesCounterRotty</object>
             <object>objects\objLivesCounterTails</object>
             <object>objects\objLivesCounterAmy</object>
           </objects>
@@ -2552,6 +2656,7 @@
           <object>objects\objMusicDanceHUD</object>
           <object>objects\objBarDanceHUD</object>
           <object>objects\objBar</object>
+          <object>objects\objDarkBar</object>
         </objects>
       </objects>
       <objects name="Counters">
@@ -2585,6 +2690,7 @@
       </objects>
     </objects>
     <objects name="Title Screen">
+      <object>objects\objTitleController</object>
       <object>objects\objTitleSonic</object>
       <object>objects\objTitleSonic2</object>
       <object>objects\objTitleShantae</object>
@@ -2894,6 +3000,7 @@
       <object>objects\objInventoryBarSmall</object>
     </objects>
     <objects name="Save Select">
+      <object>objects\object936</object>
       <object>objects\objSaveSelectBG</object>
       <object>objects\objSaveFileSelect</object>
       <object>objects\objSaveSelectBorder</object>
@@ -2947,6 +3054,7 @@
       <object>objects\objTitleScreen</object>
       <object>objects\objAnimatedBackground</object>
       <object>objects\objBackgroundControl</object>
+      <object>objects\objBackgroundControl2</object>
       <object>objects\objMainMenu</object>
       <object>objects\objShantaeSelect</object>
       <object>objects\objLagControl</object>
@@ -2977,9 +3085,11 @@
   </objects>
   <rooms name="rooms">
     <rooms name="Intros">
+      <room>rooms\rmInitialize</room>
       <room>rooms\rmIntro</room>
       <room>rooms\rmPresent</room>
       <room>rooms\rmControls</room>
+      <room>rooms\room266</room>
       <room>rooms\rmTitleScreenModified</room>
       <room>rooms\rmTitleScreenModified2</room>
       <room>rooms\rmTitlescreenDemo</room>
@@ -3073,6 +3183,8 @@
           <room>rooms\rmZ1_1Arm1</room>
           <room>rooms\rmZ1_1Arm2</room>
           <room>rooms\rmZ1_BA</room>
+          <room>rooms\rmZ1_1Arm1M</room>
+          <room>rooms\rmZ1_1Arm2M</room>
         </rooms>
       </rooms>
       <rooms name="Scuttle Town">

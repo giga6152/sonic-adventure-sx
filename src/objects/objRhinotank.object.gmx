@@ -28,6 +28,8 @@
             <string>image_xscale = -1;
 image_speed = 0.16;
 ground = true;
+hp = 1;
+invulnerable = false;
 </string>
           </argument>
         </arguments>
@@ -50,7 +52,9 @@ ground = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x += image_xscale * 2;
+            <string>event_inherited();
+
+x += image_xscale * 2;
 
 //Gravity
 if (place_meeting(x, y+vspeed+1, objWall) &amp;&amp; vspeed &gt;= 0)

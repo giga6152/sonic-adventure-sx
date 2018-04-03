@@ -48,6 +48,24 @@
     case 10:
         sprite_index = sprStoryMenu7;
     break;
+    case 13:
+        sprite_index = sprStoryMenu15;
+    break;
+    case 14:
+        sprite_index = sprStoryMenu16;
+    break;
+    case 15:
+        sprite_index = sprStoryMenu17;
+    break;
+    case 16:
+        sprite_index = sprStoryMenu18;
+    break;
+    case 17:
+        sprite_index = sprStoryMenu19;
+    break;
+    case 18:
+        sprite_index = sprStoryMenu20;
+    break;
 }
 </string>
           </argument>

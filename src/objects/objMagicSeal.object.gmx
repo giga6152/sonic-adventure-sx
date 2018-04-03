@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>image_speed = 0.16;
+audio_stop_all();
+audio_play_sound (sndMagicSeal, 10, true);
 </string>
           </argument>
         </arguments>

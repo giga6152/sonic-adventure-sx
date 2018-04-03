@@ -178,7 +178,7 @@ if global.seconds == 60
     global.minutes += 1;
 }
 
-if room == rmZ1_1rm2 or room == rmZ1_1Krm2M or room == rmZ1_1Arm2
+if room == rmZ1_1rm2 or room == rmZ1_1Krm2M or room == rmZ1_1Shrm2 or room == rmZ1_1Slrm2 or room == rmZ1_1Trm2 or room == rmZ1_1Arm2
 {
     if global.mil &lt; 150000
         global.timeBonus = 45000;
@@ -208,7 +208,7 @@ if room == rmZ1_B or room == rmZ1_BK or room == rmZ1_BA
     else if global.mil &gt;= 165000
         global.timeBonus = 0;
 }
-if room == rmZ2_1rm2M or room == rmZ2_1Krm2M or room == rmZ2_1Arm2
+if room == rmZ2_1rm2M or room == rmZ2_1Krm2M or room == rmZ2_1Shrm2 or room == rmZ2_1Slrm2
 {
     if global.mil &lt; 210000
         global.timeBonus = 45000;

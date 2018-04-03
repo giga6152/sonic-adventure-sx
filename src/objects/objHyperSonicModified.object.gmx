@@ -165,6 +165,11 @@
     tube_action = 19;
     
     deathobj = objSonicHitDieM;
+    hyperflash_action = 14;
+    hyperflash_timer = 85;
+    
+    airSpecial = 99;
+    groundSpecial = 99;
 </string>
           </argument>
         </arguments>
@@ -536,6 +541,7 @@ if y &lt; 5
    KEY_A        = keyboard_check_pressed(ord('Z')); //This has been changed to fit certain actions
    KEY_B        = keyboard_check_pressed(ord('X'));
    KEY_BH       = keyboard_check (ord("X")); //The attack button held down
+   KEY_C        = keyboard_check_pressed(ord('C'));
    }
    else
    {
@@ -544,6 +550,9 @@ if y &lt; 5
    KEY_UP       = 0
    KEY_DOWN     = 0
    KEY_A        = 0
+   KEY_B        = 0
+   KEY_BH        = 0
+   KEY_C        = 0
    }
    //Setup shortcut varibles
    enemy=instance_nearest(x,y,objHomingParent)
@@ -560,8 +569,10 @@ if y &lt; 5
    }
    
    //Depth control
-   if dead=0
+   if dead=0 &amp;&amp; action != hyperflash_action
    {depth=layer}
+   else if action == hyperflash_action
+    depth = -10001;
    
    //View control. This view will follow player until player dies
 
@@ -898,6 +909,26 @@ if hsp != 0 or vsp != 0 or speed != 0
         instance_create (x, y, objHyperSonicAfterImage);
         machTimer = 5;
     }
+}
+
+//Hyperflash (destroys all enemies on screen, this replaces the stomp and slide.)
+if KEY_C &amp;&amp; !ground &amp;&amp; (action == 1 or action == 6)
+{
+    action = hyperflash_action;
+    audio_play_sound (sndSonicYeah, 10, false);
+}
+if animations_frame == 61 &amp;&amp; action == hyperflash_action
+{
+    if !instance_exists (objWhiteBlast)
+        instance_create (view_xview[0], view_yview[0], objWhiteBlast);
+}
+if action == hyperflash_action
+    hyperflash_timer -= 1;
+if hyperflash_timer &lt;= 0
+{
+    action = 0;
+    if ground
+        hyperflash_timer = 85;
 }
 
 //Gimmick properties. These are set in seperate scripts for easy reference.
@@ -1263,6 +1294,7 @@ instance_create (0, 0, objScore);
         animations_return=6;
         animations_speed=12+abs(hsp);
         atk=1
+        enable = 1;
     }
 
     // -&gt; Jump animation
@@ -1273,6 +1305,7 @@ instance_create (0, 0, objScore);
         animations_return=10;
         animations_speed=18+abs(hsp);
         atk=1
+        enable = 1;
         if action == 1 {draw_sprite_ext(spr_supercircle,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_supercircle)}
     }
     
@@ -1284,6 +1317,7 @@ instance_create (0, 0, objScore);
         animations_return=59;
         animations_speed=30;
         atk=1
+        enable = 1;
     }
     
     // -&gt; Roll animation
@@ -1294,6 +1328,7 @@ instance_create (0, 0, objScore);
         animations_return=14;
         animations_speed=30;
         atk=1
+        enable = 1;
         draw_sprite_ext(spr_supercircle,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_supercircle)
     }
     
@@ -1306,6 +1341,7 @@ instance_create (0, 0, objScore);
         animations_speed=30+abs(spin*4);
         atk=1
         hsp=0
+        enable = 1;
         if action==4 {draw_sprite_ext(spr_supercircle,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_supercircle)}
     }
     
@@ -1317,6 +1353,7 @@ instance_create (0, 0, objScore);
         animations_return=18;
         animations_speed=30;
         atk=1
+        enable = 1;
         
     if  vsp&lt;4 &amp;&amp; ground=0
         {draw_sprite_ext(spr_supercircle,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_supercircle)}
@@ -1327,7 +1364,7 @@ instance_create (0, 0, objScore);
     
     // -&gt; Bounce up animation
     if (action==6 &amp;&amp; vsp&lt;0) {
-        animation=6;
+        animation=6.5;
         animations_framemin=20;
         animations_framemax=20;
         animations_return=20;
@@ -1338,7 +1375,7 @@ instance_create (0, 0, objScore);
 
     // -&gt; Fall animation
     if (action==6 &amp;&amp; vsp&gt;=0) {
-        animation=7;
+        animation=7.5;
         animations_framemin=21;
         animations_framemax=26;
         animations_return=26;
@@ -1358,6 +1395,7 @@ instance_create (0, 0, objScore);
         animations_return=34;
         animations_speed=30;
         atk=1
+        enable = 1;
         draw_sprite_ext(spr_supercircle,0,x,y,1.4,1.4,0,c_white,0.5)
         
     if  ground
@@ -1372,6 +1410,7 @@ instance_create (0, 0, objScore);
         animations_return=35;
         animations_speed=30+abs(hsp*2);
         atk=1
+        enable = 1;
                 
     if  abs(vsp)&gt;0
         {action=0}
@@ -1426,6 +1465,7 @@ instance_create (0, 0, objScore);
         animations_return=18;
         animations_speed=30;
         atk=1
+        enable = 1;
        }
        
     // -&gt; Skidding
@@ -1436,6 +1476,7 @@ instance_create (0, 0, objScore);
         animations_return=34;
         animations_speed=20;
         atk=1
+        enable = 1;
        }
        
     // -&gt; Homing attack animation
@@ -1446,6 +1487,7 @@ instance_create (0, 0, objScore);
         animations_return=18;
         animations_speed=30;
         atk=1
+        enable = 1;
     }
     // -&gt; Homing attack bounce animation
     if (action==animationTrick) {
@@ -1459,6 +1501,19 @@ instance_create (0, 0, objScore);
         
     if  animations_frame == 34
         {action=6}
+    }
+    
+    //Hyperflash animation
+    if (action==hyperflash_action) {
+        animation=9;
+        animations_framemin=60;
+        animations_framemax=61;
+        animations_return=60;
+        animations_speed=30;
+        atk=1
+        enable = 0;
+        hsp = 0;
+        vsp = 0;
     }
     
      //Skydive Animation

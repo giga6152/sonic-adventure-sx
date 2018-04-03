@@ -179,6 +179,8 @@
     
     global.face = xdir;
     shot_dummy = false;
+    
+    tube_action = 22;
 </string>
           </argument>
         </arguments>
@@ -359,8 +361,8 @@ if y &lt; 5
    if action == 14 vspl = 20; else vspl = 13;
    if action == 15 dcc = 0.2; else dcc = 0.1;
    
-   if mach == false hspl = 19; else hspl = 38;
-   if mach == false hspm = 13; else hspm = 26;
+   if mach == false hspl = 17; else hspl = 28;
+   if mach == false hspm = 11; else hspm = 21.5;
    
    // Limit the values of the movement
    if (hsp&gt;hspl)     hsp = hspl;
@@ -1427,7 +1429,7 @@ y = global.start_y;
     }
 
     // -&gt; Jump animation
-    if (action==1) {
+    if (action==1 or action==tube_action) {
         animation=6;
         animations_framemin=32;
         animations_framemax=35;
@@ -1435,7 +1437,7 @@ y = global.start_y;
         animations_speed=20;
         atk=1
         audio_stop_sound (sndTailspin);
-        draw_sprite_ext(spr_tailscircle,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_tailscircle)
+        if action == 1 {draw_sprite_ext(spr_tailscircle,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_tailscircle)}
     }
     
     // -&gt; Duck animation

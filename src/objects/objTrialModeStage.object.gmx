@@ -85,10 +85,18 @@ option = 0;
                     case 4: room_goto (rmTitlecard1Sh); break;
                     case 6: room_goto (rmTitlecard1Sl); break;
                     case 8: room_goto (rmTitlecard1T); break;
+                    case 10: room_goto (rmTitlecard1A); break;
+                    
+                    case 13: room_goto (rmTitlecard1); break;
+                    case 14: room_goto (rmTitlecard1K); break;
+                    case 15: room_goto (rmTitlecard1Sh); break;
+                    case 16: room_goto (rmTitlecard1Sl); break;
+                    case 17: room_goto (rmTitlecard1); break;
+                    case 18: room_goto (rmTitlecard1); break;
                 }
             break;
             case 1:
-                room_goto (rmTitlecard1S);
+                room_goto (rmTest2);
             break;
         }
     break;
@@ -102,6 +110,13 @@ option = 0;
                     case 2: room_goto (rmTitlecard2K); break;
                     case 4: room_goto (rmTitlecard2Sh); break;
                     case 6: room_goto (rmTitlecard2Sl); break;
+                    
+                    case 13: room_goto (rmTitlecard2); break;
+                    case 14: room_goto (rmTitlecard2K); break;
+                    case 15: room_goto (rmTitlecard2Sh); break;
+                    case 16: room_goto (rmTitlecard2Sl); break;
+                    case 17: room_goto (rmTitlecard2); break;
+                    case 18: room_goto (rmTitlecard2); break;
                 }
             break;
             case 3:
@@ -132,7 +147,7 @@ option = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.trialcharacter == 0 or global.trialcharacter == 2 or global.trialcharacter == 4 or global.trialcharacter == 6 or global.trialcharacter == 8 or global.trialcharacter == 10
+            <string>if global.trialcharacter == 0 or global.trialcharacter == 2 or global.trialcharacter == 4 or global.trialcharacter == 6 or global.trialcharacter == 8 or global.trialcharacter == 10 or global.trialcharacter == 13 or global.trialcharacter == 14 or global.trialcharacter == 15 or global.trialcharacter == 16 or global.trialcharacter == 17 or global.trialcharacter == 18
 {
     stage[0] = 0;
     stage[1] = 2;

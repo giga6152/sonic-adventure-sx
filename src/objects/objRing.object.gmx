@@ -78,6 +78,7 @@ if collision_circle (x, y, 25, objPlayer, 0, 1)
 {
     audio_play_sound (sndRing, 10, false);
     global.rings += 1;
+    if instance_exists (objDarkBar) global.dark_energy += 1;
     global.totalrings[global.savedata] += 1;
     global.points += 100;
     instance_destroy();

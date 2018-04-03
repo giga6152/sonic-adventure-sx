@@ -327,8 +327,8 @@ if y &lt; 5
    if dead=0
    {
 
-   if mach == false hspl = 17; else hspl = 22;
-   if mach == false hspm = 11; else hspm = 16;
+   if mach == false hspl = 18; else hspl = 36;
+   if mach == false hspm = 11; else hspm = 24;
    
    // Limit the values of the movement
    if (hsp&gt;hspl)     hsp = hspl;

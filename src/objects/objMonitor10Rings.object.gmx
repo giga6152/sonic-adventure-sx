@@ -80,6 +80,7 @@ audio_play_sound (sndRing, 10, false);
           <argument>
             <kind>1</kind>
             <string>global.rings += 10;
+if instance_exists (objDarkBar) global.dark_energy += 10;
 global.totalrings[global.savedata] += 10;
 global.points += 1000;
 instance_destroy();

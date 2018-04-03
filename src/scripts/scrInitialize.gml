@@ -183,6 +183,7 @@ global.windowHeight = 480;
 global.invincible = false;
 global.canGoSuper = false;
 global.canGoHyper = false;
+global.canGoDark = false;
 global.start_x = -1;
 global.start_y = -1;
 global.playerspawnx = -1;

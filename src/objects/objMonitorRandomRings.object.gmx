@@ -161,6 +161,7 @@ switch myAmount
             <string>audio_play_sound (sndBreakBox, 10, false);
 audio_play_sound (sndRing, 10, false);
 global.rings += 20;
+if instance_exists (objDarkBar) global.dark_energy += 20;
 global.totalrings[global.savedata] += 20;
 global.points += 2000;
 instance_destroy();

@@ -539,16 +539,6 @@
     <instance objName="objRing" x="6832" y="3328" name="inst_9CB6A647" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objButton2" x="6904" y="3328" name="inst_DAF3B529" locked="0" code="buttonID = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objButton2" x="5644" y="2944" name="inst_8E559FFC" locked="0" code="buttonID = 2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="6296" y="2776" name="inst_EB02BCC5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="6320" y="2776" name="inst_33500A02" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="6344" y="2776" name="inst_CC85CB72" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="6368" y="2776" name="inst_E1A77DE9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="6392" y="2776" name="inst_11DCF2D6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="6416" y="2776" name="inst_D465624B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="6440" y="2776" name="inst_7835EA5F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="6464" y="2776" name="inst_59FDF2C0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="6488" y="2776" name="inst_1FC14078" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="6512" y="2776" name="inst_4231D1E1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objLightRing" x="6536" y="2776" name="inst_3C36CEDB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objLightRing" x="6560" y="2776" name="inst_46AC07F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objLightRing" x="6584" y="2776" name="inst_39DB52DC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -620,7 +610,6 @@
     <instance objName="objRing" x="5864" y="2944" name="inst_71463441" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMonitor10Rings" x="5524" y="2944" name="inst_4984EFE5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMonitorShieldRed" x="5560" y="2944" name="inst_A0C6BC29" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLightRing" x="6272" y="2776" name="inst_98340E8C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object845" x="1208" y="3032" name="inst_E8E81C75" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object845" x="1208" y="3160" name="inst_4D13551C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBrickHor" x="7420" y="2968" name="inst_50823F9F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

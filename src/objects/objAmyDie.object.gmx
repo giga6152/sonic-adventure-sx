@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-3</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>objDeadPlayer</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -33,7 +33,6 @@ image_angle = 0;
 global.shield = 0;
 global.superstate = 0;
 global.invincible = false;
-
 audio_play_sound (sndAmyFall, 10, false);
 </string>
           </argument>
@@ -89,10 +88,10 @@ audio_play_sound (sndAmyFall, 10, false);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_stop_all();
+            <string>audio_stop_sound(bgmInvincible);
 audio_play_sound (sndAmyFall, 10, false);
 
-if room = rmZ1_1rm1 or room = rmZ1_1rm2
+/*if room = rmZ1_1rm1 or room = rmZ1_1rm2
     audio_play_sound (bgmEmeraldGarden, 10, true);
 </string>
           </argument>
@@ -162,10 +161,10 @@ if room = rmZ1_1rm1 or room = rmZ1_1rm2
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_stop_all();
+            <string>audio_stop_sound(bgmSpeedup);
 audio_play_sound (sndAmyFall, 10, false);
 
-if room = rmZ1_1rm1 or room = rmZ1_1rm2
+/*if room = rmZ1_1rm1 or room = rmZ1_1rm2
     audio_play_sound (bgmEmeraldGarden, 10, true);
 </string>
           </argument>
@@ -235,10 +234,10 @@ if room = rmZ1_1rm1 or room = rmZ1_1rm2
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_stop_all();
-audio_play_sound (sndSonicUhh, 10, false);
+            <string>audio_stop_sound(bgmSuperSonic);
+audio_play_sound (sndAmyFall, 10, false);
 
-if room = rmZ1_1rm1 or room = rmZ1_1rm2
+/*if room = rmZ1_1rm1 or room = rmZ1_1rm2
     audio_play_sound (bgmEmeraldGarden, 10, true);
 </string>
           </argument>

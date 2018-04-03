@@ -52,7 +52,34 @@ image_speed = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>room_goto (rmTrialStage);
+            <string>room_goto (rmTrialStage); //Go to the stage select screen
+
+//If a super character has been chosen, set the variables.
+
+if global.trialcharacter &gt;= 18 //If Dark Sonic was selected
+{
+    global.canGoSuper = false;
+    global.canGoHyper = false;
+    global.canGoDark = true;
+}
+else if global.trialcharacter &gt; 16 &amp;&amp; global.trialcharacter &lt; 18 //If Hyper Sonic was selected
+{
+    global.canGoSuper = true;
+    global.canGoHyper = true;
+    global.canGoDark = false;
+}
+else if global.trialcharacter &gt; 12 &amp;&amp; global.trialcharacter &lt; 17 //If one of the super characters was selected
+{
+    global.canGoSuper = true;
+    global.canGoHyper = false;
+    global.canGoDark = false;
+}
+else if global.trialcharacter &lt;= 12 //If any other character was selected
+{
+    global.canGoSuper = false;
+    global.canGoHyper = false;
+    global.canGoDark = false;
+}
 </string>
           </argument>
         </arguments>
@@ -181,23 +208,30 @@ global.character = option;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if !instance_exists (objFade)
+            <string>if background_index[0] == background59
+{
+    background_y[0] = view_yview[0];
+}
+
+if !instance_exists (objFade)
 {
     if keyboard_check_pressed (vk_down)
     {
-        audio_play_sound (sndMenuNavigate, 10, false);
+        if !audio_is_playing (sndMenuNavigate)
+            audio_play_sound (sndMenuNavigate, 10, false);
         
         option += 1;
-        if option &gt; 12
+        if option &gt; 18
            option = 0;
     }
     if keyboard_check_pressed (vk_up)
     {
-        audio_play_sound (sndMenuNavigate, 10, false);
+        if !audio_is_playing (sndMenuNavigate)
+            audio_play_sound (sndMenuNavigate, 10, false);
         
         option -= 1;
         if option &lt; 0
-           option = 12;
+           option = 18;
     }
     if keyboard_check_pressed (vk_enter) or keyboard_check_pressed (ord("Z"))
     {

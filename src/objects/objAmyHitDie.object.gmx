@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>objDeadPlayer</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,9 +25,23 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed = 0.16;
-audio_play_sound (sndAmyDie, 10, false);
-hsp = 0;
+            <string>audio_play_sound (sndAmyDie, 10, false);
+frame = 0;
+framespeed = 0.16;
+vsp = -5;
+vfr = 0.25;
+xdir = global.face;
+hsp = -xdir*2;
+
+ground = false;
+global.superstate = 0;
+layer = 0;
+angle = 0;
+
+cosine = 1;
+sine = 0;
+
+action = 0;
 </string>
           </argument>
         </arguments>
@@ -82,9 +96,9 @@ hsp = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_stop_all();
+            <string>audio_stop_sound(bgmInvincible);
 
-if room = rmZ1_1rm1 or room = rmZ1_1rm2
+/*if room = rmZ1_1rm1 or room = rmZ1_1rm2
     audio_play_sound (bgmEmeraldGarden, 10, true);
 </string>
           </argument>
@@ -154,9 +168,81 @@ if room = rmZ1_1rm1 or room = rmZ1_1rm2
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_stop_all();
+            <string>audio_stop_sound(bgmSpeedup);
 
-if room = rmZ1_1rm1 or room = rmZ1_1rm2
+/*if room = rmZ1_1rm1 or room = rmZ1_1rm2
+    audio_play_sound (bgmEmeraldGarden, 10, true);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>424</id>
+        <kind>2</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>213</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>-1</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_if_sound</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>6</kind>
+            <sound>bgmSuperSonic</sound>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>422</id>
+        <kind>1</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>audio_stop_sound(bgmSuperSonic);
+
+/*if room = rmZ1_1rm1 or room = rmZ1_1rm2
     audio_play_sound (bgmEmeraldGarden, 10, true);
 </string>
           </argument>
@@ -224,6 +310,41 @@ else
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if room != rmZ1_BA
+{
+    instance_deactivate_region (view_xview[0]-32, view_yview[0]-32, view_wview[0]+64, view_hview[0]+64, false, true);
+    instance_activate_region (view_xview[0]-16, view_yview[0]-16, view_wview[0]+32, view_hview[0]+32, true);
+}
+
+instance_activate_object (objHUD);
+instance_activate_object (objBackgroundControl);
+instance_activate_object (objGamepad);
+instance_activate_object (objCamera);
+instance_activate_object (objButton);
+instance_activate_object (objButton2);
+instance_activate_object (objWaterSurface);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -241,7 +362,206 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///scrCollideSlopes();
+            <string>///New script
+if frame &lt; 14 frame += framespeed;
+
+if !ground &amp;&amp; frame &gt; 6
+    frame = 2;
+else if ground &amp;&amp; frame &gt;= 14
+{
+    frame = 8;
+    if alarm[0] &lt; 0 alarm[0] = 40;
+    if !instance_exists (objFade)
+        instance_create (0, 0, objFade);
+}
+
+action = 0;
+
+if x &lt; hspm
+   x = hspm;
+else if x &gt; room_width-hspm
+     x = room_width-hspm;
+if y &lt; 5
+   y = 5;
+      //Activate this script if alive
+   if dead=0
+   {
+
+   //Extra limit checks
+   if action == 14 vspl = 20; else vspl = 13;
+   if action == 15 dcc = 0.2; else dcc = 0.1;
+   
+   if mach == false hspl = 19; else hspl = 38;
+   if mach == false hspm = 13; else hspm = 26;
+   
+   // Limit the values of the movement
+   if (hsp&gt;hspl)     hsp = hspl;
+   if (hsp&lt;-hspl)    hsp = -hspl;
+   if (vsp&gt;vspl)     vsp = vspl;
+
+   //================================================================= 
+   //Horizontal Movement.
+   if (hsp&gt;0) {         // If player is going to the right
+      repeat (hsp) {    // move "horizontal speed" times
+                        // while the sensor is not colliding.
+                        
+          if (scrCollideSensorRight(obstacle_layer | high_layer | low_layer,MaskLarge)) break;
+
+          x+=cosine;
+          y-=sine;
+      }
+   } else if (hsp&lt;0) {  // Same goes for while the player is going to the left
+      repeat (-hsp) {
+          if (scrCollideSensorLeft(obstacle_layer | high_layer | low_layer,MaskLarge)) break;
+      
+          x-=cosine;
+          y+=sine;
+      }
+   }
+
+   //=================================================================   
+   //Vertical Movement. It does the same as the horizontal movement but on the vertical axis.
+   if (vsp&gt;0) {
+      repeat (vsp) {
+          if (scrCollideSensorBottom(obstacle_layer | high_layer | low_layer,MaskLarge)) break;  
+          y+=1;
+      }
+   } else if (vsp&lt;0) {
+      repeat (-vsp) {
+          if (scrCollideSensorTop(obstacle_layer | high_layer | low_layer,MaskLarge)) break;  
+          y-=1;
+      }
+      if (scrCollideSensorTop(obstacle_layer | high_layer | low_layer,MaskLarge)) vsp=0;
+   }
+
+   //=================================================================      
+   // Landing. If we are falling and we landed, if the delimiter lines are colliding, search for new angle.
+   if (vsp&gt;=0 &amp;&amp;
+      !ground &amp;&amp;
+      scrCollideSensorBottom(obstacle_layer | high_layer | low_layer,MaskLarge) &amp;&amp;
+      scrCollideSensorRight_line(obstacle_layer | high_layer | low_layer) &amp;&amp;
+      scrCollideSensorLeft_line(obstacle_layer | high_layer | low_layer))
+   {
+         angle=calculate_angle(0,8,obstacle_layer | high_layer | low_layer);
+         cosine=cos(degtorad(angle));
+         sine=sin(degtorad(angle));
+
+         hsp-=sine*vsp;
+         vsp=0;
+         ground=1;
+         //audio_play_sound (sndLand, 10, false);
+
+         if (action==1) action=0;       // If we were jumping, set to normal again
+   }
+
+   //=================================================================
+   // Wall Collisions, if the side masks are colliding, move the player in order to avoid getting stuck.
+   while(scrCollideSensorRight(obstacle_layer | high_layer | low_layer,MaskLarge))
+   {
+      x-=cosine;
+      y+=sine;                                                                                        
+   }
+
+   while(scrCollideSensorLeft(obstacle_layer | high_layer | low_layer,MaskLarge))
+   {
+      x+=cosine;
+      y-=sine;                                                                                        
+   }
+
+   //=================================================================   
+   // Do slopes while we're on the ground.
+   if (ground) {
+      // Slopes up: If the main sensor is colliding with the background, push to up
+      while (scrCollideSensorMain(obstacle_layer | high_layer | low_layer)) {
+          x-=sine;
+          y-=cosine;  
+      }
+
+      // Slopes down: If the main sensor isn't colliding with the background but the slope sensor does, push to down.
+      while (!scrCollideSensorMain(obstacle_layer | high_layer | low_layer) &amp;&amp; scrCollideSensorSlopes(obstacle_layer | high_layer | low_layer,MaskMedium)) {
+          x+=sine;
+          y+=cosine;  
+      }
+   }
+
+   //=================================================================     
+   // Now, check if the delimeter lines aren't colliding while we are on the ground.
+   // If that's true, get impulsed to the air
+   if (ground)
+   {
+        if (!scrCollideSensorLeft_line(obstacle_layer | high_layer | low_layer) || !scrCollideSensorRight_line(obstacle_layer | high_layer | low_layer))
+        {
+            angle=0;
+            vsp=-sine*hsp;
+            hsp=cosine*hsp;
+            ground=0;   
+            cs=1;
+            sn=0;
+        }
+       // Or if the player is too slow and we're on the roof or on a wall, fall
+       if (angle&gt;55 &amp;&amp; angle&lt;305 &amp;&amp; abs(hsp)&lt;5.5)
+       {
+          angle=0;
+          vsp=-sine*hsp;
+          hsp=cosine*hsp;
+          ground=0;
+          cs=1;
+          sn=0;
+        }        
+   }
+
+   //=================================================================   
+   // After moving, get the new angle of the ground while the delimeter lines are colliding
+   // and the player is on the ground.
+   if (ground &amp;&amp; scrCollideSensorLeft_line(obstacle_layer | high_layer | low_layer) &amp;&amp; scrCollideSensorRight_line(obstacle_layer | high_layer | low_layer)) {
+      angle=calculate_angle(angle,8,obstacle_layer | high_layer | low_layer);
+      cosine=cos(degtorad(angle));
+      sine=sin(degtorad(angle));
+   } else {
+      angle=0;
+      cosine=1;
+      sine=0;
+   }
+   
+   //=================================================================   
+   // Return the mask to the normal one
+   sprite_index=MaskMain;
+   mask_index=MaskMain;
+   
+   }//End of dead script
+   
+   // Check for collisions on the sides. If those are true, set the speed to 0.
+   if (scrCollideSensorRight(obstacle_layer | high_layer | low_layer,MaskExtraLarge) &amp;&amp; hsp&gt;0) hsp=0;
+   if (scrCollideSensorLeft(obstacle_layer | high_layer | low_layer,MaskExtraLarge) &amp;&amp; hsp&lt;0) hsp=0;
+       
+   // Now do vertical Movement.
+   if (!ground)
+   {
+     // If we aren't on the ground and we are falling and the bottom sensor is colliding, land
+     if (vsp&gt;=0 &amp;&amp; scrCollideSensorBottom(obstacle_layer | high_layer | low_layer,MaskLarge))
+     {
+        ground=1;
+        vsp=0;
+        if (action==1) action=0;       // If we were jumping, deactivate jump
+        //audio_play_sound (sndLand, 10, false);
+     }
+   } else {
+     // Otherwise, if we are on the ground and the bottom sensor isn't colliding, fall.
+     if (!scrCollideSensorBottom(obstacle_layer | high_layer | low_layer,MaskLarge))    
+     {
+         ground=0;
+     }
+   }
+   
+   if (!ground)
+   {
+     // Apply forces if we are falling
+     vsp+=vfr;   
+   }
+   if ground &amp;&amp; vsp &gt;= 0
+   {
+        hsp = 0;
+   }
 </string>
           </argument>
         </arguments>
@@ -264,9 +584,56 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_index = 8;
+            <string>/*image_index = 8;
 alarm[0] = 40;
 instance_create (0, 0, objFade);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if y &gt; room_height
+    instance_change (objAmyDie, true);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_sprite_ext (sprAmyHitDie, frame, x, y, xdir, 1, angle, c_white, 1);
 </string>
           </argument>
         </arguments>
