@@ -73,10 +73,10 @@
             <kind>1</kind>
             <string>image_angle += 6;
 
-if instance_exists (objShantae)
+if instance_exists (objPlayer)
 {
-    x = objShantae.x;
-    y = objShantae.y;
+    x = objPlayer.x;
+    y = objPlayer.y;
 }
 </string>
           </argument>

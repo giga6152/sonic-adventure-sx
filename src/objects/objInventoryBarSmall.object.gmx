@@ -77,24 +77,16 @@ alarm[0] = room_speed * 3;
     x = objShantae.x-20;
     y = objShantae.y-80;   
 
-    if objShantae.itemselection == 0
-       image_index = 0;
-    if objShantae.itemselection == 1
-       image_index = 1;
-    if objShantae.itemselection == 2
-       image_index = 2;
-    if objShantae.itemselection == 3
-       image_index = 3;
-    if objShantae.itemselection == 4
-       image_index = 4;
-    if objShantae.itemselection == 5
-       image_index = 5;
-    if objShantae.itemselection == 6
-       image_index = 6;
-    if objShantae.itemselection == 7
-       image_index = 7;
-    if objShantae.itemselection == 8
-       image_index = 8;
+    sprite_index = sprInventoryBarSmall;
+    image_index = objShantae.itemselection;
+}
+else if instance_exists (objRottytops)
+{
+    x = objRottytops.x-20;
+    y = objRottytops.y-80;   
+
+    sprite_index = sprInventoryBarSmallR;
+    image_index = objRottytops.itemselection;
 }
 </string>
           </argument>

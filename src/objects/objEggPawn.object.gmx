@@ -28,7 +28,7 @@
             <string>hspeed = 0;
 alarm[0] = irandom_range (50, 62);
 state = 0;
-hp = 2;
+hp = 3;
 can_attack = true;
 image_xscale = 1;
 invulnerable = false;
@@ -36,6 +36,10 @@ ready = 0;
 blink = 10;
 image_speed = 0.16;
 delay = 30;
+ledge = false;
+ledge_old = ledge;
+switch_xscale = false;
+display = 120;
 </string>
           </argument>
         </arguments>
@@ -82,7 +86,6 @@ delay = 30;
           <argument>
             <kind>1</kind>
             <string>can_attack = true;
-invulnerable = false;
 </string>
           </argument>
         </arguments>
@@ -131,8 +134,9 @@ sprite_index = sprEggPawnStand;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if state == 0
+            <string>if state == 0 &amp;&amp; !ledge
 {
+    switch_xscale = false;
     hspeed = image_xscale;
     alarm[1] = 135;
     sprite_index = sprEggPawnWalk;
@@ -159,48 +163,48 @@ sprite_index = sprEggPawnStand;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
+            <string>event_inherited(); //Calls the step event of the enemy parent for easy reference
 
-var in_range, within_range, distance, player;
-distance = distance_to_object (objPlayer);
-in_range = distance &lt; 100
-within_range = distance &lt; 15
-player = objPlayer;
+var in_range, within_range, distance, player; //Temporary variable setup
+player = objSonicModified; //Variable for the player object
+distance = distance_to_object (player); //Distance set to this function
+in_range = distance &lt; 100 //If the egg pawn is in range
+within_range = distance &lt; 15 //If the egg pawn is close to the player, use an attack
 
-if in_range &amp;&amp; can_attack &amp;&amp; !invulnerable
+if in_range &amp;&amp; can_attack &amp;&amp; !invulnerable &amp;&amp; !ledge //If the player is close, chase the player
 {
     alarm[0] += 1;
     state = 1;
-    if x &gt;= player.x &amp;&amp; delay &lt;= 0
+    switch_xscale = false;
+    
+    if x &gt;= player.x &amp;&amp; delay &lt;= 0 //Check the player position and face them
     {
         image_xscale = -1;
         delay = 30;
     }
-    else if x &lt; player.x &amp;&amp; delay &lt;= 0
+    else if x &lt; player.x &amp;&amp; delay &lt;= 0 //Same goes for the other side
     {
         image_xscale = 1;
         delay = 30;
     }
     
-    sprite_index = sprEggPawnRun;
-    hspeed = (3*image_xscale);
+    sprite_index = sprEggPawnRun; //Set the sprite
+    hspeed = (3*image_xscale); //Set the speed
 }
-else 
+else //Return to standing position
 {
     state = 0;
-    hspeed = 0;
-    sprite_index = sprEggPawnStand;
 }
 
-if player.action == 9 or invulnerable or ready &gt; 0
+if instance_exists (player) &amp;&amp; player.action == 9 or ready &gt; 0 //If the player is hurt or the enemy is hurt, stop attacking
 {
     can_attack = false;
     alarm[2] = 120;
 }
 
-if place_meeting (x, y, player) &amp;&amp; player.atk &amp;&amp; !invulnerable &amp;&amp; ready &lt;= 0
+if instance_exists (player) &amp;&amp; place_meeting (x, y, player) &amp;&amp; player.atk &amp;&amp; !invulnerable &amp;&amp; ready &lt;= 0 //If the player attacks the enemy
 {
-    if global.invincible instance_change (objEnemyDestroy, true);
+    if global.invincible or global.superstate &gt; 0 instance_change (objEnemyDestroy, true);
     else
     {
         blink -= 1;
@@ -208,13 +212,54 @@ if place_meeting (x, y, player) &amp;&amp; player.atk &amp;&amp; !invulnerable &
     }
 }
 
-delay -= 1;
+delay -= 1; //Delay timer for the enemy. Controls him chasing the player
 
 if place_free (x, y+8)
+or place_meeting (x+hspeed+1, y, objWall) &amp;&amp; image_xscale &gt; 0
+or place_meeting (x+hspeed-1, y, objWall) &amp;&amp; image_xscale &lt; 0 //If the egg pawn is touching a wall or close to a ledge, set the variable
 {
+    ledge = true;
+    alarm[0] += 1;
+    if instance_exists (objWall)
+    {
+        if (place_meeting (x+hspeed+1, y, objWall)) or x &gt; instance_nearest (x, y, objWall).x
+            x -= 1;
+        if (place_meeting (x+hspeed-1, y, objWall)) or x &lt; instance_nearest (x, y, objWall).x
+            x += 1;
+    }
+    else
+        x += 0;
+}
+
+if ledge //If the variable is set to true, set it back to false and make him move again.
+{
+    ledge = false;
+    alarm[0] += 1;
+    state = 0;
+    hspeed = 0;
+    
+    if !switch_xscale
+    {
+        image_xscale = -image_xscale;
+        switch_xscale = true;
+    }
+}
+
+/*if place_meeting (x+hspeed+1, y, objWall) &amp;&amp; image_xscale &gt; 0
+{
+    state = 0;
+    image_xscale = -1;
     hspeed = 0;
 }
+if place_meeting (x+hspeed-1, y, objWall) &amp;&amp; image_xscale &lt; 0
+{
+    state = 0;
+    image_xscale = 1;
+    hspeed = 0;
+}*/
+
 if hspeed == 0 sprite_index = sprEggPawnStand;
+if hp &lt;= 0 instance_change (objEnemyDestroy, true);
 </string>
           </argument>
         </arguments>
@@ -238,8 +283,7 @@ if hspeed == 0 sprite_index = sprEggPawnStand;
           <argument>
             <kind>1</kind>
             <string>event_inherited();
-if other.atk &gt; 0 &amp;&amp; !invulnerable audio_play_sound (sndBadnikDestroy, 10, false);
-if other.atk &gt; 0 &amp;&amp; hp &gt; 0 other.hsp = -other.hsp;
+if !invulnerable display = 120;
 </string>
           </argument>
         </arguments>
@@ -266,6 +310,17 @@ if other.atk &gt; 0 &amp;&amp; hp &gt; 0 other.hsp = -other.hsp;
     draw_sprite_ext (sprite_index, image_index, x, y, image_xscale, 1, 0, c_white, 0.5);
 else
     draw_sprite_ext (sprite_index, image_index, x, y, image_xscale, 1, 0, c_white, 1);
+    
+if hp == 2 &amp;&amp; display &gt; 0
+{
+    display --;
+    draw_sprite_ext (sprEnemyHP, 1, x, y-50, 1, 1, 0, c_white, 1);
+}
+else if hp == 1 &amp;&amp; display &gt; 0
+{
+    display --;
+    draw_sprite_ext (sprEnemyHP, 0, x, y-50, 1, 1, 0, c_white, 1);
+}
 </string>
           </argument>
         </arguments>

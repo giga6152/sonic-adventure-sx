@@ -30,5 +30,8 @@
     <frame index="7">images\sprInventoryBarSmall_7.png</frame>
     <frame index="8">images\sprInventoryBarSmall_8.png</frame>
     <frame index="9">images\sprInventoryBarSmall_9.png</frame>
+    <frame index="10">images\sprInventoryBarSmall_10.png</frame>
+    <frame index="11">images\sprInventoryBarSmall_11.png</frame>
+    <frame index="12">images\sprInventoryBarSmall_12.png</frame>
   </frames>
 </sprite>

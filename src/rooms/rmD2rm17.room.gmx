@@ -187,7 +187,7 @@
     <instance objName="objD2Solid2" x="416" y="32" name="inst_B0E9BE9D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objD2Solid2" x="448" y="32" name="inst_A04F116F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSectionMove" x="464" y="240" name="inst_432EA169" locked="0" code="warpRoom = rmShantaeBoss2Cutscene;&#xA;playerbeginx = -1;&#xA;playerbeginy = -1;&#xA;" scaleX="1" scaleY="5" colour="4294967295" rotation="0"/>
-    <instance objName="objMagicSeal" x="224" y="240" name="inst_B90E8496" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objMagicSeal" x="224" y="240" name="inst_B90E8496" locked="0" code="sealID = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objD2Solid2" x="128" y="160" name="inst_A1EA7DB3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>

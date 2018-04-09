@@ -32,7 +32,8 @@ ypl = 0;
 layer = 0;
 ground = true;
 running = true;
-attackStrength = 5;
+attackStrengthDefault = (5+global.hair_power);
+attackStrength = attackStrengthDefault;
 crawling = false;
 ducking = false;
 whipping = false;
@@ -45,7 +46,7 @@ canGetHit = true;
 dancemove = 0;
 danceTimer = 0;
 itemselection = 0;
-itemselectionmax = 7;
+itemselectionmax = 10;
 sprite_old = sprShantaeStand;
 inMaw = false;
 mawshoot = false;
@@ -55,6 +56,8 @@ gunshoot = false;
 gliding = false;
 striking = false;
 backdashing = false;
+monstermilk_timer = 0;
+super_monstermilk_timer = 0;
 
 sprite = sprShantaeStand;
 image = 0;
@@ -72,7 +75,8 @@ steptimer = 10;
 
 instance_change (objShantae, true);
 instance_create (x, y, objShantaeStandWhipBound);
-instance_create (x, y, objCamera);
+
+if room_width &gt; 480 &amp;&amp; room_height &gt; 360 instance_create (x, y, objCamera);
 
 KEY_LEFT = keyboard_check (vk_left) or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
 KEY_RIGHT = keyboard_check (vk_right) or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
@@ -85,6 +89,25 @@ KEY_UP_P = keyboard_check_pressed (vk_up) or (gamepad_axis_value (0, gp_axislv) 
 KEY_DOWN_P = keyboard_check_pressed (vk_down) or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
 
 soundstep = sndStepGrass;
+
+spriteold0 = sprShantaeStand;
+spriteold1 = sprShantaeStand;
+spriteold2 = sprShantaeStand;
+imageold0 = 0;
+imageold1 = 0;
+imageold2 = 0;
+xscaleold0 = 1;
+xscaleold1 = 1;
+xscaleold2 = 1;
+xold0 = x;
+xold1 = x;
+xold2 = x;
+yold0 = y;
+yold1 = y;
+yold2 = y;
+aftertimer0 = 5;
+aftertimer1 = 3;
+aftertimer2 = 1;
 </string>
           </argument>
         </arguments>
@@ -310,6 +333,7 @@ audio_stop_sound (bgmInvincible);
             <string>canMove = true;
 fireball = false;
 sprite_index = sprShantaeStand;
+//image_alpha = 0.5;
 </string>
           </argument>
         </arguments>
@@ -655,7 +679,7 @@ if sprite_index == sprShantaeRun
             <string>///Gravity
 if !inMaw
 {
-    if (place_meeting (x, y+vspeed+1, objSolid2) &amp;&amp; vspeed &gt;= 0) or (place_meeting (x, y+vspeed+1, objTopSolid) &amp;&amp; vspeed &gt;= 0) or (place_meeting (x, y+vspeed+1, objMovingPlatform) &amp;&amp; vspeed &gt;= 0) or (place_meeting (x, y+vspeed+1, objJumpThrough) &amp;&amp; layer == 1 &amp;&amp; vspeed &gt;= 0) 
+    if ((place_meeting (x, y+vspeed+1, objSolid2) &amp;&amp; vspeed &gt;= 0) or (place_meeting (x, y+vspeed+1, objTopSolid) &amp;&amp; vspeed &gt;= 0) or (place_meeting (x, y+vspeed+1, objMovingPlatform) &amp;&amp; vspeed &gt;= 0) or (place_meeting (x, y+vspeed+1, objJumpThrough) &amp;&amp; layer == 1 &amp;&amp; vspeed &gt;= 0)) &amp;&amp; sprite_index != sprShantaeHit
     {
         ground = true;
         gravity = 0;
@@ -673,8 +697,8 @@ if !inMaw
     }
     else if gliding
     {
-        if vspeed &gt; 2
-            vspeed = 2;
+        if vspeed &gt; 1
+            vspeed = 1;
     }
 }
 else
@@ -771,7 +795,7 @@ if sprite_index == sprShantaeDance
 else
     image_speed = 0.33;
 
-if ground == true &amp;&amp; whipping == false &amp;&amp; canMove == true &amp;&amp; fireball == false &amp;&amp; gunshoot == false &amp;&amp; !striking &amp;&amp; !gliding &amp;&amp; !backdashing
+if ground == true &amp;&amp; whipping == false &amp;&amp; canMove == true &amp;&amp; fireball == false &amp;&amp; gunshoot == false &amp;&amp; !striking &amp;&amp; !gliding &amp;&amp; !backdashing &amp;&amp; sprite_index != sprShantaeHit
 {
     if vel == 0 &amp;&amp; ducking == false &amp;&amp; danceTimer == 0
         sprite_index = sprShantaeStand;
@@ -784,13 +808,13 @@ if ground == true &amp;&amp; whipping == false &amp;&amp; canMove == true &amp;&
 }
 else if canMove == false &amp;&amp; !place_meeting (x, y, objSkyTalk) &amp;&amp; image_alpha != 1
     sprite_index = sprShantaeHit;
-else if fireball == true
+else if fireball == true &amp;&amp; sprite_index != sprShantaeHit
 {
      sprite_index = sprShantaeShoot;
      canMove = false;
      vel = 0;
 }
-else if gunshoot == true
+else if gunshoot == true &amp;&amp; sprite_index != sprShantaeHit
 {
     if ground
     {
@@ -805,13 +829,17 @@ else if gunshoot == true
         vel = 0;
     }
 }
-else if backdashing
+else if backdashing &amp;&amp; sprite_index != sprShantaeHit
 {
     sprite_index = sprShantaeBackdash;
     canMove = false;
 }
+else if sprite_index == sprShantaeHit
+{
 
-if ground == false
+}
+
+if ground == false &amp;&amp; sprite_index != sprShantaeHit
 {
     if !gunshoot &amp;&amp; !whipping &amp;&amp; !gliding &amp;&amp; !striking
     {
@@ -843,20 +871,20 @@ else if vel &gt; 0
 if sprite_index == sprShantaeFall &amp;&amp; image_index &gt; 7
     image_index = 4;
 
-if ducking == true &amp;&amp; ground == false &amp;&amp; !gliding &amp;&amp; !striking &amp;&amp; !gunshoot &amp;&amp; !whipping &amp;&amp; vspeed &lt; 0
+if ducking == true &amp;&amp; ground == false &amp;&amp; !gliding &amp;&amp; !striking &amp;&amp; !gunshoot &amp;&amp; !whipping &amp;&amp; vspeed &lt; 0 &amp;&amp; sprite_index != sprShantaeHit
 {
     sprite_index = sprShantaeJump;
     ducking = false;
     crawling = false;
 }
-if ducking == true &amp;&amp; ground == false &amp;&amp; !gliding &amp;&amp; !striking &amp;&amp; !gunshoot &amp;&amp; vspeed &gt;= 0
+if ducking == true &amp;&amp; ground == false &amp;&amp; !gliding &amp;&amp; !striking &amp;&amp; !gunshoot &amp;&amp; vspeed &gt;= 0 &amp;&amp; sprite_index != sprShantaeHit
 {
     sprite_index = sprShantaeFall;
     ducking = false;
     crawling = false;
 }
 
-if (sprite_index == sprShantaeShootGunG or sprite_index == sprShantaeShootGunA) &amp;&amp; image_index &gt; 5
+if (sprite_index == sprShantaeShootGunG or sprite_index == sprShantaeShootGunA) &amp;&amp; image_index &gt; 5 &amp;&amp; sprite_index != sprShantaeHit
 {
     gunshoot = false;
     canMove = true;
@@ -1148,7 +1176,7 @@ if collision_circle (x, y+30, 30, objJumpThrough, 1, 1) &amp;&amp; !collision_ci
             <string>///Priate hat glide
 //Hold the Z key when moving downward
 
-if keyboard_check (ord("Z")) &amp;&amp; !ground &amp;&amp; vspeed &gt;= 0
+if keyboard_check (ord("Z")) &amp;&amp; !ground &amp;&amp; vspeed &gt;= 0 &amp;&amp; sprite_index != sprShantaeHit
 {
     gliding = true;
 }
@@ -1184,6 +1212,88 @@ if ground &amp;&amp; sprite_index == sprShantaeRun &amp;&amp; ((image_index &gt;
     audio_play_sound (soundstep, 10, false);
     steptimer = 10;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Handle timers, items and after images
+if monstermilk_timer &gt; 0 monstermilk_timer -= 1;
+if super_monstermilk_timer &gt; 0 super_monstermilk_timer -= 1;
+    
+if monstermilk_timer &lt;= 0 &amp;&amp; super_monstermilk_timer &lt;= 0
+    attackStrength = attackStrengthDefault;
+else if monstermilk_timer &gt; 0 &amp;&amp; super_monstermilk_timer &lt;= 0
+    attackStrength = (attackStrengthDefault*2);
+else if monstermilk_timer &lt;= 0 &amp;&amp; super_monstermilk_timer &gt; 0
+    attackStrength = (attackStrengthDefault*3);
+    
+aftertimer0 -= 1;
+aftertimer1 -= 1;
+aftertimer2 -= 1;
+
+//After images
+if aftertimer0 &lt;= 0
+{
+    xold0 = x;
+    yold0 = y;
+    spriteold0 = sprite_index;
+    imageold0 = image_index;
+    xscaleold0 = image_xscale;
+    aftertimer0 = 5;
+}
+if aftertimer1 &lt;= 0
+{
+    xold1 = x;
+    yold1 = y;
+    spriteold1 = sprite_index;
+    imageold1 = image_index;
+    xscaleold1 = image_xscale;
+    aftertimer1 = 3;
+}
+if aftertimer2 &lt;= 0
+{
+    xold2 = x;
+    yold2 = y;
+    spriteold2 = sprite_index;
+    imageold2 = image_index;
+    xscaleold2 = image_xscale;
+    aftertimer2 = 1;
+}
+
+/*if hsp == 0 &amp;&amp; vsp == 0 &amp;&amp; vel == 0 &amp;&amp; vspeed == 0
+{
+    xold0 = x;
+    xold1 = x;
+    xold2 = x;
+    yold0 = y;
+    yold1 = y;
+    yold2 = y;
+    spriteold0 = sprite_index;
+    spriteold1 = sprite_index;
+    spriteold2 = sprite_index;
+    imageold0 = image_index;
+    imageold1 = image_index;
+    imageold2 = image_index;
+    xscaleold0 = image_xscale;
+    xscaleold1 = image_xscale;
+    xscaleold2 = image_xscale;
+}*/
 </string>
           </argument>
         </arguments>
@@ -1901,7 +2011,7 @@ if sprite_index == sprShantaeDance //Again, check to see if we are already danci
 }
 
 //Fireball charge shot, allows player to shoot 3 fireballs at once
-if itemselection == 6 &amp;&amp; global.fireballs &gt;= 3
+if itemselection == 6 &amp;&amp; global.fireballs &gt;= 3 &amp;&amp; sprite_index != sprShantaeHit
 {
     firechargeTimer += 1;
     canMove = false;
@@ -1911,6 +2021,8 @@ if itemselection == 6 &amp;&amp; global.fireballs &gt;= 3
         
     //The rest of the code is in the C-Key Released event.
 }
+else if sprite_index == sprShantaeHit
+    firechargeTimer = 0;
 </string>
           </argument>
         </arguments>
@@ -2042,8 +2154,24 @@ y = global.playerspawny;
     sprite_old = sprite_index;
 }
 
+if monstermilk_timer &gt; 0 &amp;&amp; super_monstermilk_timer &lt;= 0
+{
+    draw_sprite_ext (spriteold0, imageold0, xold0, yold0, xscaleold0, 1, 0, make_colour_rgb (254, 109, 109), 1);
+    draw_sprite_ext (spriteold1, imageold1, xold1, yold1, xscaleold1, 1, 0, make_colour_rgb (254, 109, 109), 1);
+    draw_sprite_ext (spriteold2, imageold2, xold2, yold2, xscaleold2, 1, 0, make_colour_rgb (254, 109, 109), 1);
+}
+if monstermilk_timer &lt;= 0 &amp;&amp; super_monstermilk_timer &gt; 0
+{
+    draw_sprite_ext (spriteold0, imageold0, xold0, yold0, xscaleold0, 1, 0, make_colour_rgb (52, 205, 237), 1);
+    draw_sprite_ext (spriteold1, imageold1, xold1, yold1, xscaleold1, 1, 0, make_colour_rgb (52, 205, 237), 1);
+    draw_sprite_ext (spriteold2, imageold2, xold2, yold2, xscaleold2, 1, 0, make_colour_rgb (52, 205, 237), 1);
+}
+
 //draw_text (view_xview[0], view_yview[0], direction);
-draw_sprite_ext (sprite_index, image_index, round(x), round(y), image_xscale, 1, 0, c_white, image_alpha);
+if !canGetHit
+    draw_sprite_ext (sprite_index, image_index, round(x), round(y), image_xscale, 1, 0, c_white, 0.5);
+else if sprite_index != sprShantaeHit
+    draw_sprite_ext (sprite_index, image_index, round(x), round(y), image_xscale, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>
@@ -2077,15 +2205,21 @@ draw_sprite_ext (sprite_index, image_index, round(x), round(y), image_xscale, 1,
        itemselection = 3;
     if itemselection == 3 &amp;&amp; global.autopotions == 0
        itemselection = 4;
-    if itemselection == 4 &amp;&amp; global.pikeballs == 0
+    if itemselection == 4 &amp;&amp; global.monstermilk == 0
        itemselection = 5;
-    if itemselection == 5 &amp;&amp; global.superpikeballs == 0
+    if itemselection == 5 &amp;&amp; global.super_monstermilk == 0
        itemselection = 6;
-    if itemselection == 6 &amp;&amp; global.fireballs == 0
+    if itemselection == 6 &amp;&amp; global.pikeballs == 0
        itemselection = 7;
-    if itemselection == 7 &amp;&amp; global.pirategun == false
+    if itemselection == 7 &amp;&amp; global.superpikeballs == 0
        itemselection = 8;
-    if itemselection == 8 &amp;&amp; global.keys == 0 //&amp;&amp; (global.ringItem == 0 or global.ringItem == 2)
+    if itemselection == 8 &amp;&amp; global.bubbleshields == 0
+       itemselection = 9;
+    if itemselection == 9 &amp;&amp; global.fireballs == 0
+       itemselection = 10;
+    if itemselection == 10 &amp;&amp; !global.pirategun
+       itemselection = 11;
+    if itemselection == 11 &amp;&amp; global.keys == 0
        itemselection = 0;
 }
 
@@ -2120,7 +2254,7 @@ appropriate one, depending on what exactly was being selected.*/
 
 //Here's how it goes.
 
-if itemselection != 0
+if itemselection != 0 &amp;&amp; sprite_index != sprShantaeHit
 {
     switch itemselection
     {
@@ -2128,7 +2262,7 @@ if itemselection != 0
              if global.halfpotions &gt; 0
              {
                  global.halfpotions -= 1;
-                 global.hearts += (global.maxHearts/2);
+                 global.hearts += 4;
                  audio_play_sound (sndHeart, 10, false);
              }
         break;
@@ -2149,22 +2283,48 @@ if itemselection != 0
              }
         break;
         case 4:
-             if !instance_exists (objPikeBall) &amp;&amp; global.pikeballs &gt; 0
+            if monstermilk_timer &lt;= 0 &amp;&amp; super_monstermilk_timer &lt;= 0 &amp;&amp; global.monstermilk &gt; 0
+            {
+                global.monstermilk -= 1;
+                monstermilk_timer = 900;
+                audio_play_sound (sndHeart, 10, false);
+                audio_play_sound (sndShield, 10, false);
+            }
+        break;
+        case 5:
+            if monstermilk_timer &lt;= 0 &amp;&amp; super_monstermilk_timer &lt;= 0 &amp;&amp; global.monstermilk &gt; 0
+            {
+                global.super_monstermilk -= 1;
+                super_monstermilk_timer = 900;
+                audio_play_sound (sndHeart, 10, false);
+                audio_play_sound (sndShield, 10, false);
+            }
+        break;
+        case 6:
+             if !instance_exists (objPikeBall) &amp;&amp; !instance_exists (objSuperPikeBall) &amp;&amp; global.pikeballs &gt; 0
              {
                  global.pikeballs -= 1;
                  instance_create (x, y, objPikeBall);
                  audio_play_sound (sndShield, 10, false);
              }
         break;
-        case 5:
-             if !instance_exists (objSuperPikeBall) &amp;&amp; global.superpikeballs &gt; 0
+        case 7:
+             if !instance_exists (objPikeBall) &amp;&amp; !instance_exists (objSuperPikeBall) &amp;&amp; global.superpikeballs &gt; 0
              {
                  global.superpikeballs -= 1;
                  instance_create (x, y, objSuperPikeBall);
                  audio_play_sound (sndShield, 10, false);
              }
         break;
-        case 6:
+        case 8:
+            if !instance_exists (objBubbleshield) &amp;&amp; global.bubbleshields &gt; 0
+             {
+                 global.bubbleshields -= 1;
+                 instance_create (x, y, objBubbleshield);
+                 audio_play_sound (sndShield, 10, false);
+             }
+        break;
+        case 9:
              if !instance_exists (objFireball) &amp;&amp; global.fireballs &gt; 0 &amp;&amp; ground == true &amp;&amp; fireball == false
              {
                 fireball = true;
@@ -2174,14 +2334,14 @@ if itemselection != 0
                 alarm[7] = 45;
              }
         break;
-        case 7:
+        case 10:
              if vel == 0 &amp;&amp; global.pirategun != false &amp;&amp; !gunshoot &amp;&amp; (instance_number (objBulletGun) &lt; 2)
              {
                 gunshoot = true;
                 instance_create (x, y, objBulletGun);
              }
         break;
-        case 8:
+        case 11:
              /*if place_meeting (x, y, objRingCarve) &amp;&amp; global.ringItem &gt; 0
              {
                 global.ringItem = 2;
@@ -2203,13 +2363,13 @@ if itemselection != 0
 }
 
 //Strike downward attack (cannot have any items selected)
-if itemselection == 0 &amp;&amp; !ground &amp;&amp; !striking &amp;&amp; vspeed &gt;= 0
+if itemselection == 0 &amp;&amp; !ground &amp;&amp; !striking &amp;&amp; vspeed &gt;= 0 &amp;&amp; sprite_index != sprShantaeHit
 {
     striking = true;
     vspeed = 14;
 }
 //Backdash (cannot have any items selected)
-if itemselection == 0 &amp;&amp; ground &amp;&amp; vel != 0 &amp;&amp; !backdashing
+if itemselection == 0 &amp;&amp; ground &amp;&amp; vel != 0 &amp;&amp; !backdashing &amp;&amp; sprite_index != sprShantaeHit
 {
     backdashing = true;
     vel = (3*-image_xscale);
@@ -2247,16 +2407,22 @@ if itemselection == 0 &amp;&amp; ground &amp;&amp; vel != 0 &amp;&amp; !backdash
        itemselection = 1;
     if itemselection == 3 &amp;&amp; global.autopotions == 0
        itemselection = 2;
-    if itemselection == 4 &amp;&amp; global.pikeballs == 0
+    if itemselection == 4 &amp;&amp; global.monstermilk == 0
        itemselection = 3;
-    if itemselection == 5 &amp;&amp; global.superpikeballs == 0
+    if itemselection == 5 &amp;&amp; global.super_monstermilk == 0
        itemselection = 4;
-    if itemselection == 6 &amp;&amp; global.fireballs == 0
+    if itemselection == 6 &amp;&amp; global.pikeballs == 0
        itemselection = 5;
-    if itemselection == 7 &amp;&amp; global.keys == 0
+    if itemselection == 7 &amp;&amp; global.superpikeballs == 0
        itemselection = 6;
-    if itemselection == 8 &amp;&amp; (global.ringItem == 0 or global.ringItem == 2)
+    if itemselection == 8 &amp;&amp; global.bubbleshields == 0
        itemselection = 7;
+    if itemselection == 9 &amp;&amp; global.fireballs == 0
+       itemselection = 8;
+    if itemselection == 10 &amp;&amp; !global.pirategun
+       itemselection = 9;
+    if itemselection == 11 &amp;&amp; global.keys == 0
+       itemselection = 10;
 }
 
 if itemselection &lt; 0

@@ -74,10 +74,8 @@ audio_play_sound (sndMagicSeal, 10, true);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*if assignedSeal == 0
-   global.seal0[global.savedata] = true;
-else if assignedSeal == 1
-     global.seal1 = true;*/
+            <string>if sealID == 0
+    global.seal0[global.savedata] = true;
      
 audio_stop_all();
 audio_play_sound (sndMagicSeal, 10, false);

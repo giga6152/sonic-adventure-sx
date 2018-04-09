@@ -2912,12 +2912,12 @@
     <instance objName="objSonicModified" x="100" y="1496" name="inst_DB6F42B2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objEggPawn" x="9592" y="1772" name="inst_8E89F2A9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objEggPawn" x="9428" y="1772" name="inst_C025F91D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objEggPawn" x="10952" y="1416" name="inst_D649BAA6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objEggPawn" x="15136" y="2104" name="inst_D8160A76" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objEggPawn" x="18572" y="2284" name="inst_02A4A231" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objEggPawn" x="18456" y="2284" name="inst_DEE1E0AD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objEggPawn" x="8164" y="2384" name="inst_38E0BADB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objEggPawn" x="8268" y="2384" name="inst_AA1789A7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objCrabmeat" x="10948" y="1416" name="inst_163E5EB5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

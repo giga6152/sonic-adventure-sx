@@ -314,26 +314,25 @@ with other instance_change (objSonicHitDie, true);
 }
 }*/
 
-if other.atk&gt;0 //&amp;&amp; !invulnerable //If player is attacking, lose hp
+if other.atk&gt;0 //If player is attacking, lose hp
 {
 other.vsp=-8
-hp -= 1;
-//if hp &gt; 0
-//{invulnerable = true; alarm[3] = 120;}
+if !audio_is_playing (sndBadnikDestroy) audio_play_sound (sndBadnikDestroy, 10, false);
+if !invulnerable hp -= 1;
+if hp &gt; 0 &amp;&amp; !invulnerable
+{invulnerable = true; alarm[3] = 15; other.hsp = -other.hsp;}
+if instance_exists (objDarkBar) &amp;&amp; hp &lt;= 0 global.dark_energy += 5;
 
-if other.lock=1 //&amp;&amp; !invulnerable //If player is using homing attack, bounce them off
+if other.lock=1 //If player is using homing attack, bounce them off
 {
 other.action=other.rebounce_action
 other.lock=0
 other.speed=0
-/*hp -= 1;
-if hp &gt; 0 {invulnerable = true; alarm[3] = 120;}
-if hp &lt;= 0 instance_change (objEnemyDestroy, true);
-if instance_exists (objDarkBar) &amp;&amp; hp &lt;= 0 global.dark_energy += 5;*/
+if instance_exists (objDarkBar) &amp;&amp; hp &lt;= 0 global.dark_energy += 5;
 }
 }
 
-if global.invincible == true
+if global.invincible == true or global.superstate &gt; 0
 {instance_change (objEnemyDestroy, true); if instance_exists (objDarkBar) global.dark_energy += 5;}
 </string>
           </argument>

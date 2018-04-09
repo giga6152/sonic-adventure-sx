@@ -9,6 +9,7 @@
     <sounds name="SFX">
       <sounds name="Main">
         <sound>sound\sndSEGA</sound>
+        <sound>sound\sndStartGame</sound>
         <sound>sound\sndJump</sound>
         <sound>sound\sndJumpClassic</sound>
         <sound>sound\sndHoming</sound>
@@ -293,34 +294,39 @@
         </sprites>
       </sprites>
       <sprites name="Shantae">
-        <sprites name="Human form">
-          <sprite>sprites\sprite742</sprite>
-          <sprite>sprites\sprShantaeStand</sprite>
-          <sprite>sprites\sprShantaeWalk</sprite>
-          <sprite>sprites\sprShantaeRun</sprite>
-          <sprite>sprites\sprShantaeJump</sprite>
-          <sprite>sprites\sprShantaeFall</sprite>
-          <sprite>sprites\sprShantaeDuck</sprite>
-          <sprite>sprites\sprShantaeDuckIdle</sprite>
-          <sprite>sprites\sprShantaeCrawl</sprite>
-          <sprite>sprites\sprShantaeStandWhip</sprite>
-          <sprite>sprites\sprShantaeDuckWhip</sprite>
-          <sprite>sprites\sprShantaeJumpWhip</sprite>
-          <sprite>sprites\sprShantaeClimbIdle</sprite>
-          <sprite>sprites\sprShantaeDance</sprite>
-          <sprite>sprites\sprShantaeEnter</sprite>
-          <sprite>sprites\sprShantaeShoot</sprite>
-          <sprite>sprites\sprShantaeShootGunG</sprite>
-          <sprite>sprites\sprShantaeShootGunA</sprite>
-          <sprite>sprites\sprShantaeGlide</sprite>
-          <sprite>sprites\sprShantaeStrike</sprite>
-          <sprite>sprites\sprShantaeCannon</sprite>
-          <sprite>sprites\sprShantaeBackdash</sprite>
-          <sprite>sprites\sprShantaeClear</sprite>
-          <sprite>sprites\sprShantaeHit</sprite>
-          <sprite>sprites\sprShantaeHitDie</sprite>
-          <sprite>sprites\sprite651</sprite>
-          <sprite>sprites\sprite645</sprite>
+        <sprites name="Human Form">
+          <sprites name="Normal Mode">
+            <sprite>sprites\sprite742</sprite>
+            <sprite>sprites\sprShantaeStand</sprite>
+            <sprite>sprites\sprShantaeWalk</sprite>
+            <sprite>sprites\sprShantaeRun</sprite>
+            <sprite>sprites\sprShantaeJump</sprite>
+            <sprite>sprites\sprShantaeFall</sprite>
+            <sprite>sprites\sprShantaeDuck</sprite>
+            <sprite>sprites\sprShantaeDuckIdle</sprite>
+            <sprite>sprites\sprShantaeCrawl</sprite>
+            <sprite>sprites\sprShantaeStandWhip</sprite>
+            <sprite>sprites\sprShantaeDuckWhip</sprite>
+            <sprite>sprites\sprShantaeJumpWhip</sprite>
+            <sprite>sprites\sprShantaeClimbIdle</sprite>
+            <sprite>sprites\sprShantaeDance</sprite>
+            <sprite>sprites\sprShantaeEnter</sprite>
+            <sprite>sprites\sprShantaeShoot</sprite>
+            <sprite>sprites\sprShantaeShootGunG</sprite>
+            <sprite>sprites\sprShantaeShootGunA</sprite>
+            <sprite>sprites\sprShantaeGlide</sprite>
+            <sprite>sprites\sprShantaeStrike</sprite>
+            <sprite>sprites\sprShantaeCannon</sprite>
+            <sprite>sprites\sprShantaeBackdash</sprite>
+            <sprite>sprites\sprShantaeClear</sprite>
+            <sprite>sprites\sprShantaeHit</sprite>
+            <sprite>sprites\sprShantaeHitDie</sprite>
+            <sprite>sprites\sprite651</sprite>
+            <sprite>sprites\sprite645</sprite>
+          </sprites>
+          <sprites name="Magic Mode">
+            <sprite>sprites\sprite1066</sprite>
+          </sprites>
         </sprites>
         <sprites name="Monkey form">
           <sprite>sprites\sprMonkeyStand</sprite>
@@ -411,6 +417,7 @@
         <sprite>sprites\sprRottytopsRun</sprite>
         <sprite>sprites\sprRottytopsJump</sprite>
         <sprite>sprites\sprRottytopsFall</sprite>
+        <sprite>sprites\sprite1072</sprite>
       </sprites>
       <sprites name="Tails">
         <sprite>sprites\sprite614</sprite>
@@ -886,6 +893,7 @@
         <sprite>sprites\sprShieldMagnetic</sprite>
         <sprite>sprites\sprShieldRed</sprite>
         <sprite>sprites\sprInvincible</sprite>
+        <sprite>sprites\sprBubbleshield</sprite>
       </sprites>
       <sprites name="Emeralds">
         <sprites name="Chaos Emeralds">
@@ -1149,6 +1157,7 @@
         </sprites>
         <sprites name="Shantae">
           <sprite>sprites\sprLivesCounter2</sprite>
+          <sprite>sprites\sprite1065</sprite>
         </sprites>
         <sprites name="Knuckles">
           <sprite>sprites\sprLivesCounterKnuckles</sprite>
@@ -1234,6 +1243,7 @@
           <sprite>sprites\sprite1017</sprite>
           <sprite>sprites\sprite1013</sprite>
         </sprites>
+        <sprite>sprites\sprEnemyHP</sprite>
         <sprite>sprites\sprMusicDanceHUD</sprite>
         <sprite>sprites\sprBarDanceHUD</sprite>
         <sprite>sprites\sprite959</sprite>
@@ -1571,7 +1581,10 @@
     <sprites name="Inventory">
       <sprite>sprites\sprInventoryWindow</sprite>
       <sprite>sprites\sprInventoryBar</sprite>
+      <sprite>sprites\sprite1069</sprite>
       <sprite>sprites\sprInventoryBarSmall</sprite>
+      <sprite>sprites\sprInventoryBarSmallR</sprite>
+      <sprite>sprites\sprite1068</sprite>
     </sprites>
     <sprites name="Save Select">
       <sprite>sprites\sprSaveSelectBG</sprite>
@@ -2178,8 +2191,8 @@
         <object>objects\objEnemyDestroy</object>
         <object>objects\objEnemyDestroy2</object>
         <object>objects\objEnemyParent</object>
-        <object>objects\object939</object>
         <object>objects\objEnemyParent2</object>
+        <object>objects\objEnemyProjectile</object>
         <object>objects\objHarmful</object>
         <object>objects\objHomingParent</object>
         <object>objects\objLockParent</object>
@@ -2310,6 +2323,7 @@
         <object>objects\objShieldMagnetic</object>
         <object>objects\objShieldRed</object>
         <object>objects\objInvincible</object>
+        <object>objects\objBubbleshield</object>
       </objects>
       <objects name="Jars">
         <object>objects\objItemParent</object>
@@ -2652,6 +2666,7 @@
           <object>objects\objItemHUD</object>
         </objects>
         <objects name="Others">
+          <object>objects\objEnemyHP</object>
           <object>objects\objHeartCounter</object>
           <object>objects\objMusicDanceHUD</object>
           <object>objects\objBarDanceHUD</object>

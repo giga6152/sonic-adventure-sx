@@ -33,7 +33,7 @@ global.playerspawnx = -1;
 global.playerspawny = -1;
 
 audio_stop_all();
-audio_play_sound (bgmStageClearShantae, 10, false);
+audio_play_sound (bgmStageClear, 10, false);
 alarm[2] = room_speed * 6;
 </string>
           </argument>
@@ -92,7 +92,8 @@ alarm[1] = 40;
         room_goto (rmShantaeHub1Wait);
 }*/
 
-room_goto (rmDemoCharacter);
+room_goto (rmTrialStage);
+scrSaveM();
 </string>
           </argument>
         </arguments>

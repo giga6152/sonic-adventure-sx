@@ -4,13 +4,18 @@ with objShantae
 {
     canGetHit = false;
     alarm[1] = 60;
-    alarm[2] = 90;
+    alarm[2] = 180;
     global.damaged = true;
-    image_alpha = 0.5;
     sprite_index = sprShantaeHit;
     audio_play_sound (sndShantaeHurt, 10, false);
     canMove = false;
     vel = 0;
+    vspeed = 0;
+    gliding = false;
+    whipping = false;
+    gunshoot = false;
+    ducking = false;
+    striking = false;
 }
 with objShantaeMonkey
 {
@@ -22,6 +27,7 @@ with objShantaeMonkey
     audio_play_sound (sndShantaeHurt, 10, false);
     canMove = false;
     vel = 0;
+    vspeed = 0;
 }
 with objSkyPlayer
 {
@@ -33,6 +39,7 @@ with objSkyPlayer
     audio_play_sound (sndSkyHurt, 10, false);
     canMove = false;
     vel = 0;
+    vspeed = 0;
 }
 
 /*with objShantaeModified

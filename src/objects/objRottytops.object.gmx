@@ -31,6 +31,12 @@ jumps = 0;
 steptimer = 10;
 sprite_old = sprite_index;
 
+itemselection = 0;
+itemselectionmax = 6;
+
+steptimer = 10;
+soundstep = sndStepGrass;
+
 instance_create (x, y, objCamera);
 
 KEY_LEFT = keyboard_check (vk_left) or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
@@ -111,6 +117,9 @@ else if (!KEY_LEFT &amp;&amp; !KEY_RIGHT) or place_meeting (x+vel+1, y, objSolid
 
 x += vel; //Do this or else the player cannot move and the variable would do nothing.
 
+if sprite_index == sprRottytopsRun
+    steptimer -= 1;
+
 //Gravity
 if (place_meeting (x, y+vspeed+1, objSolid2) &amp;&amp; vspeed &gt;= 0) //If the player is on the ground, set the gravity
 {
@@ -162,7 +171,56 @@ else
     }
 }
 
-image_speed = 0.16;
+if sprite_index == sprRottytopsStand image_speed = 0.16;
+else image_speed = 0.33;
+
+//Collision with a moving platform
+var platformID; //This is only a temporary variable, this checks for a particular platform
+platformID = (instance_place (x, y+1, objMovingPlatform));
+//vplatformID = (instance_place (x, y+1, objMovingPlatformV));
+
+if platformID != noone
+{
+    hsp = platformID.hsp;
+    vsp = platformID.vsp;
+}
+else
+{
+    hsp = 0;
+    vsp = 0;
+}
+    
+//Play stepping SFX
+steptimer -= 1;
+
+if ground &amp;&amp; sprite_index == sprRottytopsRun &amp;&amp; ((image_index &gt; 3 &amp;&amp; image_index &lt; 4) or (image_index &gt; 8 &amp;&amp; image_index &lt; 9)) &amp;&amp; steptimer &lt;= 0
+{
+    audio_play_sound (soundstep, 10, false);
+    steptimer = 10;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="objSlopeParent">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>scrCollideSlopes2();
 </string>
           </argument>
         </arguments>
@@ -214,6 +272,7 @@ instance_create (0, 0, objLivesCounterRotty);
 instance_create (0, 0, objGems);
 instance_create (0, 0, objGemCounter);
 instance_create (0, 0, objHeartCounter);
+instance_create (0, 0, objItemHUD);
 </string>
           </argument>
         </arguments>
@@ -243,6 +302,167 @@ instance_create (0, 0, objHeartCounter);
 }
 
 draw_sprite_ext (sprite_index, image_index, x, y, image_xscale, 1, 0, c_white, image_alpha);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="68">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_create (x-20, y-80, objInventoryBarSmall);
+itemselection += 1;
+
+if itemselection == 1 &amp;&amp; global.fleshpops == 0
+   itemselection = 2;
+if itemselection == 2 &amp;&amp; global.monstermilk == 0
+   itemselection = 3;
+if itemselection == 3 &amp;&amp; global.super_monstermilk == 0
+   itemselection = 4;
+if itemselection == 4 &amp;&amp; global.pikeballs == 0
+   itemselection = 5;
+if itemselection == 5 &amp;&amp; global.superpikeballs == 0
+   itemselection = 6;
+if itemselection == 6 &amp;&amp; global.bubbleshields == 0
+   itemselection = 7;
+if itemselection == 7 &amp;&amp; global.keys == 0
+   itemselection = 0;
+/*if itemselection == 8 &amp;&amp; global.keys == 0 //&amp;&amp; (global.ringItem == 0 or global.ringItem == 2)
+   itemselection = 0;*/
+
+if itemselection &gt; itemselectionmax
+   itemselection = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="67">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Use the items that we have currently selected
+
+/*The items are selected by using the A/D keys. When we get to a specific item, use the
+appropriate one, depending on what exactly was being selected.*/
+
+//Here's how it goes.
+
+if itemselection != 0
+{
+    switch itemselection
+    {
+        case 1:
+            if global.fleshpops &gt; 0
+            {
+                global.fleshpops -= 1;
+                global.hearts += 6;
+            }
+        break;
+        case 2:
+        
+        break;
+        case 3:
+        
+        break;
+        case 4:
+            if !instance_exists (objPikeBall) &amp;&amp; !instance_exists (objSuperPikeBall) &amp;&amp; global.pikeballs &gt; 0
+            {
+                global.pikeballs -= 1;
+                instance_create (x, y, objPikeBall);
+                audio_play_sound (sndShield, 10, false);
+            }
+        break;
+        case 5:
+            if !instance_exists (objPikeBall) &amp;&amp; !instance_exists (objSuperPikeBall) &amp;&amp; global.superpikeballs &gt; 0
+            {
+                global.superpikeballs -= 1;
+                instance_create (x, y, objSuperPikeBall);
+                audio_play_sound (sndShield, 10, false);
+            }
+        break;
+        case 6:
+            if !instance_exists (objBubbleshield) &amp;&amp; global.bubbleshields &gt; 0
+            {
+                global.bubbleshields -= 1;
+                instance_create (x, y, objBubbleshield);
+                audio_play_sound (sndShield, 10, false);
+            }
+        break;
+        case 7:
+        
+        break;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="65">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_create (x-20, y-80, objInventoryBarSmall);
+itemselection -= 1;
+
+if itemselection == 1 &amp;&amp; global.fleshpops == 0
+   itemselection = 0;
+if itemselection == 2 &amp;&amp; global.monstermilk == 0
+   itemselection = 1;
+if itemselection == 3 &amp;&amp; global.super_monstermilk == 0
+   itemselection = 2;
+if itemselection == 4 &amp;&amp; global.pikeballs == 0
+   itemselection = 3;
+if itemselection == 5 &amp;&amp; global.superpikeballs == 0
+   itemselection = 4;
+if itemselection == 6 &amp;&amp; global.bubbleshields == 0
+   itemselection = 5;
+if itemselection == 7 &amp;&amp; global.keys == 0
+   itemselection = 6;
+
+if itemselection &lt; 0
+   itemselection = itemselectionmax;
 </string>
           </argument>
         </arguments>

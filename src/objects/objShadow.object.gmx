@@ -952,7 +952,7 @@ if animations_frame == 11 &amp;&amp; action == 16
 }
 
 //Boost Mode (NOT the boost, only activates if Sonic hits a high speed)
-if (place_meeting (x, y, objDashPad) &amp;&amp; ground &amp;&amp; action == 0) or audio_is_playing (bgmSpeedup)
+if (place_meeting (x, y, objDashPad) &amp;&amp; ground &amp;&amp; action == 0) or powersneakers
 {
     mach = true;  
     machTimer = 0;

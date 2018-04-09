@@ -693,8 +693,6 @@
     <instance objName="objRing" x="7412" y="1956" name="inst_4F5AB8EE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objRhinotank" x="4864" y="1344" name="inst_EFBF7E69" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objDashPadLeft" x="7912" y="2384" name="inst_4B98DD01" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCrabmeat" x="9432" y="1772" name="inst_858D39A5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCrabmeat" x="9596" y="1772" name="inst_68AF2DB7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTree" x="52" y="1496" name="inst_F6B4DE12" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTree" x="212" y="1496" name="inst_97B36C83" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTree" x="1260" y="1784" name="inst_934DA692" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -868,7 +866,6 @@
     <instance objName="objRhinotank" x="8448" y="1404" name="inst_E3982ED3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objCrabmeat" x="9152" y="1260" name="inst_313BE069" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objCrabmeat" x="10276" y="1196" name="inst_E90F74AE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCrabmeat" x="10952" y="1416" name="inst_4AFE69DD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object478" x="10440" y="900" name="inst_ED78FC95" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object478" x="10536" y="900" name="inst_9BF2ED9D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object478" x="10628" y="900" name="inst_69A0FD4F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -1610,7 +1607,6 @@
     <instance objName="objZ1LoopTR" x="18232" y="1519" name="inst_AE49F733" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ1LoopTL" x="17920" y="1519" name="inst_73878F97" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objChangeLayer" x="18088" y="1520" name="inst_9A4165DD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCrabmeat" x="15140" y="2104" name="inst_725942EF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objLightRing" x="16908" y="2320" name="inst_D0C60923" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objLightRing" x="16932" y="2320" name="inst_641E17F6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objLightRing" x="16956" y="2320" name="inst_E01434B1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -1737,8 +1733,6 @@
     <instance objName="objMonitorShieldMagnetic" x="19004" y="2008" name="inst_654BE4C2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMonitorSpeedup" x="19036" y="2008" name="inst_726DCEA8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMonitor1UPSonic" x="19104" y="2008" name="inst_1B6D6E61" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objRhinotank" x="18464" y="2284" name="inst_2BEB3EBB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objRhinotank" x="18572" y="2284" name="inst_712AB802" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objCrabmeat" x="18832" y="2008" name="inst_016C9AC0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objDashPadRight" x="15656" y="2084" name="inst_F44331BF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ1SlopeR" x="16592" y="1620" name="inst_914E1E22" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -2886,6 +2880,14 @@
     <instance objName="objRing" x="14784" y="2072" name="inst_59EEDD0A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objRing" x="14804" y="2072" name="inst_E9F48554" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objEmeraldGarden" x="148" y="1440" name="inst_C151BD54" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objEggPawn" x="8076" y="2384" name="inst_7281CF6C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objEggPawn" x="8252" y="2384" name="inst_E3710D60" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objEggPawn" x="9596" y="1772" name="inst_EA3E6804" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objEggPawn" x="9428" y="1772" name="inst_27418B83" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objEggPawn" x="15136" y="2104" name="inst_1B1BE494" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objEggPawn" x="18456" y="2284" name="inst_3B8DA076" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objEggPawn" x="18572" y="2284" name="inst_EEB461D4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objCrabmeat" x="10952" y="1416" name="inst_C51CBB98" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

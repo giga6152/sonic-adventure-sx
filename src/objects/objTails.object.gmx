@@ -825,7 +825,7 @@ if (action == 0 or action == animationFly) &amp;&amp; KEY_C &amp;&amp; !instance
 }
 
 //Boost Mode (NOT the boost, only activates if Sonic hits a high speed)
-if place_meeting (x, y, objDashPad) &amp;&amp; ground &amp;&amp; action == 0
+if (place_meeting (x, y, objDashPad) &amp;&amp; ground &amp;&amp; action == 0) or powersneakers
 {
     mach = true;  
     machTimer = 0;

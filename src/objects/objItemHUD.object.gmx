@@ -53,24 +53,16 @@
     x = objShantae.x;
     y = objShantae.y;
     
-    if objShantae.itemselection == 0
-       image_index = 0;
-    if objShantae.itemselection == 1
-       image_index = 1;
-    if objShantae.itemselection == 2
-       image_index = 2;
-    if objShantae.itemselection == 3
-       image_index = 3;
-    if objShantae.itemselection == 4
-       image_index = 4;
-    if objShantae.itemselection == 5
-       image_index = 5;
-    if objShantae.itemselection == 6
-       image_index = 6;
-    if objShantae.itemselection == 7
-       image_index = 7;
-    if objShantae.itemselection == 8
-       image_index = 8;
+    sprite_index = sprInventoryBarSmall;
+    image_index = objShantae.itemselection;
+}
+else if instance_exists (objRottytops)
+{
+    x = objRottytops.x;
+    y = objRottytops.y;
+    
+    sprite_index = sprInventoryBarSmallR;
+    image_index = objRottytops.itemselection;
 }
 </string>
           </argument>
@@ -94,7 +86,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite (sprInventoryBarSmall, image_index, view_xview[0]+352, view_yview[0]+304);
+            <string>draw_sprite (sprite_index, image_index, view_xview[0]+352, view_yview[0]+304);
 
 //Draw the amount of items left on screen
 if instance_exists (objShantae)
@@ -157,6 +149,200 @@ if instance_exists (objShantae)
            }
         break;
         case 4:
+           if global.monstermilk &lt; 10
+           {
+               draw_set_font (fntFont);
+               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "00"+string(global.monstermilk), c_black, c_white, 2);
+           }
+           else if global.monstermilk &gt;= 10 &amp;&amp; global.monstermilk &lt; 100
+           {
+               draw_set_font (fntFont);
+               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "0"+string(global.monstermilk), c_black, c_white, 2);
+           }
+           else
+           {
+                draw_set_font (fntFont);
+                scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, string(global.monstermilk), c_black, c_white, 2);
+           }
+        break;
+        case 5:
+           if global.super_monstermilk &lt; 10
+           {
+               draw_set_font (fntFont);
+               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "00"+string(global.super_monstermilk), c_black, c_white, 2);
+           }
+           else if global.super_monstermilk &gt;= 10 &amp;&amp; global.super_monstermilk &lt; 100
+           {
+               draw_set_font (fntFont);
+               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "0"+string(global.super_monstermilk), c_black, c_white, 2);
+           }
+           else
+           {
+                draw_set_font (fntFont);
+                scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, string(global.super_monstermilk), c_black, c_white, 2);
+           }
+        break;
+        case 6:
+           if global.pikeballs &lt; 10
+           {
+               draw_set_font (fntFont);
+               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "00"+string(global.pikeballs), c_black, c_white, 2);
+           }
+           else if global.pikeballs &gt;= 10 &amp;&amp; global.pikeballs &lt; 100
+           {
+               draw_set_font (fntFont);
+               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "0"+string(global.pikeballs), c_black, c_white, 2);
+           }
+           else
+           {
+                draw_set_font (fntFont);
+                scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, string(global.pikeballs), c_black, c_white, 2);
+           }
+        break;
+        case 7:
+           if global.superpikeballs &lt; 10
+           {
+               draw_set_font (fntFont);
+               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "00"+string(global.superpikeballs), c_black, c_white, 2);
+           }
+           else if global.superpikeballs &gt;= 10 &amp;&amp; global.superpikeballs &lt; 100
+           {
+               draw_set_font (fntFont);
+               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "0"+string(global.superpikeballs), c_black, c_white, 2);
+           }
+           else
+           {
+                draw_set_font (fntFont);
+                scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, string(global.superpikeballs), c_black, c_white, 2);
+           }
+        break;
+        case 8:
+           if global.bubbleshields &lt; 10
+           {
+               draw_set_font (fntFont);
+               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "00"+string(global.bubbleshields), c_black, c_white, 2);
+           }
+           else if global.bubbleshields &gt;= 10 &amp;&amp; global.bubbleshields &lt; 100
+           {
+               draw_set_font (fntFont);
+               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "0"+string(global.bubbleshields), c_black, c_white, 2);
+           }
+           else
+           {
+                draw_set_font (fntFont);
+                scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, string(global.bubbleshields), c_black, c_white, 2);
+           }
+        break;
+        case 9:
+           if global.fireballs &lt; 10
+           {
+               draw_set_font (fntFont);
+               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "00"+string(global.fireballs), c_black, c_white, 2);
+           }
+           else if global.fireballs &gt;= 10 &amp;&amp; global.fireballs &lt; 100
+           {
+               draw_set_font (fntFont);
+               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "0"+string(global.fireballs), c_black, c_white, 2);
+           }
+           else
+           {
+                draw_set_font (fntFont);
+                scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, string(global.fireballs), c_black, c_white, 2);
+           }
+        break;
+        case 10:
+           draw_set_font (fntFont);
+           scrDrawOutlines (view_xview[0]+405, view_yview+310, "LV."+string(global.pirategun), c_black, c_white, 2);
+        break;
+        case 11:
+           /*if global.ringItem == 0 or global.ringItem == 2
+           {
+               draw_set_font (fntFont);
+               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "000", c_black, c_white, 2);
+           }
+           else
+           {
+               draw_set_font (fntFont);
+               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "001", c_black, c_white, 2);
+           }*/
+           if global.keys &lt; 10
+           {
+               draw_set_font (fntFont);
+               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "00"+string(global.keys), c_black, c_white, 2);
+           }
+           else if global.keys &gt;= 10 &amp;&amp; global.keys &lt; 100
+           {
+               draw_set_font (fntFont);
+               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "0"+string(global.keys), c_black, c_white, 2);
+           }
+           else
+           {
+                draw_set_font (fntFont);
+                scrDrawOutlines (view_xview[0]+450, view_yview[0]+310, string(global.keys), c_black, c_white, 2);
+           }
+        break;
+    }
+}
+else if instance_exists (objRottytops)
+{
+    switch objRottytops.itemselection
+    {
+        case 0:
+           draw_set_font (fntFont);
+           scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "000", c_black, c_white, 2);
+        break;
+        case 1:
+           if global.fleshpops &lt; 10
+           {
+               draw_set_font (fntFont);
+               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "00"+string(global.fleshpops), c_black, c_white, 2);
+           }
+           else if global.fleshpops &gt;= 10 &amp;&amp; global.fleshpops &lt; 100
+           {
+               draw_set_font (fntFont);
+               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "0"+string(global.fleshpops), c_black, c_white, 2);
+           }
+           else
+           {
+                draw_set_font (fntFont);
+                scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, string(global.fleshpops), c_black, c_white, 2);
+           }
+        break;
+        case 2:
+           if global.monstermilk &lt; 10
+           {
+               draw_set_font (fntFont);
+               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "00"+string(global.monstermilk), c_black, c_white, 2);
+           }
+           else if global.monstermilk &gt;= 10 &amp;&amp; global.monstermilk &lt; 100
+           {
+               draw_set_font (fntFont);
+               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "0"+string(global.monstermilk), c_black, c_white, 2);
+           }
+           else
+           {
+                draw_set_font (fntFont);
+                scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, string(global.monstermilk), c_black, c_white, 2);
+           }
+        break;
+        case 3:
+           if global.super_monstermilk &lt; 10
+           {
+               draw_set_font (fntFont);
+               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "00"+string(global.super_monstermilk), c_black, c_white, 2);
+           }
+           else if global.super_monstermilk &gt;= 10 &amp;&amp; global.super_monstermilk &lt; 100
+           {
+               draw_set_font (fntFont);
+               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "0"+string(global.super_monstermilk), c_black, c_white, 2);
+           }
+           else
+           {
+                draw_set_font (fntFont);
+                scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, string(global.super_monstermilk), c_black, c_white, 2);
+           }
+        break;
+        case 4:
            if global.pikeballs &lt; 10
            {
                draw_set_font (fntFont);
@@ -191,27 +377,23 @@ if instance_exists (objShantae)
            }
         break;
         case 6:
-           if global.fireballs &lt; 10
+           if global.bubbleshields &lt; 10
            {
                draw_set_font (fntFont);
-               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "00"+string(global.fireballs), c_black, c_white, 2);
+               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "00"+string(global.bubbleshields), c_black, c_white, 2);
            }
-           else if global.fireballs &gt;= 10 &amp;&amp; global.fireballs &lt; 100
+           else if global.bubbleshields &gt;= 10 &amp;&amp; global.bubbleshields &lt; 100
            {
                draw_set_font (fntFont);
-               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "0"+string(global.fireballs), c_black, c_white, 2);
+               scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, "0"+string(global.bubbleshields), c_black, c_white, 2);
            }
            else
            {
                 draw_set_font (fntFont);
-                scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, string(global.fireballs), c_black, c_white, 2);
+                scrDrawOutlines (view_xview[0]+405, view_yview[0]+310, string(global.bubbleshields), c_black, c_white, 2);
            }
         break;
         case 7:
-           draw_set_font (fntFont);
-           scrDrawOutlines (view_xview[0]+405, view_yview+310, "LV."+string(global.pirategun), c_black, c_white, 2);
-        break;
-        case 8:
            /*if global.ringItem == 0 or global.ringItem == 2
            {
                draw_set_font (fntFont);
