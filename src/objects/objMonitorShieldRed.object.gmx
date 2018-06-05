@@ -82,6 +82,14 @@ global.shieldhits = 3;
 instance_destroy();
 audio_play_sound (sndBreakBox, 10, false);
 audio_play_sound (sndShield, 10, false);
+
+if other.lock
+{
+    other.lock = 0;
+    other.speed = 0;
+    other.action = other.rebounce_action;
+    other.vsp = -8;
+}
 </string>
           </argument>
         </arguments>

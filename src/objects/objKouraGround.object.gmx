@@ -96,6 +96,11 @@ with objSonicModified
         {
             vsp=-8
             with objKouraGround instance_change (objEnemyDestroy, true);
+            if !instance_exists (objComboText)
+            {
+                global.combo += 1;
+                global.combo_timer = 300;
+            }
             
             if lock=1 //If player is using homing attack, bounce them off
             {

@@ -50,6 +50,7 @@ canRank = false;
           <argument>
             <kind>1</kind>
             <string>room_goto (myRoom);
+scrSetBestStats();
 scrSaveM();
 
 /*if room == rmZ1_1rm2 &amp;&amp; global.Z1_1 == false
@@ -148,19 +149,19 @@ then the rank will be given.*/
 /*Also, an X Rank will be given if the player acquires 200K points, which is done by
 getting the traditional S Rank and finding a monitor which gives 100K points or finding
 a Chaos Emerald. The player cannot get an X Rank during boss fights.*/
-if room = rmZ1_1rm2 or room == rmZ2_1rm2M or room == rmZ1_1Krm2M or room == rmZ2_1Krm2M or room == rmZ1_1Shrm2 or room == rmZ2_1Shrm2 or room == rmZ1_1Slrm2 or room == rmZ2_1Slrm2 or room == rmZ1_1Trm2 or room == rmZ1_1Arm2 or room == rmZ2_1Arm2
+if room = rmZ1_1rm2 or room == rmZ2_1rm2M or room == rmZ1_1Krm2M or room == rmZ2_1Krm2M or room == rmZ1_1Shrm2 or room == rmZ2_1Shrm2 or room == rmZ1_1Slrm2 or room == rmZ2_1Slrm2 or room == rmZ1_1Trm2 or room == rmZ1_1Arm2M or room == rmZ2_1Arm2
 {
     //if global.finalPoints &gt;= 200000
        //sprite_index = sprRankX; //X Rank
-    if global.finalPoints &gt;= 100000 &amp;&amp; global.finalPoints &lt; 200000
+    if global.finalPoints &gt;= 100000
         sprite_index = sprRankS; //S Rank
     else if global.finalPoints &gt;= 80000 &amp;&amp; global.finalPoints &lt; 100000
         sprite_index = sprRankA; //A Rank
-    else if global.finalPoints &gt;= 50000 &amp;&amp; global.finalPoints &lt; 80000
+    else if global.finalPoints &gt;= 65000 &amp;&amp; global.finalPoints &lt; 80000
         sprite_index = sprRankB; //B Rank
-    else if global.finalPoints &gt;= 25000 &amp;&amp; global.finalPoints &lt; 50000
+    else if global.finalPoints &gt;= 50000 &amp;&amp; global.finalPoints &lt; 65000
         sprite_index = sprRankC; //C Rank
-    else if global.finalPoints &lt; 25000
+    else if global.finalPoints &lt; 50000
         sprite_index = sprRankD; //D Rank
 }
 if room = rmZ1_B or room == rmZ1_BK or room == rmZ2_B or room == rmZ2_BK or room == rmZ1_BA or room == rmZ2_BA

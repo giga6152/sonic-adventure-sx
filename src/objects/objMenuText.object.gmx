@@ -158,10 +158,13 @@ objMenuCharacters2.persistent = false;
             audio_play_sound (sndMenuCancel, 10, false);
         break;
         case 3:
+            audio_play_sound (sndMenuCancel, 10, false);
+        break;
+        case 4:
              room_goto (rmHelp);
              audio_play_sound (sndMenuSelect, 10, false);
         break;
-        case 4:
+        case 5:
              audio_play_sound (sndMenuCancel, 10, false);
              game_end();
         break;
@@ -340,10 +343,13 @@ access_story = true;
             audio_play_sound (sndMenuCancel, 10, false);
         break;
         case 3:
+            audio_play_sound (sndMenuCancel, 10, false);
+        break;
+        case 4:
              room_goto (rmHelp);
              audio_play_sound (sndMenuSelect, 10, false);
         break;
-        case 4:
+        case 5:
              audio_play_sound (sndMenuCancel, 10, false);
              game_end();
         break;

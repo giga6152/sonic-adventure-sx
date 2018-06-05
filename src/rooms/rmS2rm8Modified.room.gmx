@@ -260,10 +260,11 @@
     <instance objName="object526" x="640" y="112" name="inst_2EB7DED2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object526" x="640" y="192" name="inst_DE13E823" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object526" x="640" y="272" name="inst_E9E9343C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objBackgroundControl" x="112" y="208" name="inst_871B6B61" locked="0" code="background_index[0] = bgWhiteLabyrinth;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objWetman" x="224" y="304" name="inst_FEB6A4C3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSectionMove" x="944" y="224" name="inst_B5E91FD6" locked="0" code="warpRoom = rmD2rm17;&#xA;playerbeginx = -1;&#xA;playerbeginy = -1;&#xA;" scaleX="1" scaleY="6" colour="4294967295" rotation="0"/>
     <instance objName="objWetman" x="608" y="304" name="inst_0DC41214" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objAnimatedBackground" x="112" y="208" name="inst_6FA755C1" locked="0" code="sprite_index = sprCoralBackground;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTimeControl" x="336" y="240" name="inst_E438C7D9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

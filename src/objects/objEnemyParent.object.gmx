@@ -57,7 +57,15 @@
 else
     instance_activate_object (self); */
 
-    if hp &lt;= 0 instance_change (objEnemyDestroy, true);
+    if hp &lt;= 0
+    {
+        instance_change (objEnemyDestroy, true);
+        if !instance_exists (objComboText)
+        {
+            global.combo += 1;
+            global.combo_timer = 300;
+        }
+    }
     
     if instance_exists (objDarkBar) &amp;&amp; hp &lt;= 0 global.dark_energy += 5;
 </string>
@@ -83,6 +91,8 @@ else
           <argument>
             <kind>1</kind>
             <string>instance_destroy();
+global.combo += 1;
+global.combo_timer = 300;
 </string>
           </argument>
         </arguments>
@@ -317,10 +327,10 @@ with other instance_change (objSonicHitDie, true);
 if other.atk&gt;0 //If player is attacking, lose hp
 {
 other.vsp=-8
-if !audio_is_playing (sndBadnikDestroy) audio_play_sound (sndBadnikDestroy, 10, false);
-if !invulnerable hp -= 1;
-if hp &gt; 0 &amp;&amp; !invulnerable
-{invulnerable = true; alarm[3] = 15; other.hsp = -other.hsp;}
+//audio_play_sound (sndBadnikDestroy, 10, false);
+hp -= 1;//if !invulnerable hp -= 1;
+//if hp &gt; 0 &amp;&amp; !invulnerable
+//{invulnerable = true; alarm[3] = 15; other.hsp = -other.hsp;}
 if instance_exists (objDarkBar) &amp;&amp; hp &lt;= 0 global.dark_energy += 5;
 
 if other.lock=1 //If player is using homing attack, bounce them off
@@ -333,7 +343,13 @@ if instance_exists (objDarkBar) &amp;&amp; hp &lt;= 0 global.dark_energy += 5;
 }
 
 if global.invincible == true or global.superstate &gt; 0
-{instance_change (objEnemyDestroy, true); if instance_exists (objDarkBar) global.dark_energy += 5;}
+{instance_change (objEnemyDestroy, true); 
+if !instance_exists (objComboText)
+{
+    global.combo += 1;
+    global.combo_timer = 300;
+}
+if instance_exists (objDarkBar) global.dark_energy += 5;}
 </string>
           </argument>
         </arguments>

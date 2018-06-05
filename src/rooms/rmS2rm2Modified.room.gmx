@@ -4115,6 +4115,7 @@
     <instance objName="objStreamworks" x="144" y="752" name="inst_12313D27" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objWood" x="6896" y="368" name="inst_5CA231EA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objWood" x="7120" y="368" name="inst_CB12A0F3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTimeControl" x="128" y="752" name="inst_2B62CA73" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

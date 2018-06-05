@@ -41,6 +41,7 @@ if global.savedata == 1
     ini_write_real ("savedata", "Last Saved Hour", global.lastsave_hour[1]);
     ini_write_real ("savedata", "Last Saved Minute", global.lastsave_minute[1]);
     ini_write_real ("savedata", "Last Saved Second", global.lastsave_second[1]);
+    scrWriteStats1();
     
     if global.life[1] >= 4
         ini_write_real ("savedata", "Lives", global.life[1]);
@@ -80,8 +81,12 @@ if global.savedata == 1
     ini_write_real ("savedata", "Half Potions", global.halfpotions);
     ini_write_real ("savedata", "Full Potions", global.fullpotions);
     ini_write_real ("savedata", "Auto-Potions", global.autopotions);
+    ini_write_real ("savedata", "Flesh Pops", global.fleshpops);
+    ini_write_real ("savedata", "Monster Milk", global.monstermilk);
+    ini_write_real ("savedata", "Super Monster Milk", global.super_monstermilk);
     ini_write_real ("savedata", "Pike Balls", global.pikeballs);
     ini_write_real ("savedata", "Super Pike Balls", global.superpikeballs);
+    ini_write_real ("savedata", "Bubbleshields", global.bubbleshields);
     ini_write_real ("savedata", "Fireballs", global.fireballs);
     ini_write_real ("savedata", "Keys", global.keys);
     ini_write_real ("savedata", "D1D", global.d1door);
@@ -129,6 +134,7 @@ else if global.savedata == 2
     ini_write_real ("savedata2", "Last Saved Hour", global.lastsave_hour[2]);
     ini_write_real ("savedata2", "Last Saved Minute", global.lastsave_minute[2]);
     ini_write_real ("savedata2", "Last Saved Second", global.lastsave_second[2]);
+    scrWriteStats2();
     
     if global.life[2] >= 4
         ini_write_real ("savedata2", "Lives", global.life[2]);
@@ -168,8 +174,12 @@ else if global.savedata == 2
     ini_write_real ("savedata2", "Half Potions", global.halfpotions);
     ini_write_real ("savedata2", "Full Potions", global.fullpotions);
     ini_write_real ("savedata2", "Auto-Potions", global.autopotions);
+    ini_write_real ("savedata2", "Flesh Pops", global.fleshpops);
+    ini_write_real ("savedata2", "Monster Milk", global.monstermilk);
+    ini_write_real ("savedata2", "Super Monster Milk", global.super_monstermilk);
     ini_write_real ("savedata2", "Pike Balls", global.pikeballs);
     ini_write_real ("savedata2", "Super Pike Balls", global.superpikeballs);
+    ini_write_real ("savedata2", "Bubbleshields", global.bubbleshields);
     ini_write_real ("savedata2", "Fireballs", global.fireballs);
     ini_write_real ("savedata2", "Keys", global.keys);
     ini_write_real ("savedata2", "D1D", global.d1door);
@@ -217,6 +227,7 @@ else if global.savedata == 3
     ini_write_real ("savedata3", "Last Saved Hour", global.lastsave_hour[3]);
     ini_write_real ("savedata3", "Last Saved Minute", global.lastsave_minute[3]);
     ini_write_real ("savedata3", "Last Saved Second", global.lastsave_second[3]);
+    scrWriteStats3();
     
     if global.life[3] >= 4
         ini_write_real ("savedata3", "Lives", global.life[3]);
@@ -256,8 +267,12 @@ else if global.savedata == 3
     ini_write_real ("savedata3", "Half Potions", global.halfpotions);
     ini_write_real ("savedata3", "Full Potions", global.fullpotions);
     ini_write_real ("savedata3", "Auto-Potions", global.autopotions);
+    ini_write_real ("savedata3", "Flesh Pops", global.fleshpops);
+    ini_write_real ("savedata3", "Monster Milk", global.monstermilk);
+    ini_write_real ("savedata3", "Super Monster Milk", global.super_monstermilk);
     ini_write_real ("savedata3", "Pike Balls", global.pikeballs);
     ini_write_real ("savedata3", "Super Pike Balls", global.superpikeballs);
+    ini_write_real ("savedata3", "Bubbleshields", global.bubbleshields);
     ini_write_real ("savedata3", "Fireballs", global.fireballs);
     ini_write_real ("savedata3", "Keys", global.keys);
     ini_write_real ("savedata3", "D1D", global.d1door);
@@ -305,6 +320,7 @@ else if global.savedata == 4
     ini_write_real ("savedata4", "Last Saved Hour", global.lastsave_hour[4]);
     ini_write_real ("savedata4", "Last Saved Minute", global.lastsave_minute[4]);
     ini_write_real ("savedata4", "Last Saved Second", global.lastsave_second[4]);
+    scrWriteStats4();
     
     if global.life[4] >= 4
         ini_write_real ("savedata4", "Lives", global.life[4]);
@@ -344,8 +360,12 @@ else if global.savedata == 4
     ini_write_real ("savedata4", "Half Potions", global.halfpotions);
     ini_write_real ("savedata4", "Full Potions", global.fullpotions);
     ini_write_real ("savedata4", "Auto-Potions", global.autopotions);
+    ini_write_real ("savedata4", "Flesh Pops", global.fleshpops);
+    ini_write_real ("savedata4", "Monster Milk", global.monstermilk);
+    ini_write_real ("savedata4", "Super Monster Milk", global.super_monstermilk);
     ini_write_real ("savedata4", "Pike Balls", global.pikeballs);
     ini_write_real ("savedata4", "Super Pike Balls", global.superpikeballs);
+    ini_write_real ("savedata4", "Bubbleshields", global.bubbleshields);
     ini_write_real ("savedata4", "Fireballs", global.fireballs);
     ini_write_real ("savedata4", "Keys", global.keys);
     ini_write_real ("savedata4", "D1D", global.d1door);
@@ -393,6 +413,7 @@ else if global.savedata == 5
     ini_write_real ("savedata5", "Last Saved Hour", global.lastsave_hour[5]);
     ini_write_real ("savedata5", "Last Saved Minute", global.lastsave_minute[5]);
     ini_write_real ("savedata5", "Last Saved Second", global.lastsave_second[5]);
+    scrWriteStats5();
     
     if global.life[5] >= 4
         ini_write_real ("savedata5", "Lives", global.life[5]);
@@ -432,8 +453,12 @@ else if global.savedata == 5
     ini_write_real ("savedata5", "Half Potions", global.halfpotions);
     ini_write_real ("savedata5", "Full Potions", global.fullpotions);
     ini_write_real ("savedata5", "Auto-Potions", global.autopotions);
+    ini_write_real ("savedata5", "Flesh Pops", global.fleshpops);
+    ini_write_real ("savedata5", "Monster Milk", global.monstermilk);
+    ini_write_real ("savedata5", "Super Monster Milk", global.super_monstermilk);
     ini_write_real ("savedata5", "Pike Balls", global.pikeballs);
     ini_write_real ("savedata5", "Super Pike Balls", global.superpikeballs);
+    ini_write_real ("savedata5", "Bubbleshields", global.bubbleshields);
     ini_write_real ("savedata5", "Fireballs", global.fireballs);
     ini_write_real ("savedata5", "Keys", global.keys);
     ini_write_real ("savedata5", "D1D", global.d1door);

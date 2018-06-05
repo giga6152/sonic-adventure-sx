@@ -311,7 +311,7 @@ if !invulnerable display = 120;
 else
     draw_sprite_ext (sprite_index, image_index, x, y, image_xscale, 1, 0, c_white, 1);
     
-if hp == 2 &amp;&amp; display &gt; 0
+/*if hp == 2 &amp;&amp; display &gt; 0
 {
     display --;
     draw_sprite_ext (sprEnemyHP, 1, x, y-50, 1, 1, 0, c_white, 1);

@@ -1890,6 +1890,17 @@ y = global.start_y;
         if animations_frame == 155
             action = 6;
     }
+    
+    // -&gt; QTE animation
+    if (action == 30) {
+        animation=10;
+        animations_framemin=81;
+        animations_framemax=82;
+        animations_return=81;
+        animations_speed=30+abs(vsp*2);
+        atk=0
+        enable = 0;
+    }
        
     //==========================================================
     // Core of the animation system

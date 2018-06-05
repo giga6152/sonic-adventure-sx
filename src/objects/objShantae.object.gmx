@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>vel = 0;
+            <string>render = 10;
+vel = 0;
 yvel = 0;
 yfr = 0.25;
 ypl = 0;
@@ -160,7 +161,10 @@ aftertimer2 = 1;
     sprite_index = sprShantaeStand;
 }
 else
+{
+    canMove = false;
     fireball = true;
+}
 </string>
           </argument>
         </arguments>
@@ -379,13 +383,20 @@ sprite_index = sprShantaeStand;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if instance_exists (objLagControl)
+            <string>if instance_exists (objLagControl) //&amp;&amp; render &lt;= 0
 {
     instance_deactivate_region (view_xview[0]-32, view_yview[0]-32, view_wview[0]+64, view_hview[0]+64, false, true);
     instance_activate_region (view_xview[0]-16, view_yview[0]-16, view_wview[0]+32, view_hview[0]+32, true);
+    
+    instance_activate_object (objGamepad);
+    instance_activate_object (objSwitch);
+    instance_activate_object (objTopSolid);
+    //instance_activate_object (objMovingPlatformV);
+    //instance_activate_object (objCamera);
+    //instance_activate_object (objHUD);*/
+    instance_activate_object (prtMoving);
+    instance_activate_object (objTimeControl);
 }
-
-instance_activate_object (objSwitch);
 </string>
           </argument>
         </arguments>
@@ -566,10 +577,14 @@ else if KEY_LEFT &amp;&amp; !place_meeting (x+vel-1, y, objSolid2) &amp;&amp; du
     else if running == true
         vel = -3.25;
 }
-else if (!KEY_LEFT &amp;&amp; !KEY_RIGHT) or canMove == false or gunshoot or backdashing or sprite_index == sprShantaeHit
+else if (!KEY_LEFT &amp;&amp; !KEY_RIGHT &amp;&amp; !backdashing) or canMove == false or gunshoot or sprite_index == sprShantaeHit
 {
     vel = 0;
     crawling = false;
+}
+if sprite_index == sprShantaeBackdash
+{
+    vel = (3*-image_xscale);
 }
 
 //if (scrCollideSensorRightS(obstacle_layer | high_layer | low_layer,MaskExtraLarge) &amp;&amp; vel&gt;0) vel=0;
@@ -863,9 +878,9 @@ if ground == false &amp;&amp; sprite_index != sprShantaeHit
     }
 }
 
-if vel &lt; 0
-    image_xscale = -1
-else if vel &gt; 0
+if (vel &lt; 0 &amp;&amp; !backdashing) or (vel &gt; 0 &amp;&amp; backdashing)
+    image_xscale = -1;
+else if (vel &gt; 0 &amp;&amp; !backdashing) or (vel &lt; 0 &amp;&amp; backdashing)
     image_xscale = 1;
 
 if sprite_index == sprShantaeFall &amp;&amp; image_index &gt; 7
@@ -2011,7 +2026,7 @@ if sprite_index == sprShantaeDance //Again, check to see if we are already danci
 }
 
 //Fireball charge shot, allows player to shoot 3 fireballs at once
-if itemselection == 6 &amp;&amp; global.fireballs &gt;= 3 &amp;&amp; sprite_index != sprShantaeHit
+if itemselection == 9 &amp;&amp; global.fireballs &gt;= 3
 {
     firechargeTimer += 1;
     canMove = false;
@@ -2021,8 +2036,6 @@ if itemselection == 6 &amp;&amp; global.fireballs &gt;= 3 &amp;&amp; sprite_inde
         
     //The rest of the code is in the C-Key Released event.
 }
-else if sprite_index == sprShantaeHit
-    firechargeTimer = 0;
 </string>
           </argument>
         </arguments>
@@ -2085,8 +2098,8 @@ instance_create (0, 0, objMusicDanceHUD);
 instance_create (0, 0, objBarDanceHUD);
 instance_create (0, 0, objItemHUD);
 
-if room == rmShantaeHub1 or room == rmShantaeHub2
-   instance_create (0, 0, objTimer);
+//if room == rmShantaeHub1 or room == rmShantaeHub2
+   instance_create (0, 0, objTime2);
 
 if !instance_exists (objTimeControl)
    global.damaged = false;
@@ -2167,7 +2180,7 @@ if monstermilk_timer &lt;= 0 &amp;&amp; super_monstermilk_timer &gt; 0
     draw_sprite_ext (spriteold2, imageold2, xold2, yold2, xscaleold2, 1, 0, make_colour_rgb (52, 205, 237), 1);
 }
 
-//draw_text (view_xview[0], view_yview[0], direction);
+//draw_text (view_xview[0], view_yview[0], fps);
 if !canGetHit
     draw_sprite_ext (sprite_index, image_index, round(x), round(y), image_xscale, 1, 0, c_white, 0.5);
 else if sprite_index != sprShantaeHit
@@ -2254,7 +2267,7 @@ appropriate one, depending on what exactly was being selected.*/
 
 //Here's how it goes.
 
-if itemselection != 0 &amp;&amp; sprite_index != sprShantaeHit
+if itemselection != 0 //&amp;&amp; sprite_index != sprShantaeHit
 {
     switch itemselection
     {
@@ -2467,7 +2480,7 @@ if danceTimer &lt; 60
 }
 
 //Release 3 fireballs at once
-if itemselection == 6 &amp;&amp; global.fireballs &gt;= 3
+if itemselection == 9 &amp;&amp; global.fireballs &gt;= 3
 {
     if firechargeTimer &gt;= 60
     {

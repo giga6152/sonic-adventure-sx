@@ -1,6 +1,6 @@
 ///scrGimmicks()
 
-//Trick ramps (must be at a certain speed first)
+/*Trick ramps (must be at a certain speed first)
 if ground
 {
     if place_meeting (x, y, objRampRight) && hsp >= 8
@@ -23,7 +23,7 @@ if ground
         ground = false;
         audio_play_sound (sndDash, 10, false);
     }
-}
+}*/
 
 //Skydiving
 if vsp >= 0 && place_meeting (x, y, objSkydive) && action != 9.5
@@ -127,4 +127,20 @@ else if !collision_circle (x, y+10, 30, objWaterSurface, false, true) //If neith
 {
     soundstep = sndStepNormal;
     soundland = sndLandNormal;
+}
+
+//Initiate QTE
+start = collision_circle(x,y,5,objStartQTE,0,1);
+
+if (start){
+if (allowseq && hsp>0 && vsp<0 && action=30){     //make the sequence only when we're going to the right and up
+if seq=0{
+scrCreateQTE();
+seq=1;
+allowseq=0;
+action=30;
+hsp = 0;
+vsp = 0;
+}
+}
 }

@@ -62,6 +62,8 @@ if instance_exists (objWaterSurface)
             instance_change (objShadowDie, true);
         else if instance_exists (objSilver)
             instance_change (objSilverDie, true);
+        else if instance_exists (objTails)
+            instance_change (objTailsDie, true);
         else if instance_exists (objAmy)
             instance_change (objAmyDie, true);
     }

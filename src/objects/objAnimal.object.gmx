@@ -25,15 +25,19 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if instance_exists (objLagControl)
+            <string>if instance_exists (objLagControl) //&amp;&amp; render &lt;= 0
 {
     instance_deactivate_region (view_xview[0]-32, view_yview[0]-32, view_wview[0]+64, view_hview[0]+64, false, true);
     instance_activate_region (view_xview[0]-16, view_yview[0]-16, view_wview[0]+32, view_hview[0]+32, true);
-    //instance_activate_object (objNoFallCheck);
-    //instance_activate_object (objFade);
-    //instance_activate_object (objFadeWhite);
-    instance_activate_object (objPlatformStop);
+    
+    instance_activate_object (objGamepad);
     instance_activate_object (objSwitch);
+    instance_activate_object (objTopSolid);
+    //instance_activate_object (objMovingPlatformV);
+    //instance_activate_object (objCamera);
+    //instance_activate_object (objHUD);*/
+    instance_activate_object (prtMoving);
+
 }
 </string>
           </argument>

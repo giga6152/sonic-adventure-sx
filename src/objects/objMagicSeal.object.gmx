@@ -57,6 +57,36 @@ audio_play_sound (sndMagicSeal, 10, true);
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="objRottytops">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if sealID == 0
+    global.seal0[global.savedata] = true;
+     
+audio_stop_all();
+audio_play_sound (sndMagicSeal, 10, false);
+instance_destroy();
+
+other.alarm[8] = 60;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="objShantae">
       <action>
         <libid>1</libid>
@@ -77,6 +107,11 @@ audio_play_sound (sndMagicSeal, 10, true);
             <string>if sealID == 0
     global.seal0[global.savedata] = true;
      
+global.millisecondsG = global.milliseconds;
+global.secondsG = global.seconds;
+global.minutesG = global.minutes;
+global.milG = global.mil;
+
 audio_stop_all();
 audio_play_sound (sndMagicSeal, 10, false);
 instance_destroy();

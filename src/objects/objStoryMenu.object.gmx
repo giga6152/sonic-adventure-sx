@@ -235,12 +235,21 @@ if !instance_exists (objFade)
     }
     if keyboard_check_pressed (vk_enter) or keyboard_check_pressed (ord("Z"))
     {
-        audio_play_sound (sndMenuSelect, 10, false);
         
         if room == rmStorySelectModified
+        {
+            audio_play_sound (sndMenuSelect, 10, false);
             alarm[0] = 40;
+        }
         else if room == rmTrialCharacter
-            alarm[2] = 40;
+        {
+            if option != 3 &amp;&amp; option != 5 &amp;&amp; option != 9 &amp;&amp; option != 11 &amp;&amp; option != 12
+            {
+                alarm[2] = 40;
+                audio_play_sound (sndMenuSelect, 10, false);
+            }
+            else audio_play_sound (sndMenuCancel, 10, false);
+        }
         
         instance_create (0, 0, objFade);
     }

@@ -50,7 +50,9 @@ invulnerable = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var flameID;
+            <string>event_inherited();
+
+var flameID;
 flameID = instance_nearest (x, y, objKuraKuraFlame);
 
 with flameID instance_destroy();

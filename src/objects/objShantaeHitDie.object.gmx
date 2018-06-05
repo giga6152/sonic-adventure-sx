@@ -2,7 +2,7 @@
 <object>
   <spriteName>sprShantaeHitDie</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -31,15 +31,62 @@ global.shield = 0;
 global.damaged = true;
 global.invincible = false;
 
-if y &lt;= room_height
+alarm[1] = 1;
+audio_play_sound (sndShantaeDie, 10, false);
+audio_play_sound (sndShantaeScream, 10, false);
+
+/*if y &lt;= room_height
 {
     audio_play_sound (sndShantaeDie, 10, false);
-    visible = true;
+    visible = false;
 }
 else
 {
     audio_play_sound (sndShantaeAhh, 10, false);
     visible = false;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var i, explosionID;
+                
+i = 0;
+repeat 8
+{
+    explosionID = instance_create(x, y, objShantaeExplosion);
+        explosionID.dir = i;
+        explosionID.spd = 1.5;
+        
+    i += 45;
+}
+
+i = 0;
+repeat 16
+{
+    explosionID = instance_create(x, y, objShantaeExplosion);
+        explosionID.dir = i;
+        explosionID.spd = 2.5;
+        
+    i += (45/2);
 }
 </string>
           </argument>

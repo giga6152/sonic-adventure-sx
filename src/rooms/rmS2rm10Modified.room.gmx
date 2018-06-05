@@ -286,6 +286,7 @@
     <instance objName="objJarMedium" x="736" y="288" name="inst_26FC4F3D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objSectionMove" x="1008" y="192" name="inst_C645ACBB" locked="0" code="warpRoom = rmS2rm5Modified;&#xA;playerbeginx = 32;&#xA;playerbeginy = 768;&#xA;" scaleX="1" scaleY="7" colour="4294967295" rotation="0"/>
     <instance objName="objBackgroundControl" x="64" y="224" name="inst_9226E028" locked="0" code="background_index[0] = bgWhiteLabyrinthOutside;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTimeControl" x="80" y="224" name="inst_A2022E36" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

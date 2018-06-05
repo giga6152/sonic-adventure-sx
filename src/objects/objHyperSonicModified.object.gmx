@@ -1567,6 +1567,17 @@ instance_create (0, 0, objScore);
         atk = 1;
         enable = 1;
     }
+    
+    // -&gt; QTE animation
+    if (action==30) {
+        animation=6;
+        animations_framemin=20;
+        animations_framemax=20;
+        animations_return=20;
+        animations_speed=30+abs(vsp*2);
+        atk=1
+        enable=0
+    }
 
 
 

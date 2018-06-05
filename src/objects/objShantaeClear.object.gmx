@@ -34,7 +34,7 @@ global.playerspawny = -1;
 
 audio_stop_all();
 audio_play_sound (bgmStageClear, 10, false);
-alarm[2] = room_speed * 6;
+alarm[2] = room_speed * 7;
 </string>
           </argument>
         </arguments>
@@ -60,7 +60,7 @@ alarm[2] = room_speed * 6;
             <string>if room == rmS1rm6 &amp;&amp; global.S1 == false
     global.S1 = true;
     
-instance_create (0, 0, objFadeWhite);
+/*instance_create (0, 0, objFadeWhite);
 alarm[1] = 40;
 </string>
           </argument>
@@ -92,7 +92,7 @@ alarm[1] = 40;
         room_goto (rmShantaeHub1Wait);
 }*/
 
-room_goto (rmTrialStage);
+/*room_goto (rmTrialStage);
 scrSaveM();
 </string>
           </argument>
@@ -116,7 +116,10 @@ scrSaveM();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>instance_create (view_xview[0]+176, view_yview[0]+32, objResults);
+instance_create (view_xview[0]+48, view_yview[0]+192, objTimeBonus);
+instance_create (view_xview[0]+336, view_yview[0]+228, objRank2);
+</string>
           </argument>
         </arguments>
       </action>

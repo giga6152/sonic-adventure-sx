@@ -1,4 +1,4 @@
-///scrLoadM()
+///scrReadM()
 
 //This shows the data on the files, does not load data once a save file is opened
 if file_exists ("save.sav")
@@ -24,6 +24,7 @@ if file_exists ("save.sav")
     global.lastsave_hour[1] = ini_read_real ("savedata", "Last Saved Hour", global.lastsave_hour[1]);
     global.lastsave_minute[1] = ini_read_real ("savedata", "Last Saved Minute", global.lastsave_minute[1]);
     global.lastsave_second[1] = ini_read_real ("savedata", "Last Saved Second", global.lastsave_second[1]);
+    scrReadStats1();
     
     if global.life[1] >= 4
        global.life[1] = ini_read_real ("savedata", "Lives", global.life[1]);
@@ -63,8 +64,12 @@ if file_exists ("save.sav")
     global.halfpotions = ini_read_real ("savedata", "Half Potions", global.halfpotions);
     global.fullpotions = ini_read_real ("savedata", "Full Potions", global.fullpotions);
     global.autopotions = ini_read_real ("savedata", "Auto-Potions", global.autopotions);
+    global.fleshpops = ini_read_real ("savedata", "Flesh Pops", global.fleshpops);
+    global.monstermilk = ini_read_real ("savedata", "Monster Milk", global.monstermilk);
+    global.super_monstermilk = ini_read_real ("savedata", "Super Monster Milk", global.super_monstermilk);
     global.pikeballs = ini_read_real ("savedata", "Pike Balls", global.pikeballs);
     global.superpikeballs = ini_read_real ("savedata", "Super Pike Balls", global.superpikeballs);
+    global.bubbleshields = ini_read_real ("savedata", "Bubbleshields", global.bubbleshields);
     global.fireballs = ini_read_real ("savedata", "Fireballs", global.fireballs);
     global.keys = ini_read_real ("savedata", "Keys", global.keys);
     global.d1door = ini_read_real ("savedata", "D1D", global.d1door);
@@ -109,6 +114,7 @@ if file_exists ("save2.sav")
     global.lastsave_hour[2] = ini_read_real ("savedata2", "Last Saved Hour", global.lastsave_hour[2]);
     global.lastsave_minute[2] = ini_read_real ("savedata2", "Last Saved Minute", global.lastsave_minute[2]);
     global.lastsave_second[2] = ini_read_real ("savedata2", "Last Saved Second", global.lastsave_second[2]);
+    scrReadStats2();
     
     if global.life[2] >= 4
        global.life[2] = ini_read_real ("savedata2", "Lives", global.life[2]);
@@ -148,8 +154,12 @@ if file_exists ("save2.sav")
     global.halfpotions = ini_read_real ("savedata2", "Half Potions", global.halfpotions);
     global.fullpotions = ini_read_real ("savedata2", "Full Potions", global.fullpotions);
     global.autopotions = ini_read_real ("savedata2", "Auto-Potions", global.autopotions);
+    global.fleshpops = ini_read_real ("savedata2", "Flesh Pops", global.fleshpops);
+    global.monstermilk = ini_read_real ("savedata2", "Monster Milk", global.monstermilk);
+    global.super_monstermilk = ini_read_real ("savedata2", "Super Monster Milk", global.super_monstermilk);
     global.pikeballs = ini_read_real ("savedata2", "Pike Balls", global.pikeballs);
     global.superpikeballs = ini_read_real ("savedata2", "Super Pike Balls", global.superpikeballs);
+    global.bubbleshields = ini_read_real ("savedata2", "Bubbleshields", global.bubbleshields);
     global.fireballs = ini_read_real ("savedata2", "Fireballs", global.fireballs);
     global.keys = ini_read_real ("savedata2", "Keys", global.keys);
     global.d1door = ini_read_real ("savedata2", "D1D", global.d1door);
@@ -194,6 +204,7 @@ if file_exists ("save3.sav")
     global.lastsave_hour[3] = ini_read_real ("savedata3", "Last Saved Hour", global.lastsave_hour[3]);
     global.lastsave_minute[3] = ini_read_real ("savedata3", "Last Saved Minute", global.lastsave_minute[3]);
     global.lastsave_second[3] = ini_read_real ("savedata3", "Last Saved Second", global.lastsave_second[3]);
+    scrReadStats3();
     
     if global.life[3] >= 4
        global.life[3] = ini_read_real ("savedata3", "Lives", global.life[3]);
@@ -233,8 +244,12 @@ if file_exists ("save3.sav")
     global.halfpotions = ini_read_real ("savedata3", "Half Potions", global.halfpotions);
     global.fullpotions = ini_read_real ("savedata3", "Full Potions", global.fullpotions);
     global.autopotions = ini_read_real ("savedata3", "Auto-Potions", global.autopotions);
+    global.fleshpops = ini_read_real ("savedata3", "Flesh Pops", global.fleshpops);
+    global.monstermilk = ini_read_real ("savedata3", "Monster Milk", global.monstermilk);
+    global.super_monstermilk = ini_read_real ("savedata3", "Super Monster Milk", global.super_monstermilk);
     global.pikeballs = ini_read_real ("savedata3", "Pike Balls", global.pikeballs);
     global.superpikeballs = ini_read_real ("savedata3", "Super Pike Balls", global.superpikeballs);
+    global.bubbleshields = ini_read_real ("savedata3", "Bubbleshields", global.bubbleshields);
     global.fireballs = ini_read_real ("savedata3", "Fireballs", global.fireballs);
     global.keys = ini_read_real ("savedata3", "Keys", global.keys);
     global.d1door = ini_read_real ("savedata3", "D1D", global.d1door);
@@ -279,6 +294,7 @@ if file_exists ("save4.sav")
     global.lastsave_hour[4] = ini_read_real ("savedata4", "Last Saved Hour", global.lastsave_hour[4]);
     global.lastsave_minute[4] = ini_read_real ("savedata4", "Last Saved Minute", global.lastsave_minute[4]);
     global.lastsave_second[4] = ini_read_real ("savedata4", "Last Saved Second", global.lastsave_second[4]);
+    scrReadStats4();
     
     if global.life[4] >= 4
        global.life[4] = ini_read_real ("savedata4", "Lives", global.life[4]);
@@ -318,8 +334,12 @@ if file_exists ("save4.sav")
     global.halfpotions = ini_read_real ("savedata4", "Half Potions", global.halfpotions);
     global.fullpotions = ini_read_real ("savedata4", "Full Potions", global.fullpotions);
     global.autopotions = ini_read_real ("savedata4", "Auto-Potions", global.autopotions);
+    global.fleshpops = ini_read_real ("savedata4", "Flesh Pops", global.fleshpops);
+    global.monstermilk = ini_read_real ("savedata4", "Monster Milk", global.monstermilk);
+    global.super_monstermilk = ini_read_real ("savedata4", "Super Monster Milk", global.super_monstermilk);
     global.pikeballs = ini_read_real ("savedata4", "Pike Balls", global.pikeballs);
     global.superpikeballs = ini_read_real ("savedata4", "Super Pike Balls", global.superpikeballs);
+    global.bubbleshields = ini_read_real ("savedata4", "Bubbleshields", global.bubbleshields);
     global.fireballs = ini_read_real ("savedata4", "Fireballs", global.fireballs);
     global.keys = ini_read_real ("savedata4", "Keys", global.keys);
     global.d1door = ini_read_real ("savedata4", "D1D", global.d1door);
@@ -364,6 +384,7 @@ if file_exists ("save5.sav")
     global.lastsave_hour[5] = ini_read_real ("savedata5", "Last Saved Hour", global.lastsave_hour[5]);
     global.lastsave_minute[5] = ini_read_real ("savedata5", "Last Saved Minute", global.lastsave_minute[5]);
     global.lastsave_second[5] = ini_read_real ("savedata5", "Last Saved Second", global.lastsave_second[5]);
+    scrReadStats5();
     
     if global.life[5] >= 4
        global.life[5] = ini_read_real ("savedata5", "Lives", global.life[5]);
@@ -403,8 +424,12 @@ if file_exists ("save5.sav")
     global.halfpotions = ini_read_real ("savedata5", "Half Potions", global.halfpotions);
     global.fullpotions = ini_read_real ("savedata5", "Full Potions", global.fullpotions);
     global.autopotions = ini_read_real ("savedata5", "Auto-Potions", global.autopotions);
+    global.fleshpops = ini_read_real ("savedata5", "Flesh Pops", global.fleshpops);
+    global.monstermilk = ini_read_real ("savedata5", "Monster Milk", global.monstermilk);
+    global.super_monstermilk = ini_read_real ("savedata5", "Super Monster Milk", global.super_monstermilk);
     global.pikeballs = ini_read_real ("savedata5", "Pike Balls", global.pikeballs);
     global.superpikeballs = ini_read_real ("savedata5", "Super Pike Balls", global.superpikeballs);
+    global.bubbleshields = ini_read_real ("savedata5", "Bubbleshields", global.bubbleshields);
     global.fireballs = ini_read_real ("savedata5", "Fireballs", global.fireballs);
     global.keys = ini_read_real ("savedata5", "Keys", global.keys);
     global.d1door = ini_read_real ("savedata5", "D1D", global.d1door);

@@ -32,6 +32,29 @@ option = 0;
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto(rmTest);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
@@ -96,7 +119,11 @@ option = 0;
                 }
             break;
             case 1:
-                room_goto (rmTest2);
+                switch global.trialcharacter
+                {
+                    case 1: room_goto (rmTitlecard1S); break;
+                    case 7: room_goto (rmTitlecard1R); break;
+                }
             break;
         }
     break;
@@ -120,7 +147,10 @@ option = 0;
                 }
             break;
             case 3:
-                room_goto (rmTitlecard2S);
+                switch global.trialcharacter
+                {
+                    case 1: room_goto (rmTitlecard2S); break;
+                }
             break;
         }
     break;
@@ -176,6 +206,7 @@ if !instance_exists (objFade)
         audio_play_sound (sndMenuSelect, 10, false);
         alarm[0] = 40;
         instance_create (0, 0, objFade);
+        global.actnumb = option;
     }
     if keyboard_check_pressed (ord("X"))
     {
@@ -183,8 +214,29 @@ if !instance_exists (objFade)
         alarm[1] = 40;
         instance_create (0, 0, objFade);
     }
+    /*if keyboard_check_pressed (ord("T"))
+    {
+        audio_play_sound (sndMenuSelect, 10, false);
+        alarm[2] = 40;
+        instance_create (0, 0, objFade);
+    }*/
 }
 
+if global.trialcharacter &lt; 13
+    global.chrt = global.trialcharacter;
+else
+{
+    if global.trialcharacter == 13 or global.trialcharacter == 17 or global.trialcharacter == 18
+        global.chrt = 0;
+    else if global.trialcharacter == 14
+        global.chrt = 2;
+    else if global.trialcharacter == 15
+        global.chrt = 4;
+    else if global.trialcharacter == 16
+        global.chrt = 6;
+}
+
+global.actnumb = option;
 image_index = stage[option];
 </string>
           </argument>

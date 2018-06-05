@@ -191,6 +191,8 @@ global.playerspawny = -1;
 global.rings = 0;
 global.superstate = 0;
 global.points = 0;
+global.combo = 0;
+global.combo_timer = 0;
 global.milliseconds = 0;
 global.seconds = 0;
 global.minutes = 0;
@@ -288,6 +290,11 @@ global.lastroom = room;
 global.energy = 0;
 
 global.trialcharacter = -1;
+global.First = 0;
+global.Second = 0;
+global.Third = 0;
+
+scrInitializeBestStats();
 
 #define script51
 /*//Initialize (hacked)

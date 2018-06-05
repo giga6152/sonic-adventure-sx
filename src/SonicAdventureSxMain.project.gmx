@@ -3,7 +3,25 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="1" name="datafiles"/>
+  <datafiles number="2" name="datafiles">
+    <datafile>
+      <name>GMMovie.dll</name>
+      <exists>-1</exists>
+      <size>10752</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>GMMovie.dll</filename>
+    </datafile>
+  </datafiles>
   <NewExtensions/>
   <sounds name="sound">
     <sounds name="SFX">
@@ -54,6 +72,9 @@
         <sound>sound\sndLevitateStop</sound>
         <sound>sound\sndChaosControl</sound>
         <sound>sound\sndChaosBlast</sound>
+        <sound>sound\sndQTEPush</sound>
+        <sound>sound\sndQTEClear</sound>
+        <sound>sound\sndQTEFail</sound>
       </sounds>
       <sounds name="Voices">
         <sounds name="Sonic">
@@ -73,6 +94,7 @@
           <sound>sound\sndShantaeAhh</sound>
           <sound>sound\sndShantaeUseFire</sound>
           <sound>sound\sndShantaeUseTripleFire</sound>
+          <sound>sound\sndShantaeScream</sound>
         </sounds>
         <sounds name="Knuckles">
           <sound>sound\sndKnucklesJump</sound>
@@ -108,6 +130,15 @@
           <sound>sound\sndSilverDie</sound>
           <sound>sound\sndSilverHitDie</sound>
           <sound>sound\sndSilverWitness</sound>
+        </sounds>
+        <sounds name="Rotty">
+          <sound>sound\sndRottyJump</sound>
+          <sound>sound\sndRottyDoublejump</sound>
+          <sound>sound\sndRottyKick</sound>
+          <sound>sound\sndRottyHeavyKick</sound>
+          <sound>sound\sndRottySlide</sound>
+          <sound>sound\sndRottytopsHurt</sound>
+          <sound>sound\sndRottyDie</sound>
         </sounds>
         <sounds name="Tails">
           <sound>sound\sndTailsJump</sound>
@@ -321,6 +352,7 @@
             <sprite>sprites\sprShantaeClear</sprite>
             <sprite>sprites\sprShantaeHit</sprite>
             <sprite>sprites\sprShantaeHitDie</sprite>
+            <sprite>sprites\sprite1074</sprite>
             <sprite>sprites\sprite651</sprite>
             <sprite>sprites\sprite645</sprite>
           </sprites>
@@ -328,13 +360,16 @@
             <sprite>sprites\sprite1066</sprite>
           </sprites>
         </sprites>
-        <sprites name="Monkey form">
+        <sprites name="Monkey Form">
           <sprite>sprites\sprMonkeyStand</sprite>
           <sprite>sprites\sprMonkeyRun</sprite>
           <sprite>sprites\sprMonkeyJump</sprite>
           <sprite>sprites\sprMonkeyWallCling</sprite>
           <sprite>sprites\sprMonkeyBullet</sprite>
           <sprite>sprites\sprMonkeyHurt</sprite>
+        </sprites>
+        <sprites name="Elephant Form">
+          <sprite>sprites\sprite1083</sprite>
         </sprites>
       </sprites>
       <sprites name="Knuckles">
@@ -413,11 +448,17 @@
         <sprite>sprites\sprite1047</sprite>
         <sprite>sprites\sprite1050</sprite>
         <sprite>sprites\sprite1052</sprite>
+        <sprite>sprites\sprite1072</sprite>
         <sprite>sprites\sprRottytopsStand</sprite>
         <sprite>sprites\sprRottytopsRun</sprite>
         <sprite>sprites\sprRottytopsJump</sprite>
         <sprite>sprites\sprRottytopsFall</sprite>
-        <sprite>sprites\sprite1072</sprite>
+        <sprite>sprites\sprRottytopsDuck</sprite>
+        <sprite>sprites\sprRottytopsKick</sprite>
+        <sprite>sprites\sprRottytopsUpperKick</sprite>
+        <sprite>sprites\sprRottytopsDuckKick</sprite>
+        <sprite>sprites\sprRottytopsSlide</sprite>
+        <sprite>sprites\sprRottytopsHit</sprite>
       </sprites>
       <sprites name="Tails">
         <sprite>sprites\sprite614</sprite>
@@ -467,15 +508,24 @@
         <sprite>sprites\mskShantaeModified</sprite>
         <sprite>sprites\mskSky</sprite>
         <sprite>sprites\mskRottytops</sprite>
+        <sprite>sprites\mskRottytopsDuck</sprite>
         <sprite>sprites\mskMonkey</sprite>
         <sprite>sprites\mskMonkeyBullet</sprite>
         <sprite>sprites\sprShantaeStandWhipBox</sprite>
         <sprite>sprites\sprShantaeDuckWhipBox</sprite>
         <sprite>sprites\sprShantaeJumpWhipBox</sprite>
+        <sprite>sprites\sprRottytopsKickBox</sprite>
+        <sprite>sprites\sprRottytopsUpperKickBox</sprite>
+        <sprite>sprites\sprRottytopsDuckKickBox</sprite>
         <sprite>sprites\mskShantaeStandWhip</sprite>
         <sprite>sprites\mskShantaeDuckWhip</sprite>
         <sprite>sprites\maskRingLR</sprite>
         <sprite>sprites\maskRingUD</sprite>
+      </sprites>
+      <sprites name="Player Death Explosion">
+        <sprite>sprites\sprPlayerExplosion</sprite>
+        <sprite>sprites\sprShantaeExplosion</sprite>
+        <sprite>sprites\sprRottytopsExplosion</sprite>
       </sprites>
     </sprites>
     <sprites name="Characters">
@@ -627,6 +677,7 @@
           <sprite>sprites\sprite666</sprite>
           <sprite>sprites\sprite895</sprite>
           <sprite>sprites\sprite896</sprite>
+          <sprite>sprites\sprCoralTileset</sprite>
         </sprites>
         <sprite>sprites\sprZ2Solid</sprite>
         <sprite>sprites\sprZ2Solid2</sprite>
@@ -683,6 +734,10 @@
         <sprite>sprites\sprZ3SlantBL</sprite>
         <sprite>sprites\sprZ3SlantBR</sprite>
       </sprites>
+    </sprites>
+    <sprites name="Animated Backgrounds">
+      <sprite>sprites\sprCoralBackground</sprite>
+      <sprite>sprites\sprTechnoOutbreakBG</sprite>
     </sprites>
     <sprites name="Enemies">
       <sprite>sprites\sprEnemyDestroy</sprite>
@@ -1095,6 +1150,11 @@
       <sprites name="Ramp">
         <sprite>sprites\sprRampRight</sprite>
         <sprite>sprites\sprRampLeft</sprite>
+        <sprite>sprites\sprQTERamp</sprite>
+        <sprite>sprites\sprDashRampR</sprite>
+        <sprite>sprites\sprDashRampL</sprite>
+        <sprite>sprites\sprTrickRamp</sprite>
+        <sprite>sprites\sprStartQTE</sprite>
       </sprites>
       <sprites name="Conveyor Belts">
         <sprite>sprites\sprConveyorRight</sprite>
@@ -1250,6 +1310,7 @@
         <sprite>sprites\sprite961</sprite>
         <sprite>sprites\sprite831</sprite>
         <sprite>sprites\sprDrownTimer</sprite>
+        <sprite>sprites\sprComboText</sprite>
       </sprites>
     </sprites>
     <sprites name="Title cards">
@@ -1284,6 +1345,9 @@
         <sprite>sprites\sprTitlecard1Sl</sprite>
         <sprite>sprites\sprTitlecard2Sl</sprite>
       </sprites>
+      <sprites name="Rotty">
+        <sprite>sprites\sprTitlecard1R</sprite>
+      </sprites>
       <sprites name="Tails">
         <sprite>sprites\sprTitlecard1T</sprite>
       </sprites>
@@ -1306,17 +1370,17 @@
       <sprite>sprites\sprite600</sprite>
     </sprites>
     <sprites name="Title Screen">
+      <sprite>sprites\sprTitleScreen</sprite>
       <sprite>sprites\sprTitleSonicFall</sprite>
       <sprite>sprites\sprTitleSonicPose</sprite>
       <sprite>sprites\sprTitleShantaeFall</sprite>
       <sprite>sprites\sprTitleShantaePose</sprite>
       <sprite>sprites\sprite597</sprite>
       <sprite>sprites\sprite599</sprite>
+      <sprite>sprites\sprite1054</sprite>
       <sprite>sprites\sprite598</sprite>
-      <sprite>sprites\sprite1056</sprite>
       <sprite>sprites\sprite1055</sprite>
       <sprite>sprites\sprite785</sprite>
-      <sprite>sprites\sprite1054</sprite>
     </sprites>
     <sprites name="Models">
       <sprite>sprites\sprNoModel</sprite>
@@ -1372,6 +1436,7 @@
       <sprite>sprites\sprTwitchPose</sprite>
       <sprite>sprites\sprShadowPose</sprite>
       <sprite>sprites\sprSilverPose</sprite>
+      <sprite>sprites\sprRottyPose</sprite>
       <sprite>sprites\sprShanticPose</sprite>
       <sprite>sprites\sprSuperSonic</sprite>
       <sprite>sprites\sprSuperKnuckles</sprite>
@@ -1486,9 +1551,6 @@
           <sprite>sprites\sprite857</sprite>
           <sprite>sprites\sprite855</sprite>
         </sprites>
-      </sprites>
-      <sprites name="Animated Backgrounds">
-        <sprite>sprites\sprTechnoOutbreakBG</sprite>
       </sprites>
     </sprites>
     <sprites name="Controls">
@@ -1640,7 +1702,6 @@
       <sprite>sprites\sprBlackout</sprite>
       <sprite>sprites\sprGameOverShantae</sprite>
       <sprite>sprites\sprPressZ</sprite>
-      <sprite>sprites\sprTitleScreen</sprite>
       <sprite>sprites\sprOptionSelect</sprite>
       <sprite>sprites\sprSkydive</sprite>
       <sprite>sprites\sprPause</sprite>
@@ -1756,6 +1817,7 @@
       <script>scripts\scrExchange.gml</script>
       <script>scripts\scrPsychokinesis.gml</script>
       <script>scripts\scrOptimize.gml</script>
+      <script>scripts\scrCreateQTE.gml</script>
     </scripts>
     <scripts name="Draw">
       <script>scripts\scrDrawSelf.gml</script>
@@ -1785,6 +1847,7 @@
     </scripts>
     <scripts name="Initialize">
       <script>scripts\scrInitialize.gml</script>
+      <script>scripts\scrInitializeBestStats.gml</script>
       <script>scripts\scrInitializeSaveVariables.gml</script>
       <script>scripts\scrInitializeOtherSaves.gml</script>
       <script>scripts\scrInitializeNormalVariables.gml</script>
@@ -1792,9 +1855,13 @@
     </scripts>
     <scripts name="Handling Save Data">
       <scripts name="Modified">
+        <script>scripts\scrSetBestStats.gml</script>
         <script>scripts\scrSaveM.gml</script>
+        <script>scripts\scrSaveStats.gml</script>
         <script>scripts\scrLoadM.gml</script>
         <script>scripts\scrLoadMData.gml</script>
+        <script>scripts\scrLoadStats.gml</script>
+        <script>scripts\scrLoadStatsData.gml</script>
         <script>scripts\scrGetFilename.gml</script>
       </scripts>
       <scripts name="Unused">
@@ -1820,7 +1887,31 @@
     <scripts name="Unused">
       <script>scripts\scrMusic.gml</script>
     </scripts>
+    <scripts name="GMMovie DLL">
+      <script>scripts\GMMovie_Init.gml</script>
+      <script>scripts\GMMovie_Load.gml</script>
+      <script>scripts\GMMovie_Close.gml</script>
+      <script>scripts\GMMovie_Play.gml</script>
+      <script>scripts\GMMovie_Stop.gml</script>
+      <script>scripts\GMMovie_Pause.gml</script>
+      <script>scripts\GMMovie_Resume.gml</script>
+      <script>scripts\GMMovie_GetSeek.gml</script>
+      <script>scripts\GMMovie_Seek.gml</script>
+      <script>scripts\GMMovie_GetVolume.gml</script>
+      <script>scripts\GMMovie_SetVolume.gml</script>
+      <script>scripts\GMMovie_GetLength.gml</script>
+      <script>scripts\GMMovie_GetZoom.gml</script>
+      <script>scripts\GMMovie_SetZoom.gml</script>
+      <script>scripts\GMMovie_GetSize.gml</script>
+      <script>scripts\GMMovie_SetSize.gml</script>
+      <script>scripts\GMMovie_GetPosition.gml</script>
+      <script>scripts\GMMovie_SetPosition.gml</script>
+      <script>scripts\GMMovie_GetRepeat.gml</script>
+      <script>scripts\GMMovie_SetRepeat.gml</script>
+      <script>scripts\GMMovie_SetParent.gml</script>
+    </scripts>
     <script>scripts\Collab_Rules_Please_Read.gml</script>
+    <script>scripts\GMMovie_DLL_Information.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fntFontSmall</font>
@@ -1939,6 +2030,10 @@
       </objects>
       <objects name="Rotty">
         <object>objects\objRottytops</object>
+        <object>objects\objRottytopsDie</object>
+        <object>objects\objRottytopsKickBox</object>
+        <object>objects\objRottytopsUpperKickBox</object>
+        <object>objects\objRottytopsDuckKickBox</object>
       </objects>
       <objects name="Tails">
         <object>objects\objTails</object>
@@ -1957,6 +2052,11 @@
         <object>objects\objAmyClear</object>
         <object>objects\objAmyHitDie</object>
         <object>objects\obj_circleAmy</object>
+      </objects>
+      <objects name="Player Death Explosion">
+        <object>objects\objPlayerExplosion</object>
+        <object>objects\objShantaeExplosion</object>
+        <object>objects\objRottytopsExplosion</object>
       </objects>
     </objects>
     <objects name="Ground">
@@ -2560,6 +2660,15 @@
       <objects name="Ramp">
         <object>objects\objRampRight</object>
         <object>objects\objRampLeft</object>
+        <object>objects\objTrickRamp</object>
+        <object>objects\objStartQTE</object>
+        <objects name="QTE">
+          <object>objects\prtChar</object>
+          <object>objects\objCharControl</object>
+          <object>objects\objCharA</object>
+          <object>objects\objCharB</object>
+          <object>objects\objCharC</object>
+        </objects>
       </objects>
       <objects name="Conveyor Belts">
         <object>objects\objConveyorBeltRight</object>
@@ -2672,6 +2781,7 @@
           <object>objects\objBarDanceHUD</object>
           <object>objects\objBar</object>
           <object>objects\objDarkBar</object>
+          <object>objects\objComboText</object>
         </objects>
       </objects>
       <objects name="Counters">
@@ -2689,10 +2799,14 @@
           <object>objects\objRingBonus</object>
           <object>objects\objHeartBonus</object>
           <object>objects\objTimeBonus</object>
+          <object>objects\objTime2</object>
           <object>objects\objScoreTotal</object>
           <object>objects\objFinalScore</object>
           <object>objects\objLocation</object>
           <object>objects\objDrownTimer</object>
+        </objects>
+        <objects name="Best Stats">
+          <object>objects\objBestStats</object>
         </objects>
         <objects name="Boss Health">
           <object>objects\objBossHP</object>
@@ -2701,6 +2815,7 @@
       </objects>
       <objects name="Others">
         <object>objects\objRank</object>
+        <object>objects\objRank2</object>
         <object>objects\objInitialize</object>
       </objects>
     </objects>
@@ -2779,6 +2894,9 @@
           <object>objects\objTitlecard1Sl</object>
           <object>objects\objTitlecard2Sl</object>
         </objects>
+        <objects name="Rotty">
+          <object>objects\objTitlecard1R</object>
+        </objects>
         <objects name="Tails">
           <object>objects\objTitlecard1T</object>
         </objects>
@@ -2846,6 +2964,9 @@
       <object>objects\objTalkingText</object>
       <object>objects\objTalkingText2</object>
       <object>objects\objYesNoText</object>
+    </objects>
+    <objects name="GMMovie DLL">
+      <object>objects\objGMMovieDLL</object>
     </objects>
     <objects name="Hub Worlds">
       <object>objects\objFactoryRing</object>
@@ -3154,6 +3275,9 @@
         <room>rooms\rmTitlecard1Sl</room>
         <room>rooms\rmTitlecard2Sl</room>
       </rooms>
+      <rooms name="Rotty">
+        <room>rooms\rmTitlecard1R</room>
+      </rooms>
       <rooms name="Tails">
         <room>rooms\rmTitlecard1T</room>
       </rooms>
@@ -3219,6 +3343,13 @@
           <room>rooms\rmS1Srm5</room>
           <room>rooms\rmS1Srm6</room>
         </rooms>
+        <rooms name="Rotty">
+          <room>rooms\rmS1Rrm1</room>
+          <room>rooms\rmS1Rrm2</room>
+          <room>rooms\rmS1Rrm3</room>
+          <room>rooms\rmS1Rrm4</room>
+          <room>rooms\rmS1Rrm5</room>
+        </rooms>
       </rooms>
       <rooms name="Lava Filter">
         <rooms name="Sonic">
@@ -3249,9 +3380,9 @@
           <room>rooms\rmZ2_BA</room>
         </rooms>
       </rooms>
-      <rooms name="Streamworks">
+      <rooms name="Majestic Waters">
         <rooms name="Shantae">
-          <rooms name="Streamworks">
+          <rooms name="Majestic Waters">
             <room>rooms\rmS2rm1</room>
             <room>rooms\room194</room>
             <room>rooms\room088</room>
@@ -3505,6 +3636,9 @@
           <room>rooms\rmAmyBoss2CutsceneOVA2</room>
         </rooms>
       </rooms>
+    </rooms>
+    <rooms name="Video Files">
+      <room>rooms\rmVideoExample</room>
     </rooms>
     <rooms name="Notices">
       <room>rooms\rmNoticeShantaeUnlocked</room>

@@ -181,6 +181,8 @@
     shot_dummy = false;
     
     tube_action = 22;
+    
+    powersneakers = false;
 </string>
           </argument>
         </arguments>
@@ -1763,6 +1765,17 @@ y = global.start_y;
         animations_speed = abs(hsp*4);
         atk = 0;
         enable = 1;
+    }
+    
+    // -&gt; QTE animation
+    if (action==30) {
+        animation=11;
+        animations_framemin=52;
+        animations_framemax=54;
+        animations_return=52;
+        animations_speed=30+abs(vsp*2);
+        atk=0
+        enable=0
     }
 
 

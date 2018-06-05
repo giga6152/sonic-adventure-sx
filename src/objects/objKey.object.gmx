@@ -107,6 +107,35 @@ vspeed = 0;
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="objRottytops">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if canGrab == true
+{
+    global.keys += 1;
+    audio_play_sound (sndGemSmall, 10, false);
+    instance_create (view_xview[0], view_yview[0], objKeyObtained);
+    instance_destroy();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="objSkyPlayer">
       <action>
         <libid>1</libid>

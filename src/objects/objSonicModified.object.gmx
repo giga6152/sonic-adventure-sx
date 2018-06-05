@@ -187,6 +187,32 @@
     
     powersneakers = false;
     steptimer = 0;
+    
+    seq = 0;
+    allowseq = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="6">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>allowseq = 1;
 </string>
           </argument>
         </arguments>
@@ -366,7 +392,7 @@ if y &lt; 5
    {
 
    //Extra limit checks
-   if action == 14 vspl = 20; else vspl = 13;
+   if action == 14 vspl = 20; else vspl = 16;
    if action == 15 dcc = 0.2; else dcc = 0.1;
    
    if mach == false hspl = 19; else hspl = 38;
@@ -881,9 +907,6 @@ if action == animationDash &amp;&amp; ground
 if global.stomp == true &amp;&amp; (action == 1 or action == 5 or action == 6 or action == 7) &amp;&amp; !ground &amp;&amp; KEY_C
 {
     action = 14;
-    enable = 0;
-    hsp = 0;
-    vsp = vspl;
     audio_play_sound (sndStompStart, 10, false);
 }
 if action == 14 &amp;&amp; ground
@@ -1726,6 +1749,9 @@ y = global.start_y;
         animations_return=104;
         animations_speed=20;
         atk=1
+        enable = 0;
+        hsp = 0;
+        vsp = 20;
        }
     // -&gt; Sliding animation
     if (action==15) {
@@ -1801,6 +1827,17 @@ y = global.start_y;
         animations_speed = abs(hsp*4);
         atk = 0;
         enable = 1;
+    }
+    
+    // -&gt; QTE animation
+    if (action==30) {
+        animation=11;
+        animations_framemin=67;
+        animations_framemax=70;
+        animations_return=69;
+        animations_speed=30+abs(vsp*2);
+        atk=0
+        enable=0
     }
 
 

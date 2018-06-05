@@ -82,6 +82,14 @@ if instance_exists (objShadow)
     objShadow.chaos_energy += 50;
 if instance_exists (objSilver)
     objSilver.pk_left += 50;
+    
+if other.lock
+{
+    other.lock = 0;
+    other.speed = 0;
+    other.action = other.rebounce_action;
+    other.vsp = -8;
+}
 </string>
           </argument>
         </arguments>

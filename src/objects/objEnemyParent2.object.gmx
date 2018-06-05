@@ -235,6 +235,171 @@ else if hpoints &lt;= 5 &amp;&amp; canHit == true
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="objRottytopsDuckKickBox">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if enableguard == false &amp;&amp; instance_exists (objRottytops)
+{
+    if (hpoints &gt; objRottytops.attackStrength &amp;&amp; canHit == true &amp;&amp; objRottytops.sprite_index == sprRottytopsDuckKick) &amp;&amp; instance_exists (objRottytops)
+    {
+        canHit = false;
+        alarm[0] = 30;
+        hpoints -= objRottytops.attackStrength;
+    }
+    else if hpoints &lt;= objRottytops.attackStrength &amp;&amp; canHit == true &amp;&amp; objRottytops.sprite_index == sprRottytopsDuckKick &amp;&amp; instance_exists (objRottytops)
+        instance_change (objEnemyDestroy, true);
+}
+else
+    guarding = true;
+
+with other instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="objRottytopsUpperKickBox">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if enableguard == false &amp;&amp; instance_exists (objRottytops)
+{
+    if (hpoints &gt; objRottytops.attackStrength &amp;&amp; canHit == true &amp;&amp; objRottytops.sprite_index == sprRottytopsUpperKick) &amp;&amp; instance_exists (objRottytops)
+    {
+        canHit = false;
+        alarm[0] = 30;
+        hpoints -= objRottytops.attackStrength;
+    }
+    else if hpoints &lt;= objRottytops.attackStrength &amp;&amp; canHit == true &amp;&amp; objRottytops.sprite_index == sprRottytopsUpperKick &amp;&amp; instance_exists (objRottytops)
+        instance_change (objEnemyDestroy, true);
+}
+else
+    guarding = true;
+
+with other instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="objRottytopsKickBox">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if enableguard == false &amp;&amp; instance_exists (objRottytops)
+{
+    if (hpoints &gt; objRottytops.attackStrength &amp;&amp; canHit == true &amp;&amp; objRottytops.sprite_index == sprRottytopsKick) &amp;&amp; instance_exists (objRottytops)
+    {
+        canHit = false;
+        alarm[0] = 30;
+        hpoints -= objRottytops.attackStrength;
+    }
+    else if hpoints &lt;= objRottytops.attackStrength &amp;&amp; canHit == true &amp;&amp; objRottytops.sprite_index == sprRottytopsKick &amp;&amp; instance_exists (objRottytops)
+        instance_change (objEnemyDestroy, true);
+}
+else
+    guarding = true;
+
+with other instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="objRottytops">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if other.canGetHit == true
+{
+    //Hurt the player
+    if global.hearts &gt; attackDamage
+    {
+        scrShantaeGetHit();
+        global.damaged = true;
+        
+        if global.shield == 0
+            global.hearts -= attackDamage;
+        else if global.shield &gt; 0
+            global.shield = 0;
+    }
+    //Kill the player
+    else if global.hearts &lt;= attackDamage
+    {
+        if global.autopotions &gt; 0 &amp;&amp; global.life == 0
+        {
+            global.autopotions -= 1;
+            global.hearts = global.maxHearts;
+        }
+        else if global.autopotions == 0 or global.life &gt; 0
+        {
+            global.hearts = 0;
+            with other instance_change (objRottytopsDie, true);
+        }
+    }
+}
+else
+{
+    //nothing else
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="objWrenchPlayer">
       <action>
         <libid>1</libid>

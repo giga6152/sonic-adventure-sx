@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if other.lock == 1 &amp;&amp; other.action == 5
+            <string>if other.lock
 {
     other.lock = 0;
     other.speed = 0;

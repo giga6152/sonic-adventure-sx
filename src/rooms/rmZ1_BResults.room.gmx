@@ -59,6 +59,7 @@
     <instance objName="objScore" x="100" y="30" name="inst_839380F9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objBossHP" x="160" y="320" name="inst_9261E549" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objEggmanIcon" x="32" y="320" name="inst_6CFF4D30" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objComboText" x="16" y="96" name="inst_B31ABF95" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

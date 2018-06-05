@@ -26,5 +26,6 @@
     <frame index="3">images\sprTitleScreen_3.png</frame>
     <frame index="4">images\sprTitleScreen_4.png</frame>
     <frame index="5">images\sprTitleScreen_5.png</frame>
+    <frame index="6">images\sprTitleScreen_6.png</frame>
   </frames>
 </sprite>

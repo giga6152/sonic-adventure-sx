@@ -166,6 +166,14 @@ global.totalrings[global.savedata] += 20;
 global.points += 2000;
 instance_destroy();
 
+if other.lock
+{
+    other.lock = 0;
+    other.speed = 0;
+    other.action = other.rebounce_action;
+    other.vsp = -8;
+}
+
 /*switch myAmount
 {
     case 0:

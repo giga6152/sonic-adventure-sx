@@ -921,7 +921,6 @@
     <instance objName="objHighLayer" x="12444" y="3476" name="inst_ED1DF408" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMonitorSnowflake" x="7704" y="2944" name="inst_AA458ABF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMonitorSnowflake" x="7740" y="2944" name="inst_D5074631" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objSilver" x="44" y="3596" name="inst_6AF2FD7B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objCrateWooden" x="296" y="3600" name="inst_72DF27B8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objCrateWooden" x="352" y="3600" name="inst_C9CF4602" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objCrateWooden" x="408" y="3600" name="inst_663F138B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -929,6 +928,9 @@
     <instance objName="objCrateWooden" x="576" y="3600" name="inst_29EF5D9E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objCrateWooden" x="632" y="3600" name="inst_7D223560" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objStopMusic" x="80" y="3532" name="inst_7DBCBEF0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTrickRamp" x="1676" y="2876" name="inst_8704669A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objSonicModified" x="64" y="3596" name="inst_3B0E56C3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objStartQTE" x="1892" y="2752" name="inst_7F9B1339" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

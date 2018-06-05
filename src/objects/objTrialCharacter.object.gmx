@@ -42,6 +42,9 @@
     case 6:
         sprite_index = sprStoryMenu11;
     break;
+    case 7:
+        sprite_index = sprStoryMenu12;
+    break;
     case 8:
         sprite_index = sprStoryMenu3;
     break;

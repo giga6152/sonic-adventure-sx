@@ -328,6 +328,8 @@ if y &lt; 5
    if (hsp&lt;-hspl)    hsp = -hspl;
    if (vsp&gt;vspl)     vsp = vspl;
    
+   if action == 15 vspl = 20; else vspl = 13;
+   
    if mach == false hspm = 10.5; else hspm = 28;
    if mach == false hspl = 15.5; else hspl = 37;
 
@@ -848,6 +850,23 @@ if KEY_B &amp;&amp; action == 0 &amp;&amp; ground
 if KEY_C &amp;&amp; !ground &amp;&amp; (action == 1 or action == 6 or action == 6.5)
 {
     action = 15;
+    enable = 0;
+    hsp = 0;
+    vsp = vspl;
+}
+if action == 15 &amp;&amp; ground
+{
+    if bounce 
+    {
+        action = 0;
+        vsp = 0;
+        enable = 1;
+    }
+    else
+    {
+        bounce = true;
+        vsp = jmp;
+    }
 }
 
 //Boost Mode (NOT the boost, only activates if Sonic hits a high speed)
@@ -1585,21 +1604,6 @@ y = global.start_y;
         animations_speed=60;
         atk=1
         enable = false;
-        hsp = 0;
-        vsp = vspl;
-        
-        if ground
-        {
-            if !bounce
-            {
-                bounce = true;
-                vsp = jmp;
-            }
-            else
-            {
-                action = 0;
-            }
-        }
        }
        
     // -&gt; Rainbow trick animation
@@ -1613,6 +1617,17 @@ y = global.start_y;
         
         if animations_frame == 124 action = 0;
        }
+       
+       // -&gt; QTE animation
+    if (action==30) {
+        animation=11;
+        animations_framemin=31;
+        animations_framemax=33;
+        animations_return=31;
+        animations_speed=30+abs(vsp*2);
+        atk=0
+        enable=0
+    }
 
 
 

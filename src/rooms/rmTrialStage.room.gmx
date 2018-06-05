@@ -10,10 +10,10 @@
   <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
-  <code>if !audio_is_playing (bgmTrial)
+  <code>if !audio_is_playing (bgmCharacterSelect)
 {
     audio_stop_all();
-    //audio_play_sound (bgmTrial, 10, true);
+    audio_play_sound (bgmCharacterSelect, 10, true);
 }</code>
   <enableViews>0</enableViews>
   <clearViewBackground>-1</clearViewBackground>
@@ -62,6 +62,7 @@
     <instance objName="objZ" x="144" y="432" name="inst_053DDA05" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objX" x="416" y="432" name="inst_44F92B12" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTrialCharacter" x="256" y="96" name="inst_0A2CE0BC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objBestStats" x="0" y="0" name="inst_A718B8C5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

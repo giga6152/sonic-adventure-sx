@@ -17,6 +17,20 @@ with objShantae
     ducking = false;
     striking = false;
 }
+with objRottytops
+{
+    canGetHit = false;
+    alarm[1] = 60;
+    alarm[2] = 180;
+    global.damaged = true;
+    sprite_index = sprRottytopsHit;
+    audio_play_sound (sndRottytopsHurt, 10, false);
+    canMove = false;
+    vel = 0;
+    vspeed = 0;
+    kicking = false;
+    sliding = false;
+}
 with objShantaeMonkey
 {
     canGetHit = false;

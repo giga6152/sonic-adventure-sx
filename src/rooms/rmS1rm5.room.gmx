@@ -72,10 +72,10 @@
     <instance objName="objScuttleD5" x="-160" y="320" name="inst_9230B8A3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTimeControl" x="48" y="80" name="inst_8CD351D1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objShantae" x="80" y="320" name="inst_FE724B3C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objSectionMove" x="432" y="224" name="inst_EBBD5C0E" locked="0" code="warpRoom = rmShantaeIntroCutscene4;&#xA;playerbeginx = 64;&#xA;playerbeginy = 304;&#xA;" scaleX="6.40000009536743" scaleY="7.40000009536743" colour="4294967295" rotation="0"/>
     <instance objName="objJarLarge" x="128" y="320" name="inst_13746F7B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objJarLarge" x="160" y="320" name="inst_B36AD32F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objJarXLarge" x="336" y="320" name="inst_6111EE13" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objMagicSeal" x="208" y="208" name="inst_E6254E97" locked="0" code="sealID = 0;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

@@ -178,14 +178,14 @@ if global.seconds == 60
     global.minutes += 1;
 }
 
-if room == rmZ1_1rm2 or room == rmZ1_1Krm2M or room == rmZ1_1Shrm2 or room == rmZ1_1Slrm2 or room == rmZ1_1Trm2 or room == rmZ1_1Arm2
+if room == rmZ1_1rm2 or room == rmZ1_1Krm2M or room == rmZ1_1Shrm2 or room == rmZ1_1Slrm2 or room == rmZ1_1Trm2 or room == rmZ1_1Arm2M
 {
     if global.mil &lt; 150000
-        global.timeBonus = 45000;
+        global.timeBonus = 35000;
     else if global.mil &gt;= 150000 &amp;&amp; global.mil &lt; 175000
-        global.timeBonus = 30000;
-    else if global.mil &gt;= 175000 &amp;&amp; global.mil &lt; 190000
         global.timeBonus = 25000;
+    else if global.mil &gt;= 175000 &amp;&amp; global.mil &lt; 190000
+        global.timeBonus = 10000;
     else if global.mil &gt;= 190000 &amp;&amp; global.mil &lt; 220000
         global.timeBonus = 5000;
     else if global.mil &gt;= 220000 &amp;&amp; global.mil &lt; 250000
@@ -196,11 +196,11 @@ if room == rmZ1_1rm2 or room == rmZ1_1Krm2M or room == rmZ1_1Shrm2 or room == rm
 if room == rmZ1_B or room == rmZ1_BK or room == rmZ1_BA
 {
     if global.mil &lt; 60000
-        global.timeBonus = 45000;
+        global.timeBonus = 35000;
     else if global.mil &gt;= 60000 &amp;&amp; global.mil &lt; 85000
-        global.timeBonus = 30000;
-    else if global.mil &gt;= 85000 &amp;&amp; global.mil &lt; 100000
         global.timeBonus = 25000;
+    else if global.mil &gt;= 85000 &amp;&amp; global.mil &lt; 100000
+        global.timeBonus = 10000;
     else if global.mil &gt;= 100000 &amp;&amp; global.mil &lt; 120000
         global.timeBonus = 5000;
     else if global.mil &gt;= 120000 &amp;&amp; global.mil &lt; 165000
@@ -210,12 +210,12 @@ if room == rmZ1_B or room == rmZ1_BK or room == rmZ1_BA
 }
 if room == rmZ2_1rm2M or room == rmZ2_1Krm2M or room == rmZ2_1Shrm2 or room == rmZ2_1Slrm2
 {
-    if global.mil &lt; 210000
-        global.timeBonus = 45000;
-    else if global.mil &gt;= 210000 &amp;&amp; global.mil &lt; 245000
-        global.timeBonus = 30000;
-    else if global.mil &gt;= 245000 &amp;&amp; global.mil &lt; 275000
+    if global.mil &lt; 225000
+        global.timeBonus = 35000;
+    else if global.mil &gt;= 225000 &amp;&amp; global.mil &lt; 245000
         global.timeBonus = 25000;
+    else if global.mil &gt;= 245000 &amp;&amp; global.mil &lt; 275000
+        global.timeBonus = 10000;
     else if global.mil &gt;= 275000 &amp;&amp; global.mil &lt; 300000
         global.timeBonus = 5000;
     else if global.mil &gt;= 300000 &amp;&amp; global.mil &lt; 330000
@@ -226,11 +226,11 @@ if room == rmZ2_1rm2M or room == rmZ2_1Krm2M or room == rmZ2_1Shrm2 or room == r
 if room == rmZ2_B
 {
     if global.mil &lt; 90000
-        global.timeBonus = 45000;
+        global.timeBonus = 35000;
     else if global.mil &gt;= 90000 &amp;&amp; global.mil &lt; 120000
-        global.timeBonus = 30000;
-    else if global.mil &gt;= 120000 &amp;&amp; global.mil &lt; 180000
         global.timeBonus = 25000;
+    else if global.mil &gt;= 120000 &amp;&amp; global.mil &lt; 180000
+        global.timeBonus = 10000;
     else if global.mil &gt;= 180000 &amp;&amp; global.mil &lt; 210000
         global.timeBonus = 5000;
     else if global.mil &gt;= 210000 &amp;&amp; global.mil &lt; 240000
@@ -241,11 +241,11 @@ if room == rmZ2_B
 if room = rmZ2_BK or room = rmZ2_BA
 {
     if global.mil &lt; 210000
-        global.timeBonus = 45000;
+        global.timeBonus = 35000;
     else if global.mil &gt;= 210000 &amp;&amp; global.mil &lt; 240000
-        global.timeBonus = 30000;
-    else if global.mil &gt;= 240000 &amp;&amp; global.mil &lt; 300000
         global.timeBonus = 25000;
+    else if global.mil &gt;= 240000 &amp;&amp; global.mil &lt; 300000
+        global.timeBonus = 10000;
     else if global.mil &gt;= 300000 &amp;&amp; global.mil &lt; 360000
         global.timeBonus = 5000;
     else if global.mil &gt;= 360000 &amp;&amp; global.mil &lt; 420000
@@ -356,7 +356,7 @@ if !instance_exists (objHub)
     
     scrDrawOutlines(view_xview[0]+272+67, view_yview[0]+8+4, dmin+brk1+dsec+brk2+dmil, c_navy, c_aqua, 2);
 }
-else //Draw the actual world time during the hubworld
+else if instance_exists (objHub) //Draw the actual world time during the hubworld
 {
     if worldhour &lt; 10 &amp;&amp; worldminute &lt; 10 &amp;&amp; worldsecond &lt; 10
          scrDrawOutlines (view_xview[0]+150, view_yview[0]+5, "0"+string(worldhour)+"'0"+string(worldminute)+"'0"+string(worldsecond)+'"', c_navy, c_aqua, 2);

@@ -820,9 +820,6 @@ if y &lt; 5
 if global.stomp == true &amp;&amp; (action == 1 or action == 5 or action == 6 or action == 7) &amp;&amp; !ground &amp;&amp; KEY_C
 {
     action = 14;
-    enable = 0;
-    hsp = 0;
-    vsp = vspl;
     audio_play_sound (sndStompStart, 10, false);
 }
 if action == 14 &amp;&amp; ground
@@ -1418,6 +1415,8 @@ instance_create (0, 0, objScore);
         animations_speed=30;
         atk=1
         enable=0
+        hsp = 0;
+        vsp = 20;
     }
     // -&gt; Sliding animation
     if (action==15) {
@@ -1494,6 +1493,16 @@ instance_create (0, 0, objScore);
         enable = 1;
     }
     
+    // -&gt; QTE animation
+    if (action==30) {
+        animation=6;
+        animations_framemin=20;
+        animations_framemax=20;
+        animations_return=20;
+        animations_speed=30+abs(vsp*2);
+        atk=1
+        enable=0
+    }
 
 
     //==========================================================

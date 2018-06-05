@@ -888,7 +888,7 @@
     <instance objName="objJarMedium" x="5024" y="320" name="inst_F7464B01" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objJarMedium" x="7072" y="288" name="inst_7F9D7147" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objJarXLarge" x="7328" y="320" name="inst_D561AD43" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objSectionMove" x="7472" y="160" name="inst_BA08CFC0" locked="0" code="warpRoom = rmShantaeIntroCutscene3;&#xA;playerbeginx = 80;&#xA;playerbeginy = 320;&#xA;" scaleX="2" scaleY="7" colour="4294967295" rotation="0"/>
+    <instance objName="objSectionMove" x="7472" y="160" name="inst_BA08CFC0" locked="0" code="warpRoom = rmS1rm5;&#xA;playerbeginx = 80;&#xA;playerbeginy = 320;" scaleX="2" scaleY="7" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

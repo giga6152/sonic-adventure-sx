@@ -1878,6 +1878,17 @@ y = global.start_y;
         atk = 1;
         enable = 1;
     }
+    
+    // -&gt; QTE animation
+    if (action==30) {
+        animation=11;
+        animations_framemin=21;
+        animations_framemax=23;
+        animations_return=21;
+        animations_speed=30+abs(vsp*2);
+        atk=0
+        enable=0
+    }
 
 
 

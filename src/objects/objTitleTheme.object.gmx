@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>audio_stop_all();
 audio_play_sound (bgmTitleModified2, 10, true);
-alarm[0] = (60*11.95);
+//alarm[0] = (60*11.95);
 </string>
           </argument>
         </arguments>

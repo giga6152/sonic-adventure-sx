@@ -690,7 +690,6 @@
     <instance objName="objNoFallCheck" x="2600" y="288" name="inst_29FBC48F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objJarMedium" x="880" y="336" name="inst_3F4EB05C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objJarMedium" x="912" y="336" name="inst_7F2477BF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objBackgroundControl" x="192" y="304" name="inst_4BE423CE" locked="0" code="background_index[0] = bgWhiteLabyrinth;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objLagControl" x="176" y="304" name="inst_6B540DC1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMossFloor" x="128" y="368" name="inst_82642C2C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMossFloor" x="208" y="368" name="inst_361836C5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -1231,6 +1230,8 @@
     <instance objName="objTopSolid" x="3872" y="112" name="inst_59CAB61E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTopSolid" x="3888" y="112" name="inst_386699DB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objWhiteLabyrinth" x="160" y="304" name="inst_40BB0E7F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objAnimatedBackground" x="192" y="304" name="inst_30B39240" locked="0" code="sprite_index = sprCoralBackground;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTimeControl" x="208" y="304" name="inst_3129B095" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

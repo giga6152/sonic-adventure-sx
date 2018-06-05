@@ -31,18 +31,124 @@ jumps = 0;
 steptimer = 10;
 sprite_old = sprite_index;
 
+layer = 0;
+
+attackStrengthDefault = 5;
+attackStrength = attackStrengthDefault;
+
+ducking = false;
+kicking = false;
+sliding = false;
+
 itemselection = 0;
 itemselectionmax = 6;
+canMove = true;
+canGetHit = true;
 
 steptimer = 10;
 soundstep = sndStepGrass;
 
-instance_create (x, y, objCamera);
+if !instance_exists (objCamera) &amp;&amp; room_width &gt; 480 &amp;&amp; room_height &gt; 360
+    instance_create (x, y, objCamera);
 
 KEY_LEFT = keyboard_check (vk_left) or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
 KEY_RIGHT = keyboard_check (vk_right) or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
 KEY_DOWN = keyboard_check (vk_down) or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
 KEY_UP = keyboard_check (vk_up) or (gamepad_axis_value (0, gp_axislv) &lt; -0.6);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="8">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_change (objShantaeClear, true);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>canGetHit = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>canMove = true;
+sprite_index = sprRottytopsStand;
+//image_alpha = 0.5;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>sliding = false;
 </string>
           </argument>
         </arguments>
@@ -65,12 +171,20 @@ KEY_UP = keyboard_check (vk_up) or (gamepad_axis_value (0, gp_axislv) &lt; -0.6)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_deactivate_region (view_xview[0]-32, view_yview[0]-32, view_wview[0]+64, view_hview[0]+64, false, true);
-instance_activate_region (view_xview[0]-16, view_yview[0]-16, view_wview[0]+32, view_hview[0]+32, true);
+            <string>if instance_exists (objLagControl) //&amp;&amp; render &lt;= 0
+{
+    instance_deactivate_region (view_xview[0]-32, view_yview[0]-32, view_wview[0]+64, view_hview[0]+64, false, true);
+    instance_activate_region (view_xview[0]-16, view_yview[0]-16, view_wview[0]+32, view_hview[0]+32, true);
+    
+    instance_activate_object (objGamepad);
+    instance_activate_object (objSwitch);
+    instance_activate_object (objTopSolid);
+    //instance_activate_object (objMovingPlatformV);
+    //instance_activate_object (objCamera);
+    //instance_activate_object (objHUD);*/
+    instance_activate_object (prtMoving);
 
-instance_activate_object (objCamera);
-instance_activate_object (objHUD);
-instance_activate_object (prtMoving);
+}
 </string>
           </argument>
         </arguments>
@@ -99,18 +213,25 @@ KEY_RIGHT = keyboard_check (vk_right) or (gamepad_axis_value (0, gp_axislh) &gt;
 KEY_DOWN = keyboard_check (vk_down) or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
 KEY_UP = keyboard_check (vk_up) or (gamepad_axis_value (0, gp_axislv) &lt; -0.6);
 
+if x &lt; 3
+    x = 3;
+if x &gt; room_width - 3
+    x = room_width - 3;
+if y &lt; -5
+    y = -5;
+
 //Movement
-if KEY_RIGHT &amp;&amp; !place_meeting (x+vel+1, y, objSolid2)
+if KEY_RIGHT &amp;&amp; !place_meeting (x+vel+1, y, objSolid2) &amp;&amp; !ducking &amp;&amp; !sliding &amp;&amp; !kicking &amp;&amp; canMove
 {
     image_xscale = 1;
     vel = 3.25;
 }
-else if KEY_LEFT &amp;&amp; !place_meeting (x+vel-1, y, objSolid2)
+else if KEY_LEFT &amp;&amp; !place_meeting (x+vel-1, y, objSolid2) &amp;&amp; !ducking &amp;&amp; !sliding &amp;&amp; !kicking &amp;&amp; canMove
 {
     image_xscale = -1;
     vel = -3.25;
 }
-else if (!KEY_LEFT &amp;&amp; !KEY_RIGHT) or place_meeting (x+vel+1, y, objSolid2) or place_meeting (x+vel-1, y, objSolid2)
+else if (!KEY_LEFT &amp;&amp; !KEY_RIGHT &amp;&amp; !sliding) or place_meeting (x+vel+1, y, objSolid2) or place_meeting (x+vel-1, y, objSolid2) or (kicking &amp;&amp; ground) or !canMove or ducking
 {
     vel = 0;
 }
@@ -121,7 +242,7 @@ if sprite_index == sprRottytopsRun
     steptimer -= 1;
 
 //Gravity
-if (place_meeting (x, y+vspeed+1, objSolid2) &amp;&amp; vspeed &gt;= 0) //If the player is on the ground, set the gravity
+if ((place_meeting (x, y+vspeed+1, objSolid2) &amp;&amp; vspeed &gt;= 0) or (place_meeting (x, y+vspeed+1, objTopSolid) &amp;&amp; vspeed &gt;= 0) or (place_meeting (x, y+vspeed+1, objMovingPlatform) &amp;&amp; vspeed &gt;= 0) or (place_meeting (x, y+vspeed+1, objJumpThrough) &amp;&amp; layer == 1 &amp;&amp; vspeed &gt;= 0)) &amp;&amp; sprite_index != sprRottytopsHit //If the player is on the ground, set the gravity
 {
     ground = true;
     gravity = 0;
@@ -130,6 +251,7 @@ if (place_meeting (x, y+vspeed+1, objSolid2) &amp;&amp; vspeed &gt;= 0) //If the
 else //Otherwise, fall
 {
     ground = false;
+    sliding = false;
     if jumps &lt; 2 jumps = 1;
     gravity = 0.25;
 }
@@ -139,40 +261,117 @@ if vspeed &gt; 8
     vspeed = 8;
     
 //Jump (press the Z key)
-if ground &amp;&amp; keyboard_check_pressed (ord("Z"))
+if ground &amp;&amp; canMove &amp;&amp; keyboard_check_pressed (ord("Z"))
 {
     ground = false;
+    sliding = false;
+    audio_play_sound (sndRottyJump, 10, false);
     jumps = 1;
     vspeed = -8.5;
 }
 //Doublejump (press the Z key when in midair)
-if !ground &amp;&amp; jumps &gt; 0 &amp;&amp; jumps &lt; 2 &amp;&amp; vspeed &gt; -5 &amp;&amp; keyboard_check_pressed (ord("Z"))
+if !ground &amp;&amp; canMove &amp;&amp; jumps &gt; 0 &amp;&amp; jumps &lt; 2 &amp;&amp; vspeed &gt; -5 &amp;&amp; keyboard_check_pressed (ord("Z"))
 {
     ground = false;
+    sliding = false;
+    audio_play_sound (sndRottyDoublejump, 10, false);
     jumps = 2;
     vspeed = -8.5;
 }
 
-//Sprite handling
-if ground
+//Ducking
+if vel == 0 &amp;&amp; ground &amp;&amp; KEY_DOWN &amp;&amp; canMove &amp;&amp; sprite_index != sprRottytopsKick &amp;&amp; sprite_index != sprRottytopsHit
 {
-    if vel == 0 sprite_index = sprRottytopsStand;
-    else sprite_index = sprRottytopsRun;
+    ducking = true;
+    mask_index = mskRottytopsDuck;
 }
-else
+else if !KEY_DOWN
 {
-    if vspeed &lt; 0 sprite_index = sprRottytopsJump;
-    else sprite_index = sprRottytopsFall;
-    
-    if sprite_index == sprRottytopsFall
+    ducking = false;
+    mask_index = mskRottytops;
+}
+
+if ducking &amp;&amp; vel == 0 &amp;&amp; !kicking
+    sprite_index = sprRottytopsDuck;
+
+//Sprite handling
+if ground &amp;&amp; sprite_index != sprRottytopsHit
+{
+    if vel == 0 &amp;&amp; !ducking &amp;&amp; !sliding &amp;&amp; !kicking sprite_index = sprRottytopsStand;
+    else if vel == 0 &amp;&amp; !ducking &amp;&amp; kicking sprite_index = sprRottytopsKick;
+    else if vel == 0 &amp;&amp; ducking &amp;&amp; kicking sprite_index = sprRottytopsDuckKick;
+    else if vel != 0 &amp;&amp; !ducking &amp;&amp; !sliding sprite_index = sprRottytopsRun;
+    else if vel != 0 &amp;&amp; !ducking &amp;&amp; sliding
     {
-        if image_index &gt; 7
-            image_index = 4;
+        sprite_index = sprRottytopsSlide;
+        vel = (4*image_xscale);
+        
+        if alarm[0] &lt; 0 &amp;&amp; sliding alarm[0] = 65;
+        else if !sliding alarm[0] = -1;
+    }
+}
+else if sprite_index != sprRottytopsHit
+{
+    if !kicking
+    {
+        if vspeed &lt; 0 sprite_index = sprRottytopsJump;
+        else sprite_index = sprRottytopsFall;
+        
+        if sprite_index == sprRottytopsFall
+        {
+            if image_index &gt; 7
+                image_index = 4;
+        }
+    }
+    else
+    {
+        sprite_index = sprRottytopsUpperKick;
     }
 }
 
+if !canMove sprite_index = sprRottytopsHit;
+
 if sprite_index == sprRottytopsStand image_speed = 0.16;
 else image_speed = 0.33;
+
+//Kick attack
+if keyboard_check_pressed (ord("X")) &amp;&amp; canMove &amp;&amp; ((!ground) or (ground &amp;&amp; vel == 0)) &amp;&amp; !kicking
+{
+    kicking = true;
+    audio_play_sound (sndRottyHeavyKick, 10, false);
+}
+
+//Create hitbox
+if sprite_index == sprRottytopsKick
+{
+    if image_index &gt; 3 &amp;&amp; image_index &lt; 5
+    {        
+        with instance_create (x, y, objRottytopsKickBox)
+        {
+            image_xscale = other.image_xscale;
+        }
+    }
+}
+else if sprite_index == sprRottytopsUpperKick
+{
+    if image_index &gt; 1 &amp;&amp; image_index &lt; 3
+    {        
+        with instance_create (x, y, objRottytopsUpperKickBox)
+        {
+            image_xscale = other.image_xscale;
+        }
+    }
+}
+else if sprite_index == sprRottytopsDuckKick
+{
+    if image_index &gt; 0 &amp;&amp; image_index &lt; 1
+    {        
+        with instance_create (x, y, objRottytopsDuckKickBox)
+        {
+            image_xscale = other.image_xscale;
+        }
+    }
+}
 
 //Collision with a moving platform
 var platformID; //This is only a temporary variable, this checks for a particular platform
@@ -250,6 +449,32 @@ vspeed = 0;
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if kicking
+{
+    kicking = false;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="4">
       <action>
         <libid>1</libid>
@@ -278,6 +503,33 @@ instance_create (0, 0, objItemHUD);
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if y &gt; room_height
+{
+    global.hearts = 0;
+    instance_change (objRottytopsDie, true);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -301,7 +553,10 @@ instance_create (0, 0, objItemHUD);
     image_index = 0;
 }
 
-draw_sprite_ext (sprite_index, image_index, x, y, image_xscale, 1, 0, c_white, image_alpha);
+if !canGetHit
+    draw_sprite_ext (sprite_index, image_index, round(x), round(y), image_xscale, 1, 0, c_white, 0.5);
+else if sprite_index != sprRottytopsHit
+    draw_sprite_ext (sprite_index, image_index, round(x), round(y), image_xscale, 1, 0, c_white, 1);
 </string>
           </argument>
         </arguments>
@@ -419,6 +674,15 @@ if itemselection != 0
         case 7:
         
         break;
+    }
+}
+else //If we don't have an item selected, use special moves
+{
+    //Slide (press C while on the ground and moving [must be purchased first])
+    if ground &amp;&amp; vel != 0 &amp;&amp; !sliding
+    {
+        sliding = true;
+        audio_play_sound (sndRottySlide, 10, false);
     }
 }
 </string>

@@ -847,6 +847,19 @@ if y &lt; 5
    if action=11 //If there are no rings nearby. Stop the lightdash
    {hsp=hspeed vsp=vspeed speed=0 ldash=0 action=0}//Remeber to end the "speed" function or the player will keep going
    
+   //If there is a wall between you and a ring, stop lightdash (also applies to layers)
+   if instance_number(objRing)&gt;0
+   {
+   if collision_line(x,y,nring.x,nring.y,objWall,1,1) &amp;&amp; ldash=1
+   {vsp=0 hsp=0 ldash=0 speed=0 action = 0;}
+   else
+   if collision_line(x,y,nring.x,nring.y,objHLayer,1,1) &amp;&amp; ldash=1 &amp;&amp; layer=0
+   {vsp=0 hsp=0 ldash=0 speed=0 action = 0;}
+   else
+   if collision_line(x,y,nring.x,nring.y,objLLayer,1,1) &amp;&amp; ldash=1 &amp;&amp; layer=1
+   {vsp=0 hsp=0 ldash=0 speed=0 action = 0;}
+   }
+   
    //Skidding
    if ( action == 12 )
         {
@@ -1883,6 +1896,18 @@ y = global.start_y;
         animations_speed = abs(hsp*4);
         atk = 1;
         enable = 1;
+    }
+    
+    // -&gt; QTE animation
+    if (action==30) {
+        spriteset=sprShadowActions;
+        animation=11;
+        animations_framemin=28;
+        animations_framemax=29;
+        animations_return=28;
+        animations_speed=30+abs(vsp*2);
+        atk=0
+        enable=0
     }
 
 
