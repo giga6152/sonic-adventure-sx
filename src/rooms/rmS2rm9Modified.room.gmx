@@ -2768,7 +2768,7 @@
     <instance objName="objJarMedium" x="3792" y="912" name="inst_032FD6D3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objJarMedium" x="3712" y="912" name="inst_0D1C177D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objJarMedium" x="3696" y="912" name="inst_588A3132" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objLobsterman" x="5952" y="480" name="inst_30792BDC" locked="0" code="" scaleX="-1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objLobsterman" x="5952" y="480" name="inst_30792BDC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objNoFallCheck" x="4872" y="208" name="inst_36CD2BD2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objNoFallCheck" x="6160" y="208" name="inst_4AC31081" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objCrabRed" x="5088" y="912" name="inst_186B6093" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

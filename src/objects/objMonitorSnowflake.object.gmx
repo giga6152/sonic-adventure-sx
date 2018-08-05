@@ -75,7 +75,8 @@ audio_play_sound (sndBreakBox, 10, false);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_destroy();
+            <string>effect_create_above (ef_firework, x, y, 2, c_white);
+instance_change(objMonitorSnowflakeWait, true);
 audio_play_sound (sndBreakBox, 10, false);
 
 if instance_exists (objShadow)

@@ -65,12 +65,14 @@
          sine;
      cs;
      sn;*/
+     
+     event_inherited();
     
     // Input variables
-         KEY_LEFT = keyboard_check (vk_left) or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
-         KEY_RIGHT = keyboard_check (vk_right) or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
+         KEY_LEFT = keyboard_check (vk_left) //or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
+         KEY_RIGHT = keyboard_check (vk_right) //or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
          KEY_UP = keyboard_check (vk_up);
-         KEY_DOWN = keyboard_check (vk_down) or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
+         KEY_DOWN = keyboard_check (vk_down) //or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
          KEY_A=ord("Z");
          KEY_B=ord("X");
          KEY_BH=keyboard_check (ord("X"));
@@ -86,7 +88,8 @@
     
     effect_clear();
     
-    instance_create (x, y, objCamera);
+    //instance_create (x, y, objCamera);
+    instance_create (x, y, objOptimize);
     
     global.shieldhits = 0;
     
@@ -306,7 +309,7 @@ if room = rmZ2_1rm1M
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="2">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -323,24 +326,47 @@ if room = rmZ2_1rm1M
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if room != rmZ1_B
-{
-    instance_deactivate_region (view_xview[0]-32, view_yview[0]-32, view_wview[0]+64, view_hview[0]+64, false, true);
-    instance_activate_region (view_xview[0]-16, view_yview[0]-16, view_wview[0]+32, view_hview[0]+32, true);
-}
-
-instance_activate_object (objGamepad);
-instance_activate_object (objCamera);
-instance_activate_object (objButton);
-instance_activate_object (objButton2);
-instance_activate_object (objWaterSurface);
-instance_activate_object (prtMoving);
+            <string>///Camera
+if view_xview[0]&lt;room_width-view_wview[0]-2 //&amp;&amp; global.setview=0
+    {
+    view_xview[0]=x-240+hsp*6*cos(angle*pi/180)
+    }
+    else
+    if view_xview[0]&gt;room_width-view_wview[0]-2 &amp;&amp; instance_exists (objSignpost)
+    {view_xview[0]=room_width-view_wview[0]}
+    else
+    {view_xview[0]=x-240+hsp*6*cos(angle*pi/180)}
+    
+    /*if view_yview[0]&lt;room_height-view_hview[0]-2 &amp;&amp; global.setview=0
+    {view_yview[0]=y-160+vsp*4*cos(angle*pi/180)}
+    else
+    if view_yview[0]&gt;room_height-view_hview[0]-2 &amp;&amp; global.setview=0
+    {view_yview[0]=room_height-view_hview[0]}
+    else
+    {view_yview[0]=y-160+vsp*4*cos(angle*pi/180)}*/
+    
+    view_yview[0]=y-160-hsp*6*sin(angle*pi/180)
+    
+    if view_xview[0]&lt;0
+    {view_xview[0]=0}
+    
+    if view_yview[0]&lt;0
+    {view_yview[0]=0}
+    
+    if view_xview[0]+view_wview[0]&gt;room_width
+    {view_xview[0]=room_width-view_wview[0]}
+    
+    if view_yview[0]+view_hview[0]&gt;room_height
+    {view_yview[0]=room_height-view_hview[0]}
+    
+    if x&lt;view_xview[0]+2
+    {x=view_xview[0]+2 hsp=0}
+    if x&gt;room_width-2 
+    {x=room_width-2 hsp=0}
 </string>
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -522,10 +548,10 @@ if y &lt; 5
    // First, we query the keyboard and store the key data into the variables, for latter use.
    if enable=1
    {
-   KEY_LEFT = keyboard_check (vk_left) or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
-   KEY_RIGHT = keyboard_check (vk_right) or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
+   KEY_LEFT = keyboard_check (vk_left) //or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
+   KEY_RIGHT = keyboard_check (vk_right) //or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
    KEY_UP       = keyboard_check(vk_up);
-   KEY_DOWN     = keyboard_check(vk_down) or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
+   KEY_DOWN     = keyboard_check(vk_down) //or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
    KEY_A        = keyboard_check_pressed(ord('Z')); //This has been changed to fit certain actions
    KEY_AH        = keyboard_check(ord('Z')); //This has been changed to fit certain actions
    KEY_B        = keyboard_check_pressed(ord('X'));

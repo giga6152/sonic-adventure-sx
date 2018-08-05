@@ -70,7 +70,7 @@
     <option_android_splash_time>0</option_android_splash_time>
     <option_android_support_lib_version>23.1.1</option_android_support_lib_version>
     <option_android_target_sdk_version>23</option_android_target_sdk_version>
-    <option_android_texture_page>2048</option_android_texture_page>
+    <option_android_texture_page>512</option_android_texture_page>
     <option_android_use_test_ads>false</option_android_use_test_ads>
     <option_androidfire_GPU_device>0</option_androidfire_GPU_device>
     <option_androidfire_adcolony_enable_V4VC>false</option_androidfire_adcolony_enable_V4VC>
@@ -334,7 +334,7 @@
     <option_linux_sizeable>0</option_linux_sizeable>
     <option_linux_splash_png>Configs\Default\linux\splash.png</option_linux_splash_png>
     <option_linux_steam_app_id>0</option_linux_steam_app_id>
-    <option_linux_sync>0</option_linux_sync>
+    <option_linux_sync>-1</option_linux_sync>
     <option_linux_texture_page>2048</option_linux_texture_page>
     <option_linux_version_build>0</option_linux_version_build>
     <option_linux_version_major>1</option_linux_version_major>
@@ -366,7 +366,7 @@
     <option_mac_sizeable>0</option_mac_sizeable>
     <option_mac_splash_png>Configs\Default\mac\splash.png</option_mac_splash_png>
     <option_mac_steam_app_id>0</option_mac_steam_app_id>
-    <option_mac_sync>0</option_mac_sync>
+    <option_mac_sync>1</option_mac_sync>
     <option_mac_texture_page>2048</option_mac_texture_page>
     <option_noborder>false</option_noborder>
     <option_nobuttons>false</option_nobuttons>
@@ -426,7 +426,7 @@
     <option_showprogress>1</option_showprogress>
     <option_sizeable>False</option_sizeable>
     <option_stayontop>false</option_stayontop>
-    <option_sync_vertex>0</option_sync_vertex>
+    <option_sync_vertex>1</option_sync_vertex>
     <option_textureGroup0_border>2</option_textureGroup0_border>
     <option_textureGroup0_nocropping>0</option_textureGroup0_nocropping>
     <option_textureGroup0_parent>&lt;none&gt;</option_textureGroup0_parent>

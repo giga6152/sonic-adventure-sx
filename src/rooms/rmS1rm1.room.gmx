@@ -400,6 +400,44 @@
     <instance objName="objTopSolid" x="4650" y="308" name="inst_5BEB11B3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTopSolid" x="4668" y="312" name="inst_BF834067" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objScuttleTown" x="80" y="128" name="inst_C5F93637" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHintRing" x="256" y="224" name="inst_53AB624E" locked="0" code="if global.controltype == 0 txt = &quot;Press X to use the Hairwhip.&quot;;&#xA;else if global.controltype == 1 txt = &quot;Press B to use the Hairwhip.&quot;;&#xA;else if global.controltype == 2 txt = &quot;Press Circle to use the Hairwhip.&quot;;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2240" y="240" name="inst_917BD805" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2256" y="240" name="inst_91403BE9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2272" y="240" name="inst_8E0A37C8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2288" y="240" name="inst_869D6F05" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2304" y="240" name="inst_320CB8E5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2320" y="240" name="inst_EC407B36" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2336" y="240" name="inst_097C00F3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2352" y="240" name="inst_5FFF5A64" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2368" y="240" name="inst_0DA4BF30" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2384" y="240" name="inst_2AFB824E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2400" y="240" name="inst_F7CBBCBC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2416" y="240" name="inst_A5F341EE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2432" y="240" name="inst_652AA315" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2448" y="240" name="inst_881B5AF0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2464" y="240" name="inst_D5531E45" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2480" y="240" name="inst_77FBF426" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2496" y="240" name="inst_A3D5FF86" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2512" y="240" name="inst_481E4D77" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2528" y="240" name="inst_E25DEE50" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2544" y="240" name="inst_19EF570A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2560" y="240" name="inst_9DDE210F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2576" y="240" name="inst_2C4A66A6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2592" y="240" name="inst_BF21F02A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2608" y="240" name="inst_8914F937" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2624" y="240" name="inst_16959A4D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2640" y="240" name="inst_569C87DF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2656" y="240" name="inst_D11D6970" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2672" y="240" name="inst_7B5C4D77" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2688" y="240" name="inst_1A5EE6C8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2704" y="240" name="inst_45E6BD07" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2720" y="240" name="inst_C6A32945" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2736" y="240" name="inst_CACAD167" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2752" y="240" name="inst_4A88B9C2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2768" y="240" name="inst_76E21A68" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2784" y="240" name="inst_8B4A912D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objTopSolid" x="2800" y="240" name="inst_747FF235" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHintRing" x="1904" y="272" name="inst_C7C965B2" locked="0" code="if global.controltype == 0 txt = &quot;Press either A or D to switch items.#When you've selected one, press C to#use it.&quot;;&#xA;else if global.controltype == 1 txt = &quot;Press either LB or RB to switch items.#When you've selected one, press Y to#use it.&quot;;&#xA;else if global.controltype == 2 txt = &quot;Press either L1 or R1 to switch items.#When you've selected one, press#Triangle to use it.&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

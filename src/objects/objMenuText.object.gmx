@@ -37,6 +37,33 @@ scrLoadMData();
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>room_goto (rmMinigamesMenu);
+
+objMenuBG.persistent = false;
+objMenuCharacters.persistent = false;
+objMenuCharacters2.persistent = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="1">
       <action>
         <libid>1</libid>
@@ -143,6 +170,7 @@ objMenuCharacters2.persistent = false;
                  alarm[0] = 40;
                  instance_create (0, 0, objFade);
                  audio_play_sound (sndMenuSelect, 10, false);
+                 global.game_mode = story_trial_mode;
              }
              else
              {
@@ -153,12 +181,17 @@ objMenuCharacters2.persistent = false;
             alarm[1] = 40;
             instance_create (0, 0, objFade);
             audio_play_sound (sndMenuSelect, 10, false);
+            global.game_mode = story_trial_mode;
         break;
         case 2:
             audio_play_sound (sndMenuCancel, 10, false);
         break;
         case 3:
-            audio_play_sound (sndMenuCancel, 10, false);
+            alarm[3] = 40;
+            instance_create (0, 0, objFade);
+            audio_play_sound (sndMenuSelect, 10, false);
+            global.game_mode = mini_games;
+            //audio_play_sound (sndMenuCancel, 10, false);
         break;
         case 4:
              room_goto (rmHelp);
@@ -328,6 +361,7 @@ access_story = true;
                  alarm[0] = 40;
                  instance_create (0, 0, objFade);
                  audio_play_sound (sndMenuSelect, 10, false);
+                 global.game_mode = story_trial_mode;
              }
              else
              {
@@ -338,12 +372,17 @@ access_story = true;
             alarm[1] = 40;
             instance_create (0, 0, objFade);
             audio_play_sound (sndMenuSelect, 10, false);
+            global.game_mode = story_trial_mode;
         break;
         case 2:
             audio_play_sound (sndMenuCancel, 10, false);
         break;
         case 3:
-            audio_play_sound (sndMenuCancel, 10, false);
+            alarm[3] = 40;
+            instance_create (0, 0, objFade);
+            audio_play_sound (sndMenuSelect, 10, false);
+            global.game_mode = mini_games;
+            //audio_play_sound (sndMenuCancel, 10, false);
         break;
         case 4:
              room_goto (rmHelp);

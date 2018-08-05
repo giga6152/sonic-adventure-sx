@@ -2940,6 +2940,15 @@
     <instance objName="objPlayerStop" x="22848" y="252" name="inst_084AEC54" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objPlayerStop" x="22848" y="136" name="inst_E4655EF0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objChangeSilver" x="24" y="152" name="inst_330000B5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWarningSign" x="4804" y="3304" name="inst_1F78F99D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWarningSign" x="6704" y="2180" name="inst_7BF67634" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWarningSign" x="11156" y="3128" name="inst_5B55734E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWarningSign" x="11216" y="2440" name="inst_FE1C2DB1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWarningSign" x="20252" y="3012" name="inst_6CEE6A16" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHintRing" x="1504" y="744" name="inst_3CD81AB4" locked="0" code="if global.controltype == 0 txt = &quot;While standing still, if your energy gauge#is full, press C to perform a#Telekinetic Blast.&quot;;&#xA;else if global.controltype == 1 txt = &quot;While standing still, if your energy gauge#is full, press Y to perform a#Telekinetic Blast.&quot;;&#xA;else if global.controltype == 2 txt = &quot;While standing still, if your energy gauge#is full, press Triangle to perform a#Telekinetic Blast.&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHintRing" x="11048" y="2452" name="inst_95EA1BBE" locked="0" code="if global.controltype == 0 txt = &quot;When your energy bar is full, you can#perform a Psychic Shock Boost by#pressing C.&quot;;&#xA;else if global.controltype == 1 txt = &quot;When your energy bar is full, you can#perform a Psychic Shock Boost by#pressing Y.&quot;;&#xA;else if global.controltype == 2 txt = &quot;When your energy bar is full, you can#perform a Psychic Shock Boost by#pressing Triangle.&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHintRing" x="11220" y="3152" name="inst_62668AF1" locked="0" code="txt = &quot;The lava here is fatal.#You will die instantly if you touch it.&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHintRing" x="20304" y="3040" name="inst_44CC6767" locked="0" code="txt = &quot;Be careful here. The lava will start#rising here, be sure to act fast.&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

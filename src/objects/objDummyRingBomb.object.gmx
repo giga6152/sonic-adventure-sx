@@ -64,6 +64,7 @@ gravity = 0.25;
 
 if (place_meeting (x, y, objSolid) or place_meeting (x, y, objSolid2) or place_meeting (x, y, objWall)) &amp;&amp; vspeed &gt;= 0
 {
+    effect_create_above (ef_firework, x, y, 1, c_white);
     instance_destroy();
     scrLoseRings (10, x, y, objDummyRingLose);
     audio_play_sound (sndRingLose, 10, false);
@@ -90,10 +91,13 @@ if (place_meeting (x, y, objSolid) or place_meeting (x, y, objSolid2) or place_m
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_destroy();
+            <string>effect_create_above (ef_firework, x, y, 1, c_white);
+instance_destroy();
 scrLoseRings (10, x, y, objDummyRingLose);
 audio_play_sound (sndRingLose, 10, false);
 with other instance_change (objEnemyDestroy, true);
+global.combo += 1;
+global.combo_timer = 300;
 </string>
           </argument>
         </arguments>
@@ -116,7 +120,8 @@ with other instance_change (objEnemyDestroy, true);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_destroy();
+            <string>effect_create_above (ef_firework, x, y, 1, c_white);
+instance_destroy();
 
 if other.canGetHit == true
 {

@@ -78,6 +78,7 @@ audio_play_sound (sndShield, 10, false);
           <argument>
             <kind>1</kind>
             <string>global.shield = 1;
+effect_create_above (ef_firework, x, y, 2, c_white);
 instance_destroy();
 audio_play_sound (sndBreakBox, 10, false);
 audio_play_sound (sndShield, 10, false);

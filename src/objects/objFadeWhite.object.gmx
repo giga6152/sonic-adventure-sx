@@ -131,9 +131,6 @@ if alpha = 1
 if alpha = 0 &amp;&amp; fade = -1
 {
     instance_destroy();
-    
-    if room == rmBoss1CutsceneOVA2 or room == rmKnuxBoss1CutsceneOVA2 or room == rmAmyBoss1CutsceneOVA2
-       instance_create (0, 0, objFadeCutsceneControl);
 }
 
 draw_set_color (c_white);

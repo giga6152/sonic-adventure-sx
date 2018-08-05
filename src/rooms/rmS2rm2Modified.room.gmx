@@ -3126,7 +3126,7 @@
     <instance objName="objMovingPlatformGrassV" x="5536" y="688" name="inst_24C99881" locked="0" code="movestart = -1;&#xA;spd = 1.8;&#xA;ystopa = 624;&#xA;ystopb = 816;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMovingPlatformGrassV" x="6448" y="512" name="inst_F82BF420" locked="0" code="movestart = 1;&#xA;spd = 1.67;&#xA;ystopa = 256;&#xA;ystopb = 544;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMovingPlatformGrassV" x="7040" y="880" name="inst_4093250D" locked="0" code="movestart = 1;&#xA;spd = 1.67;&#xA;ystopa = 720;&#xA;ystopb = 928;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objSectionMove" x="0" y="736" name="inst_2AE6A554" locked="0" code="warpRoom = rmS2rm1;&#xA;playerbeginx = 2896;&#xA;playerbeginy = 288;&#xA;" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
+    <instance objName="objSectionMove" x="0" y="736" name="inst_2AE6A554" locked="0" code="warpRoom = rmS2rm1;&#xA;playerbeginx = 2896;&#xA;playerbeginy = 288;" scaleX="1" scaleY="4" colour="4294967295" rotation="0"/>
     <instance objName="objWood" x="7472" y="352" name="inst_9D93F01C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objWood" x="7504" y="352" name="inst_036D7936" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objWood" x="7536" y="352" name="inst_CC9DFCD1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -4116,6 +4116,7 @@
     <instance objName="objWood" x="6896" y="368" name="inst_5CA231EA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objWood" x="7120" y="368" name="inst_CB12A0F3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTimeControl" x="128" y="752" name="inst_2B62CA73" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHintRing" x="2304" y="768" name="inst_2C78A026" locked="0" code="if global.controltype == 0 txt = &quot;To transform into the monkey, hold#down C. Once Shantae starts dancing,#release the button.&quot;;&#xA;else if global.controltype == 1 txt = &quot;To transform into the monkey, hold#down Y. Once Shantae starts dancing,#release the#button.&quot;;&#xA;else if global.controltype == 2 txt = &quot;To transform into the monkey, hold#down Triangle. Once Shantae starts#dancing, release the button.&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

@@ -32,6 +32,36 @@ spd = (6*level);
 hspeed = (image_xscale*spd);
 
 attackStrength = level;
+alarm[0] = 1;
+
+if level == 1 col = c_white; //Particle effect
+else if level == 2 col = c_red;
+else if level == 3 col = c_aqua;
+else if level == 4 col = c_fuchsia;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>effect_create_above (ef_flare, x-10+random(20), y-10+random(20), 0.1, col);
+alarm[0] = 1;
 </string>
           </argument>
         </arguments>

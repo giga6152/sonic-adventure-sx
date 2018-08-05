@@ -103,6 +103,7 @@ vspeed = 0;
             <string>if canGrab == true
 {
     global.life[global.savedata] += 1;
+    effect_create_above (ef_firework, x, y, 2, c_yellow);
     instance_destroy();
     audio_play_sound (sndLife, 10, false);
 }
@@ -131,6 +132,7 @@ vspeed = 0;
             <string>if canGrab == true
 {
     global.life[global.savedata] += 1;
+    effect_create_above (ef_firework, x, y, 2, c_yellow);
     instance_destroy();
     audio_play_sound (sndLife, 10, false);
 }
@@ -159,6 +161,7 @@ vspeed = 0;
             <string>if canGrab == true
 {
     global.life[global.savedata] += 1;
+    effect_create_above (ef_firework, x, y, 2, c_yellow);
     instance_destroy();
     audio_play_sound (sndLife, 10, false);
 }

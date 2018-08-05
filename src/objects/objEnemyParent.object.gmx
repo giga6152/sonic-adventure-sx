@@ -52,22 +52,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*if point_in_rectangle(x, y, view_xview[0]-8, view_yview[0]-8, view_xview[0]+view_wview[0]+16, view_yview[0]+view_hview[0]+16) == false
-   instance_deactivate_object (self);
-else
-    instance_activate_object (self); */
-
-    if hp &lt;= 0
+            <string>if hp &lt;= 0
+{
+    instance_change (objEnemyDestroy, true);
+    if !instance_exists (objComboText)
     {
-        instance_change (objEnemyDestroy, true);
-        if !instance_exists (objComboText)
-        {
-            global.combo += 1;
-            global.combo_timer = 300;
-        }
+        global.combo += 1;
+        global.combo_timer = 300;
     }
-    
-    if instance_exists (objDarkBar) &amp;&amp; hp &lt;= 0 global.dark_energy += 5;
+}
+
+if instance_exists (objDarkBar) &amp;&amp; hp &lt;= 0 global.dark_energy += 5;
 </string>
           </argument>
         </arguments>
@@ -329,8 +324,8 @@ if other.atk&gt;0 //If player is attacking, lose hp
 other.vsp=-8
 //audio_play_sound (sndBadnikDestroy, 10, false);
 hp -= 1;//if !invulnerable hp -= 1;
-//if hp &gt; 0 &amp;&amp; !invulnerable
-//{invulnerable = true; alarm[3] = 15; other.hsp = -other.hsp;}
+/*if hp &gt; 0 &amp;&amp; !invulnerable
+{invulnerable = true; alarm[3] = 30;}*/
 if instance_exists (objDarkBar) &amp;&amp; hp &lt;= 0 global.dark_energy += 5;
 
 if other.lock=1 //If player is using homing attack, bounce them off

@@ -77,11 +77,20 @@ speedY = 0;
 if collision_circle (x, y, 25, objPlayer, 0, 1)
 {
     audio_play_sound (sndRing, 10, false);
-    global.rings += 1;
+    repeat 5 effect_create_above(ef_spark,x-10+random(20),y-10+random(20),0.1,c_yellow)
+    
+    if room != rmMinigameSonicSpeedRacing global.rings += 1;
+    else
+    {
+        if instance_nearest(x, y, objPlayer).ID == 0 global.ringsP1 += 1;
+        else if instance_nearest(x, y, objPlayer).ID == 1 global.ringsP2 += 1;
+    }
+    
     if instance_exists (objDarkBar) global.dark_energy += 1;
     global.totalrings[global.savedata] += 1;
     global.points += 100;
-    instance_destroy();
+    if room != rmMinigameSonicSpeedRacing instance_destroy();
+    else instance_change (objRingWait, true);
 }
 </string>
           </argument>

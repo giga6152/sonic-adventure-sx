@@ -55,17 +55,43 @@ millisec = floor(global.best_time[global.chrt, global.actnumb]-((second*1000)+(6
 second = floor(global.best_time[global.chrt, global.actnumb]/1000-(60*minute));
 millisec = floor(global.best_time[global.chrt, global.actnumb]-((second*1000)+(60000*minute)));
 
-if global.chrt == 0 or global.chrt == 2 or global.chrt == 4 or global.chrt == 6 or global.chrt == 8 or global.chrt == 10
+if global.chrt == 0 or global.chrt == 4
 {
     if global.best_score[global.chrt, global.actnumb] &lt; 50000
         rank = sprRankD; //Less than 25K points
-    else if global.best_score[global.chrt, global.actnumb] &gt;= 50000 &amp;&amp; global.best_score[global.chrt, global.actnumb] &lt; 65000
+    else if global.best_score[global.chrt, global.actnumb] &gt;= 50000 &amp;&amp; global.best_score[global.chrt, global.actnumb] &lt; 75000
+        rank = sprRankC; //Between 25K and 50K points
+    else if global.best_score[global.chrt, global.actnumb] &gt;= 75000 &amp;&amp; global.best_score[global.chrt, global.actnumb] &lt; 90000
+        rank = sprRankB; //Between 50K and 80K points
+    else if global.best_score[global.chrt, global.actnumb] &gt;= 90000 &amp;&amp; global.best_score[global.chrt, global.actnumb] &lt; 100000
+        rank = sprRankA; //Between 80K and 100K points
+    else if global.best_score[global.chrt, global.actnumb] &gt;= 100000
+        rank = sprRankS; //100K or more points
+}
+if global.chrt == 2
+{
+    if global.best_score[global.chrt, global.actnumb] &lt; 47500
+        rank = sprRankD; //Less than 25K points
+    else if global.best_score[global.chrt, global.actnumb] &gt;= 47500 &amp;&amp; global.best_score[global.chrt, global.actnumb] &lt; 70000
+        rank = sprRankC; //Between 25K and 50K points
+    else if global.best_score[global.chrt, global.actnumb] &gt;= 70000 &amp;&amp; global.best_score[global.chrt, global.actnumb] &lt; 85000
+        rank = sprRankB; //Between 50K and 80K points
+    else if global.best_score[global.chrt, global.actnumb] &gt;= 85000 &amp;&amp; global.best_score[global.chrt, global.actnumb] &lt; 95000
+        rank = sprRankA; //Between 80K and 100K points
+    else if global.best_score[global.chrt, global.actnumb] &gt;= 95000
+        rank = sprRankS; //100K or more points
+}
+else if global.chrt == 6 or global.chrt == 8 or global.chrt == 10
+{
+    if global.best_score[global.chrt, global.actnumb] &lt; 45000
+        rank = sprRankD; //Less than 25K points
+    else if global.best_score[global.chrt, global.actnumb] &gt;= 45000 &amp;&amp; global.best_score[global.chrt, global.actnumb] &lt; 65000
         rank = sprRankC; //Between 25K and 50K points
     else if global.best_score[global.chrt, global.actnumb] &gt;= 65000 &amp;&amp; global.best_score[global.chrt, global.actnumb] &lt; 80000
         rank = sprRankB; //Between 50K and 80K points
-    else if global.best_score[global.chrt, global.actnumb] &gt;= 80000 &amp;&amp; global.best_score[global.chrt, global.actnumb] &lt; 100000
+    else if global.best_score[global.chrt, global.actnumb] &gt;= 80000 &amp;&amp; global.best_score[global.chrt, global.actnumb] &lt; 90000
         rank = sprRankA; //Between 80K and 100K points
-    else if global.best_score[global.chrt, global.actnumb] &gt;= 100000
+    else if global.best_score[global.chrt, global.actnumb] &gt;= 90000
         rank = sprRankS; //100K or more points
 }
 else

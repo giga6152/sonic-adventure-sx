@@ -42,7 +42,7 @@ if instance_exists (objWaterSurface)
         if (hsp<-hspl)    hsp = -hspl;
     }
     
-    if y >= objWaterSurface.y && global.superstate < 1
+    if y >= objWaterSurface.y && global.superstate < 1 && global.game_mode == story_trial_mode
         drown -= 1;
     else
         drown = 1500;

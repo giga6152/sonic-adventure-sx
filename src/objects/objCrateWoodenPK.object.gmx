@@ -111,6 +111,7 @@ else if !instance_exists (objSilver)
 {
     audio_play_sound (sndCrate, 10, false);
     instance_destroy();
+    effect_create_above (ef_firework, x, y, 2, c_lime);
     
     with other instance_change (objEnemyDestroy, true);
 }

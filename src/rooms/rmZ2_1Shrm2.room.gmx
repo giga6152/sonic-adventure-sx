@@ -2953,6 +2953,15 @@
     <instance objName="objMonitorSnowflake" x="16408" y="1820" name="inst_944B0D1F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMonitorSnowflake" x="3420" y="1340" name="inst_2BC3410A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMonitorSnowflake" x="3452" y="1340" name="inst_88830C92" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWarningSign" x="6704" y="2112" name="inst_2DB76092" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWarningSign" x="4800" y="3308" name="inst_12CF0606" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWarningSign" x="11152" y="3132" name="inst_668788AF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWarningSign" x="11232" y="2440" name="inst_C345C6C5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWarningSign" x="20256" y="3012" name="inst_A75820DF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHintRing" x="4660" y="1292" name="inst_48A6394A" locked="0" code="if global.controltype == 0 txt = &quot;While crouching, and with a full#energy gauge, press C to perform#Chaos Blast.&quot;;&#xA;else if global.controltype == 1 txt = &quot;While crouching, and with a full#energy gauge, press Y to perform#Chaos Blast.&quot;;&#xA;else if global.controltype == 2 txt = &quot;While crouching, and with a full#energy gauge, press Triangle to#perform Chaos Blast.&quot;;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHintRing" x="11212" y="3152" name="inst_51511357" locked="0" code="txt = &quot;The lava here is fatal.#You will die instantly if you touch it.&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHintRing" x="20300" y="3036" name="inst_AFBF61AA" locked="0" code="txt = &quot;Be careful here. The lava will start#rising here, be sure to act fast.&quot;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHintRing" x="11060" y="2456" name="inst_C9322137" locked="0" code="if global.controltype == 0 txt = &quot;Press C with at least 50% of#energy to use Chaos Control.&quot;;&#xA;else if global.controltype == 1 txt = &quot;Press Y with at least 50% of#energy to use Chaos Control.&quot;;&#xA;else if global.controltype == 2 txt = &quot;Press Triangle with at least 50%#of energy to use Chaos#Control.&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

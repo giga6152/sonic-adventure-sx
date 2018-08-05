@@ -792,10 +792,10 @@
     <instance objName="object546" x="3688" y="1664" name="inst_2A576E34" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2CoverLeft" x="3716" y="1712" name="inst_ED0528E3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2CoverLeft" x="3720" y="1904" name="inst_F5C550C6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2CoverLeft" x="3720" y="2092" name="inst_34FBF39E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2CoverLeft" x="3720" y="2284" name="inst_16B30738" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2CoverLeft" x="3720" y="2476" name="inst_49FD5FDF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2CoverLeft" x="3720" y="2612" name="inst_187D8E87" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2CoverLeft" x="3724" y="2092" name="inst_34FBF39E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2CoverLeft" x="3724" y="2284" name="inst_16B30738" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2CoverLeft" x="3724" y="2476" name="inst_49FD5FDF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objZ2CoverLeft" x="3724" y="2612" name="inst_187D8E87" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2CoverRight" x="4916" y="2616" name="inst_D2853B08" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2CoverRight" x="4916" y="2372" name="inst_8116B670" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2CoverMiddle" x="3740" y="1712" name="inst_A7CA158C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -1994,14 +1994,7 @@
     <instance objName="objHighLayer" x="11320" y="3424" name="inst_FB0516B7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objHighLayer" x="11320" y="3356" name="inst_7FC7BFD1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objRainbowRingRight" x="3736" y="2464" name="inst_19DE0E48" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objKuraKura" x="7220" y="2744" name="inst_ACA2C724" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objKuraKuraFlame" x="7232" y="2776" name="inst_EE3F9877" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objKuraKuraFlame" x="9468" y="2556" name="inst_201EE064" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCrabmeat" x="4720" y="2508" name="inst_0F82E2C3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCrabmeat" x="6476" y="2816" name="inst_72957BFD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCrabmeat" x="6624" y="2816" name="inst_BBE08C1D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCrabmeat" x="7372" y="3208" name="inst_C2AD4161" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCrabmeat" x="8700" y="2296" name="inst_6FB2A51E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objDashPadLeft" x="8688" y="2556" name="inst_54D81FCD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objKuraKura" x="9456" y="2524" name="inst_AFF836BC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objKuraKura" x="10684" y="2656" name="inst_578B9027" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -2023,8 +2016,6 @@
     <instance objName="objZ2Solid2" x="11568" y="1952" name="inst_5E960C43" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2Solid2" x="11568" y="1920" name="inst_644B0459" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objMonitor5Rings" x="11520" y="2324" name="inst_2604D1C7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCrabmeat" x="12232" y="3088" name="inst_3D7F6EF7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCrabmeat" x="12372" y="3088" name="inst_4FD4884E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2Solid2" x="13884" y="3472" name="inst_9EAC12FD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2Solid2" x="13884" y="3440" name="inst_33273AF4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2Solid2" x="13884" y="3408" name="inst_9DB10D86" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -2128,8 +2119,6 @@
     <instance objName="objRing" x="11412" y="1808" name="inst_A68646E6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objRing" x="11428" y="1808" name="inst_BA0A073D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objRing" x="11444" y="1808" name="inst_5EF49A5D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCrabmeat" x="11220" y="1808" name="inst_144E0A29" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCrabmeat" x="12316" y="2112" name="inst_50A0C44F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objKouraAir" x="11688" y="3092" name="inst_838D92CD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objRing" x="12828" y="3204" name="inst_3447A3BD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objRing" x="12828" y="3224" name="inst_19C91F49" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -2149,9 +2138,6 @@
     <instance objName="objRing" x="13656" y="3456" name="inst_BE5E17ED" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objRing" x="13676" y="3456" name="inst_E5CEF5D0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objRing" x="13696" y="3456" name="inst_59897B39" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCrabmeat" x="13256" y="3536" name="inst_67618020" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCrabmeat" x="13628" y="3456" name="inst_12654B61" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCrabmeat" x="12256" y="3624" name="inst_10D63F21" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objRing" x="12340" y="3624" name="inst_9D584048" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objRing" x="12320" y="3624" name="inst_7ED3E16A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objRing" x="12300" y="3624" name="inst_D28DC714" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -3068,14 +3054,6 @@
     <instance objName="object546" x="14416" y="2908" name="inst_9512C3FE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object546" x="14608" y="2908" name="inst_15EEF871" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object546" x="14800" y="2908" name="inst_91967DA0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCrabmeat" x="14776" y="3288" name="inst_F9C39C38" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCrabmeat" x="15028" y="3288" name="inst_AA9FF027" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCrabmeat" x="14964" y="3868" name="inst_1F9D59B0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCrabmeat" x="17768" y="3544" name="inst_F50EEC84" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCrabmeat" x="17512" y="3544" name="inst_950BA283" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCrabmeat" x="19652" y="3452" name="inst_56B08B3B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCrabmeat" x="21168" y="3464" name="inst_9353344F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objCrabmeat" x="21424" y="3464" name="inst_D513A583" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objKuraKura" x="16836" y="3400" name="inst_EF37198F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objKuraKura" x="16612" y="3424" name="inst_DAD83417" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objKuraKura" x="21060" y="3784" name="inst_2F8F1D7F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -3177,23 +3155,10 @@
     <instance objName="objGrindRailSraight" x="22468" y="3812" name="inst_0A49BF14" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGrindRailSraight" x="22500" y="3812" name="inst_102700DE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGrindRailSraight" x="22532" y="3812" name="inst_CFF447A9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="22564" y="3812" name="inst_F94AC2AF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="22596" y="3812" name="inst_A3C80791" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="22628" y="3812" name="inst_804230C1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="22660" y="3812" name="inst_91116B59" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="22692" y="3812" name="inst_4CF35303" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="22724" y="3812" name="inst_60353922" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="22756" y="3812" name="inst_E169CADF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="22788" y="3812" name="inst_6D4BEB44" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="22820" y="3812" name="inst_606794C7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="22852" y="3812" name="inst_45A9668E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="22884" y="3812" name="inst_52A97C0B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGrindRailSraight" x="22556" y="3812" name="inst_F94AC2AF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGrindRailSraight" x="22748" y="3748" name="inst_658DA080" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGrindRailSraight" x="22780" y="3748" name="inst_478A9763" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGrindRailSraight" x="22812" y="3748" name="inst_E2012FD8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objDashPadLeft" x="22888" y="3796" name="inst_DAA4A9B8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailStartL" x="22716" y="3748" name="inst_011BDC98" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailStartR" x="22916" y="3812" name="inst_745BE800" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGrindRailSraight" x="22844" y="3748" name="inst_36DE67D2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGrindRailSraight" x="22876" y="3748" name="inst_FEB70D73" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGrindRailSraight" x="22908" y="3748" name="inst_94257FB9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -3210,23 +3175,7 @@
     <instance objName="objGrindRailSraight" x="23068" y="3748" name="inst_47D6D9E4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGrindRailSraight" x="23100" y="3748" name="inst_90245311" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGrindRailSraight" x="23132" y="3748" name="inst_626B8433" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="23164" y="3748" name="inst_8C8FEBA7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="23196" y="3748" name="inst_32C8F518" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="23228" y="3748" name="inst_35FC482A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="23260" y="3748" name="inst_41D263A1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="23292" y="3748" name="inst_CC2EE8DB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="23324" y="3748" name="inst_5F906995" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="23356" y="3748" name="inst_336C0080" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="23388" y="3748" name="inst_4D1CF25E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="23420" y="3748" name="inst_5E386B1A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="23452" y="3748" name="inst_175C15FA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="23484" y="3748" name="inst_D56BAB13" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="23516" y="3748" name="inst_A2C17CAE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="23548" y="3748" name="inst_23756B55" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="23580" y="3748" name="inst_32B6400B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailStartR" x="23612" y="3748" name="inst_4BC7329E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objDashPadLeft" x="23596" y="3732" name="inst_7D59A334" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailStartL" x="23296" y="3680" name="inst_41E82F20" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGrindRailSraight" x="23160" y="3748" name="inst_8C8FEBA7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGrindRailSraight" x="23328" y="3680" name="inst_B701C074" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGrindRailSraight" x="23360" y="3680" name="inst_DB7C8295" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGrindRailSraight" x="23392" y="3680" name="inst_EA6F7201" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -3299,31 +3248,7 @@
     <instance objName="objGrindRailSraight" x="25900" y="3644" name="inst_323A44FF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGrindRailSraight" x="25932" y="3644" name="inst_A57229F8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGrindRailSraight" x="25964" y="3644" name="inst_D3069F36" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="25996" y="3644" name="inst_6124B848" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="26028" y="3644" name="inst_D88846FE" locked="0" code="" scaleX="16.5" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailStartR" x="26556" y="3644" name="inst_5962CCBD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailStartL" x="25564" y="3576" name="inst_8123C7C2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="25596" y="3576" name="inst_529DF9C6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="25628" y="3576" name="inst_3BEDEF1E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="25660" y="3576" name="inst_FD2892AD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="25692" y="3576" name="inst_4E747D39" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="25724" y="3576" name="inst_D8386FD5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="25756" y="3576" name="inst_ACCC015C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="25788" y="3576" name="inst_1D81356A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="25820" y="3576" name="inst_863A049F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="25852" y="3576" name="inst_8C7C3865" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="25884" y="3576" name="inst_B1054E0E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="25916" y="3576" name="inst_D4B1B647" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="25948" y="3576" name="inst_FCB67083" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="25980" y="3576" name="inst_0106F12F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="26012" y="3576" name="inst_51EB0447" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="26044" y="3576" name="inst_C4595D11" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="26076" y="3576" name="inst_B20FC3C0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="26108" y="3576" name="inst_B8C4A18C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="26140" y="3576" name="inst_BAEF5731" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="26172" y="3576" name="inst_EF0F78BF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="26204" y="3576" name="inst_FF08C5E3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objGrindRailSraight" x="26236" y="3576" name="inst_E2BF70BB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGrindRailSraight" x="25996" y="3644" name="inst_6124B848" locked="0" code="" scaleX="4.25" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGrindRailSlopeR" x="26268" y="3556" name="inst_25C8702E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGrindRailSlopeR" x="26308" y="3536" name="inst_515EDDA3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGrindRailSlopeR" x="26348" y="3516" name="inst_9FDB88DB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -3359,10 +3284,7 @@
     <instance objName="objGrindRailSraight" x="27452" y="3176" name="inst_3CDD11A0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGrindRailStartR" x="27484" y="3176" name="inst_BE65F96B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objDashPadRight" x="25848" y="3628" name="inst_155EA6A8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objDashPadRight" x="26064" y="3628" name="inst_C6F46E2B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objDashPadRight" x="25648" y="3560" name="inst_27BA63BE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objDashPadRight" x="25724" y="3560" name="inst_9D1C03EF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objDashPadRight" x="25788" y="3560" name="inst_BA037AF8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objDashPadRight" x="25564" y="3628" name="inst_C6F46E2B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objDashPadRight" x="27260" y="3160" name="inst_38E0EB75" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objDashPadRight" x="27360" y="3160" name="inst_1FAD7E46" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="object545" x="27516" y="3176" name="inst_A101F6C6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -3487,6 +3409,39 @@
     <instance objName="objGrindRailSlopeR" x="14060" y="3720" name="inst_4394948A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGrindRailSlopeR" x="14100" y="3700" name="inst_7D06227D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objGrindRailStartR" x="14140" y="3700" name="inst_E4BE74FB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objEggPawnMissile" x="4712" y="2508" name="inst_1CD83461" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objEggPawnGun" x="12264" y="3624" name="inst_1D1EF591" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objEggPawnGun" x="17520" y="3544" name="inst_23C73973" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objEggPawnMissile" x="17768" y="3544" name="inst_AA46590C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGunHunter" x="6620" y="2816" name="inst_6E9FBADF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGunHunter" x="13256" y="3536" name="inst_8443A4D1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGunHunter" x="13620" y="3456" name="inst_B049543D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGunHunter" x="14772" y="3288" name="inst_6E50FA99" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGunHunter" x="15020" y="3288" name="inst_A5BAE68C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGunHunter" x="12180" y="2676" name="inst_DD840A7C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGunHunter" x="12332" y="2676" name="inst_AFA760A1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objDashPadLeft" x="11784" y="2756" name="inst_E18B4E24" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWarningSign" x="4288" y="2432" name="inst_3FE63A96" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWarningSign" x="6224" y="2756" name="inst_8D6AB7DA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWarningSign" x="8376" y="2384" name="inst_CAE5E40E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWarningSign" x="12940" y="3332" name="inst_F816A29F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWarningSign" x="12948" y="3884" name="inst_C7CB9919" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWarningSign" x="17496" y="3384" name="inst_E9E7F186" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWarningSign" x="17712" y="3384" name="inst_AA089BBD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGrindRailSlopeR" x="22676" y="3748" name="inst_D518E67D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGrindRailSlopeR" x="22636" y="3768" name="inst_BA65BABC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGrindRailSlopeR" x="22596" y="3788" name="inst_2BA6CB23" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGrindRailSlopeR" x="22588" y="3792" name="inst_183C52AB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGrindRailSraight" x="22716" y="3748" name="inst_FD8FB70F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGrindRailSlopeR" x="23288" y="3680" name="inst_6C990E4E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGrindRailSlopeR" x="23248" y="3700" name="inst_C3EB4095" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGrindRailSlopeR" x="23208" y="3720" name="inst_81846E2B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGrindRailSlopeR" x="23192" y="3728" name="inst_E3253BCC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGrindRailSlopeR" x="26228" y="3576" name="inst_5DDB2177" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGrindRailSlopeR" x="26188" y="3596" name="inst_0EC52C3E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGrindRailSlopeR" x="26148" y="3616" name="inst_646C03F2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objGrindRailSlopeR" x="26132" y="3624" name="inst_DF3AFA3E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHintRing" x="17004" y="2740" name="inst_1188DDA1" locked="0" code="txt = &quot;While skydiving, you can still#freely move left and right.&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

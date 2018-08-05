@@ -133,7 +133,8 @@ if scale &gt; 1 &amp;&amp; scale &lt; 4 draw_sprite_ext (sprEnter, 0, x, y, scal
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>audio_stop_all();
+            <string>effect_create_above (ef_ring, x, y, 1, c_aqua);
+audio_stop_all();
 audio_play_sound (sndStartGame, 10, false);
 </string>
           </argument>

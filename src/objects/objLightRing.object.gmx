@@ -49,20 +49,25 @@
           <argument>
             <kind>1</kind>
             <string>//Animate the ring
+var nearest = instance_nearest (x, y, objSonicModified);
+
 index+=0.2
 
 if index&gt;3
 {index=0}
 
 //Make collison detection bigger
-if collision_circle(x,y,25,objSonicModified,0,1) &amp;&amp; objSonicModified.enable=1 &amp;&amp; objSonicModified.ldash == 1
+if collision_circle(x,y,25,nearest,0,1) &amp;&amp; nearest.enable=1 &amp;&amp; nearest.ldash == 1
 {
+repeat 5 effect_create_above(ef_spark,x-10+random(20),y-10+random(20),0.1,c_aqua)
 audio_play_sound (sndRing, 10, false);                  //&lt;--Play sound here
-global.rings+=1
+/*if instance_number (objSonicModified) &lt; 2*/ global.rings+=1
+//else if nearest.ID == 0 global.ringsP1 += 1;
+//else if nearest.ID == 1 global.ringsP2 += 1;
 instance_destroy()
 }
 
-if instance_exists (objShadow)
+if instance_exists (objShadow) //&amp;&amp; instance_number (objSonicModified) &lt; 2
     instance_change (objRing, true);
 </string>
           </argument>

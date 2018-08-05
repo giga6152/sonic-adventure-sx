@@ -83,6 +83,7 @@ audio_play_sound (sndRing, 10, false);
 if instance_exists (objDarkBar) global.dark_energy += 5;
 global.totalrings[global.savedata] += 5;
 global.points += 500;
+effect_create_above (ef_firework, x, y, 2, c_white);
 instance_destroy();
 audio_play_sound (sndBreakBox, 10, false);
 audio_play_sound (sndRing, 10, false);

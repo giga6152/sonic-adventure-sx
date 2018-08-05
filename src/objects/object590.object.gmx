@@ -54,6 +54,12 @@ audio_play_sound (sndDash, 10, false);
 {
     other.hsp = -12;
     audio_play_sound (sndDash, 10, false);
+    
+    /*if timer &lt;= 0
+    {
+        timer = 10;
+        repeat 2 effect_create_above (ef_ring, x, y, 2, c_white);
+    }*/
 }
 </string>
           </argument>

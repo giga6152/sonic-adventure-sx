@@ -267,7 +267,10 @@ else if option != optionNumber
     image_alpha = 0.1;
     
 if room == rmTrialCharacter
+{
     global.trialcharacter = option;
+    global.character = global.trialcharacter;
+}
 </string>
           </argument>
         </arguments>

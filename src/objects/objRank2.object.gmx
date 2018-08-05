@@ -126,7 +126,7 @@ instance_create (0, 0, objFadeWhite);
 alarm[1] = 120;
 audio_play_sound (sndRank, 10, false);
 
-if room == rmS1rm5
+if room == rmS1rm5 or room == rmS1Rrm5
 {
     if global.mil &lt; 240000
         sprite_index = sprRankS;
@@ -137,6 +137,19 @@ if room == rmS1rm5
     else if global.mil &gt;= 400000 &amp;&amp; global.mil &lt; 430000
         sprite_index = sprRankC;
     else if global.mil &gt;= 430000
+        sprite_index = sprRankD;
+}
+else if room == rmD2rm17
+{
+    if global.mil &lt; 690000
+        sprite_index = sprRankS;
+    else if global.mil &gt;= 690000 &amp;&amp; global.mil &lt; 780000
+        sprite_index = sprRankA;
+    else if global.mil &gt;= 780000 &amp;&amp; global.mil &lt; 900000
+        sprite_index = sprRankB;
+    else if global.mil &gt;= 900000 &amp;&amp; global.mil &lt; 1200000
+        sprite_index = sprRankC;
+    else if global.mil &gt;= 1200000
         sprite_index = sprRankD;
 }
 </string>

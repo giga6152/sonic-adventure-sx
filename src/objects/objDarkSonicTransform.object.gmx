@@ -34,6 +34,8 @@ audio_play_sound (bgmDarkSonic, 10, true);
 audio_play_sound (sndSonicDarkTransform, 10, false);
 global.superstate = 3;
 darkindex = 0;
+draw_aura = false;
+aura_index = 0;
 </string>
           </argument>
         </arguments>
@@ -67,8 +69,13 @@ if room == rmZ1_B
    x += objBossScroll.hspeed;
    
 view_object = self;
+aura_index += 0.25;
 
-instance_activate_object (prtMoving);
+if image_index &gt; 5
+{
+    if image_index &gt; 5 &amp;&amp; image_index &lt; 7 &amp;&amp; !audio_is_playing (sndSuperTransform) audio_play_sound (sndSuperTransform, 10, false);
+    draw_aura = true;
+}
 </string>
           </argument>
         </arguments>
@@ -116,6 +123,7 @@ instance_activate_object (prtMoving);
             <kind>1</kind>
             <string>draw_sprite (sprDarkSonicAura, darkindex, x, y);
 draw_self();
+if draw_aura draw_sprite (sprDarkAura, aura_index, x, y);
 </string>
           </argument>
         </arguments>

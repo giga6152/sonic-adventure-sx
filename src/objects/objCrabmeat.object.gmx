@@ -30,6 +30,7 @@ image_speed = 0.16;
 ground = true;
 hp = 1;
 invulnerable = false;
+timer = 10;
 </string>
           </argument>
         </arguments>
@@ -91,13 +92,18 @@ if place_meeting (x, y, objSlopeParent)
 if (place_meeting (x+1, y, objWall) or place_meeting (x-1, y, objWall))
     image_xscale = -image_xscale;
 
-if place_free (x, y+8)
+if place_free (x, y+8) &amp;&amp; timer &lt;= 0
+{
    image_xscale = -image_xscale;
+   timer = 10;
+}
    
 if collision_line(x,y,x+image_xscale*30,y,objWall,1,1)
 {
     image_xscale = -image_xscale;
 }
+
+timer --;
 </string>
           </argument>
         </arguments>

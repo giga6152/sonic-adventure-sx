@@ -499,6 +499,7 @@
     <instance objName="objTopSolid" x="4118" y="326" name="inst_7933D6D9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objTopSolid" x="4130" y="332" name="inst_79F21461" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objRottytops" x="48" y="304" name="inst_E51DF1A0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHintRing" x="1616" y="224" name="inst_260C3DA4" locked="0" code="if global.controltype == 0 txt = &quot;On the ground, and with no item selected,#press C to slide.&quot;;&#xA;else if global.controltype == 1 txt = &quot;On the ground, and with no item selected,#press Y to slide.&quot;;&#xA;else if global.controltype == 2 txt = &quot;On the ground, and with no item selected,#press Triangle to slide&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

@@ -25,6 +25,7 @@ global.best_time[6, 1] = 3599999;
 global.best_time[7, 0] = 3599999;
 global.best_time[7, 1] = 3599999;
 global.best_time[8, 0] = 3599999;
+global.best_time[8, 1] = 3599999;
 //global.best_time[9, 0] = 3599999;
 global.best_time[10, 0] = 3599999;
 //global.best_time[11, 0] = 3599999;
@@ -40,6 +41,7 @@ global.best_score[4, 1] = 0;
 global.best_score[6, 0] = 0;
 global.best_score[6, 1] = 0;
 global.best_score[8, 0] = 0;
+global.best_score[8, 1] = 0;
 global.best_score[10, 0] = 0;
 
 //Initialize best rings
@@ -54,6 +56,7 @@ global.best_rings[4, 1] = 0;
 global.best_rings[6, 0] = 0;
 global.best_rings[6, 1] = 0;
 global.best_rings[8, 0] = 0;
+global.best_rings[8, 1] = 0;
 global.best_rings[10, 0] = 0;
 
 global.chrt = 0;

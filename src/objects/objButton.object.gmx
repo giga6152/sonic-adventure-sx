@@ -88,6 +88,7 @@ if instance_exists (objSonicModified)
     {
         if !buttonstate
         {
+            repeat 2 effect_create_above (ef_ring, x, y, 1, c_white);
             buttonstate = true;
             
             if !audio_is_playing (sndButtonPress)

@@ -81,6 +81,7 @@ col.action=6
 col.ground=0
 col.hsp=15.68
 col.vsp=-9.68
+//repeat 2 effect_create_above (ef_ring, x, y, 2, make_colour_rgb(242, 80, 11));
 }
 }
 

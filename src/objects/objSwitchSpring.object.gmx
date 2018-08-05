@@ -28,6 +28,7 @@
             <string>event_inherited();
 
 spring_velocity = -14;
+timer = 10;
 </string>
           </argument>
         </arguments>
@@ -51,6 +52,7 @@ spring_velocity = -14;
           <argument>
             <kind>1</kind>
             <string>event_inherited();
+timer --;
 
 if active
 {
@@ -94,6 +96,11 @@ else
     other.ground = false;
     other.action = 6;
     audio_play_sound (sndSpring, 10, false);
+    /*if timer &lt;= 0
+    {
+        timer = 10;
+        effect_create_above (ef_ring, x, y, 0, c_white);
+    }*/
 }
 </string>
           </argument>

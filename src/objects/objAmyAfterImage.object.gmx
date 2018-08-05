@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>if instance_exists (objAmy)
 {
+   if objAmy.spriteset == sprAmyActions sprite_index = sprAmyAfterImage;
+   else if objAmy.spriteset == sprAmyActions2 sprite_index = sprAmyAfterImage2;
    image_index = objAmy.animations_frame;
    image_xscale = objAmy.xdir;
    image_angle = objAmy.animations_angle;

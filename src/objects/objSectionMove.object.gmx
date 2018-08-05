@@ -48,7 +48,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_deactivate_object (objRottytops);
+            <string>with other instance_destroy();
 instance_create (0, 0, objFade);
 alarm[0] = 40;
 
@@ -81,7 +81,7 @@ global.playerspawny = playerbeginy;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_deactivate_object (objSkyPlayer);
+            <string>with other instance_destroy();
 instance_create (0, 0, objFade);
 alarm[0] = 40;
 
@@ -109,7 +109,7 @@ global.playerspawny = playerbeginy;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_deactivate_object (objShantae);
+            <string>with other instance_destroy();
 instance_create (0, 0, objFade);
 alarm[0] = 40;
 

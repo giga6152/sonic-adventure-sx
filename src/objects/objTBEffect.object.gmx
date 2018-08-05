@@ -98,6 +98,8 @@ with other instance_destroy();
           <argument>
             <kind>1</kind>
             <string>with other instance_change(objEnemyDestroy, true);
+global.combo += 1;
+global.combo_timer = 300;
 </string>
           </argument>
         </arguments>

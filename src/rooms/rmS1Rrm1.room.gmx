@@ -398,6 +398,8 @@
     <instance objName="objTopSolid" x="4668" y="312" name="inst_BF834067" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objScuttleTown" x="80" y="128" name="inst_C5F93637" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objRottytops" x="64" y="320" name="inst_4A357035" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHintRing" x="256" y="224" name="inst_7682F325" locked="0" code="if global.controltype == 0 txt = &quot;Press X to perform a Heavy Kick.&quot;;&#xA;else if global.controltype == 1 txt = &quot;Press B to perform a Heavy Kick.&quot;;&#xA;else if global.controltype == 2 txt = &quot;Press Circle to perform a Heavy#Kick.&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHintRing" x="1904" y="272" name="inst_8FD5383D" locked="0" code="if global.controltype == 0 txt = &quot;Press either A or D to switch items.#When you've selected one, press C to#use it.&quot;;&#xA;else if global.controltype == 1 txt = &quot;Press either LB or RB to switch items.#When you've selected one, press Y to#use it.&quot;;&#xA;else if global.controltype == 2 txt = &quot;Press either L1 or R1 to switch items.#When you've selected one, press#Triangle to use it.&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

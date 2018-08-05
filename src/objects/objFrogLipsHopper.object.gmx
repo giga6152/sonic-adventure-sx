@@ -94,9 +94,9 @@ alarm[1] = hopAlarm;
 image_index = 0;
 sprite_index = sprFrogLipsJump;
 
-if instance_exists (objShantae)
+if instance_exists (objPlayer)
 {
-    if x &gt; objShantae.x
+    if x &gt; objPlayer.x
     {
        vel = -3;
        image_xscale = 1;
@@ -146,6 +146,12 @@ else
     sprite_index = sprFrogLipsJump;
 }
 
+if place_meeting (x, y+yvel-1, objSolid2) &amp;&amp; yvel &lt;= 0
+{
+    ground = false;
+    yvel = 0;
+}
+
 if yvel &gt; 10
    yvel = 10;
    
@@ -157,6 +163,15 @@ y += yvel;
 
 if !ground
     yvel += yfr;
+    
+if (place_meeting (x+vel+1, y, objWall)) or x &gt; instance_nearest (x, y, objWall).x
+    x -= 1;
+if (place_meeting (x+vel-1, y, objWall)) or x &lt; instance_nearest (x, y, objWall).x
+    x += 1;
+if (place_meeting (x, y+yvel+1, objWall)) or y &gt; instance_nearest (x, y, objWall).y
+    y -= 1;
+if (place_meeting (x, y+yvel-1, objWall)) or y &lt; instance_nearest (x, y, objWall).y
+    y += 1;
 </string>
           </argument>
         </arguments>

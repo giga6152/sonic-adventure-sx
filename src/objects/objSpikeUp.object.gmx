@@ -29,7 +29,7 @@
 
 if col_playersonic
 {
-if global.invincible == false &amp;&amp; global.superstate == 0 &amp;&amp; global.rings &gt; 0
+if global.invincible == false &amp;&amp; global.superstate == 0 &amp;&amp; ((global.rings &gt; 0 &amp;&amp; room != rmMinigameSonicSpeedRacing) or (global.ringsP1 &gt; 0 &amp;&amp; room == rmMinigameSonicSpeedRacing &amp;&amp; col_playersonic.ID == 0) or (global.ringsP2 &gt; 0 &amp;&amp; room == rmMinigameSonicSpeedRacing &amp;&amp; col_playersonic.ID == 1))
 {
 if col_playersonic.ready&lt;=0 &amp;&amp; col_playersonic.enable=1 &amp;&amp; col_playersonic.ground
 {
@@ -39,13 +39,35 @@ col_playersonic.action=9
 col_playersonic.ground = false;
 audio_play_sound (col_playersonic.hurtvoice, 10, false);
 
-if global.shield == 0 &amp;&amp; global.rings &gt; 0
+if global.shield == 0 &amp;&amp; ((global.rings &gt; 0 &amp;&amp; room != rmMinigameSonicSpeedRacing) or (global.ringsP1 &gt; 0 &amp;&amp; room == rmMinigameSonicSpeedRacing &amp;&amp; col_playersonic.ID == 0) or (global.ringsP2 &gt; 0 &amp;&amp; room == rmMinigameSonicSpeedRacing &amp;&amp; col_playersonic.ID == 1))
 {
     audio_play_sound (sndRingLose, 10, false)
     
-    if global.rings &lt;= 32 scrLoseRings(global.rings,x,y,objLoseRing) else scrLoseRings(32,x,y,objLoseRing)
+    if room != rmMinigameSonicSpeedRacing
+    {
+        if global.rings &lt;= 32 scrLoseRings(global.rings,col_playersonic.x,col_playersonic.y,objLoseRing);
+        else scrLoseRings(32,col_playersonic.x,col_playersonic.y,objLoseRing);
+    }
+    else
+    {
+        if col_playersonic.ID == 0
+        {
+            if global.ringsP1 &lt;= 32 scrLoseRings(global.ringsP1,col_playersonic.x,col_playersonic.y,objLoseRing);
+            else scrLoseRings(32,col_playersonic.x,col_playersonic.y,objLoseRing);
+        }
+        else if col_playersonic.ID == 1
+        {
+            if global.ringsP2 &lt;= 32 scrLoseRings(global.ringsP2,col_playersonic.x,col_playersonic.y,objLoseRing);
+            else scrLoseRings(32,col_playersonic.x,col_playersonic.y,objLoseRing);
+        }
+    }
     
-    global.rings = 0;
+    if room != rmMinigameSonicSpeedRacing global.rings = 0;
+    else
+    {
+        if col_playersonic.ID == 0 global.ringsP1 = 0;
+        else if col_playersonic.ID == 1 global.ringsP2 = 0;
+    }
 }
 else
 {
@@ -61,7 +83,7 @@ col_playersonic.enable=0
 }
 }
 }
-else if global.rings == 0 &amp;&amp; global.shield == 0 &amp;&amp; global.invincible == false
+else if ((room != rmMinigameSonicSpeedRacing &amp;&amp; global.rings == 0) or (room == rmMinigameSonicSpeedRacing &amp;&amp; global.ringsP1 == 0 &amp;&amp; col_playersonic.ID == 0) or (room == rmMinigameSonicSpeedRacing &amp;&amp; global.ringsP2 == 0 &amp;&amp; col_playersonic.ID == 1)) &amp;&amp; global.shield == 0 &amp;&amp; global.invincible == false
 {
 if col_playersonic.ready&lt;=0 &amp;&amp; col_playersonic.enable=1 &amp;&amp; col_playersonic.ground //Player dies if there are no rings
 {
@@ -71,7 +93,7 @@ col_playersonic.enable = 0;
 col_playersonic.action = 9.5;
 
 audio_play_sound (col_playersonic.hurtvoice, 10, false);*/
-with objSonicModified instance_change (deathobj, true);
+with col_playersonic instance_change (deathobj, true);
 }
 }
 }

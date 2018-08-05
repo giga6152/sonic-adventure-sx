@@ -72,7 +72,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.ch3[global.savedata] = true;
+            <string>effect_create_above (ef_firework, x, y, 2, c_yellow);
+global.ch3[global.savedata] = true;
 instance_destroy();
 audio_play_sound (sndChaosEmerald, 10, false);
 global.points += 100000;

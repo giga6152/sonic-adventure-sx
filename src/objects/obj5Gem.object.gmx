@@ -128,6 +128,7 @@ vspeed = 0;
             <string>if canGrab == true
 {
     global.gems[global.savedata] += 5;
+    repeat 5 effect_create_above(ef_spark,x-10+random(20),y-10+random(20),0.1,c_lime)
     instance_destroy();
     audio_play_sound (sndGemMed, 10, false);
 }
@@ -155,7 +156,8 @@ vspeed = 0;
             <kind>1</kind>
             <string>if canGrab == true
 {
-    global.gems += 5;
+    global.gems[global.savedata] += 5;
+    repeat 5 effect_create_above(ef_spark,x-10+random(20),y-10+random(20),0.1,c_lime)
     instance_destroy();
     audio_play_sound (sndGemMed, 10, false);
 }
@@ -184,6 +186,7 @@ vspeed = 0;
             <string>if canGrab == true
 {
     global.gems[global.savedata] += 5;
+    repeat 5 effect_create_above(ef_spark,x-10+random(20),y-10+random(20),0.1,c_lime)
     instance_destroy();
     audio_play_sound (sndGemMed, 10, false);
 }

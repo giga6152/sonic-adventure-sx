@@ -157,6 +157,7 @@ else
             <string>if canSwitch
 {
    canSwitch = false;
+   repeat 2 effect_create_above (ef_ring, x, y, 1, c_white);
    alarm[0] = 10;
    
    if switchtimer == ""
@@ -205,6 +206,7 @@ with other
             <string>if canSwitch
 {
    canSwitch = false;
+   repeat 2 effect_create_above (ef_ring, x, y, 1, c_white);
    alarm[0] = 10;
    
    if switchtimer == ""
@@ -249,6 +251,7 @@ with other instance_destroy();
             <string>if canSwitch
 {
    canSwitch = false;
+   repeat 2 effect_create_above (ef_ring, x, y, 1, c_white);
    alarm[0] = 10;
    
    if switchtimer == ""
@@ -293,6 +296,7 @@ with other instance_destroy();
             <string>if canSwitch
 {
    canSwitch = false;
+   repeat 2 effect_create_above (ef_ring, x, y, 1, c_white);
    alarm[0] = 10;
    
    if switchtimer == ""

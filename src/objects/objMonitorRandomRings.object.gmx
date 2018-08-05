@@ -164,6 +164,7 @@ global.rings += 20;
 if instance_exists (objDarkBar) global.dark_energy += 20;
 global.totalrings[global.savedata] += 20;
 global.points += 2000;
+effect_create_above (ef_firework, x, y, 2, c_white);
 instance_destroy();
 
 if other.lock

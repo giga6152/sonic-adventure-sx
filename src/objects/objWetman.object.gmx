@@ -192,7 +192,7 @@ else if action == 2 //If in attack state
     sprite_index = sprWetmanAttack;
     enableguard = false;
     guarding = false;
-    vel = (image_xscale*4);
+    vel = (image_xscale*2.5);
     
     if vel &gt; 0
         vel -= 0.1;

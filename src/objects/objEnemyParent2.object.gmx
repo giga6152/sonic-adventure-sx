@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>objDeactive</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -100,7 +100,9 @@ They are set to how much hp they have, however if it has unlimited hp, it is set
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if instance_exists (objShantae)
+            <string>if !scrInsideView() exit;
+
+if instance_exists (objShantae)
 {
     if (objShantae.whipping == true &amp;&amp; !instance_place (x, y, objShantaeStandWhipBox)) or enableguard == true
         canHit = false;
@@ -660,7 +662,7 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if other.canGetHit == true
+            <string>if other.canGetHit == true &amp;&amp; other.sprite_index != sprShantaeStrike
 {
     //Hurt the player
     if global.hearts &gt; attackDamage
@@ -686,6 +688,14 @@ else
             global.hearts = 0;
             with other instance_change (objShantaeHitDie, true);
         }
+    }
+}
+else if other.sprite_index == sprShantaeStrike
+{
+    if canHit
+    {
+        other.vspeed = -8;
+        hpoints -= 4;
     }
 }
 else

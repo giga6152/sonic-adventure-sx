@@ -3,7 +3,7 @@
   <spriteName>sprTitlecardBanner</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1486618625</depth>
+  <depth>-10000002</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -29,8 +29,25 @@
 transition = 1;
 image_speed = 0;
 alarm[0] = 150;
-xx = 0;
-yy = 0;
+xx = -112;
+yy1 = 0;
+yy2 = 355;
+global.first_room = rmTitlecard;
+
+global.start_x = -1;
+global.start_y = -1;
+global.milliseconds = 0;
+global.seconds = 0;
+global.minutes = 0;
+global.mil = 0;
+global.millisecondsC = 0;
+global.secondsC = 0;
+global.minutesC = 0;
+global.milC = 0;
+global.millisecondsG = 0;
+global.secondsG = 0;
+global.minutesG = 0;
+global.milG = 0;
 </string>
           </argument>
         </arguments>
@@ -100,12 +117,46 @@ alarm[1] = 40;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if instance_exists (objFade)
-    depth = objFade.depth-1;
+            <string>//if instance_exists (objFade)
+//    depth = objFade.depth-1;
 
-image_index = global.character;
+if global.trialcharacter &lt; 13 image_index = global.trialcharacter;
+else
+{
+    if global.trialcharacter == 13 or global.trialcharacter == 17 or global.trialcharacter == 18 image_index = 0;
+    if global.trialcharacter == 14 image_index = 2;
+    if global.trialcharacter == 15 image_index = 4;
+    if global.trialcharacter == 16 image_index = 6;
+}
 
-x = view_xview[0]+x;
+yy1 += 5;
+yy2 += 5;
+
+if yy1 &gt; 355 yy1 = -355;
+if yy2 &gt; 355 yy2 = -355;
+
+if instance_exists (objPlayer)
+{
+    if instance_exists (objFade) transition = 0;
+    else transition = -1;
+}
+if transition == 1
+{
+    if xx &lt; 0 xx += 4;
+    else
+    {
+        xx = 0;
+        transition = 0;
+    }
+}
+else if transition == 0 xx = 0;
+else
+{
+    xx -= 5;
+    if xx &lt; -112 instance_destroy();
+}
+
+/*x = view_xview[0]+x;
 
 if instance_exists (objPlayer)
 {
@@ -144,6 +195,65 @@ else if transition == -1
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Set stage
+if global.trialcharacter == 0 or global.trialcharacter == 13 or global.trialcharacter == 17 or global.trialcharacter == 18
+{
+    if global.actnumb == 0 stage = rmZ1_1rm1;
+    else if global.actnumb == 1 stage = rmZ2_1rm1M;
+}
+else if global.trialcharacter == 1
+{
+    if global.actnumb == 0 stage = rmS1rm1;
+    else if global.actnumb == 1 stage = rmS2rm1;
+}
+else if global.trialcharacter == 2 or global.trialcharacter == 14
+{
+    if global.actnumb == 0 stage = rmZ1_1Krm1M;
+    else if global.actnumb == 1 stage = rmZ2_1Krm1M;
+}
+else if global.trialcharacter == 4 or global.trialcharacter == 15
+{
+    if global.actnumb == 0 stage = rmZ1_1Shrm1;
+    else if global.actnumb == 1 stage = rmZ2_1Shrm1;
+}
+else if global.trialcharacter == 6 or global.trialcharacter == 16
+{
+    if global.actnumb == 0 stage = rmZ1_1Slrm1;
+    else if global.actnumb == 1 stage = rmZ2_1Slrm1;
+}
+else if global.trialcharacter == 7
+{
+    if global.actnumb == 0 stage = rmS1Rrm1;
+}
+else if global.trialcharacter == 8
+{
+    if global.actnumb == 0 stage = rmZ1_1Trm1;
+    else if global.actnumb == 1 stage = rmZ2_1Trm1;
+}
+else if global.trialcharacter == 10
+{
+    if global.actnumb == 0 stage = rmZ1_1Arm1M;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="8" enumb="0">
       <action>
@@ -162,7 +272,8 @@ else if transition == -1
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(sprTitlecardBanner, global.character, view_xview[0]+x, view_yview[0]);
+            <string>draw_sprite(sprTitlecardBanner, image_index, view_xview[0]+xx, view_yview[0]+yy1);
+draw_sprite(sprTitlecardBanner, image_index, view_xview[0]+xx, view_yview[0]+yy2);
 </string>
           </argument>
         </arguments>

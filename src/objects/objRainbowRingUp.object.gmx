@@ -113,6 +113,7 @@ other.vsp = -14;
 other.action = 6;
 alarm[0] = 1;
 audio_play_sound (sndRainbow, 10, false);
+effect_create_above (ef_ring, x, y, 1, c_white);
 </string>
           </argument>
         </arguments>

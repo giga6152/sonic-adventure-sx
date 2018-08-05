@@ -37,10 +37,10 @@ canGetHit = true;
 wallTimer = 20;
 sprite_old = sprMonkeyStand;
 
-KEY_LEFT = keyboard_check (vk_left) or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
-KEY_RIGHT = keyboard_check (vk_right) or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
-KEY_UP = keyboard_check (vk_up) or (gamepad_axis_value (0, gp_axislv) &lt; -0.6);
-KEY_DOWN = keyboard_check (vk_down) or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
+KEY_LEFT = keyboard_check (vk_left) //or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
+KEY_RIGHT = keyboard_check (vk_right) //or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
+KEY_UP = keyboard_check (vk_up) //or (gamepad_axis_value (0, gp_axislv) &lt; -0.6);
+KEY_DOWN = keyboard_check (vk_down) //or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
 </string>
           </argument>
         </arguments>
@@ -172,10 +172,10 @@ if sprite_index == sprMonkeyRun
 else
     image_speed = 0.16;
 
-KEY_LEFT = keyboard_check (vk_left) or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
-KEY_RIGHT = keyboard_check (vk_right) or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
-KEY_UP = keyboard_check (vk_up) or (gamepad_axis_value (0, gp_axislv) &lt; -0.6);
-KEY_DOWN = keyboard_check (vk_down) or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
+KEY_LEFT = keyboard_check (vk_left) //or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
+KEY_RIGHT = keyboard_check (vk_right) //or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
+KEY_UP = keyboard_check (vk_up) //or (gamepad_axis_value (0, gp_axislv) &lt; -0.6);
+KEY_DOWN = keyboard_check (vk_down) //or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
 
 //Basic movements
 if KEY_LEFT &amp;&amp; !place_meeting (x+vel-1, y, objSolid2) &amp;&amp; wallcling == false &amp;&amp; bullet == false &amp;&amp; canMove == true

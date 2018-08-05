@@ -78,16 +78,17 @@ instance_change (objShantae, true);
 instance_create (x, y, objShantaeStandWhipBound);
 
 if room_width &gt; 480 &amp;&amp; room_height &gt; 360 instance_create (x, y, objCamera);
+instance_create (x, y, objOptimize);
 
-KEY_LEFT = keyboard_check (vk_left) or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
-KEY_RIGHT = keyboard_check (vk_right) or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
-KEY_DOWN = keyboard_check (vk_down) or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
-KEY_UP = keyboard_check (vk_up) or (gamepad_axis_value (0, gp_axislv) &lt; -0.6);
+KEY_LEFT = keyboard_check (vk_left) //or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
+KEY_RIGHT = keyboard_check (vk_right) //or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
+KEY_DOWN = keyboard_check (vk_down) //or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
+KEY_UP = keyboard_check (vk_up) //or (gamepad_axis_value (0, gp_axislv) &lt; -0.6);
 
-KEY_LEFT_P = keyboard_check_pressed (vk_left) or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
-KEY_RIGHT_P = keyboard_check_pressed (vk_right) or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
-KEY_UP_P = keyboard_check_pressed (vk_up) or (gamepad_axis_value (0, gp_axislv) &lt; -0.6);
-KEY_DOWN_P = keyboard_check_pressed (vk_down) or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
+KEY_LEFT_P = keyboard_check_pressed (vk_left) //or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
+KEY_RIGHT_P = keyboard_check_pressed (vk_right) //or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
+KEY_UP_P = keyboard_check_pressed (vk_up) //or (gamepad_axis_value (0, gp_axislv) &lt; -0.6);
+KEY_DOWN_P = keyboard_check_pressed (vk_down) //or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
 
 soundstep = sndStepGrass;
 
@@ -366,42 +367,6 @@ sprite_index = sprShantaeStand;
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if instance_exists (objLagControl) //&amp;&amp; render &lt;= 0
-{
-    instance_deactivate_region (view_xview[0]-32, view_yview[0]-32, view_wview[0]+64, view_hview[0]+64, false, true);
-    instance_activate_region (view_xview[0]-16, view_yview[0]-16, view_wview[0]+32, view_hview[0]+32, true);
-    
-    instance_activate_object (objGamepad);
-    instance_activate_object (objSwitch);
-    instance_activate_object (objTopSolid);
-    //instance_activate_object (objMovingPlatformV);
-    //instance_activate_object (objCamera);
-    //instance_activate_object (objHUD);*/
-    instance_activate_object (prtMoving);
-    instance_activate_object (objTimeControl);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -553,15 +518,15 @@ if (ground)
 }
 mask_index = MaskMain2;*/
 
-KEY_LEFT = keyboard_check (vk_left) or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
-KEY_RIGHT = keyboard_check (vk_right) or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
-KEY_DOWN = keyboard_check (vk_down) or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
-KEY_UP = keyboard_check (vk_up) or (gamepad_axis_value (0, gp_axislv) &lt; -0.6);
+KEY_LEFT = keyboard_check (vk_left) //or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
+KEY_RIGHT = keyboard_check (vk_right) //or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
+KEY_DOWN = keyboard_check (vk_down) //or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
+KEY_UP = keyboard_check (vk_up) //or (gamepad_axis_value (0, gp_axislv) &lt; -0.6);
 
-KEY_LEFT_P = keyboard_check_pressed (vk_left) or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
-KEY_RIGHT_P = keyboard_check_pressed (vk_right) or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
-KEY_UP_P = keyboard_check_pressed (vk_up) or (gamepad_axis_value (0, gp_axislv) &lt; -0.6);
-KEY_DOWN_P = keyboard_check_pressed (vk_down) or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
+KEY_LEFT_P = keyboard_check_pressed (vk_left) //or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
+KEY_RIGHT_P = keyboard_check_pressed (vk_right) //or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
+KEY_UP_P = keyboard_check_pressed (vk_up) //or (gamepad_axis_value (0, gp_axislv) &lt; -0.6);
+KEY_DOWN_P = keyboard_check_pressed (vk_down) //or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
 
 if KEY_RIGHT &amp;&amp; !place_meeting (x+vel+1, y, objSolid2) &amp;&amp; ducking == false &amp;&amp; canMove == true &amp;&amp; !backdashing &amp;&amp; sprite_index != sprShantaeHit
 {

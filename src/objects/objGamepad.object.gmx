@@ -8,6 +8,35 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>showFPS = false;
+
+//Left analogue stick on controller
+leftstick[0] = false; //Up
+leftstick[1] = false; //Down
+leftstick[2] = false; //Left
+leftstick[3] = false; //Right
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -29,6 +58,63 @@
 
 x = view_xview[0]/2;
 y = view_yview[0]/2;
+
+///Left stick
+//Up on left stick
+if leftstick[0] = 0
+and gamepad_axis_value(0,gp_axislv) &lt;= -0.5
+{
+    leftstick[0] = 1
+    keyboard_key_press(vk_up)
+}
+else if leftstick[0] = 1
+and gamepad_axis_value(0,gp_axislv) &gt; -0.5
+{
+    leftstick[0] = 0
+    keyboard_key_release(vk_up)
+}
+
+//Down on left stick
+if leftstick[1] = 0
+and gamepad_axis_value(0,gp_axislv) &gt;= 0.5
+{
+    leftstick[1] = 1
+    keyboard_key_press(vk_down)
+}
+else if leftstick[1] = 1
+and gamepad_axis_value(0,gp_axislv) &lt; 0.5
+{
+    leftstick[1] = 0
+    keyboard_key_release(vk_down)
+}
+
+//Left on left stick
+if leftstick[2] = 0
+and gamepad_axis_value(0,gp_axislh) &lt;= -0.5
+{
+    leftstick[2] = 1
+    keyboard_key_press(vk_left)
+}
+else if leftstick[2] = 1
+and gamepad_axis_value(0,gp_axislh) &gt; -0.5
+{
+    leftstick[2] = 0
+    keyboard_key_release(vk_left)
+}
+
+//Right on left stick
+if leftstick[3] = 0
+and gamepad_axis_value(0,gp_axislh) &gt;= 0.5
+{
+    leftstick[3] = 1
+    keyboard_key_press(vk_right)
+}
+else if leftstick[3] = 1
+and gamepad_axis_value(0,gp_axislh) &lt; 0.5
+{
+    leftstick[3] = 0
+    keyboard_key_release(vk_right)
+}
 
 ///D-pad
 
@@ -113,8 +199,6 @@ else if gamepad_button_check_released(0,gp_select)
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -131,13 +215,14 @@ else if gamepad_button_check_released(0,gp_select)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Debug drawing
+            <string>///Set surface
+texture_set_interpolation(false);
 
-/*draw_set_colour (c_white);
-
-draw_text (view_xview[0], view_yview[0], string(global.best_time[global.chrt, global.actnumb]));
-draw_text (view_xview[0], view_yview[0]+16, string(global.best_score[global.chrt, global.actnumb]));
-draw_text (view_xview[0], view_yview[0]+32, string(global.best_rings[global.chrt, global.actnumb]));
+if texture_set_interpolation(false)
+{
+    if view_wview[0] != surface_get_width(application_surface) || view_hview[0] != surface_get_height(application_surface)
+        surface_resize(application_surface, view_wview[0], view_hview[0]);
+}
 </string>
           </argument>
         </arguments>

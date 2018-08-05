@@ -180,6 +180,7 @@ global.lastsave_second[5] = 0;
 global.windowWidth = 640;
 global.windowHeight = 480;
 
+global.game_mode = story_trial_mode; //Game mode: 0 = story/trial mode, 1 = battle mode, 2 = minigames (these are set via constants)
 global.invincible = false;
 global.canGoSuper = false;
 global.canGoHyper = false;
@@ -289,10 +290,16 @@ global.nextstage = "";
 global.lastroom = room;
 global.energy = 0;
 
+global.ringsP1 = 0;
+global.ringsP2 = 0;
+
 global.trialcharacter = -1;
 global.First = 0;
 global.Second = 0;
 global.Third = 0;
+
+global.lvl_name = "";
+global.first_room = rmTitlecard;
 
 scrInitializeBestStats();
 

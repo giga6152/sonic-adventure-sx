@@ -66,9 +66,11 @@
      cs;
      sn;*/
     
+    event_inherited();
+    
     // Input iables
-         KEY_LEFT = keyboard_check (vk_left) or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
-         KEY_RIGHT = keyboard_check (vk_right) or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
+         KEY_LEFT = keyboard_check (vk_left) //or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
+         KEY_RIGHT = keyboard_check (vk_right) //or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
          KEY_UP = keyboard_check (vk_up);
          KEY_DOWN = keyboard_check (vk_down);
          KEY_A=ord("Z");
@@ -83,7 +85,8 @@
     hspm                = 20;                    /* Max Horizontal Speed */
     hspl                = 40;
     
-    instance_create (x, y, objCamera);
+    //instance_create (x, y, objCamera);
+    //instance_create (x, y, objOptimize);
     
     if room != rmZ1_B
     {
@@ -170,6 +173,9 @@
     
     airSpecial = 99;
     groundSpecial = 99;
+    
+    aura_index = 0;
+    aura = sprHyperAura;
 </string>
           </argument>
         </arguments>
@@ -328,7 +334,7 @@ audio_play_sound (bgmSuperSonic2, 10, true);
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="2">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -345,24 +351,47 @@ audio_play_sound (bgmSuperSonic2, 10, true);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if room != rmZ1_B
-{
-    instance_deactivate_region (view_xview[0]-32, view_yview[0]-32, view_wview[0]+64, view_hview[0]+64, false, true);
-    instance_activate_region (view_xview[0]-16, view_yview[0]-16, view_wview[0]+32, view_hview[0]+32, true);
-}
-
-instance_activate_object (objGamepad);
-instance_activate_object (objCamera);
-instance_activate_object (objButton);
-instance_activate_object (objButton2);
-instance_activate_object (objWaterSurface);
-instance_activate_object (prtMoving);
+            <string>///Camera
+if view_xview[0]&lt;room_width-view_wview[0]-2 //&amp;&amp; global.setview=0
+    {
+    view_xview[0]=x-240+hsp*6*cos(angle*pi/180)
+    }
+    else
+    if view_xview[0]&gt;room_width-view_wview[0]-2 &amp;&amp; instance_exists (objSignpost)
+    {view_xview[0]=room_width-view_wview[0]}
+    else
+    {view_xview[0]=x-240+hsp*6*cos(angle*pi/180)}
+    
+    /*if view_yview[0]&lt;room_height-view_hview[0]-2 &amp;&amp; global.setview=0
+    {view_yview[0]=y-160+vsp*4*cos(angle*pi/180)}
+    else
+    if view_yview[0]&gt;room_height-view_hview[0]-2 &amp;&amp; global.setview=0
+    {view_yview[0]=room_height-view_hview[0]}
+    else
+    {view_yview[0]=y-160+vsp*4*cos(angle*pi/180)}*/
+    
+    view_yview[0]=y-160-hsp*6*sin(angle*pi/180)
+    
+    if view_xview[0]&lt;0
+    {view_xview[0]=0}
+    
+    if view_yview[0]&lt;0
+    {view_yview[0]=0}
+    
+    if view_xview[0]+view_wview[0]&gt;room_width
+    {view_xview[0]=room_width-view_wview[0]}
+    
+    if view_yview[0]+view_hview[0]&gt;room_height
+    {view_yview[0]=room_height-view_hview[0]}
+    
+    if x&lt;view_xview[0]+2
+    {x=view_xview[0]+2 hsp=0}
+    if x&gt;room_width-2 
+    {x=room_width-2 hsp=0}
 </string>
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -534,8 +563,8 @@ if y &lt; 5
    // First, we query the keyboard and store the key data into the variables, for latter use.
    if enable=1
    {
-   KEY_LEFT = keyboard_check (vk_left) or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
-   KEY_RIGHT = keyboard_check (vk_right) or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
+   KEY_LEFT = keyboard_check (vk_left) //or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
+   KEY_RIGHT = keyboard_check (vk_right) //or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
    KEY_UP       = keyboard_check(vk_up);
    KEY_DOWN     = keyboard_check(vk_down);
    KEY_A        = keyboard_check_pressed(ord('Z')); //This has been changed to fit certain actions
@@ -764,7 +793,7 @@ if y &lt; 5
    
    if instance_number(objHomingParent)&gt;0 //Check if there are enemies first
    {
-   if distance_to_object(objHomingParent)&lt;320 &amp;&amp; enemy.y&gt;=y //Locked on (enemy must be in-line or below Sonic, not above)
+   if distance_to_object(objHomingParent)&lt;205 &amp;&amp; enemy.y&gt;=y //Locked on (enemy must be in-line or below Sonic, not above)
    {lock=1}
    else
    {vsp=0 hsp+=xdir*6 lock=0} //If not near an enemy, just go foward
@@ -777,7 +806,7 @@ if y &lt; 5
    //Lock on to nearest enemy (Notice I switch from Damizean's hsp,vsp function to speed and direction then back)
    if instance_number(objHomingParent)&gt;0
    {
-   if lock=1 &amp;&amp; distance_to_object(objHomingParent)&lt;320 //Go towards enemy
+   if lock=1 &amp;&amp; distance_to_object(objHomingParent)&lt;205 //Go towards enemy
    {direction=point_direction(x,y,enemy.x,enemy.y) speed=12 hsp=0 vsp=0}
    else
    if lock=1 &amp;&amp; speed&gt;0 //Cancel lock (too far away from enemies)
@@ -931,10 +960,34 @@ if hyperflash_timer &lt;= 0
         hyperflash_timer = 85;
 }
 
+if action != 5 lock = 0;
+
 //Gimmick properties. These are set in seperate scripts for easy reference.
 
 scrWater();
 scrGimmicks();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Aura sound effect
+if !audio_is_playing (sndSuperAura) audio_play_sound (sndSuperAura, 10, true);
 </string>
           </argument>
         </arguments>
@@ -1633,6 +1686,16 @@ instance_create (0, 0, objScore);
     
 if blink&lt;5
 {scrDrawColours (sprHyperSonicActionsCol1, sprHyperSonicActionsCol2, sprHyperSonicActionsCol3, sprHyperSonicActionsCol4, sprHyperSonicActionsStatic)};
+aura_index += 0.25;
+
+if colour == 0 aura = sprHyperAura;
+if colour == 1 aura = sprHyperAura2;
+if colour == 2 aura = sprHyperAura3;
+if colour == 3 aura = sprHyperAura4;
+if colour == 4 aura = sprHyperAura5;
+if colour == 5 aura = sprHyperAura6;
+
+draw_sprite_ext (aura, aura_index, x, y, 1, 1, animations_angle, c_white, 1);
 </string>
           </argument>
         </arguments>

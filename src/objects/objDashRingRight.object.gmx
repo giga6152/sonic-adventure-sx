@@ -60,6 +60,7 @@ other.hsp = 8;
 other.vsp = 0;
 other.alarm[0] = 60;
 audio_play_sound (sndDash, 10, false);
+effect_create_above (ef_ring, x, y, 1, c_white);
 </string>
           </argument>
         </arguments>

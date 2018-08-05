@@ -2893,6 +2893,9 @@
     <instance objName="objEggPawn" x="15136" y="2104" name="inst_78A21613" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objEggPawn" x="18572" y="2284" name="inst_612DC659" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objEggPawn" x="18456" y="2284" name="inst_BF15A6B2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHintRing" x="2848" y="1464" name="inst_D7D40D6A" locked="0" code="if global.controltype == 0 txt = &quot;While airborne, press Z to perform the#Doublejump.&quot;;&#xA;else if global.controltype == 1 txt = &quot;While airborne, press A to perform the#Doublejump.&quot;;&#xA;else if global.controltype == 2 txt = &quot;While airborne, press Cross to perform#the Doublejump.&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHintRing" x="7464" y="2056" name="inst_14D9FAD8" locked="0" code="if global.controltype == 0 txt = &quot;While airborne, press C to perform a#Downward Hammer Strike.&quot;;&#xA;else if global.controltype == 1 txt = &quot;While airborne, press Y to perform a#Downward Hammer Strike.&quot;;&#xA;else if global.controltype == 2 txt = &quot;While airborne, press Triangle to#perform a Downward Hammer Strike.&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHintRing" x="9248" y="1724" name="inst_B82F8D17" locked="0" code="if global.controltype == 0 txt = &quot;Press X to use the Hammer Strike.&quot;;&#xA;else if global.controltype == 1 txt = &quot;Press X to use the Hammer Strike.&quot;;&#xA;else if global.controltype == 2 txt = &quot;Press X to use the Hammer Strike.&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

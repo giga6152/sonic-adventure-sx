@@ -3,9 +3,9 @@
   <spriteName>sprTitlecardBox</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1486618626</depth>
+  <depth>-10000003</depth>
   <persistent>-1</persistent>
-  <parentName>prtTitlecard</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>transition = 1;
+xx = 0;
+yy = -32;
 </string>
           </argument>
         </arguments>
@@ -48,7 +50,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = view_xview[0];
+            <string>//if instance_exists (objTitlecardBanner) depth = objTitlecardBanner.depth-1;
 
 if instance_exists (objPlayer)
 {
@@ -59,25 +61,19 @@ else transition = 1;
 
 if transition == 1
 {
-    vspeed = 6;
+    yy += 6;
     
-    if y &gt;= view_yview[0]+187
+    if yy &gt;= 216
     {
-        vspeed = 0;
-        y = view_yview[0]+187;
+        yy = 216;
         transition = 0;
     }
 }
-else if transition == 0
-{
-    vspeed = 0;
-    y = view_yview[0]+187;
-}
+else if transition == 0 yy = 216;
 else if transition == -1
 {
-    vspeed = -6;
-    
-    if y &lt; view_yview[0]+ystart instance_destroy();
+    yy -= 6;
+    if yy &lt; -32 instance_destroy();
 }
 </string>
           </argument>
@@ -103,6 +99,29 @@ else if transition == -1
             <kind>1</kind>
             <string>/*if transition == -1
     instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_sprite (sprTitlecardBox, 0, view_xview[0]+xx, view_yview[0]+yy);
 </string>
           </argument>
         </arguments>

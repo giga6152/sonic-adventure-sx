@@ -65,12 +65,14 @@
          sine;
      cs;
      sn;*/
+     
+     event_inherited();
     
     // Input variables
-         KEY_LEFT = keyboard_check (vk_left) or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
-         KEY_RIGHT = keyboard_check (vk_right) or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
+         KEY_LEFT = keyboard_check (vk_left) //or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
+         KEY_RIGHT = keyboard_check (vk_right) //or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
          KEY_UP = keyboard_check (vk_up);
-         KEY_DOWN = keyboard_check (vk_down) or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
+         KEY_DOWN = keyboard_check (vk_down) //or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
          KEY_A=ord("Z");
          KEY_B=ord("X");
          KEY_BH=keyboard_check (ord("X"));
@@ -80,12 +82,14 @@
                         Setup settings for Sonic
 //==============================================================================*/
 
-    instance_create (x, y, objCamera);
+    //instance_create (x, y, objCamera);
     
     hsp                 = 0;                     /* Horizontal Speed */
     hspm                = 11;                    /* Max Horizontal Speed */
     hspl                = 26;
     global.shieldhits = 0;
+    
+    instance_create (x, y, objOptimize);
     
     if room != rmZ1_BA
     {
@@ -166,6 +170,8 @@
     
     animationTrick = 17;
     tube_action = 22;
+    
+    spriteset = sprAmyActions;
     
     vfrw = 0.15;
     hspmw = 4;
@@ -260,7 +266,7 @@ if room = rmZ2_1Arm1
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="2">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -277,24 +283,47 @@ if room = rmZ2_1Arm1
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if room != rmZ1_BA
-{
-    instance_deactivate_region (view_xview[0]-32, view_yview[0]-32, view_wview[0]+64, view_hview[0]+64, false, true);
-    instance_activate_region (view_xview[0]-16, view_yview[0]-16, view_wview[0]+32, view_hview[0]+32, true);
-}
-
-instance_activate_object (objGamepad);
-instance_activate_object (objCamera);
-instance_activate_object (objButton);
-instance_activate_object (objButton2);
-instance_activate_object (objWaterSurface);
-instance_activate_object (prtMoving);
+            <string>///Camera
+if view_xview[0]&lt;room_width-view_wview[0]-2 //&amp;&amp; global.setview=0
+    {
+    view_xview[0]=x-240+hsp*6*cos(angle*pi/180)
+    }
+    else
+    if view_xview[0]&gt;room_width-view_wview[0]-2 &amp;&amp; instance_exists (objSignpost)
+    {view_xview[0]=room_width-view_wview[0]}
+    else
+    {view_xview[0]=x-240+hsp*6*cos(angle*pi/180)}
+    
+    /*if view_yview[0]&lt;room_height-view_hview[0]-2 &amp;&amp; global.setview=0
+    {view_yview[0]=y-160+vsp*4*cos(angle*pi/180)}
+    else
+    if view_yview[0]&gt;room_height-view_hview[0]-2 &amp;&amp; global.setview=0
+    {view_yview[0]=room_height-view_hview[0]}
+    else
+    {view_yview[0]=y-160+vsp*4*cos(angle*pi/180)}*/
+    
+    view_yview[0]=y-160-hsp*6*sin(angle*pi/180)
+    
+    if view_xview[0]&lt;0
+    {view_xview[0]=0}
+    
+    if view_yview[0]&lt;0
+    {view_yview[0]=0}
+    
+    if view_xview[0]+view_wview[0]&gt;room_width
+    {view_xview[0]=room_width-view_wview[0]}
+    
+    if view_yview[0]+view_hview[0]&gt;room_height
+    {view_yview[0]=room_height-view_hview[0]}
+    
+    if x&lt;view_xview[0]+2
+    {x=view_xview[0]+2 hsp=0}
+    if x&gt;room_width-2 
+    {x=room_width-2 hsp=0}
 </string>
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -467,10 +496,10 @@ if y &lt; 5
    // First, we query the keyboard and store the key data into the variables, for latter use.
    if enable=1
    {
-   KEY_LEFT = keyboard_check (vk_left) or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
-   KEY_RIGHT = keyboard_check (vk_right) or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
+   KEY_LEFT = keyboard_check (vk_left) //or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
+   KEY_RIGHT = keyboard_check (vk_right) //or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
    KEY_UP       = keyboard_check(vk_up);
-   KEY_DOWN     = keyboard_check(vk_down) or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
+   KEY_DOWN     = keyboard_check(vk_down) //or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
    KEY_A        = keyboard_check_pressed(ord('Z')); //This has been changed to fit certain actions
    KEY_B        = keyboard_check_pressed(ord('X'));
    KEY_BH       = keyboard_check (ord("X")); //The attack button held down
@@ -842,10 +871,13 @@ if action == animationDash &amp;&amp; ground
    action = 0;
    
 //Hammer attack (press the attack button when on the ground)
-if KEY_B &amp;&amp; action == 0 &amp;&amp; ground
+if KEY_B
 {
-    action = 14;
+    if (action == 0 &amp;&amp; ground) or !ground
+        action = 14;
 }
+if action == 14 &amp;&amp; spriteset == sprAmyActions2 &amp;&amp; ground action = 0;
+
 //Downward slam attack (press the special button when in the air)
 if KEY_C &amp;&amp; !ground &amp;&amp; (action == 1 or action == 6 or action == 6.5)
 {
@@ -1285,6 +1317,7 @@ y = global.start_y;
 
     // -&gt; Standing animation
     if (hsp==0 &amp;&amp; ground &amp;&amp; action==0) {
+        spriteset = sprAmyActions;
         animation=0;
         animations_framemin=0;
         animations_framemax=7;
@@ -1296,6 +1329,7 @@ y = global.start_y;
 
     // -&gt; Walking animation
     if (abs(hsp)&gt;0 &amp;&amp; abs(hsp)&lt;4 &amp;&amp; ground &amp;&amp; action==0) {
+        spriteset = sprAmyActions;
         animation=1;
         animations_framemin=64;
         animations_framemax=71;
@@ -1321,6 +1355,7 @@ y = global.start_y;
     
     // -&gt; Run animation
     if (abs(hsp)&gt;4 &amp;&amp; abs(hsp)&lt;9 &amp;&amp; ground &amp;&amp; action==0) {
+        spriteset = sprAmyActions;
         animation=1.5;
         animations_framemin=8;
         animations_framemax=14;
@@ -1336,6 +1371,7 @@ y = global.start_y;
     
     // -&gt; Sprint animation
     if (abs(hsp)&gt;=9 &amp;&amp; abs(hsp)&lt;16 &amp;&amp; ground &amp;&amp; action==0) {
+        spriteset = sprAmyActions;
         animation=2;
         animations_framemin=15;
         animations_framemax=22;
@@ -1351,6 +1387,7 @@ y = global.start_y;
     
     // -&gt; Dash animation
     if (abs(hsp)&gt;=16 &amp;&amp; ground &amp;&amp; action==0) {
+        spriteset = sprAmyActions;
         animation=3;
         animations_framemin=23;
         animations_framemax=30;
@@ -1366,11 +1403,12 @@ y = global.start_y;
 
     // -&gt; Jump animation
     if (action==1 or action==tube_action) {
+        spriteset = sprAmyActions;
         animation=4;
         animations_framemin=43;
         animations_framemax=46;
         animations_return=43;
-        animations_speed=12+abs(hsp);
+        animations_speed=18+abs(hsp);
         atk=1
         enable = 1;
         if action == 1 {draw_sprite_ext(spr_circleAmy,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_circleAmy)}
@@ -1378,6 +1416,7 @@ y = global.start_y;
     
     // -&gt; Duck animation
     if (action==2) {
+        spriteset = sprAmyActions;
         animation=7;
         animations_framemin=72;
         animations_framemax=74;
@@ -1389,6 +1428,7 @@ y = global.start_y;
     
     // -&gt; Roll animation
     if (action==3) {
+        spriteset = sprAmyActions;
         animation=5;
         animations_framemin=47;
         animations_framemax=50;
@@ -1401,6 +1441,7 @@ y = global.start_y;
     
     // -&gt; Spindash animation
     if (action==4.5) {
+        spriteset = sprAmyActions;
         animation=6;
         animations_framemin=23;
         animations_framemax=30;
@@ -1430,6 +1471,7 @@ y = global.start_y;
     
     // -&gt; Bounce up animation
     if (action==6 &amp;&amp; vsp&lt;0) {
+        spriteset = sprAmyActions;
         animation=7;
         animations_framemin=31;
         animations_framemax=33;
@@ -1441,6 +1483,7 @@ y = global.start_y;
 
     // -&gt; Fall animation
     if (action==6 &amp;&amp; vsp&gt;=0) {
+        spriteset = sprAmyActions;
         animation=8;
         animations_framemin=34;
         animations_framemax=42;
@@ -1455,6 +1498,7 @@ y = global.start_y;
     
     // -&gt; Fall animation
     if (action==6.5) {
+        spriteset = sprAmyActions;
         animation=8.5;
         animations_framemin=75;
         animations_framemax=87;
@@ -1483,6 +1527,7 @@ y = global.start_y;
     
     // -&gt; Grind animation
     if (action==8) {
+        spriteset = sprAmyActions;
         animation=9;
         animations_framemin=58;
         animations_framemax=59;
@@ -1497,6 +1542,7 @@ y = global.start_y;
     
     // -&gt; Injury animation
     if (action==9) {
+        spriteset = sprAmyActions;
         animation=10;
         animations_framemin=55;
         animations_framemax=57;
@@ -1512,6 +1558,7 @@ y = global.start_y;
     
     // -&gt; Injury animation
     if (action==9.5) {
+        spriteset = sprAmyActions;
         animation=10;
         animations_framemin=55;
         animations_framemax=57;
@@ -1527,6 +1574,7 @@ y = global.start_y;
     
     // -&gt; Dead animation (up)
     if (action==10 &amp;&amp; vspeed&lt;=0) {
+        spriteset = sprAmyActions;
         animation=16;
         animations_framemin=96;
         animations_framemax=96;
@@ -1540,6 +1588,7 @@ y = global.start_y;
        
     // -&gt; Dead animation (down)
     if (action==10 &amp;&amp; vspeed&gt;0) {
+        spriteset = sprAmyActions;
         animation=17;
         animations_framemin=97;
         animations_framemax=100;
@@ -1553,6 +1602,7 @@ y = global.start_y;
        
     // -&gt; Light dash
     if (action==11) {
+        spriteset = sprAmyActions;
         animation=18;
         animations_framemin=64;
         animations_framemax=66;
@@ -1564,6 +1614,7 @@ y = global.start_y;
        
     // -&gt; Skidding animation
     if (action==12) {
+        spriteset = sprAmyActions;
         animation=19;
         animations_framemin=63;
         animations_framemax=63;
@@ -1574,6 +1625,7 @@ y = global.start_y;
        }
        // -&gt; Dash ring animation
     if (action==animationDash) {
+        spriteset = sprAmyActions;
         animation=20;
         animations_framemin=60;
         animations_framemax=62;
@@ -1583,7 +1635,8 @@ y = global.start_y;
         enable=1
     }
     // -&gt; Hammer attack animation
-    if (action==14) {
+    if (action==14 &amp;&amp; ground) {
+        spriteset = sprAmyActions;
         animation=21;
         animations_framemin=88;
         animations_framemax=110;
@@ -1595,8 +1648,22 @@ y = global.start_y;
         
         if animations_frame == 110 action = 0;
        }
+    // -&gt; Hammer attack animation (in the air)
+    if (action==14 &amp;&amp; !ground){
+        spriteset = sprAmyActions2;
+        animation=21.5;
+        animations_framemin=0;
+        animations_framemax=9;
+        animations_return=9;
+        animations_speed=27;
+        atk=1
+        enable = 1;
+        
+        if animations_frame == 9 action = 0;
+       }
     // -&gt; Downward attack animation
     if (action==15) {
+        spriteset = sprAmyActions;
         animation=22;
         animations_framemin=111;
         animations_framemax=115;
@@ -1608,6 +1675,7 @@ y = global.start_y;
        
     // -&gt; Rainbow trick animation
     if (action==animationTrick) {
+        spriteset = sprAmyActions;
         animation=22.5;
         animations_framemin=116;
         animations_framemax=124;
@@ -1620,6 +1688,7 @@ y = global.start_y;
        
        // -&gt; QTE animation
     if (action==30) {
+        spriteset = sprAmyActions;
         animation=11;
         animations_framemin=31;
         animations_framemax=33;
@@ -1700,7 +1769,7 @@ if global.invincible = true
 }
     
 if blink&lt;5
-{draw_sprite_ext(    sprAmyActions,  animations_frame,   x,y,    xdir,   1,   animations_angle,    c_white,1)};
+{draw_sprite_ext(    spriteset,  animations_frame,   x,y,    xdir,   1,   animations_angle,    c_white,1)};
 </string>
           </argument>
         </arguments>

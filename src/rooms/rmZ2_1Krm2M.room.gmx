@@ -2958,6 +2958,14 @@
     <instance objName="objPlayerStop" x="22848" y="252" name="inst_084AEC54" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objPlayerStop" x="22848" y="136" name="inst_E4655EF0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objChangeKnuckles" x="24" y="152" name="inst_6DC68DE0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWarningSign" x="4812" y="3308" name="inst_A04C27F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWarningSign" x="6704" y="2196" name="inst_3E4B1F31" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWarningSign" x="11172" y="3140" name="inst_D2F99645" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWarningSign" x="11232" y="2444" name="inst_A63BDEF2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objWarningSign" x="20240" y="3028" name="inst_17323A5F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHintRing" x="1572" y="748" name="inst_4A7095DD" locked="0" code="if global.controltype == 0 txt = &quot;Press C while airborne to perform#the Drill Claw.&quot;;&#xA;else if global.controltype == 1 txt = &quot;Press Y while airborne to perform#the Drill Claw.&quot;;&#xA;else if global.controltype == 2 txt = &quot;Press Triangle while airborne#to perform the Drill Claw.&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHintRing" x="11224" y="3156" name="inst_9E6775B8" locked="0" code="txt = &quot;The lava here is fatal.#You will die instantly if you touch it.&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHintRing" x="20296" y="3036" name="inst_4A075D79" locked="0" code="txt = &quot;Be careful up ahead. The lava will start#rising here, be sure to act fast.&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

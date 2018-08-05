@@ -2893,6 +2893,9 @@
     <instance objName="objEggPawn" x="18452" y="2284" name="inst_F8D71C2E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objEggPawn" x="18564" y="2284" name="inst_30113467" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objCrabmeat" x="10948" y="1416" name="inst_48C0D105" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHintRing" x="2864" y="1464" name="inst_FFDD2314" locked="0" code="if global.controltype == 0 txt = &quot;Repeatedly press Z while#airborne to fly. Press X#to cancel.&quot;;&#xA;else if global.controltype == 1 txt = &quot;Repeatedly press A while#airborne to fly. Press B#to cancel.&quot;;&#xA;else if global.controltype == 2 txt = &quot;Repeatedly press Cross while#airborne to fly. Press Circle#to cancel.&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHintRing" x="7464" y="2056" name="inst_A20DA5CC" locked="0" code="if global.controltype == 0 txt = &quot;Press C to toss a dummy ring#bomb.&quot;;&#xA;else if global.controltype == 1 txt = &quot;Press Y to toss a dummy ring#bomb.&quot;;&#xA;else if global.controltype == 2 txt = &quot;Press Triangle to toss a dummy#ring bomb.&quot;;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objHintRing" x="9244" y="1724" name="inst_4C4663B2" locked="0" code="if global.controltype == 0 txt = &quot;Press X on the ground to#use the Tail Attack.&quot;;&#xA;else if global.controltype == 1 txt = &quot;Press B on the ground to#use the Tail Attack.&quot;;&#xA;else if global.controltype == 2 txt = &quot;Press Circle on the ground#to use the Tail Attack.&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
