@@ -38,6 +38,7 @@
         <sound>sound\sndRing</sound>
         <sound>sound\sndRingLose</sound>
         <sound>sound\sndShield</sound>
+        <sound>sound\sndSoundBreak</sound>
         <sound>sound\sndLife</sound>
         <sound>sound\sndCheckpoint</sound>
         <sound>sound\sndChaosEmerald</sound>
@@ -78,6 +79,7 @@
         <sound>sound\sndQTEPush</sound>
         <sound>sound\sndQTEClear</sound>
         <sound>sound\sndQTEFail</sound>
+        <sound>sound\sndHint</sound>
       </sounds>
       <sounds name="Voices">
         <sounds name="Sonic">
@@ -186,44 +188,59 @@
       </sounds>
     </sounds>
     <sounds name="BGM">
-      <sound>sound\bgmTitleScreen</sound>
-      <sound>sound\bgmTitleModified</sound>
-      <sound>sound\bgmTitleModified2</sound>
-      <sound>sound\bgmSaveSelect</sound>
-      <sound>sound\bgmCharacterSelect</sound>
-      <sound>sound\bgmTrial</sound>
-      <sound>sound\bgmEmeraldGarden</sound>
-      <sound>sound\bgmScuttleTown</sound>
-      <sound>sound\bgmLavaFilter</sound>
-      <sound>sound\bgmStreamworks</sound>
-      <sound>sound\bgmWhiteLabyrinth</sound>
-      <sound>sound\bgmStarfireCarnival</sound>
-      <sound>sound\bgmSonicSpeedRacing</sound>
-      <sound>sound\bgmTestZone</sound>
-      <sound>sound\bgmEggman</sound>
-      <sound>sound\bgmEggman2</sound>
-      <sound>sound\bgmRisky</sound>
-      <sound>sound\bgmBossSonic</sound>
-      <sound>sound\bgmBossShantae</sound>
-      <sound>sound\bgmInvincible</sound>
-      <sound>sound\bgmSpeedup</sound>
-      <sound>sound\bgmDrowning</sound>
-      <sound>sound\bgmStageClear</sound>
-      <sound>sound\bgmStageClearShantae</sound>
-      <sound>sound\bgmResults</sound>
-      <sound>sound\bgmGameOver</sound>
-      <sound>sound\bgmSonicHub</sound>
-      <sound>sound\bgmShantaeHub</sound>
-      <sound>sound\bgmFactory</sound>
-      <sound>sound\bgmSuperSonic</sound>
-      <sound>sound\bgmSuperSonic2</sound>
-      <sound>sound\bgmSuperShadow</sound>
-      <sound>sound\bgmSuperSilver</sound>
-      <sound>sound\bgmDarkSonic</sound>
-      <sound>sound\bgmCharacterBoss</sound>
-      <sound>sound\bgmTailsBoss</sound>
-      <sound>sound\bgmSeelkadoomBoss</sound>
-      <sound>sound\bgmCutscene</sound>
+      <sounds name="Menus">
+        <sound>sound\bgmTitleScreen</sound>
+        <sound>sound\bgmTitleModified</sound>
+        <sound>sound\bgmTitleModified2</sound>
+        <sound>sound\bgmSaveSelect</sound>
+        <sound>sound\bgmCharacterSelect</sound>
+        <sound>sound\bgmMinigamesMenu</sound>
+        <sound>sound\bgmTrial</sound>
+      </sounds>
+      <sounds name="Stages">
+        <sound>sound\bgmEmeraldGarden</sound>
+        <sound>sound\bgmScuttleTown</sound>
+        <sound>sound\bgmLavaFilter</sound>
+        <sound>sound\bgmStreamworks</sound>
+        <sound>sound\bgmWhiteLabyrinth</sound>
+        <sound>sound\bgmStarfireCarnival</sound>
+        <sound>sound\bgmTestZone</sound>
+      </sounds>
+      <sounds name="Bosses">
+        <sound>sound\bgmEggman</sound>
+        <sound>sound\bgmEggman2</sound>
+        <sound>sound\bgmRisky</sound>
+        <sound>sound\bgmBossSonic</sound>
+        <sound>sound\bgmBossShantae</sound>
+        <sound>sound\bgmCharacterBoss</sound>
+        <sound>sound\bgmTailsBoss</sound>
+        <sound>sound\bgmSeelkadoomBoss</sound>
+      </sounds>
+      <sounds name="Jingles">
+        <sound>sound\bgmInvincible</sound>
+        <sound>sound\bgmSpeedup</sound>
+        <sound>sound\bgmSuperSonic</sound>
+        <sound>sound\bgmSuperSonic2</sound>
+        <sound>sound\bgmSuperShadow</sound>
+        <sound>sound\bgmSuperSilver</sound>
+        <sound>sound\bgmDarkSonic</sound>
+        <sound>sound\bgmDrowning</sound>
+        <sound>sound\bgmStageClear</sound>
+        <sound>sound\bgmStageClearShantae</sound>
+        <sound>sound\bgmResults</sound>
+        <sound>sound\bgmRaceResult</sound>
+        <sound>sound\bgmGameOver</sound>
+      </sounds>
+      <sounds name="Others">
+        <sound>sound\bgmSonicHub</sound>
+        <sound>sound\bgmShantaeHub</sound>
+        <sound>sound\bgmFactory</sound>
+        <sound>sound\bgmCutscene</sound>
+      </sounds>
+      <sounds name="Minigames">
+        <sound>sound\bgmSonicSpeedRacing</sound>
+        <sound>sound\bgmSuperShantaeNab</sound>
+      </sounds>
     </sounds>
     <sounds name="Full Tracks">
       <sound>sound\bgmTitleFull</sound>
@@ -409,9 +426,14 @@
           <sprite>sprites\spr_circleshadowSuper</sprite>
         </sprites>
       </sprites>
+      <sprites name="Bolo">
+        <sprite>sprites\sprBoloStand</sprite>
+        <sprite>sprites\sprBoloRun</sprite>
+        <sprite>sprites\sprite1112</sprite>
+        <sprite>sprites\sprite1111</sprite>
+      </sprites>
       <sprites name="Silver">
         <sprites name="Normal Silver">
-          <sprite>sprites\sprite768</sprite>
           <sprite>sprites\sprSilverActions</sprite>
           <sprite>sprites\sprSilverPK</sprite>
           <sprite>sprites\sprSilverAfterImage</sprite>
@@ -931,6 +953,8 @@
         <sprite>sprites\sprHeartHolderDestroy</sprite>
       </sprites>
       <sprites name="Monitors">
+        <sprite>sprites\sprMonitor</sprite>
+        <sprite>sprites\sprMonitorItem</sprite>
         <sprite>sprites\sprMonitor5Rings</sprite>
         <sprite>sprites\sprMonitor10Rings</sprite>
         <sprite>sprites\sprMonitor20Rings</sprite>
@@ -981,6 +1005,29 @@
         <sprite>sprites\sprMagicSeal2</sprite>
         <sprite>sprites\sprMagicSeal3</sprite>
       </sprites>
+      <sprites name="FX">
+        <sprites name="Bullets">
+          <sprite>sprites\sprBulletL1Hit</sprite>
+          <sprite>sprites\sprBulletL2Hit</sprite>
+          <sprite>sprites\sprBulletL3Hit</sprite>
+          <sprite>sprites\sprBulletL4HIt</sprite>
+        </sprites>
+        <sprites name="Super Aura">
+          <sprite>sprites\sprSuperAura</sprite>
+          <sprite>sprites\sprSuperAuraK</sprite>
+          <sprite>sprites\sprHyperAura</sprite>
+          <sprite>sprites\sprHyperAura2</sprite>
+          <sprite>sprites\sprHyperAura3</sprite>
+          <sprite>sprites\sprHyperAura4</sprite>
+          <sprite>sprites\sprHyperAura5</sprite>
+          <sprite>sprites\sprHyperAura6</sprite>
+          <sprite>sprites\sprDarkAura</sprite>
+        </sprites>
+        <sprite>sprites\sprFireballHit</sprite>
+        <sprite>sprites\sprWhite</sprite>
+        <sprite>sprites\sprTBEffect</sprite>
+        <sprite>sprites\sprSoundBreak</sprite>
+      </sprites>
       <sprites name="Magic stuff">
         <sprites name="Pike Balls">
           <sprite>sprites\sprPikeBall</sprite>
@@ -1002,28 +1049,6 @@
             <sprite>sprites\sprSpearGround</sprite>
             <sprite>sprites\sprSpearCharged</sprite>
           </sprites>
-        </sprites>
-        <sprites name="FX">
-          <sprites name="Bullets">
-            <sprite>sprites\sprBulletL1Hit</sprite>
-            <sprite>sprites\sprBulletL2Hit</sprite>
-            <sprite>sprites\sprBulletL3Hit</sprite>
-            <sprite>sprites\sprBulletL4HIt</sprite>
-          </sprites>
-          <sprites name="Super Aura">
-            <sprite>sprites\sprSuperAura</sprite>
-            <sprite>sprites\sprSuperAuraK</sprite>
-            <sprite>sprites\sprHyperAura</sprite>
-            <sprite>sprites\sprHyperAura2</sprite>
-            <sprite>sprites\sprHyperAura3</sprite>
-            <sprite>sprites\sprHyperAura4</sprite>
-            <sprite>sprites\sprHyperAura5</sprite>
-            <sprite>sprites\sprHyperAura6</sprite>
-            <sprite>sprites\sprDarkAura</sprite>
-          </sprites>
-          <sprite>sprites\sprFireballHit</sprite>
-          <sprite>sprites\sprWhite</sprite>
-          <sprite>sprites\sprTBEffect</sprite>
         </sprites>
       </sprites>
       <sprites name="Chest">
@@ -1288,6 +1313,9 @@
         <sprite>sprites\sprTailsIcon</sprite>
         <sprite>sprites\sprBoloIcon</sprite>
         <sprite>sprites\sprShadowIcon</sprite>
+      </sprites>
+      <sprites name="Results">
+        <sprite>sprites\sprResultsText</sprite>
       </sprites>
       <sprites name="Ranks">
         <sprite>sprites\sprRankX</sprite>
@@ -1899,11 +1927,13 @@
     </scripts>
     <scripts name="Initialize">
       <script>scripts\scrInitialize.gml</script>
+      <script>scripts\scrInitializeLevel.gml</script>
       <script>scripts\scrInitializeBestStats.gml</script>
       <script>scripts\scrInitializeSaveVariables.gml</script>
       <script>scripts\scrInitializeOtherSaves.gml</script>
       <script>scripts\scrInitializeNormalVariables.gml</script>
       <script>scripts\scrGetResolution.gml</script>
+      <script>scripts\unused_variables.gml</script>
     </scripts>
     <scripts name="Handling Save Data">
       <scripts name="Modified">
@@ -1915,6 +1945,7 @@
         <script>scripts\scrLoadStats.gml</script>
         <script>scripts\scrLoadStatsData.gml</script>
         <script>scripts\scrGetFilename.gml</script>
+        <script>scripts\scrClearLevel.gml</script>
       </scripts>
       <scripts name="Unused">
         <script>scripts\scrSave.gml</script>
@@ -1971,6 +2002,7 @@
     <font>fonts\fntFontFile</font>
     <font>fonts\fntFontBig</font>
     <font>fonts\fntSA2</font>
+    <font>fonts\fntSA2Med</font>
     <font>fonts\fntSA2Small</font>
     <font>fonts\fntSA2XSmall</font>
   </fonts>
@@ -2496,6 +2528,8 @@
         <object>objects\objSavePoint</object>
       </objects>
       <objects name="Monitors">
+        <object>objects\objMonitorDestroy</object>
+        <object>objects\objMonitorItem</object>
         <object>objects\objMonitorParent</object>
         <object>objects\objMonitor5Rings</object>
         <object>objects\objMonitor10Rings</object>
@@ -2533,6 +2567,17 @@
         <object>objects\objMagicSeal</object>
         <object>objects\objMagicSeal1</object>
       </objects>
+      <objects name="FX">
+        <object>objects\objFireballHit</object>
+        <object>objects\objBulletL1Hit</object>
+        <object>objects\objBulletL2Hit</object>
+        <object>objects\objBulletL3Hit</object>
+        <object>objects\objBulletL4Hit</object>
+        <object>objects\objWhiteBlast</object>
+        <object>objects\objPKFX</object>
+        <object>objects\objTBEffect</object>
+        <object>objects\objSoundBreak</object>
+      </objects>
       <objects name="Magic stuff">
         <objects name="Pike Balls">
           <object>objects\objPikeBall</object>
@@ -2555,16 +2600,6 @@
           <objects name="Psychokinesis">
             <object>objects\objPKObject</object>
           </objects>
-        </objects>
-        <objects name="FX">
-          <object>objects\objFireballHit</object>
-          <object>objects\objBulletL1Hit</object>
-          <object>objects\objBulletL2Hit</object>
-          <object>objects\objBulletL3Hit</object>
-          <object>objects\objBulletL4Hit</object>
-          <object>objects\objWhiteBlast</object>
-          <object>objects\objPKFX</object>
-          <object>objects\objTBEffect</object>
         </objects>
       </objects>
       <objects name="Chest">
@@ -2906,6 +2941,7 @@
           <object>objects\objScore</object>
           <object>objects\objCheckpointTime</object>
           <object>objects\objGameSave</object>
+          <object>objects\objResults</object>
           <object>objects\objRingB</object>
           <object>objects\objTimeB</object>
           <object>objects\objRingBonus</object>
@@ -3379,7 +3415,6 @@
       <object>objects\objShantaeSelect</object>
       <object>objects\objLagControl</object>
       <object>objects\objTimeControl</object>
-      <object>objects\objResults</object>
       <object>objects\objText</object>
       <object>objects\objText2</object>
       <object>objects\objBossScroll</object>

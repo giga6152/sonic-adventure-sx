@@ -53,9 +53,13 @@ else if global.controltype == 2
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite (sprite_index, image_index, x, y);
+            <string>draw_sprite (sprite_index, image_index, view_xview[0]+x, view_yview[0]+y);
 draw_set_font (fntFont);
-scrDrawOutlines (x+(sprite_width/2)+16, y, "Special", c_black, c_white, 2);
+
+if room == rmControls
+    scrDrawOutlines (view_xview[0]+xstart+(sprite_width/2)+16, view_yview[0]+ystart, "Special", c_black, c_white, 2);
+else
+    scrDrawOutlines (view_xview[0]+xstart+(sprite_width/2)+16, view_yview[0]+ystart, "About", c_black, c_white, 2);
 </string>
           </argument>
         </arguments>

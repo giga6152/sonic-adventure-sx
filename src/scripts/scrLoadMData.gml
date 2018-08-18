@@ -3,9 +3,9 @@
 //This loads the data once the save file has been opened
 if global.savedata == 1
 {
-    if file_exists ("save.sav")
+    if file_exists (global.dir+"save.sav")
     {
-        ini_open ("save.sav");
+        ini_open (global.dir+"save.sav");
         
         //First, read the data shown on the file
         global.millisecondsF[1] = ini_read_real ("savedata", "millisecondsFile", global.millisecondsF[1]);
@@ -34,22 +34,20 @@ if global.savedata == 1
             global.life[1] = 4;
         
         //Next, read the data that is not shown on the file
-        global.Z1_1 = ini_read_real ("savedata", "Z1-1", global.Z1_1);
-        global.Z1_1Knux = ini_read_real ("savedata", "Z1-1Knux", global.Z1_1Knux);
-        global.Z1_1Amy = ini_read_real ("savedata", "Z1-1Amy", global.Z1_1Amy);
-        global.Z1_B = ini_read_real ("savedata", "Z1-B", global.Z1_B);
-        global.Z1_BKnux = ini_read_real ("savedata", "Z1-BKnux", global.Z1_BKnux);
-        global.Z1_BAmy = ini_read_real ("savedata", "Z1-BAmy", global.Z1_BAmy);
-        global.Z2_1 = ini_read_real ("savedata", "Z2-1", global.Z2_1);
-        global.Z2_1Knux = ini_read_real ("savedata", "Z2-1Knux", global.Z2_1Knux);
-        global.Z2_B = ini_read_real ("savedata", "Z2-B", global.Z2_B);
-        global.Z2_BKnux = ini_read_real ("savedata", "Z2-BKnux", global.Z2_BKnux);
-        global.Z2_BAmy = ini_read_real ("savedata", "Z2-BAmy", global.Z2_BAmy);
-        global.S1 = ini_read_real ("savedata", "S1", global.S1);
-        global.S1S = ini_read_real ("savedata", "S1S", global.S1S);
-        global.S2 = ini_read_real ("savedata", "S2", global.S2);
-        global.getHeart0 = ini_read_real ("savedata", "Heartholder0", global.getHeart0);
-        global.getHeart1 = ini_read_real ("savedata", "Heartholder1", global.getHeart1);
+        global.stage_max[0] = ini_read_real ("savedata", "sonic_maxstage", global.stage_max[0]);
+        global.stage_max[1] = ini_read_real ("savedata", "shantae_maxstage", global.stage_max[1]);
+        global.stage_max[2] = ini_read_real ("savedata", "knux_maxstage", global.stage_max[2]);
+        global.stage_max[3] = ini_read_real ("savedata", "sky_maxstage", global.stage_max[3]);
+        global.stage_max[4] = ini_read_real ("savedata", "shadow_maxstage", global.stage_max[4]);
+        global.stage_max[5] = ini_read_real ("savedata", "bolo_maxstage", global.stage_max[5]);
+        global.stage_max[6] = ini_read_real ("savedata", "silver_maxstage", global.stage_max[6]);
+        global.stage_max[7] = ini_read_real ("savedata", "rotty_maxstage", global.stage_max[7]);
+        global.stage_max[8] = ini_read_real ("savedata", "tails_maxstage", global.stage_max[8]);
+        global.stage_max[9] = ini_read_real ("savedata", "vinegar_maxstage", global.stage_max[9]);
+        global.stage_max[10] = ini_read_real ("savedata", "amy_maxstage", global.stage_max[10]);
+        global.stage_max[11] = ini_read_real ("savedata", "twitch_maxstage", global.stage_max[11]);
+        global.getHeart[0] = ini_read_real ("savedata", "Heartholder0", global.getHeart[0]);
+        global.getHeart[1] = ini_read_real ("savedata", "Heartholder1", global.getHeart[1]);
         global.seal0A = ini_read_real ("savedata", "MagicSeal0A", global.seal0A);
         global.seal0B = ini_read_real ("savedata", "MagicSeal0B", global.seal0B);
         global.maxHearts = ini_read_real ("savedata", "Maxhearts", global.maxHearts);
@@ -101,9 +99,9 @@ if global.savedata == 1
 }
 else if global.savedata == 2
 {
-    if file_exists ("save2.sav")
+    if file_exists (global.dir+"save2.sav")
     {
-        ini_open ("save2.sav");
+        ini_open (global.dir+"save2.sav");
         
         //First, read the data shown on the file
         global.millisecondsF[2] = ini_read_real ("savedata2", "millisecondsFile", global.millisecondsF[2]);
@@ -132,22 +130,20 @@ else if global.savedata == 2
             global.life[2] = 4;
         
         //Next, read the data that is not shown on the file
-        global.Z1_1 = ini_read_real ("savedata2", "Z1-1", global.Z1_1);
-        global.Z1_1Knux = ini_read_real ("savedata2", "Z1-1Knux", global.Z1_1Knux);
-        global.Z1_1Amy = ini_read_real ("savedata2", "Z1-1Amy", global.Z1_1Amy);
-        global.Z1_B = ini_read_real ("savedata2", "Z1-B", global.Z1_B);
-        global.Z1_BKnux = ini_read_real ("savedata2", "Z1-BKnux", global.Z1_BKnux);
-        global.Z1_BAmy = ini_read_real ("savedata2", "Z1-BAmy", global.Z1_BAmy);
-        global.Z2_1 = ini_read_real ("savedata2", "Z2-1", global.Z2_1);
-        global.Z2_1Knux = ini_read_real ("savedata2", "Z2-1Knux", global.Z2_1Knux);
-        global.Z2_B = ini_read_real ("savedata2", "Z2-B", global.Z2_B);
-        global.Z2_BKnux = ini_read_real ("savedata2", "Z2-BKnux", global.Z2_BKnux);
-        global.Z2_BAmy = ini_read_real ("savedata2", "Z2-BAmy", global.Z2_BAmy);
-        global.S1 = ini_read_real ("savedata2", "S1", global.S1);
-        global.S1S = ini_read_real ("savedata2", "S1S", global.S1S);
-        global.S2 = ini_read_real ("savedata2", "S2", global.S2);
-        global.getHeart0 = ini_read_real ("savedata2", "Heartholder0", global.getHeart0);
-        global.getHeart1 = ini_read_real ("savedata2", "Heartholder1", global.getHeart1);
+        global.stage_max[0] = ini_read_real ("savedata2", "sonic_maxstage", global.stage_max[0]);
+        global.stage_max[1] = ini_read_real ("savedata2", "shantae_maxstage", global.stage_max[1]);
+        global.stage_max[2] = ini_read_real ("savedata2", "knux_maxstage", global.stage_max[2]);
+        global.stage_max[3] = ini_read_real ("savedata2", "sky_maxstage", global.stage_max[3]);
+        global.stage_max[4] = ini_read_real ("savedata2", "shadow_maxstage", global.stage_max[4]);
+        global.stage_max[5] = ini_read_real ("savedata2", "bolo_maxstage", global.stage_max[5]);
+        global.stage_max[6] = ini_read_real ("savedata2", "silver_maxstage", global.stage_max[6]);
+        global.stage_max[7] = ini_read_real ("savedata2", "rotty_maxstage", global.stage_max[7]);
+        global.stage_max[8] = ini_read_real ("savedata2", "tails_maxstage", global.stage_max[8]);
+        global.stage_max[9] = ini_read_real ("savedata2", "vinegar_maxstage", global.stage_max[9]);
+        global.stage_max[10] = ini_read_real ("savedata2", "amy_maxstage", global.stage_max[10]);
+        global.stage_max[11] = ini_read_real ("savedata2", "twitch_maxstage", global.stage_max[11]);
+        global.getHeart[0] = ini_read_real ("savedata2", "Heartholder0", global.getHeart[0]);
+        global.getHeart[1] = ini_read_real ("savedata2", "Heartholder1", global.getHeart[1]);
         global.seal0A = ini_read_real ("savedata2", "MagicSeal0A", global.seal0A);
         global.seal0B = ini_read_real ("savedata2", "MagicSeal0B", global.seal0B);
         global.maxHearts = ini_read_real ("savedata2", "Maxhearts", global.maxHearts);
@@ -199,9 +195,9 @@ else if global.savedata == 2
 }
 else if global.savedata == 3
 {
-    if file_exists ("save3.sav")
+    if file_exists (global.dir+"save3.sav")
     {
-        ini_open ("save3.sav");
+        ini_open (global.dir+"save3.sav");
         
         //First, read the data shown on the file
         global.millisecondsF[3] = ini_read_real ("savedata3", "millisecondsFile", global.millisecondsF[3]);
@@ -230,22 +226,20 @@ else if global.savedata == 3
             global.life[3] = 4;
         
         //Next, read the data that is not shown on the file
-        global.Z1_1 = ini_read_real ("savedata3", "Z1-1", global.Z1_1);
-        global.Z1_1Knux = ini_read_real ("savedata3", "Z1-1Knux", global.Z1_1Knux);
-        global.Z1_1Amy = ini_read_real ("savedata3", "Z1-1Amy", global.Z1_1Amy);
-        global.Z1_B = ini_read_real ("savedata3", "Z1-B", global.Z1_B);
-        global.Z1_BKnux = ini_read_real ("savedata3", "Z1-BKnux", global.Z1_BKnux);
-        global.Z1_BAmy = ini_read_real ("savedata3", "Z1-BAmy", global.Z1_BAmy);
-        global.Z2_1 = ini_read_real ("savedata3", "Z2-1", global.Z2_1);
-        global.Z2_1Knux = ini_read_real ("savedata3", "Z2-1Knux", global.Z2_1Knux);
-        global.Z2_B = ini_read_real ("savedata3", "Z2-B", global.Z2_B);
-        global.Z2_BKnux = ini_read_real ("savedata3", "Z2-BKnux", global.Z2_BKnux);
-        global.Z2_BAmy = ini_read_real ("savedata3", "Z2-BAmy", global.Z2_BAmy);
-        global.S1 = ini_read_real ("savedata3", "S1", global.S1);
-        global.S1S = ini_read_real ("savedata3", "S1S", global.S1S);
-        global.S2 = ini_read_real ("savedata3", "S2", global.S2);
-        global.getHeart0 = ini_read_real ("savedata3", "Heartholder0", global.getHeart0);
-        global.getHeart1 = ini_read_real ("savedata3", "Heartholder1", global.getHeart1);
+        global.stage_max[0] = ini_read_real ("savedata3", "sonic_maxstage", global.stage_max[0]);
+        global.stage_max[1] = ini_read_real ("savedata3", "shantae_maxstage", global.stage_max[1]);
+        global.stage_max[2] = ini_read_real ("savedata3", "knux_maxstage", global.stage_max[2]);
+        global.stage_max[3] = ini_read_real ("savedata3", "sky_maxstage", global.stage_max[3]);
+        global.stage_max[4] = ini_read_real ("savedata3", "shadow_maxstage", global.stage_max[4]);
+        global.stage_max[5] = ini_read_real ("savedata3", "bolo_maxstage", global.stage_max[5]);
+        global.stage_max[6] = ini_read_real ("savedata3", "silver_maxstage", global.stage_max[6]);
+        global.stage_max[7] = ini_read_real ("savedata3", "rotty_maxstage", global.stage_max[7]);
+        global.stage_max[8] = ini_read_real ("savedata3", "tails_maxstage", global.stage_max[8]);
+        global.stage_max[9] = ini_read_real ("savedata3", "vinegar_maxstage", global.stage_max[9]);
+        global.stage_max[10] = ini_read_real ("savedata3", "amy_maxstage", global.stage_max[10]);
+        global.stage_max[11] = ini_read_real ("savedata3", "twitch_maxstage", global.stage_max[11]);
+        global.getHeart[0] = ini_read_real ("savedata3", "Heartholder0", global.getHeart[0]);
+        global.getHeart[1] = ini_read_real ("savedata3", "Heartholder1", global.getHeart[1]);
         global.seal0A = ini_read_real ("savedata3", "MagicSeal0A", global.seal0A);
         global.seal0B = ini_read_real ("savedata3", "MagicSeal0B", global.seal0B);
         global.maxHearts = ini_read_real ("savedata3", "Maxhearts", global.maxHearts);
@@ -297,9 +291,9 @@ else if global.savedata == 3
 }
 else if global.savedata == 4
 {
-    if file_exists ("save4.sav")
+    if file_exists (global.dir+"save4.sav")
     {
-        ini_open ("save4.sav");
+        ini_open (global.dir+"save4.sav");
         
         //First, read the data shown on the file
         global.millisecondsF[4] = ini_read_real ("savedata4", "millisecondsFile", global.millisecondsF[4]);
@@ -328,22 +322,20 @@ else if global.savedata == 4
             global.life[4] = 4;
         
         //Next, read the data that is not shown on the file
-        global.Z1_1 = ini_read_real ("savedata4", "Z1-1", global.Z1_1);
-        global.Z1_1Knux = ini_read_real ("savedata4", "Z1-1Knux", global.Z1_1Knux);
-        global.Z1_1Amy = ini_read_real ("savedata4", "Z1-1Amy", global.Z1_1Amy);
-        global.Z1_B = ini_read_real ("savedata4", "Z1-B", global.Z1_B);
-        global.Z1_BKnux = ini_read_real ("savedata4", "Z1-BKnux", global.Z1_BKnux);
-        global.Z1_BAmy = ini_read_real ("savedata4", "Z1-BAmy", global.Z1_BAmy);
-        global.Z2_1 = ini_read_real ("savedata4", "Z2-1", global.Z2_1);
-        global.Z2_1Knux = ini_read_real ("savedata4", "Z2-1Knux", global.Z2_1Knux);
-        global.Z2_B = ini_read_real ("savedata4", "Z2-B", global.Z2_B);
-        global.Z2_BKnux = ini_read_real ("savedata4", "Z2-BKnux", global.Z2_BKnux);
-        global.Z2_BAmy = ini_read_real ("savedata4", "Z2-BAmy", global.Z2_BAmy);
-        global.S1 = ini_read_real ("savedata4", "S1", global.S1);
-        global.S1S = ini_read_real ("savedata4", "S1S", global.S1S);
-        global.S2 = ini_read_real ("savedata4", "S2", global.S2);
-        global.getHeart0 = ini_read_real ("savedata4", "Heartholder0", global.getHeart0);
-        global.getHeart1 = ini_read_real ("savedata4", "Heartholder1", global.getHeart1);
+        global.stage_max[0] = ini_read_real ("savedata4", "sonic_maxstage", global.stage_max[0]);
+        global.stage_max[1] = ini_read_real ("savedata4", "shantae_maxstage", global.stage_max[1]);
+        global.stage_max[2] = ini_read_real ("savedata4", "knux_maxstage", global.stage_max[2]);
+        global.stage_max[3] = ini_read_real ("savedata4", "sky_maxstage", global.stage_max[3]);
+        global.stage_max[4] = ini_read_real ("savedata4", "shadow_maxstage", global.stage_max[4]);
+        global.stage_max[5] = ini_read_real ("savedata4", "bolo_maxstage", global.stage_max[5]);
+        global.stage_max[6] = ini_read_real ("savedata4", "silver_maxstage", global.stage_max[6]);
+        global.stage_max[7] = ini_read_real ("savedata4", "rotty_maxstage", global.stage_max[7]);
+        global.stage_max[8] = ini_read_real ("savedata4", "tails_maxstage", global.stage_max[8]);
+        global.stage_max[9] = ini_read_real ("savedata4", "vinegar_maxstage", global.stage_max[9]);
+        global.stage_max[10] = ini_read_real ("savedata4", "amy_maxstage", global.stage_max[10]);
+        global.stage_max[11] = ini_read_real ("savedata4", "twitch_maxstage", global.stage_max[11]);
+        global.getHeart[0] = ini_read_real ("savedata4", "Heartholder0", global.getHeart[0]);
+        global.getHeart[1] = ini_read_real ("savedata4", "Heartholder1", global.getHeart[1]);
         global.seal0A = ini_read_real ("savedata4", "MagicSeal0A", global.seal0A);
         global.seal0B = ini_read_real ("savedata4", "MagicSeal0B", global.seal0B);
         global.maxHearts = ini_read_real ("savedata4", "Maxhearts", global.maxHearts);
@@ -395,9 +387,9 @@ else if global.savedata == 4
 }
 else if global.savedata == 5
 {
-    if file_exists ("save5.sav")
+    if file_exists (global.dir+"save5.sav")
     {
-        ini_open ("save5.sav");
+        ini_open (global.dir+"save5.sav");
         
         //First, read the data shown on the file
         global.millisecondsF[5] = ini_read_real ("savedata5", "millisecondsFile", global.millisecondsF[5]);
@@ -426,22 +418,20 @@ else if global.savedata == 5
             global.life[5] = 4;
         
         //Next, read the data that is not shown on the file
-        global.Z1_1 = ini_read_real ("savedata5", "Z1-1", global.Z1_1);
-        global.Z1_1Knux = ini_read_real ("savedata5", "Z1-1Knux", global.Z1_1Knux);
-        global.Z1_1Amy = ini_read_real ("savedata5", "Z1-1Amy", global.Z1_1Amy);
-        global.Z1_B = ini_read_real ("savedata5", "Z1-B", global.Z1_B);
-        global.Z1_BKnux = ini_read_real ("savedata5", "Z1-BKnux", global.Z1_BKnux);
-        global.Z1_BAmy = ini_read_real ("savedata5", "Z1-BAmy", global.Z1_BAmy);
-        global.Z2_1 = ini_read_real ("savedata5", "Z2-1", global.Z2_1);
-        global.Z2_1Knux = ini_read_real ("savedata5", "Z2-1Knux", global.Z2_1Knux);
-        global.Z2_B = ini_read_real ("savedata5", "Z2-B", global.Z2_B);
-        global.Z2_BKnux = ini_read_real ("savedata5", "Z2-BKnux", global.Z2_BKnux);
-        global.Z2_BAmy = ini_read_real ("savedata5", "Z2-BAmy", global.Z2_BAmy);
-        global.S1 = ini_read_real ("savedata5", "S1", global.S1);
-        global.S1S = ini_read_real ("savedata5", "S1S", global.S1S);
-        global.S2 = ini_read_real ("savedata5", "S2", global.S2);
-        global.getHeart0 = ini_read_real ("savedata5", "Heartholder0", global.getHeart0);
-        global.getHeart1 = ini_read_real ("savedata5", "Heartholder1", global.getHeart1);
+        global.stage_max[0] = ini_read_real ("savedata5", "sonic_maxstage", global.stage_max[0]);
+        global.stage_max[1] = ini_read_real ("savedata5", "shantae_maxstage", global.stage_max[1]);
+        global.stage_max[2] = ini_read_real ("savedata5", "knux_maxstage", global.stage_max[2]);
+        global.stage_max[3] = ini_read_real ("savedata5", "sky_maxstage", global.stage_max[3]);
+        global.stage_max[4] = ini_read_real ("savedata5", "shadow_maxstage", global.stage_max[4]);
+        global.stage_max[5] = ini_read_real ("savedata5", "bolo_maxstage", global.stage_max[5]);
+        global.stage_max[6] = ini_read_real ("savedata5", "silver_maxstage", global.stage_max[6]);
+        global.stage_max[7] = ini_read_real ("savedata5", "rotty_maxstage", global.stage_max[7]);
+        global.stage_max[8] = ini_read_real ("savedata5", "tails_maxstage", global.stage_max[8]);
+        global.stage_max[9] = ini_read_real ("savedata5", "vinegar_maxstage", global.stage_max[9]);
+        global.stage_max[10] = ini_read_real ("savedata5", "amy_maxstage", global.stage_max[10]);
+        global.stage_max[11] = ini_read_real ("savedata5", "twitch_maxstage", global.stage_max[11]);
+        global.getHeart[0] = ini_read_real ("savedata5", "Heartholder0", global.getHeart[0]);
+        global.getHeart[1] = ini_read_real ("savedata5", "Heartholder1", global.getHeart[1]);
         global.seal0A = ini_read_real ("savedata5", "MagicSeal0A", global.seal0A);
         global.seal0B = ini_read_real ("savedata5", "MagicSeal0B", global.seal0B);
         global.maxHearts = ini_read_real ("savedata5", "Maxhearts", global.maxHearts);

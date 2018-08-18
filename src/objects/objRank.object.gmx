@@ -31,6 +31,73 @@ canRank = false;
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Initialize rank values
+
+//Emerald Garden
+if room == rmZ1_1rm2 or room == rmZ1_1Shrm2
+{
+    s_rank = 55000;
+    a_rank = 51000;
+    b_rank = 47500;
+    c_rank = 32000;
+}
+if room == rmZ1_1Krm2M
+{
+    s_rank = 53500;
+    a_rank = 48000;
+    b_rank = 43500;
+    c_rank = 30000;
+}
+if room == rmZ1_1Slrm2 or room == rmZ1_1Trm2 or room == rmZ1_1Arm2M
+{
+    s_rank = 51000;
+    a_rank = 46000;
+    b_rank = 42000;
+    c_rank = 30000;
+}
+
+//Lava Filter
+if room == rmZ2_1rm2M or room == rmZ2_1Shrm2
+{
+    s_rank = 57000;
+    a_rank = 54000;
+    b_rank = 46500;
+    c_rank = 41000;
+}
+if room == rmZ2_1Krm2M
+{
+    s_rank = 55000;
+    a_rank = 52500;
+    b_rank = 45000;
+    c_rank = 39000;
+}
+if room == rmZ2_1Slrm2
+{
+    s_rank = 53000;
+    a_rank = 49500;
+    b_rank = 44000;
+    c_rank = 36500;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="2" enumb="2">
       <action>
@@ -50,6 +117,7 @@ canRank = false;
           <argument>
             <kind>1</kind>
             <string>room_goto (myRoom);
+scrClearLevel();
 scrSetBestStats();
 scrSaveM();
 
@@ -149,64 +217,16 @@ then the rank will be given.*/
 /*Also, an X Rank will be given if the player acquires 200K points, which is done by
 getting the traditional S Rank and finding a monitor which gives 100K points or finding
 a Chaos Emerald. The player cannot get an X Rank during boss fights.*/
-if room = rmZ1_1rm2 or room == rmZ2_1rm2M
-{
-    //if global.finalPoints &gt;= 200000
-       //sprite_index = sprRankX; //X Rank
-    if global.finalPoints &gt;= 100000
-        sprite_index = sprRankS; //S Rank
-    else if global.finalPoints &gt;= 90000 &amp;&amp; global.finalPoints &lt; 100000
-        sprite_index = sprRankA; //A Rank
-    else if global.finalPoints &gt;= 75000 &amp;&amp; global.finalPoints &lt; 90000
-        sprite_index = sprRankB; //B Rank
-    else if global.finalPoints &gt;= 50000 &amp;&amp; global.finalPoints &lt; 75000
-        sprite_index = sprRankC; //C Rank
-    else if global.finalPoints &lt; 50000
-        sprite_index = sprRankD; //D Rank
-}
-if room == rmZ1_1Krm2M or room == rmZ2_1Krm2M
-{
-    //if global.finalPoints &gt;= 200000
-       //sprite_index = sprRankX; //X Rank
-    if global.finalPoints &gt;= 95000
-        sprite_index = sprRankS; //S Rank
-    else if global.finalPoints &gt;= 85000 &amp;&amp; global.finalPoints &lt; 95000
-        sprite_index = sprRankA; //A Rank
-    else if global.finalPoints &gt;= 70000 &amp;&amp; global.finalPoints &lt; 85000
-        sprite_index = sprRankB; //B Rank
-    else if global.finalPoints &gt;= 47500 &amp;&amp; global.finalPoints &lt; 70000
-        sprite_index = sprRankC; //C Rank
-    else if global.finalPoints &lt; 47500
-        sprite_index = sprRankD; //D Rank
-}
-if room == rmZ1_1Slrm2 or room == rmZ2_1Slrm2 or room == rmZ1_1Trm2 or room == rmZ1_1Arm2M or room == rmZ2_1Arm2
-{
-    //if global.finalPoints &gt;= 200000
-       //sprite_index = sprRankX; //X Rank
-    if global.finalPoints &gt;= 90000
-        sprite_index = sprRankS; //S Rank
-    else if global.finalPoints &gt;= 80000 &amp;&amp; global.finalPoints &lt; 90000
-        sprite_index = sprRankA; //A Rank
-    else if global.finalPoints &gt;= 65000 &amp;&amp; global.finalPoints &lt; 80000
-        sprite_index = sprRankB; //B Rank
-    else if global.finalPoints &gt;= 45000 &amp;&amp; global.finalPoints &lt; 65000
-        sprite_index = sprRankC; //C Rank
-    else if global.finalPoints &lt; 45000
-        sprite_index = sprRankD; //D Rank
-}
-if room = rmZ1_B or room == rmZ1_BK or room == rmZ2_B or room == rmZ2_BK or room == rmZ1_BA or room == rmZ2_BA
-{
-    if global.finalPoints &gt;= 50000
-        sprite_index = sprRankS; //S Rank
-    else if global.finalPoints &gt;= 40000 &amp;&amp; global.finalPoints &lt; 50000
-        sprite_index = sprRankA; //A Rank
-    else if global.finalPoints &gt;= 25000 &amp;&amp; global.finalPoints &lt; 40000
-        sprite_index = sprRankB; //B Rank
-    else if global.finalPoints &gt;= 12500 &amp;&amp; global.finalPoints &lt; 25000
-        sprite_index = sprRankC; //C Rank
-    else if global.finalPoints &lt; 12500
-        sprite_index = sprRankD; //D Rank
-}
+if global.finalPoints &gt;= s_rank
+    sprite_index = sprRankS; //S Rank
+else if global.finalPoints &gt;= a_rank &amp;&amp; global.finalPoints &lt; s_rank
+    sprite_index = sprRankA; //A Rank
+else if global.finalPoints &gt;= b_rank &amp;&amp; global.finalPoints &lt; a_rank
+    sprite_index = sprRankB; //B Rank
+else if global.finalPoints &gt;= c_rank &amp;&amp; global.finalPoints &lt; b_rank
+    sprite_index = sprRankC; //C Rank
+else if global.finalPoints &lt; c_rank
+    sprite_index = sprRankD; //D Rank
 </string>
           </argument>
         </arguments>

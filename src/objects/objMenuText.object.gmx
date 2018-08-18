@@ -109,30 +109,7 @@ objMenuCharacters2.persistent = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if file_exists ("save.sav") &amp;&amp; global.savedata == 1
-    room_goto (rmStorySelectModified);
-else if !file_exists ("save.sav") &amp;&amp; global.savedata == 1
-    room_goto (rmTitlecard1);
-    
-if file_exists ("save2.sav") &amp;&amp; global.savedata == 2
-    room_goto (rmStorySelectModified);
-else if !file_exists ("save2.sav") &amp;&amp; global.savedata == 2
-    room_goto (rmTitlecard1);
-    
-if file_exists ("save3.sav") &amp;&amp; global.savedata == 3
-    room_goto (rmStorySelectModified);
-else if !file_exists ("save3.sav") &amp;&amp; global.savedata == 3
-    room_goto (rmTitlecard1);
-    
-if file_exists ("save4.sav") &amp;&amp; global.savedata == 4
-    room_goto (rmStorySelectModified);
-else if !file_exists ("save4.sav") &amp;&amp; global.savedata == 4
-    room_goto (rmTitlecard1);
-    
-if file_exists ("save5.sav") &amp;&amp; global.savedata == 5
-    room_goto (rmStorySelectModified);
-else if !file_exists ("save5.sav") &amp;&amp; global.savedata == 5
-    room_goto (rmTitlecard1);
+            <string>///Nothing here yet
     
     
 objMenuBG.persistent = false;

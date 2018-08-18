@@ -2689,9 +2689,6 @@
     <instance objName="objZ2Solid" x="10088" y="3520" name="inst_E2B53032" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2Solid" x="10120" y="3520" name="inst_060098DA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2Solid" x="10152" y="3520" name="inst_BB626600" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="10212" y="3444" name="inst_CC60353D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="10244" y="3444" name="inst_358AF181" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="objZ2Solid" x="10276" y="3444" name="inst_D29AD604" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2Solid" x="9940" y="3384" name="inst_02D572C0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2Solid" x="9972" y="3384" name="inst_04E4A5A0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objZ2Solid" x="10004" y="3384" name="inst_5A87069D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -3448,6 +3445,7 @@
     <instance objName="objGrindRailSlopeR" x="26132" y="3624" name="inst_5010A45C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objHintRing" x="13112" y="3860" name="inst_8AF853BA" locked="0" code="if global.controltype == 0 txt = &quot;While close to a trail of light blue rings,#press X to use the Lightdash.&quot;;&#xA;else if global.controltype == 1 txt = &quot;While close to a trail of light blue rings,#press B to use the Lightdash.&quot;;&#xA;if global.controltype == 2 txt = &quot;While close to a trail of light blue rings,#press Circle to use the Lightdash.&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objHintRing" x="17008" y="2740" name="inst_6A108578" locked="0" code="txt = &quot;While skydiving, you can still#freely move left and right.&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="objDashRingUp" x="10088" y="3448" name="inst_28F4DEB0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

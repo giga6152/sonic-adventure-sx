@@ -40,6 +40,7 @@ global.milliseconds = 0;
 global.seconds = 0;
 global.minutes = 0;
 global.mil = 0;
+global.timeBonus = 50000;
 global.millisecondsC = 0;
 global.secondsC = 0;
 global.minutesC = 0;
@@ -48,6 +49,7 @@ global.millisecondsG = 0;
 global.secondsG = 0;
 global.minutesG = 0;
 global.milG = 0;
+global.timeBonusC = global.timeBonus;
 </string>
           </argument>
         </arguments>

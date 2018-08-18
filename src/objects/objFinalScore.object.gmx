@@ -25,22 +25,22 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.finalPoints = 0;
+            <string>global.finalPoints = global.points;
 
 if instance_exists (objSonicClear)
-    estimateScore = (global.timeBonus+global.ringBonus+global.points);
+    estimateScore = (global.timeBonus+global.points);
 else if instance_exists (objShantaeClear)
     estimateScore = (global.timeBonus+global.heartBonus+global.points);
 else if instance_exists (objKnucklesClear)
-    estimateScore = (global.timeBonus+global.ringBonus+global.points);
+    estimateScore = (global.timeBonus+global.points);
 else if instance_exists (objShadowClear)
-    estimateScore = (global.timeBonus+global.ringBonus+global.points);
+    estimateScore = (global.timeBonus+global.points);
 else if instance_exists (objSilverClear)
-    estimateScore = (global.timeBonus+global.ringBonus+global.points);
+    estimateScore = (global.timeBonus+global.points);
 else if instance_exists (objTailsClear)
-    estimateScore = (global.timeBonus+global.ringBonus+global.points);
+    estimateScore = (global.timeBonus+global.points);
 else if instance_exists (objAmyClear)
-    estimateScore = (global.timeBonus+global.ringBonus+global.points);
+    estimateScore = (global.timeBonus+global.points);
 
 alarm[0] = room_speed * 7;
 </string>
@@ -65,12 +65,12 @@ alarm[0] = room_speed * 7;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.finalPoints &lt; estimateScore
+            <string>if global.finalPoints &lt; estimateScore-100
 {
     global.finalPoints += 100;
     alarm[0] = 1;
 }
-else if global.finalPoints &gt;= estimateScore
+else// if global.finalPoints &gt;= estimateScore-100
 {
     alarm[0] = -1;
     global.finalPoints = estimateScore;
@@ -98,9 +98,35 @@ else if global.finalPoints &gt;= estimateScore
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_font (fntFont);
-
-scrDrawOutlines (x, y, "Total: " + string(global.finalPoints), c_black, c_white, 2);
+            <string>draw_sprite (sprResultsText, 5, view_xview[0]+19+25, view_yview[0]+229);
+draw_set_font (fntFont);
+scrDrawOutlines (view_xview[0]+274, view_yview[0]+229, string(global.finalPoints), c_black, c_white, 3);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="90">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if global.finalPoints != global.points &amp;&amp; global.finalPoints != estimateScore
+{
+    global.finalPoints = estimateScore;
+}
 </string>
           </argument>
         </arguments>

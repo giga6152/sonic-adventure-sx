@@ -411,7 +411,7 @@ else if vel &lt; 0
 }
 
 //Vertical movement
-if vspeed &gt; 0
+if vsp &gt; 0
 {
     repeat 0
     {
@@ -419,7 +419,7 @@ if vspeed &gt; 0
         y += 1;
     }
 }
-else if vspeed &lt; 0
+else if vsp &lt; 0
 {
     repeat 0
     {
@@ -427,18 +427,18 @@ else if vspeed &lt; 0
         y -= 1;
     }
 
-    if scrCollideSensorTopS (obstacle_layer | high_layer | low_layer, MaskLarge) vspeed = 0;
+    if scrCollideSensorTopS (obstacle_layer | high_layer | low_layer, MaskLarge) vsp = 0;
 }
 
 //Landing
-if vspeed &gt;= 0 &amp;&amp; !ground &amp;&amp; scrCollideSensorBottomS (obstacle_layer | high_layer | low_layer, MaskLarge) &amp;&amp; scrCollideSensorRight_lineS (obstacle_layer | high_layer | low_layer) &amp;&amp; scrCollideSensorLeft_lineS (obstacle_layer | high_layer | low_layer)
+if vsp &gt;= 0 &amp;&amp; !ground &amp;&amp; scrCollideSensorBottomS (obstacle_layer | high_layer | low_layer, MaskLarge) &amp;&amp; scrCollideSensorRight_lineS (obstacle_layer | high_layer | low_layer) &amp;&amp; scrCollideSensorLeft_lineS (obstacle_layer | high_layer | low_layer)
 {
     angle = calculate_angleS (0, 8, obstacle_layer | high_layer | low_layer);
     cosine = cos(degtorad(angle));
     sine = sin(degtorad(angle));
     
-    vel -= (sine*vspeed);
-    vspeed = 0;
+    vel -= (sine*vsp);
+    vsp = 0;
     ground = true;
     
     if sprite_index == sprShantaeFall sprite_index = sprShantaeStand;
@@ -492,10 +492,10 @@ else
    if (!ground)
    {
      // If we aren't on the ground and we are falling and the bottom sensor is colliding, land
-     if (vspeed&gt;=0 &amp;&amp; scrCollideSensorBottomS(obstacle_layer | high_layer | low_layer,MaskLarge))
+     if (vsp&gt;=0 &amp;&amp; scrCollideSensorBottomS(obstacle_layer | high_layer | low_layer,MaskLarge))
      {
         ground=1;
-        vspeed=0;
+        vsp=0;
         if sprite_index == sprShantaeFall sprite_index = sprShantaeStand;       // If we were jumping, deactivate jump
      }
    } else {
@@ -528,14 +528,19 @@ KEY_RIGHT_P = keyboard_check_pressed (vk_right) //or (gamepad_axis_value (0, gp_
 KEY_UP_P = keyboard_check_pressed (vk_up) //or (gamepad_axis_value (0, gp_axislv) &lt; -0.6);
 KEY_DOWN_P = keyboard_check_pressed (vk_down) //or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
 
-if KEY_RIGHT &amp;&amp; !place_meeting (x+vel+1, y, objSolid2) &amp;&amp; ducking == false &amp;&amp; canMove == true &amp;&amp; !backdashing &amp;&amp; sprite_index != sprShantaeHit
+collision_left_wall = place_meeting(x+vel-1, y, objSolid2);
+collision_right_wall = place_meeting(x+vel+1, y, objSolid2);
+collision_ceil = place_meeting(x, y+yvel-1, objSolid2);
+collision_floor = place_meeting(x, y+yvel+1, objSolid2) or place_meeting (x, y+yvel+1, objTopSolid);
+
+if KEY_RIGHT &amp;&amp; !collision_right_wall &amp;&amp; ducking == false &amp;&amp; canMove == true &amp;&amp; !backdashing &amp;&amp; sprite_index != sprShantaeHit
 {
     if running == false
         vel = 2;
     else if running == true
         vel = 3.25;
 }
-else if KEY_LEFT &amp;&amp; !place_meeting (x+vel-1, y, objSolid2) &amp;&amp; ducking == false &amp;&amp; canMove == true &amp;&amp; !backdashing &amp;&amp; sprite_index != sprShantaeHit
+else if KEY_LEFT &amp;&amp; !collision_left_wall &amp;&amp; ducking == false &amp;&amp; canMove == true &amp;&amp; !backdashing &amp;&amp; sprite_index != sprShantaeHit
 {
     if running == false
         vel = -2;
@@ -563,21 +568,27 @@ if inMaw
 else
 {
     x += (vel+hsp);
-    y += (vsp);
+    y += (vsp+yvel);
 }
 
-if KEY_RIGHT &amp;&amp; !place_meeting (x+vel+1, y, objSolid2) &amp;&amp; ducking == true &amp;&amp; whipping == false &amp;&amp; canMove == true  &amp;&amp; sprite_index != sprShantaeHit
+if KEY_RIGHT &amp;&amp; !collision_right_wall &amp;&amp; ducking == true &amp;&amp; whipping == false &amp;&amp; canMove == true  &amp;&amp; sprite_index != sprShantaeHit
 {
     vel = 1;
     crawling = true;
 }
-else if KEY_LEFT &amp;&amp; !place_meeting (x+vel-1, y, objSolid2) &amp;&amp; ducking == true &amp;&amp; whipping == false &amp;&amp; canMove == true  &amp;&amp; sprite_index != sprShantaeHit
+else if KEY_LEFT &amp;&amp; !collision_left_wall &amp;&amp; ducking == true &amp;&amp; whipping == false &amp;&amp; canMove == true  &amp;&amp; sprite_index != sprShantaeHit
 {
     vel = -1;
     crawling = true;
 }
 
-if place_meeting (x+vel+1, y, objSolid2) or place_meeting (x+vel-1, y, objSolid2)
+if collision_ceil &amp;&amp; !collision_floor &amp;&amp; yvel &lt; 0
+{
+    yvel = 0;
+    ground = false;
+}
+
+if (collision_left_wall &amp;&amp; vel &lt; 0) or (collision_right_wall &amp;&amp; vel &gt; 0)
    vel = 0;
 
 scrCollideSlopes2();
@@ -597,7 +608,7 @@ if inMaw &amp;&amp; mawshoot &amp;&amp; place_meeting (x, y+1, objSolid2)
     canMove = true;
     mhsp = 0;
     mvsp = 0;
-    vspeed = 0;
+    yvel = 0;
     vel = 0;
 }
 if inMaw &amp;&amp; mawshoot &amp;&amp; place_meeting (x, y+mvsp-1, objSolid2)
@@ -608,7 +619,7 @@ if inMaw &amp;&amp; mawshoot &amp;&amp; place_meeting (x, y+mvsp-1, objSolid2)
     canMove = true;
     mhsp = 0;
     mvsp = 0;
-    vspeed = 0;
+    yvel = 0;
     vel = 0;
 }
 if inMaw &amp;&amp; mawshoot &amp;&amp; place_meeting (x+1, y, objSolid2)
@@ -619,7 +630,7 @@ if inMaw &amp;&amp; mawshoot &amp;&amp; place_meeting (x+1, y, objSolid2)
     canMove = true;
     mhsp = 0;
     mvsp = 0;
-    vspeed = 0;
+    vsp = 0;
     vel = 0;
 }
 if inMaw &amp;&amp; mawshoot &amp;&amp; place_meeting (x+mhsp-1, y, objSolid2)
@@ -630,12 +641,102 @@ if inMaw &amp;&amp; mawshoot &amp;&amp; place_meeting (x+mhsp-1, y, objSolid2)
     canMove = true;
     mhsp = 0;
     mvsp = 0;
-    vspeed = 0;
+    vsp = 0;
     vel = 0;
 }
 
 if sprite_index == sprShantaeRun
     steptimer -= 1;
+    
+if !inMaw
+{
+    if collision_floor &amp;&amp; yvel &gt;= 0
+    {
+        ground = true;
+        yfr = 0;
+    }
+    else
+    {
+        ground = false;
+        yfr = 0.25;
+    }
+    yvel += yfr;
+}
+else
+{
+    yvel = 0;
+    yfr = 0;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Collision with a wall
+//Allows the player to collide with walls
+
+//Floor
+var myWall = instance_place(x, y+yvel+1, objSolid2);
+if myWall &gt;= 0 &amp;&amp; yvel &gt; 0
+{
+    y = myWall.y - (sprite_get_height(mask_index) - sprite_get_yoffset(mask_index));
+    ground = true;
+    yvel = 0;
+
+    //Note: there used to be a system here that set MM's sprite to the walking sprite when landing
+    //However, due to complications such as climbing up ladders, it was a lot of work for such a minor feature
+    //Therefore, it has been removed
+}
+
+
+//Wall
+myWall = instance_place(x+vel, y, objSolid2);
+if myWall &gt;= 0 &amp;&amp; vel != 0
+{
+    if vel &lt; 0
+    {
+        x = myWall.bbox_right + sprite_get_xoffset(mask_index) - sprite_get_bbox_left(mask_index);
+        
+        //For some reason, the code above would work correctly half the time, but clip MM inside the wall the other half
+        //This while-loop fixes the issue by forcing MM out of the wall
+        while place_meeting(x, y, myWall)
+            x += 1;
+    }
+    else
+        x = myWall.x - (sprite_get_width(mask_index) - sprite_get_xoffset(mask_index)) + (sprite_get_width(mask_index) - sprite_get_bbox_right(mask_index)) - 1;
+        
+    vel = 0;
+}
+
+
+//Ceiling
+myWall = instance_place(x, y+yvel, objSolid2);
+if myWall &gt;= 0 &amp;&amp; yvel &lt; 0
+{
+    y = myWall.bbox_bottom + sprite_get_yoffset(mask_index);
+    
+    //For some reason, the code above would work correctly half the time, but clip MM inside the ceiling the other half
+    //This while-loop fixes the issue by forcing MM out of the ceiling
+    while place_meeting(x, y, myWall)
+        y += 1;
+        
+    yvel = 0;
+}
 </string>
           </argument>
         </arguments>
@@ -659,32 +760,27 @@ if sprite_index == sprShantaeRun
             <string>///Gravity
 if !inMaw
 {
-    if ((place_meeting (x, y+vspeed+1, objSolid2) &amp;&amp; vspeed &gt;= 0) or (place_meeting (x, y+vspeed+1, objTopSolid) &amp;&amp; vspeed &gt;= 0) or (place_meeting (x, y+vspeed+1, objMovingPlatform) &amp;&amp; vspeed &gt;= 0) or (place_meeting (x, y+vspeed+1, objJumpThrough) &amp;&amp; layer == 1 &amp;&amp; vspeed &gt;= 0)) &amp;&amp; sprite_index != sprShantaeHit
+    /*if ((collision_floor &amp;&amp; yvel &gt;= 0) or (place_meeting (x, y+yvel+1, objTopSolid) &amp;&amp; yvel &gt;= 0) or (place_meeting (x, y+yvel+1, objMovingPlatform) &amp;&amp; yvel &gt;= 0) or (place_meeting (x, y+yvel+1, objJumpThrough) &amp;&amp; layer == 1 &amp;&amp; yvel &gt;= 0)) &amp;&amp; sprite_index != sprShantaeHit
     {
         ground = true;
-        gravity = 0;
+        yfr = 0;
     }
     else
     {
         ground = false;
-        gravity = 0.25;
-    }
+        yfr = 0.25;
+    }*/
     
     if !gliding &amp;&amp; !striking
     {
-        if vspeed &gt; 8
-            vspeed = 8;
+        if yvel &gt; 8
+            yvel = 8;
     }
     else if gliding
     {
-        if vspeed &gt; 1
-            vspeed = 1;
+        if yvel &gt; 1
+            yvel = 1;
     }
-}
-else
-{
-    gravity = 0;
-    vspeed = 0;
 }
 
 if ground &amp;&amp; (striking or gliding)
@@ -723,7 +819,7 @@ else
 //Jumping
 if ground == true &amp;&amp; canMove == true &amp;&amp; sprite_index != sprShantaeHit &amp;&amp; keyboard_check_pressed (ord("Z"))
 {
-    if place_meeting (x, y+vspeed+1, objTopSolid) &amp;&amp; !place_meeting (x, y, objPlatformBlank) &amp;&amp; !place_meeting (x, y, objPlatformSwitch &amp;&amp; !place_meeting (x, y, objPlatformSpike) &amp;&amp; !place_meeting (x, y, objPlatformNoSpike))
+    if place_meeting (x, y+yvel+1, objTopSolid) &amp;&amp; !place_meeting (x, y, objPlatformBlank) &amp;&amp; !place_meeting (x, y, objPlatformSwitch &amp;&amp; !place_meeting (x, y, objPlatformSpike) &amp;&amp; !place_meeting (x, y, objPlatformNoSpike))
     {
         if vel == 0 &amp;&amp; KEY_DOWN
         {
@@ -738,13 +834,13 @@ if ground == true &amp;&amp; canMove == true &amp;&amp; sprite_index != sprShant
         }
         else
         {
-            vspeed = -7;
+            yvel = -7;
             audio_play_sound (sndShantaeHa, 10, false);
         }
     }
     else
     {
-        vspeed = -7;
+        yvel = -7;
         audio_play_sound (sndShantaeHa, 10, false);
     }
 }
@@ -823,9 +919,9 @@ if ground == false &amp;&amp; sprite_index != sprShantaeHit
 {
     if !gunshoot &amp;&amp; !whipping &amp;&amp; !gliding &amp;&amp; !striking
     {
-        if (vspeed &lt; 0 &amp;&amp; inMaw == false) or (mvsp &lt; 0 &amp;&amp; inMaw == true)
+        if (yvel &lt; 0 &amp;&amp; inMaw == false) or (mvsp &lt; 0 &amp;&amp; inMaw == true)
             sprite_index = sprShantaeJump;
-        else if (vspeed &gt;= 0 &amp;&amp; inMaw == false) or (mvsp &gt;= 0 &amp;&amp; inMaw == true)
+        else if (yvel &gt;= 0 &amp;&amp; inMaw == false) or (mvsp &gt;= 0 &amp;&amp; inMaw == true)
             sprite_index = sprShantaeFall;
     }
     else if gunshoot &amp;&amp; !whipping &amp;&amp; !gliding &amp;&amp; !striking
@@ -851,13 +947,13 @@ else if (vel &gt; 0 &amp;&amp; !backdashing) or (vel &lt; 0 &amp;&amp; backdashi
 if sprite_index == sprShantaeFall &amp;&amp; image_index &gt; 7
     image_index = 4;
 
-if ducking == true &amp;&amp; ground == false &amp;&amp; !gliding &amp;&amp; !striking &amp;&amp; !gunshoot &amp;&amp; !whipping &amp;&amp; vspeed &lt; 0 &amp;&amp; sprite_index != sprShantaeHit
+if ducking == true &amp;&amp; ground == false &amp;&amp; !gliding &amp;&amp; !striking &amp;&amp; !gunshoot &amp;&amp; !whipping &amp;&amp; yvel &lt; 0 &amp;&amp; sprite_index != sprShantaeHit
 {
     sprite_index = sprShantaeJump;
     ducking = false;
     crawling = false;
 }
-if ducking == true &amp;&amp; ground == false &amp;&amp; !gliding &amp;&amp; !striking &amp;&amp; !gunshoot &amp;&amp; vspeed &gt;= 0 &amp;&amp; sprite_index != sprShantaeHit
+if ducking == true &amp;&amp; ground == false &amp;&amp; !gliding &amp;&amp; !striking &amp;&amp; !gunshoot &amp;&amp; yvel &gt;= 0 &amp;&amp; sprite_index != sprShantaeHit
 {
     sprite_index = sprShantaeFall;
     ducking = false;
@@ -1124,12 +1220,12 @@ else
 /*This is connected to the low layer, so we need to set the layers accordingly depending on
 the player's position*/
 
-if collision_circle (x, y-30, 30, objJumpThrough, 1, 1) &amp;&amp; vspeed &lt; 0
+if collision_circle (x, y-30, 30, objJumpThrough, 1, 1) &amp;&amp; yvel &lt; 0
 {
     layer = 0;
 }
 
-if collision_circle (x, y+30, 30, objJumpThrough, 1, 1) &amp;&amp; !collision_circle (x, y, 13, objJumpThrough, 1, 1) &amp;&amp; vspeed &gt; 0
+if collision_circle (x, y+30, 30, objJumpThrough, 1, 1) &amp;&amp; !collision_circle (x, y, 13, objJumpThrough, 1, 1) &amp;&amp; yvel &gt; 0
 {
     layer = 1;
 }
@@ -1156,7 +1252,7 @@ if collision_circle (x, y+30, 30, objJumpThrough, 1, 1) &amp;&amp; !collision_ci
             <string>///Priate hat glide
 //Hold the Z key when moving downward
 
-if keyboard_check (ord("Z")) &amp;&amp; !ground &amp;&amp; vspeed &gt;= 0 &amp;&amp; sprite_index != sprShantaeHit
+if keyboard_check (ord("Z")) &amp;&amp; !ground &amp;&amp; yvel &gt;= 0 &amp;&amp; sprite_index != sprShantaeHit
 {
     gliding = true;
 }
@@ -1618,15 +1714,15 @@ else
     inMaw = true;
     
     mawshoot = false;
-    gravity = 0;
+    yfr = 0;
     vel = 0;
-    vspeed = 0;
+    yvel = 0;
     
     if mawshoot == false
     {
         x = other.x;
         y = other.y;
-        vspeed = 0;
+        yvel = 0;
         vel = 0;
         mhsp = 0;
         mvsp = 0;
@@ -1679,12 +1775,12 @@ if other.grabbed == false
 {
     inMaw = true;
     
-    if ((vel != 0 or vspeed != 0) &amp;&amp; !inMaw) or ((mhsp != 0 or mvsp != 0) &amp;&amp; inMaw)
+    if ((vel != 0 or yvel != 0) &amp;&amp; !inMaw) or ((mhsp != 0 or mvsp != 0) &amp;&amp; inMaw)
     {
         mawshoot = false;
-        gravity = 0;
+        yfr = 0;
         vel = 0;
-        vspeed = 0;
+        yvel = 0;
         
         if mawshoot == false
         {
@@ -1812,7 +1908,7 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>move_contact_solid (direction, 12);
+            <string>/*move_contact_solid (direction, 12);
 vspeed = 0;
 </string>
           </argument>
@@ -1836,7 +1932,7 @@ vspeed = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>move_contact_solid (direction, 12);
+            <string>/*move_contact_solid (direction, 12);
 vspeed = 0;
 </string>
           </argument>
@@ -1861,30 +1957,6 @@ vspeed = 0;
           <argument>
             <kind>1</kind>
             <string>scrCollideSlopes2();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="objSolid2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>move_contact_solid (direction, 12);
-vspeed = 0;
 </string>
           </argument>
         </arguments>
@@ -2145,7 +2217,8 @@ if monstermilk_timer &lt;= 0 &amp;&amp; super_monstermilk_timer &gt; 0
     draw_sprite_ext (spriteold2, imageold2, xold2, yold2, xscaleold2, 1, 0, make_colour_rgb (52, 205, 237), 1);
 }
 
-//draw_text (view_xview[0], view_yview[0], fps);
+//draw_text (view_xview[0]+240, view_yview[0], collision_left_wall);
+//draw_text (view_xview[0]+240, view_yview[0]+40, collision_right_wall);
 if !canGetHit
     draw_sprite_ext (sprite_index, image_index, round(x), round(y), image_xscale, 1, 0, c_white, 0.5);
 else if sprite_index != sprShantaeHit
@@ -2341,10 +2414,10 @@ if itemselection != 0 //&amp;&amp; sprite_index != sprShantaeHit
 }
 
 //Strike downward attack (cannot have any items selected)
-if itemselection == 0 &amp;&amp; !ground &amp;&amp; !striking &amp;&amp; vspeed &gt;= 0 &amp;&amp; sprite_index != sprShantaeHit
+if itemselection == 0 &amp;&amp; !ground &amp;&amp; !striking &amp;&amp; yvel &gt;= 0 &amp;&amp; sprite_index != sprShantaeHit
 {
     striking = true;
-    vspeed = 14;
+    yvel = 14;
 }
 //Backdash (cannot have any items selected)
 if itemselection == 0 &amp;&amp; ground &amp;&amp; vel != 0 &amp;&amp; !backdashing &amp;&amp; sprite_index != sprShantaeHit

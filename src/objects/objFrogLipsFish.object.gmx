@@ -31,6 +31,8 @@ attackDamage = 1;
 
 if instance_exists (objFrogLipsShooter)
     image_xscale = instance_nearest(x, y, objFrogLipsShooter).image_xscale;
+if instance_exists (objFrogLipsShooterS)
+    image_xscale = instance_nearest(x, y, objFrogLipsShooterS).image_xscale;
 </string>
           </argument>
         </arguments>

@@ -17,10 +17,10 @@ global.lastsave_second[global.savedata] = date_get_second (date_current_datetime
 
 if global.savedata == 1
 {
-    if file_exists ("save.sav")
-       file_delete ("save.sav");
+    if file_exists (global.dir+"save.sav")
+       file_delete (global.dir+"save.sav");
        
-    ini_open ("save.sav");
+    ini_open (global.dir+"save.sav");
     
     //First, write the game data variables that appear on the save files
     ini_write_real ("savedata", "millisecondsFile", global.millisecondsF[1]);
@@ -49,22 +49,20 @@ if global.savedata == 1
         global.life[1] = 4;
     
     //Next, write the other game data that dows not appear on the save files
-    ini_write_real ("savedata", "Z1-1", global.Z1_1);
-    ini_write_real ("savedata", "Z1-1Knux", global.Z1_1Knux);
-    ini_write_real ("savedata", "Z1-1Amy", global.Z1_1Amy);
-    ini_write_real ("savedata", "Z1-B", global.Z1_B);
-    ini_write_real ("savedata", "Z1-BKnux", global.Z1_BKnux);
-    ini_write_real ("savedata", "Z1-BAmy", global.Z1_BAmy);
-    ini_write_real ("savedata", "Z2-1", global.Z2_1);
-    ini_write_real ("savedata", "Z2-1Knux", global.Z2_1Knux);
-    ini_write_real ("savedata", "Z2-B", global.Z2_B);
-    ini_write_real ("savedata", "Z2-BKnux", global.Z2_BKnux);
-    ini_write_real ("savedata", "Z2-BAmy", global.Z2_BAmy);
-    ini_write_real ("savedata", "S1", global.S1);
-    ini_write_real ("savedata", "S1S", global.S1S);
-    ini_write_real ("savedata", "S2", global.S2);
-    ini_write_real ("savedata", "Heartholder0", global.getHeart0);
-    ini_write_real ("savedata", "Heartholder1", global.getHeart1);
+    ini_write_real ("savedata", "sonic_maxstage", global.stage_max[0]);
+    ini_write_real ("savedata", "shantae_maxstage", global.stage_max[1]);
+    ini_write_real ("savedata", "knux_maxstage", global.stage_max[2]);
+    ini_write_real ("savedata", "sky_maxstage", global.stage_max[3]);
+    ini_write_real ("savedata", "shadow_maxstage", global.stage_max[4]);
+    ini_write_real ("savedata", "bolo_maxstage", global.stage_max[5]);
+    ini_write_real ("savedata", "silver_maxstage", global.stage_max[6]);
+    ini_write_real ("savedata", "rotty_maxstage", global.stage_max[7]);
+    ini_write_real ("savedata", "tails_maxstage", global.stage_max[8]);
+    ini_write_real ("savedata", "vinegar_maxstage", global.stage_max[9]);
+    ini_write_real ("savedata", "amy_maxstage", global.stage_max[10]);
+    ini_write_real ("savedata", "twitch_maxstage", global.stage_max[11]);
+    ini_write_real ("savedata", "Heartholder0", global.getHeart[0]);
+    ini_write_real ("savedata", "Heartholder1", global.getHeart[1]);
     ini_write_real ("savedata", "MagicSeal0A", global.seal0A);
     ini_write_real ("savedata", "MagicSeal0B", global.seal0B);
     ini_write_real ("savedata", "Maxhearts", global.maxHearts);
@@ -110,10 +108,10 @@ if global.savedata == 1
 }
 else if global.savedata == 2
 {
-    if file_exists ("save2.sav")
-       file_delete ("save2.sav");
+    if file_exists (global.dir+"save2.sav")
+       file_delete (global.dir+"save2.sav");
        
-    ini_open ("save2.sav");
+    ini_open (global.dir+"save2.sav");
     
     //First, write the game data variables that appear on the save files
     ini_write_real ("savedata2", "millisecondsFile", global.millisecondsF[2]);
@@ -142,22 +140,20 @@ else if global.savedata == 2
         global.life[2] = 4;
     
     //Next, write the other game data that dows not appear on the save files
-    ini_write_real ("savedata2", "Z1-1", global.Z1_1);
-    ini_write_real ("savedata2", "Z1-1Knux", global.Z1_1Knux);
-    ini_write_real ("savedata2", "Z1-1Amy", global.Z1_1Amy);
-    ini_write_real ("savedata2", "Z1-B", global.Z1_B);
-    ini_write_real ("savedata2", "Z1-BKnux", global.Z1_BKnux);
-    ini_write_real ("savedata2", "Z1-BAmy", global.Z1_BAmy);
-    ini_write_real ("savedata2", "Z2-1", global.Z2_1);
-    ini_write_real ("savedata2", "Z2-1Knux", global.Z2_1Knux);
-    ini_write_real ("savedata2", "Z2-B", global.Z2_B);
-    ini_write_real ("savedata2", "Z2-BKnux", global.Z2_BKnux);
-    ini_write_real ("savedata2", "Z2-BAmy", global.Z2_BAmy);
-    ini_write_real ("savedata2", "S1", global.S1);
-    ini_write_real ("savedata2", "S1S", global.S1S);
-    ini_write_real ("savedata2", "S2", global.S2);
-    ini_write_real ("savedata2", "Heartholder0", global.getHeart0);
-    ini_write_real ("savedata2", "Heartholder1", global.getHeart1);
+    ini_write_real ("savedata2", "sonic_maxstage", global.stage_max[0]);
+    ini_write_real ("savedata2", "shantae_maxstage", global.stage_max[1]);
+    ini_write_real ("savedata2", "knux_maxstage", global.stage_max[2]);
+    ini_write_real ("savedata2", "sky_maxstage", global.stage_max[3]);
+    ini_write_real ("savedata2", "shadow_maxstage", global.stage_max[4]);
+    ini_write_real ("savedata2", "bolo_maxstage", global.stage_max[5]);
+    ini_write_real ("savedata2", "silver_maxstage", global.stage_max[6]);
+    ini_write_real ("savedata2", "rotty_maxstage", global.stage_max[7]);
+    ini_write_real ("savedata2", "tails_maxstage", global.stage_max[8]);
+    ini_write_real ("savedata2", "vinegar_maxstage", global.stage_max[9]);
+    ini_write_real ("savedata2", "amy_maxstage", global.stage_max[10]);
+    ini_write_real ("savedata2", "twitch_maxstage", global.stage_max[11]);
+    ini_write_real ("savedata2", "Heartholder0", global.getHeart[0]);
+    ini_write_real ("savedata2", "Heartholder1", global.getHeart[1]);
     ini_write_real ("savedata2", "MagicSeal0A", global.seal0A);
     ini_write_real ("savedata2", "MagicSeal0B", global.seal0B);
     ini_write_real ("savedata2", "Maxhearts", global.maxHearts);
@@ -203,10 +199,10 @@ else if global.savedata == 2
 }
 else if global.savedata == 3
 {
-    if file_exists ("save3.sav")
-       file_delete ("save3.sav");
+    if file_exists (global.dir+"save3.sav")
+       file_delete (global.dir+"save3.sav");
        
-    ini_open ("save3.sav");
+    ini_open (global.dir+"save3.sav");
     
     //First, write the game data variables that appear on the save files
     ini_write_real ("savedata3", "millisecondsFile", global.millisecondsF[3]);
@@ -235,22 +231,20 @@ else if global.savedata == 3
         global.life[3] = 4;
     
     //Next, write the other game data that dows not appear on the save files
-    ini_write_real ("savedata3", "Z1-1", global.Z1_1);
-    ini_write_real ("savedata3", "Z1-1Knux", global.Z1_1Knux);
-    ini_write_real ("savedata3", "Z1-1Amy", global.Z1_1Amy);
-    ini_write_real ("savedata3", "Z1-B", global.Z1_B);
-    ini_write_real ("savedata3", "Z1-BKnux", global.Z1_BKnux);
-    ini_write_real ("savedata3", "Z1-BAmy", global.Z1_BAmy);
-    ini_write_real ("savedata3", "Z2-1", global.Z2_1);
-    ini_write_real ("savedata3", "Z2-1Knux", global.Z2_1Knux);
-    ini_write_real ("savedata3", "Z2-B", global.Z2_B);
-    ini_write_real ("savedata3", "Z2-BKnux", global.Z2_BKnux);
-    ini_write_real ("savedata3", "Z2-BAmy", global.Z2_BAmy);
-    ini_write_real ("savedata3", "S1", global.S1);
-    ini_write_real ("savedata3", "S1S", global.S1S);
-    ini_write_real ("savedata3", "S2", global.S2);
-    ini_write_real ("savedata3", "Heartholder0", global.getHeart0);
-    ini_write_real ("savedata3", "Heartholder1", global.getHeart1);
+    ini_write_real ("savedata3", "sonic_maxstage", global.stage_max[0]);
+    ini_write_real ("savedata3", "shantae_maxstage", global.stage_max[1]);
+    ini_write_real ("savedata3", "knux_maxstage", global.stage_max[2]);
+    ini_write_real ("savedata3", "sky_maxstage", global.stage_max[3]);
+    ini_write_real ("savedata3", "shadow_maxstage", global.stage_max[4]);
+    ini_write_real ("savedata3", "bolo_maxstage", global.stage_max[5]);
+    ini_write_real ("savedata3", "silver_maxstage", global.stage_max[6]);
+    ini_write_real ("savedata3", "rotty_maxstage", global.stage_max[7]);
+    ini_write_real ("savedata3", "tails_maxstage", global.stage_max[8]);
+    ini_write_real ("savedata3", "vinegar_maxstage", global.stage_max[9]);
+    ini_write_real ("savedata3", "amy_maxstage", global.stage_max[10]);
+    ini_write_real ("savedata3", "twitch_maxstage", global.stage_max[11]);
+    ini_write_real ("savedata3", "Heartholder0", global.getHeart[0]);
+    ini_write_real ("savedata3", "Heartholder1", global.getHeart[1]);
     ini_write_real ("savedata3", "MagicSeal0A", global.seal0A);
     ini_write_real ("savedata3", "MagicSeal0B", global.seal0B);
     ini_write_real ("savedata3", "Maxhearts", global.maxHearts);
@@ -296,10 +290,10 @@ else if global.savedata == 3
 }
 else if global.savedata == 4
 {
-    if file_exists ("save4.sav")
-       file_delete ("save4.sav");
+    if file_exists (global.dir+"save4.sav")
+       file_delete (global.dir+"save4.sav");
        
-    ini_open ("save4.sav");
+    ini_open (global.dir+"save4.sav");
     
     //First, write the game data variables that appear on the save files
     ini_write_real ("savedata4", "millisecondsFile", global.millisecondsF[4]);
@@ -328,22 +322,20 @@ else if global.savedata == 4
         global.life[4] = 4;
     
     //Next, write the other game data that dows not appear on the save files
-    ini_write_real ("savedata4", "Z1-1", global.Z1_1);
-    ini_write_real ("savedata4", "Z1-1Knux", global.Z1_1Knux);
-    ini_write_real ("savedata4", "Z1-1Amy", global.Z1_1Amy);
-    ini_write_real ("savedata4", "Z1-B", global.Z1_B);
-    ini_write_real ("savedata4", "Z1-BKnux", global.Z1_BKnux);
-    ini_write_real ("savedata4", "Z1-BAmy", global.Z1_BAmy);
-    ini_write_real ("savedata4", "Z2-1", global.Z2_1);
-    ini_write_real ("savedata4", "Z2-1Knux", global.Z2_1Knux);
-    ini_write_real ("savedata4", "Z2-B", global.Z2_B);
-    ini_write_real ("savedata4", "Z2-BKnux", global.Z2_BKnux);
-    ini_write_real ("savedata4", "Z2-BAmy", global.Z2_BAmy);
-    ini_write_real ("savedata4", "S1", global.S1);
-    ini_write_real ("savedata4", "S1S", global.S1S);
-    ini_write_real ("savedata4", "S2", global.S2);
-    ini_write_real ("savedata4", "Heartholder0", global.getHeart0);
-    ini_write_real ("savedata4", "Heartholder1", global.getHeart1);
+    ini_write_real ("savedata4", "sonic_maxstage", global.stage_max[0]);
+    ini_write_real ("savedata4", "shantae_maxstage", global.stage_max[1]);
+    ini_write_real ("savedata4", "knux_maxstage", global.stage_max[2]);
+    ini_write_real ("savedata4", "sky_maxstage", global.stage_max[3]);
+    ini_write_real ("savedata4", "shadow_maxstage", global.stage_max[4]);
+    ini_write_real ("savedata4", "bolo_maxstage", global.stage_max[5]);
+    ini_write_real ("savedata4", "silver_maxstage", global.stage_max[6]);
+    ini_write_real ("savedata4", "rotty_maxstage", global.stage_max[7]);
+    ini_write_real ("savedata4", "tails_maxstage", global.stage_max[8]);
+    ini_write_real ("savedata4", "vinegar_maxstage", global.stage_max[9]);
+    ini_write_real ("savedata4", "amy_maxstage", global.stage_max[10]);
+    ini_write_real ("savedata4", "twitch_maxstage", global.stage_max[11]);
+    ini_write_real ("savedata4", "Heartholder0", global.getHeart[0]);
+    ini_write_real ("savedata4", "Heartholder1", global.getHeart[1]);
     ini_write_real ("savedata4", "MagicSeal0A", global.seal0A);
     ini_write_real ("savedata4", "MagicSeal0B", global.seal0B);
     ini_write_real ("savedata4", "Maxhearts", global.maxHearts);
@@ -389,10 +381,10 @@ else if global.savedata == 4
 }
 else if global.savedata == 5
 {
-    if file_exists ("save5.sav")
-       file_delete ("save5.sav");
+    if file_exists (global.dir+"save5.sav")
+       file_delete (global.dir+"save5.sav");
        
-    ini_open ("save5.sav");
+    ini_open (global.dir+"save5.sav");
     
     //First, write the game data variables that appear on the save files
     ini_write_real ("savedata5", "millisecondsFile", global.millisecondsF[5]);
@@ -421,22 +413,20 @@ else if global.savedata == 5
         global.life[5] = 4;
     
     //Next, write the other game data that dows not appear on the save files
-    ini_write_real ("savedata5", "Z1-1", global.Z1_1);
-    ini_write_real ("savedata5", "Z1-1Knux", global.Z1_1Knux);
-    ini_write_real ("savedata5", "Z1-1Amy", global.Z1_1Amy);
-    ini_write_real ("savedata5", "Z1-B", global.Z1_B);
-    ini_write_real ("savedata5", "Z1-BKnux", global.Z1_BKnux);
-    ini_write_real ("savedata5", "Z1-BAmy", global.Z1_BAmy);
-    ini_write_real ("savedata5", "Z2-1", global.Z2_1);
-    ini_write_real ("savedata5", "Z2-1Knux", global.Z2_1Knux);
-    ini_write_real ("savedata5", "Z2-B", global.Z2_B);
-    ini_write_real ("savedata5", "Z2-BKnux", global.Z2_BKnux);
-    ini_write_real ("savedata5", "Z2-BAmy", global.Z2_BAmy);
-    ini_write_real ("savedata5", "S1", global.S1);
-    ini_write_real ("savedata5", "S1S", global.S1S);
-    ini_write_real ("savedata5", "S2", global.S2);
-    ini_write_real ("savedata5", "Heartholder0", global.getHeart0);
-    ini_write_real ("savedata5", "Heartholder1", global.getHeart1);
+    ini_write_real ("savedata5", "sonic_maxstage", global.stage_max[0]);
+    ini_write_real ("savedata5", "shantae_maxstage", global.stage_max[1]);
+    ini_write_real ("savedata5", "knux_maxstage", global.stage_max[2]);
+    ini_write_real ("savedata5", "sky_maxstage", global.stage_max[3]);
+    ini_write_real ("savedata5", "shadow_maxstage", global.stage_max[4]);
+    ini_write_real ("savedata5", "bolo_maxstage", global.stage_max[5]);
+    ini_write_real ("savedata5", "silver_maxstage", global.stage_max[6]);
+    ini_write_real ("savedata5", "rotty_maxstage", global.stage_max[7]);
+    ini_write_real ("savedata5", "tails_maxstage", global.stage_max[8]);
+    ini_write_real ("savedata5", "vinegar_maxstage", global.stage_max[9]);
+    ini_write_real ("savedata5", "amy_maxstage", global.stage_max[10]);
+    ini_write_real ("savedata5", "twitch_maxstage", global.stage_max[11]);
+    ini_write_real ("savedata5", "Heartholder0", global.getHeart[0]);
+    ini_write_real ("savedata5", "Heartholder1", global.getHeart[1]);
     ini_write_real ("savedata5", "MagicSeal0A", global.seal0A);
     ini_write_real ("savedata5", "MagicSeal0B", global.seal0B);
     ini_write_real ("savedata5", "Maxhearts", global.maxHearts);

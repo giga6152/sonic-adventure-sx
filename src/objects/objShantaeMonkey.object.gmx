@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>image_speed = 0.16;
 vel = 0;
+yvel = 0;
+yfr = 0;
 inMaw = false;
 ground = true;
 wallcling = false;
@@ -160,6 +162,76 @@ instance_create (view_xview[0], view_yview[0], objFadeWhite);
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Collision with a wall
+//Allows the player to collide with walls
+
+//Floor
+var myWall = instance_place(x, y+yvel+1, objSolid2);
+if myWall &gt;= 0 &amp;&amp; yvel &gt; 0
+{
+    y = myWall.y - (sprite_get_height(mask_index) - sprite_get_yoffset(mask_index));
+    ground = true;
+    yvel = 0;
+
+    //Note: there used to be a system here that set MM's sprite to the walking sprite when landing
+    //However, due to complications such as climbing up ladders, it was a lot of work for such a minor feature
+    //Therefore, it has been removed
+}
+
+
+//Wall
+myWall = instance_place(x+vel, y, objSolid2);
+if myWall &gt;= 0 &amp;&amp; vel != 0
+{
+    if vel &lt; 0
+    {
+        x = myWall.bbox_right + sprite_get_xoffset(mask_index) - sprite_get_bbox_left(mask_index);
+        
+        //For some reason, the code above would work correctly half the time, but clip MM inside the wall the other half
+        //This while-loop fixes the issue by forcing MM out of the wall
+        while place_meeting(x, y, myWall)
+            x += 1;
+    }
+    else
+        x = myWall.x - (sprite_get_width(mask_index) - sprite_get_xoffset(mask_index)) + (sprite_get_width(mask_index) - sprite_get_bbox_right(mask_index)) - 1;
+        
+    vel = 0;
+}
+
+
+//Ceiling
+myWall = instance_place(x, y+yvel, objSolid2);
+if myWall &gt;= 0 &amp;&amp; yvel &lt; 0
+{
+    y = myWall.bbox_bottom + sprite_get_yoffset(mask_index);
+    
+    //For some reason, the code above would work correctly half the time, but clip MM inside the ceiling the other half
+    //This while-loop fixes the issue by forcing MM out of the ceiling
+    while place_meeting(x, y, myWall)
+        y += 1;
+        
+    yvel = 0;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>if x &lt; 4
    x = 4;
 if x &gt; room_width-4
@@ -177,14 +249,19 @@ KEY_RIGHT = keyboard_check (vk_right) //or (gamepad_axis_value (0, gp_axislh) &g
 KEY_UP = keyboard_check (vk_up) //or (gamepad_axis_value (0, gp_axislv) &lt; -0.6);
 KEY_DOWN = keyboard_check (vk_down) //or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
 
+collision_left_wall = place_meeting(x+vel-1, y, objSolid2);
+collision_right_wall = place_meeting(x+vel+1, y, objSolid2);
+collision_ceil = place_meeting(x, y+yvel-1, objSolid2);
+collision_floor = place_meeting(x, y+yvel+1, objSolid2) or place_meeting (x, y+yvel+1, objTopSolid);
+
 //Basic movements
-if KEY_LEFT &amp;&amp; !place_meeting (x+vel-1, y, objSolid2) &amp;&amp; wallcling == false &amp;&amp; bullet == false &amp;&amp; canMove == true
+if KEY_LEFT &amp;&amp; !collision_left_wall &amp;&amp; wallcling == false &amp;&amp; bullet == false &amp;&amp; canMove == true
 {
     image_xscale = -1;
     vel = -3.75;
     sprite_index = sprMonkeyRun;
 }
-else if KEY_RIGHT &amp;&amp; !place_meeting (x+vel+1, y, objSolid2) &amp;&amp; wallcling == false &amp;&amp; bullet == false &amp;&amp; canMove = true
+else if KEY_RIGHT &amp;&amp; !collision_right_wall &amp;&amp; wallcling == false &amp;&amp; bullet == false &amp;&amp; canMove = true
 {
     image_xscale = 1;
     vel = 3.75;
@@ -196,45 +273,48 @@ if !KEY_LEFT &amp;&amp; !KEY_RIGHT &amp;&amp; bullet == false
 if vel == 0 &amp;&amp; ground == true
    sprite_index = sprMonkeyStand;
 
-if place_meeting (x+vel+1, y, objSolid2) or place_meeting (x+vel-1, y, objSolid2)
+if (collision_left_wall &amp;&amp; vel &lt; 0) or (collision_right_wall &amp;&amp; vel &gt; 0)
    vel = 0;
 
 //Ground check
 if !inMaw
 {
-    if (place_meeting (x, y+vspeed+1, objSolid2) or place_meeting (x, y+vspeed+1, objTopSolid) or place_meeting (x, y+vspeed+1, objJumpThrough) &amp;&amp; vspeed &gt;= 0)
+    if (collision_floor or place_meeting (x, y+yvel+1, objJumpThrough) &amp;&amp; yvel &gt;= 0)
     {
         ground = true;
-        gravity = 0;
+        yfr = 0;
     }
     else
     {
         ground = false;
-        gravity = 0.25;
+        yfr = 0.25;
         sprite_index = sprMonkeyJump;
     }
 }
 
-if vspeed &gt; 8
-   vspeed = 8;
+if !ground &amp;&amp; !wallcling &amp;&amp; !bullet yfr = 0.25; else yfr = 0;
+if !ground yvel += yfr;
 
-/*The gravity does not apply if we are NOT on the ground but we are either wallclinging or
+if yvel &gt; 8
+   yvel = 8;
+
+/*The yfr does not apply if we are NOT on the ground but we are either wallclinging or
 using the monkey bullet*/
 if ground == false &amp;&amp; (wallcling == true or bullet == true)
-   gravity = 0;
+   yfr = 0;
 
 //Jumping
 if ground == true &amp;&amp; keyboard_check_pressed (ord("Z")) &amp;&amp; canMove == true
 {
     ground = false;
-    vspeed = -8;
+    yvel = -8;
     sprite_index = sprMonkeyJump;
     audio_play_sound (sndShantaeHa, 10, false);
 }
 
 //Allow movement. The variable vel would do nothing otherwise.
 x += (vel+hsp);
-y += vsp;
+y += (yvel+vsp);
 
 //Top solid collision
 scrCollideSlopes2();
@@ -251,11 +331,11 @@ if bullet == true
 //Wallcinging
 if ((!ground &amp;&amp; !wallcling &amp;&amp; canwallcling) or bullet) &amp;&amp; canMove
 {
-    if (KEY_LEFT &amp;&amp; place_meeting (x+vel-1, y, objSolid2) or KEY_RIGHT &amp;&amp; place_meeting (x+vel+1, y, objSolid2))
+    if (KEY_LEFT &amp;&amp; collision_left_wall or KEY_RIGHT &amp;&amp; collision_right_wall)
     {
         wallcling = true;
         sprite_index = sprMonkeyWallCling;
-        gravity = 0;
+        yfr = 0;
         vel = 0;
     }
 }
@@ -264,21 +344,21 @@ if ((!ground &amp;&amp; !wallcling &amp;&amp; canwallcling) or bullet) &amp;&amp
 if wallcling == true &amp;&amp; canMove == true //These actions can ONLY be done if we are wallcinging
 {
     //Moving up and down the wall
-    if KEY_UP &amp;&amp; !place_meeting (x, y+vspeed-1, objSolid2)
+    if KEY_UP &amp;&amp; !collision_ceil
     {
-        vspeed = -1;
+        yvel = -1;
     }
-    else if KEY_DOWN &amp;&amp; !place_meeting (x, y+vspeed+1, objSolid2)
+    else if KEY_DOWN &amp;&amp; !collision_floor
     {
-        vspeed = 1;
+        yvel = 1;
     }
     
     if !KEY_UP &amp;&amp; !KEY_DOWN
-       vspeed = 0;
+       yvel = 0;
        
     /*If we hit the ground while moving down a wall, we stop wallclinging and return to
     normal*/
-    if place_meeting (x, y+vspeed+1, objSolid2)
+    if collision_floor
     {
         wallcling = false;
         ground = true;
@@ -288,7 +368,7 @@ if wallcling == true &amp;&amp; canMove == true //These actions can ONLY be done
     if keyboard_check_pressed (ord("Z"))
     {
         wallcling = false;
-        vspeed = -8;
+        yvel = -8;
         canwallcling = false;
         image_xscale = -image_xscale;
         vel = (3.5*image_xscale);
@@ -301,12 +381,12 @@ if wallcling == true &amp;&amp; canMove == true //These actions can ONLY be done
         wallcling = false;
         canwallcling = false;
         sprite_index = sprMonkeyBullet;
-        vspeed = 0;
-        gravity = 0;
+        yvel = 0;
+        yfr = 0;
         image_xscale = -image_xscale;
         vel = (7*image_xscale);
     }
-    if vspeed != 0 &amp;&amp; !collision_line (x, y, x+image_xscale*26, y, objSolid2, true, true)
+    if yvel != 0 &amp;&amp; !collision_line (x, y, x+image_xscale*26, y, objSolid2, true, true)
        wallcling = false;
 }
 
@@ -356,6 +436,12 @@ else
     hsp = 0;
     vsp = 0;
 }
+
+if collision_ceil &amp;&amp; !collision_floor &amp;&amp; yvel &lt; 0
+{
+    yvel = 0;
+    ground = false;
+}
 </string>
           </argument>
         </arguments>
@@ -378,7 +464,7 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>move_contact_solid (direction, 12);
+            <string>/*move_contact_solid (direction, 12);
 vspeed = 0;
 </string>
           </argument>
@@ -448,30 +534,6 @@ vspeed = 0;
           <argument>
             <kind>1</kind>
             <string>scrCollideSlopes2();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="objSolid2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>move_contact_solid (direction, 12);
-vspeed = 0;
 </string>
           </argument>
         </arguments>

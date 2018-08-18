@@ -1045,9 +1045,9 @@ if other.sprite_index == sprCheckpoint
     global.millisecondsC = global.milliseconds;
     global.secondsC = global.seconds;
     global.minutesC = global.minutes;
-
+    global.milC = global.mil;
+    global.timeBonusC = global.timeBonus;
 }
-
 </string>
           </argument>
         </arguments>
@@ -1416,7 +1416,7 @@ instance_create (0, 0, objScore);
     }
     
     // -&gt; Bounce up animation
-    if (action==6 &amp;&amp; vsp&lt;0) {
+    if (action==6 &amp;&amp; vsp&lt;0) or action == 18 {
         animation=6.5;
         animations_framemin=20;
         animations_framemax=20;

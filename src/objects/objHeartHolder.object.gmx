@@ -75,10 +75,7 @@ image_speed = 0.16;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if global.getHeart0 == true &amp;&amp; assignedHeart == 0
-   instance_destroy();
-else if global.getHeart1 == true &amp;&amp; assignedHeart == 1
-   instance_destroy();
+            <string>if global.getHeart[assignedHeart] instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -102,7 +99,7 @@ else if global.getHeart1 == true &amp;&amp; assignedHeart == 1
           <argument>
             <kind>1</kind>
             <string>//if canGrab = true
-    instance_change (objHeartHolderDestroy, true);
+with instance_change (objHeartHolderDestroy, true) other.assignedHeart = assignedHeart;
 </string>
           </argument>
         </arguments>
@@ -126,7 +123,7 @@ else if global.getHeart1 == true &amp;&amp; assignedHeart == 1
           <argument>
             <kind>1</kind>
             <string>//if canGrab == true
-    instance_change (objHeartHolderDestroy, true);
+with instance_change (objHeartHolderDestroy, true) other.assignedHeart = assignedHeart;
 </string>
           </argument>
         </arguments>

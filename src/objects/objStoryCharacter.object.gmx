@@ -55,23 +55,23 @@ else if room == rmTrialCharacter
     {
         if objStoryMenu.option == 0
            sprite_index = sprSonicPose;
-        else if objStoryMenu.option == 1 &amp;&amp; global.S1 == true
+        else if objStoryMenu.option == 1 //&amp;&amp; global.S1 == true
              sprite_index = sprShantaeUnlocked;
-        else if objStoryMenu.option == 2 &amp;&amp; global.Z1_BKnux == true
+        else if objStoryMenu.option == 2 //&amp;&amp; global.Z1_BKnux == true
              sprite_index = sprKnucklesUnlocked;
         //else if objStoryMenu.option == 3 &amp;&amp; global.S1S == true
              //sprite_index = sprSkyModel2;
-        else if objStoryMenu.option == 4 &amp;&amp; global.Z1_BShad == true
+        else if objStoryMenu.option == 4 //&amp;&amp; global.Z1_BShad == true
              sprite_index = sprShadowPose;
         //else if objStoryMenu.option == 5 &amp;&amp; global.S1B == true
              //sprite_index = sprBoloModel;
-        else if objStoryMenu.option == 6 &amp;&amp; global.Z1_BAmy == true
+        else if objStoryMenu.option == 6 //&amp;&amp; global.Z1_BAmy == true
              sprite_index = sprSilverPose;
-             else if objStoryMenu.option == 7 &amp;&amp; global.S1 == true
+             else if objStoryMenu.option == 7 //&amp;&amp; global.S1 == true
              sprite_index = sprRottyPose;
-        else if objStoryMenu.option == 8 &amp;&amp; global.Z1_BTails == true
+        else if objStoryMenu.option == 8 //&amp;&amp; global.Z1_BTails == true
              sprite_index = sprTailsUnlocked;
-        else if objStoryMenu.option == 10 &amp;&amp; global.Z1_BAmy == true
+        else if objStoryMenu.option == 10 //&amp;&amp; global.Z1_BAmy == true
              sprite_index = sprAmyUnlocked;
         else if objStoryMenu.option == 13
              sprite_index = sprSuperSonic;

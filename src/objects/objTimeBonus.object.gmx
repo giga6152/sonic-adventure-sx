@@ -48,13 +48,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*if global.timeBonus != 0
+            <string>/*if global.timeBonus &lt; 100
 {
     global.timeBonus -= 100;
-    global.finalPoints += 100;
+    //global.finalPoints += 100;
     alarm[0] = 2;
 }
 else
+{
     alarm[0] = -1;
 </string>
           </argument>
@@ -140,7 +141,8 @@ else
 brk1 = "'";
 brk2 = '"';
 
-scrDrawOutlines (x, y, "Time: "+dmin+brk1+dsec+brk2+dmil, c_black, c_white, 2);
+draw_sprite (sprResultsText, 2, view_xview[0]+19+25, view_yview[0]+101);
+scrDrawOutlines (view_xview[0]+274, view_yview[0]+101, dmin+brk1+dsec+brk2+dmil, c_black, c_white, 3);
 </string>
           </argument>
         </arguments>

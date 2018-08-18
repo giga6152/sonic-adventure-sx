@@ -27,6 +27,10 @@
             <kind>1</kind>
             <string>ground = true;
 vel = 0;
+yvel = 0;
+yfr = 0;
+hsp = 0;
+vsp = 0;
 jumps = 0;
 steptimer = 10;
 sprite_old = sprite_index;
@@ -39,6 +43,7 @@ attackStrength = attackStrengthDefault;
 ducking = false;
 kicking = false;
 sliding = false;
+can_slide = true;
 
 itemselection = 0;
 itemselectionmax = 6;
@@ -173,11 +178,86 @@ sprite_index = sprRottytopsStand;
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Collision with a wall
+//Allows the player to collide with walls
+
+//Floor
+var myWall = instance_place(x, y+yvel+1, objSolid2);
+if myWall &gt;= 0 &amp;&amp; yvel &gt; 0
+{
+    y = myWall.y - (sprite_get_height(mask_index) - sprite_get_yoffset(mask_index));
+    ground = true;
+    yvel = 0;
+
+    //Note: there used to be a system here that set MM's sprite to the walking sprite when landing
+    //However, due to complications such as climbing up ladders, it was a lot of work for such a minor feature
+    //Therefore, it has been removed
+}
+
+
+//Wall
+myWall = instance_place(x+vel, y, objSolid2);
+if myWall &gt;= 0 &amp;&amp; vel != 0
+{
+    if vel &lt; 0
+    {
+        x = myWall.bbox_right + sprite_get_xoffset(mask_index) - sprite_get_bbox_left(mask_index);
+        
+        //For some reason, the code above would work correctly half the time, but clip MM inside the wall the other half
+        //This while-loop fixes the issue by forcing MM out of the wall
+        while place_meeting(x, y, myWall)
+            x += 1;
+    }
+    else
+        x = myWall.x - (sprite_get_width(mask_index) - sprite_get_xoffset(mask_index)) + (sprite_get_width(mask_index) - sprite_get_bbox_right(mask_index)) - 1;
+        
+    vel = 0;
+}
+
+
+//Ceiling
+myWall = instance_place(x, y+yvel, objSolid2);
+if myWall &gt;= 0 &amp;&amp; yvel &lt; 0
+{
+    y = myWall.bbox_bottom + sprite_get_yoffset(mask_index);
+    
+    //For some reason, the code above would work correctly half the time, but clip MM inside the ceiling the other half
+    //This while-loop fixes the issue by forcing MM out of the ceiling
+    while place_meeting(x, y, myWall)
+        y += 1;
+        
+    yvel = 0;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>//First, set the controls as these variables
 KEY_LEFT = keyboard_check (vk_left) //or (gamepad_axis_value (0, gp_axislh) &lt; -0.6);
 KEY_RIGHT = keyboard_check (vk_right) //or (gamepad_axis_value (0, gp_axislh) &gt; 0.6);
 KEY_DOWN = keyboard_check (vk_down) //or (gamepad_axis_value (0, gp_axislv) &gt; 0.6);
 KEY_UP = keyboard_check (vk_up) //or (gamepad_axis_value (0, gp_axislv) &lt; -0.6);
+
+collision_left_wall = place_meeting(x+vel-1, y, objSolid2);
+collision_right_wall = place_meeting(x+vel+1, y, objSolid2);
+collision_ceil = place_meeting(x, y+yvel-1, objSolid2);
+collision_floor = place_meeting(x, y+yvel+1, objSolid2) or place_meeting (x, y+yvel+1, objTopSolid);
 
 if x &lt; 3
     x = 3;
@@ -187,31 +267,32 @@ if y &lt; -5
     y = -5;
 
 //Movement
-if KEY_RIGHT &amp;&amp; !place_meeting (x+vel+1, y, objSolid2) &amp;&amp; !ducking &amp;&amp; !sliding &amp;&amp; !kicking &amp;&amp; canMove
+if KEY_RIGHT &amp;&amp; !collision_right_wall &amp;&amp; !ducking &amp;&amp; !sliding &amp;&amp; !kicking &amp;&amp; canMove
 {
     image_xscale = 1;
     vel = 3.25;
 }
-else if KEY_LEFT &amp;&amp; !place_meeting (x+vel-1, y, objSolid2) &amp;&amp; !ducking &amp;&amp; !sliding &amp;&amp; !kicking &amp;&amp; canMove
+else if KEY_LEFT &amp;&amp; !collision_left_wall &amp;&amp; !ducking &amp;&amp; !sliding &amp;&amp; !kicking &amp;&amp; canMove
 {
     image_xscale = -1;
     vel = -3.25;
 }
-else if (!KEY_LEFT &amp;&amp; !KEY_RIGHT &amp;&amp; !sliding) or place_meeting (x+vel+1, y, objSolid2) or place_meeting (x+vel-1, y, objSolid2) or (kicking &amp;&amp; ground) or !canMove or ducking
+else if (!KEY_LEFT &amp;&amp; !KEY_RIGHT &amp;&amp; !sliding) or collision_right_wall or collision_left_wall or (kicking &amp;&amp; ground) or !canMove or ducking
 {
     vel = 0;
 }
 
-x += vel; //Do this or else the player cannot move and the variable would do nothing.
+x += vel+hsp; //Do this or else the player cannot move and the variable would do nothing.
+y += yvel+vsp;
 
 if sprite_index == sprRottytopsRun
     steptimer -= 1;
 
 //Gravity
-if ((place_meeting (x, y+vspeed+1, objSolid2) &amp;&amp; vspeed &gt;= 0) or (place_meeting (x, y+vspeed+1, objTopSolid) &amp;&amp; vspeed &gt;= 0) or (place_meeting (x, y+vspeed+1, objMovingPlatform) &amp;&amp; vspeed &gt;= 0) or (place_meeting (x, y+vspeed+1, objJumpThrough) &amp;&amp; layer == 1 &amp;&amp; vspeed &gt;= 0)) &amp;&amp; sprite_index != sprRottytopsHit //If the player is on the ground, set the gravity
+if ((collision_floor &amp;&amp; yvel &gt;= 0) or (place_meeting (x, y+yvel+1, objMovingPlatform) &amp;&amp; yvel &gt;= 0) or (place_meeting (x, y+yvel+1, objJumpThrough) &amp;&amp; layer == 1 &amp;&amp; yvel &gt;= 0)) &amp;&amp; sprite_index != sprRottytopsHit //If the player is on the ground, set the yfr
 {
     ground = true;
-    gravity = 0;
+    yfr = 0;
     jumps = 0;
 }
 else //Otherwise, fall
@@ -219,12 +300,15 @@ else //Otherwise, fall
     ground = false;
     sliding = false;
     if jumps &lt; 2 jumps = 1;
-    gravity = 0.25;
+    yfr = 0.25;
 }
 
 //Set a speed limit to ensure that the player cannot fall faster than necessary
-if vspeed &gt; 8
-    vspeed = 8;
+if yvel &gt; 8
+    yvel = 8;
+    
+//Fall
+if !ground yvel += yfr; else yvel = 0;
     
 //Jump (press the Z key)
 if ground &amp;&amp; canMove &amp;&amp; keyboard_check_pressed (ord("Z"))
@@ -233,16 +317,16 @@ if ground &amp;&amp; canMove &amp;&amp; keyboard_check_pressed (ord("Z"))
     sliding = false;
     audio_play_sound (sndRottyJump, 10, false);
     jumps = 1;
-    vspeed = -8.5;
+    yvel = -8.5;
 }
 //Doublejump (press the Z key when in midair)
-if !ground &amp;&amp; canMove &amp;&amp; jumps &gt; 0 &amp;&amp; jumps &lt; 2 &amp;&amp; vspeed &gt; -5 &amp;&amp; keyboard_check_pressed (ord("Z"))
+if !ground &amp;&amp; canMove &amp;&amp; jumps &gt; 0 &amp;&amp; jumps &lt; 2 &amp;&amp; yvel &gt; -5 &amp;&amp; keyboard_check_pressed (ord("Z"))
 {
     ground = false;
     sliding = false;
     audio_play_sound (sndRottyDoublejump, 10, false);
     jumps = 2;
-    vspeed = -8.5;
+    yvel = -8.5;
 }
 
 //Ducking
@@ -270,17 +354,25 @@ if ground &amp;&amp; sprite_index != sprRottytopsHit
     else if vel != 0 &amp;&amp; !ducking &amp;&amp; sliding
     {
         sprite_index = sprRottytopsSlide;
-        vel = (4*image_xscale);
+        if can_slide
+        {
+            vel = (4*image_xscale);
+            can_slide = false;
+        }
         
-        if alarm[0] &lt; 0 &amp;&amp; sliding alarm[0] = 65;
-        else if !sliding alarm[0] = -1;
+        if abs(vel) &gt; 0.085 &amp;&amp; sliding vel -= (0.085*image_xscale);
+        if sliding &amp;&amp; abs(vel) &lt;= 0.085
+        {
+            sliding = false;
+            can_slide = true;
+        }
     }
 }
 else if sprite_index != sprRottytopsHit
 {
     if !kicking
     {
-        if vspeed &lt; 0 sprite_index = sprRottytopsJump;
+        if yvel &lt; 0 sprite_index = sprRottytopsJump;
         else sprite_index = sprRottytopsFall;
         
         if sprite_index == sprRottytopsFall
@@ -362,6 +454,12 @@ if ground &amp;&amp; sprite_index == sprRottytopsRun &amp;&amp; ((image_index &g
 {
     audio_play_sound (soundstep, 10, false);
     steptimer = 10;
+}
+
+if collision_ceil &amp;&amp; !collision_floor &amp;&amp; yvel &lt; 0
+{
+    yvel = 0;
+    ground = false;
 }
 </string>
           </argument>
@@ -464,6 +562,7 @@ instance_create (0, 0, objGems);
 instance_create (0, 0, objGemCounter);
 instance_create (0, 0, objHeartCounter);
 instance_create (0, 0, objItemHUD);
+instance_create (0, 0, objTime2);
 </string>
           </argument>
         </arguments>

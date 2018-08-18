@@ -944,9 +944,9 @@ if other.sprite_index == sprCheckpoint
     global.millisecondsC = global.milliseconds;
     global.secondsC = global.seconds;
     global.minutesC = global.minutes;
-
+    global.milC = global.mil;
+    global.timeBonusC = global.timeBonus;
 }
-
 </string>
           </argument>
         </arguments>
@@ -1265,6 +1265,7 @@ y = global.start_y;
         animations_return=8;
         animations_speed=12+abs(hsp);
         atk=1
+        enable = 1;
         if action == 1 enable = 1; else enable = 0;
         if action==1 {draw_sprite_ext(spr_circleknucklesSuper,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_circleknucklesSuper)}
     }
@@ -1344,7 +1345,7 @@ y = global.start_y;
 
     
     // -&gt; Bounce up animation
-    if (action==6 &amp;&amp; vsp&lt;0) {
+    if (action==6 &amp;&amp; vsp&lt;0) or action == 18 {
         animation=8;
         animations_framemin=18;
         animations_framemax=19;

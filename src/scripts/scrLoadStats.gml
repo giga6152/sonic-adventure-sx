@@ -1,11 +1,11 @@
 #define scrLoadStats
 ///scrLoadStats(data)
 
-if file_exists ("stats.sav") scrReadStats1();
-if file_exists ("stats2.sav") scrReadStats2();
-if file_exists ("stats3.sav") scrReadStats3();
-if file_exists ("stats4.sav") scrReadStats4();
-if file_exists ("stats5.sav") scrReadStats5();
+if file_exists (global.dir+"stats.sav") scrReadStats1();
+if file_exists (global.dir+"stats2.sav") scrReadStats2();
+if file_exists (global.dir+"stats3.sav") scrReadStats3();
+if file_exists (global.dir+"stats4.sav") scrReadStats4();
+if file_exists (global.dir+"stats5.sav") scrReadStats5();
 
 #define scrReadStats1
 ///scrReadStats1()

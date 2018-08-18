@@ -32,11 +32,6 @@ vspeed = 0;
 audio_play_sound (sndBadnikDestroy, 10, false);
 effect_create_above (ef_ring, x, y, 2, c_white);
 effect_create_above (ef_firework, x, y, 2, make_colour_rgb(234, 77, 0));
-
-if global.invincible == false
-    global.points += 100;
-else
-    global.points += 200;
 </string>
           </argument>
         </arguments>

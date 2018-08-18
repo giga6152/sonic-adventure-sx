@@ -76,9 +76,12 @@ sprite_index = choose (spr20GemGreen, spr20GemBlue, spr20GemYellow, spr20GemRed,
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>gravity = 0;
-move_contact_solid (direction, 12);
-vspeed = 0;
+            <string>if vspeed &gt; 0
+{
+    gravity = 0;
+    //move_contact_solid (direction, 12);
+    vspeed = 0;
+}
 </string>
           </argument>
         </arguments>

@@ -43,6 +43,7 @@ display = 120;
 attacking = false;
 sprite_old = sprite_index;
 t = 1;
+points_award = 400;
 </string>
           </argument>
         </arguments>

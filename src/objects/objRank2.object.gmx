@@ -73,8 +73,9 @@ alarm[0] = 60;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scrSetBestStats();
-room_goto (myRoom);
+            <string>room_goto (myRoom);
+scrClearLevel();
+scrSetBestStats();
 scrSaveM();
 </string>
           </argument>

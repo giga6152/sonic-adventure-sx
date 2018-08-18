@@ -106,15 +106,15 @@ alarm[0] = 30;
         with objSaveSelectBorder
         {
             if option == 0
-               file_delete ("save.sav");
+               file_delete (global.dir+"save.sav");
             else if option == 1
-                 file_delete ("save2.sav");
+                 file_delete (global.dir+"save2.sav");
             else if option == 2
-                 file_delete ("save3.sav");
+                 file_delete (global.dir+"save3.sav");
             else if option == 3
-                 file_delete ("save4.sav");
+                 file_delete (global.dir+"save4.sav");
             else
-                file_delete ("save5.sav");
+                file_delete (global.dir+"save5.sav");
         }
         
         instance_destroy();
@@ -236,15 +236,15 @@ alarm[0] = 30;
         with objSaveSelectBorder
         {
             if option == 0
-               file_delete ("save.sav");
+               file_delete (global.dir+"save.sav");
             else if option == 1
-                 file_delete ("save2.sav");
+                 file_delete (global.dir+"save2.sav");
             else if option == 2
-                 file_delete ("save3.sav");
+                 file_delete (global.dir+"save3.sav");
             else if option == 3
-                 file_delete ("save4.sav");
+                 file_delete (global.dir+"save4.sav");
             else
-                file_delete ("save5.sav");
+                file_delete (global.dir+"save5.sav");
         }
         
         instance_destroy();

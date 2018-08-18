@@ -57,42 +57,90 @@ millisec = floor(global.best_time[global.chrt, global.actnumb]-((second*1000)+(6
 
 if global.chrt == 0 or global.chrt == 4
 {
-    if global.best_score[global.chrt, global.actnumb] &lt; 50000
-        rank = sprRankD; //Less than 25K points
-    else if global.best_score[global.chrt, global.actnumb] &gt;= 50000 &amp;&amp; global.best_score[global.chrt, global.actnumb] &lt; 75000
-        rank = sprRankC; //Between 25K and 50K points
-    else if global.best_score[global.chrt, global.actnumb] &gt;= 75000 &amp;&amp; global.best_score[global.chrt, global.actnumb] &lt; 90000
-        rank = sprRankB; //Between 50K and 80K points
-    else if global.best_score[global.chrt, global.actnumb] &gt;= 90000 &amp;&amp; global.best_score[global.chrt, global.actnumb] &lt; 100000
-        rank = sprRankA; //Between 80K and 100K points
-    else if global.best_score[global.chrt, global.actnumb] &gt;= 100000
-        rank = sprRankS; //100K or more points
+    if global.actnumb == 0
+    {
+        if global.best_score[global.chrt, 0] &lt; 32000
+            rank = sprRankD; //D Rank
+        else if global.best_score[global.chrt, 0] &gt;= 32000 &amp;&amp; global.best_score[global.chrt, 0] &lt; 47500
+            rank = sprRankC; //C Rank
+        else if global.best_score[global.chrt, 0] &gt;= 47500 &amp;&amp; global.best_score[global.chrt, 0] &lt; 51000
+            rank = sprRankB; //B Rank
+        else if global.best_score[global.chrt, 0] &gt;= 51000 &amp;&amp; global.best_score[global.chrt, 0] &lt; 55000
+            rank = sprRankA; //A Rank
+        else
+            rank = sprRankS; //S Rank
+    }
+    else if global.actnumb == 1
+    {
+        if global.best_score[global.chrt, 1] &lt; 41000
+            rank = sprRankD; //D Rank
+        else if global.best_score[global.chrt, 1] &gt;= 41000 &amp;&amp; global.best_score[global.chrt, 1] &lt; 46500
+            rank = sprRankC; //C Rank
+        else if global.best_score[global.chrt, 1] &gt;= 46500 &amp;&amp; global.best_score[global.chrt, 1] &lt; 54000
+            rank = sprRankB; //B Rank
+        else if global.best_score[global.chrt, 1] &gt;= 54000 &amp;&amp; global.best_score[global.chrt, 1] &lt; 57000
+            rank = sprRankA; //A Rank
+        else
+            rank = sprRankS; //S Rank
+    }
 }
-if global.chrt == 2
+else if global.chrt == 2
 {
-    if global.best_score[global.chrt, global.actnumb] &lt; 47500
-        rank = sprRankD; //Less than 25K points
-    else if global.best_score[global.chrt, global.actnumb] &gt;= 47500 &amp;&amp; global.best_score[global.chrt, global.actnumb] &lt; 70000
-        rank = sprRankC; //Between 25K and 50K points
-    else if global.best_score[global.chrt, global.actnumb] &gt;= 70000 &amp;&amp; global.best_score[global.chrt, global.actnumb] &lt; 85000
-        rank = sprRankB; //Between 50K and 80K points
-    else if global.best_score[global.chrt, global.actnumb] &gt;= 85000 &amp;&amp; global.best_score[global.chrt, global.actnumb] &lt; 95000
-        rank = sprRankA; //Between 80K and 100K points
-    else if global.best_score[global.chrt, global.actnumb] &gt;= 95000
-        rank = sprRankS; //100K or more points
+    if global.actnumb == 0
+    {
+        if global.best_score[global.chrt, 0] &lt; 30000
+            rank = sprRankD; //D Rank
+        else if global.best_score[global.chrt, 0] &gt;= 30000 &amp;&amp; global.best_score[global.chrt, 0] &lt; 43500
+            rank = sprRankC; //C Rank
+        else if global.best_score[global.chrt, 0] &gt;= 43500 &amp;&amp; global.best_score[global.chrt, 0] &lt; 48000
+            rank = sprRankB; //B Rank
+        else if global.best_score[global.chrt, 0] &gt;= 48000 &amp;&amp; global.best_score[global.chrt, 0] &lt; 53500
+            rank = sprRankA; //A Rank
+        else
+            rank = sprRankS; //S Rank
+    }
+    else if global.actnumb == 1
+    {
+        if global.best_score[global.chrt, 1] &lt; 39000
+            rank = sprRankD; //D Rank
+        else if global.best_score[global.chrt, 1] &gt;= 39000 &amp;&amp; global.best_score[global.chrt, 1] &lt; 45000
+            rank = sprRankC; //C Rank
+        else if global.best_score[global.chrt, 1] &gt;= 45000 &amp;&amp; global.best_score[global.chrt, 1] &lt; 52500
+            rank = sprRankB; //B Rank
+        else if global.best_score[global.chrt, 1] &gt;= 52500 &amp;&amp; global.best_score[global.chrt, 1] &lt; 55000
+            rank = sprRankA; //A Rank
+        else
+            rank = sprRankS; //S Rank
+    }
 }
 else if global.chrt == 6 or global.chrt == 8 or global.chrt == 10
 {
-    if global.best_score[global.chrt, global.actnumb] &lt; 45000
-        rank = sprRankD; //Less than 25K points
-    else if global.best_score[global.chrt, global.actnumb] &gt;= 45000 &amp;&amp; global.best_score[global.chrt, global.actnumb] &lt; 65000
-        rank = sprRankC; //Between 25K and 50K points
-    else if global.best_score[global.chrt, global.actnumb] &gt;= 65000 &amp;&amp; global.best_score[global.chrt, global.actnumb] &lt; 80000
-        rank = sprRankB; //Between 50K and 80K points
-    else if global.best_score[global.chrt, global.actnumb] &gt;= 80000 &amp;&amp; global.best_score[global.chrt, global.actnumb] &lt; 90000
-        rank = sprRankA; //Between 80K and 100K points
-    else if global.best_score[global.chrt, global.actnumb] &gt;= 90000
-        rank = sprRankS; //100K or more points
+    if global.actnumb == 0
+    {
+        if global.best_score[global.chrt, 0] &lt; 30000
+            rank = sprRankD; //D Rank
+        else if global.best_score[global.chrt, 0] &gt;= 30000 &amp;&amp; global.best_score[global.chrt, 0] &lt; 42000
+            rank = sprRankC; //C Rank
+        else if global.best_score[global.chrt, 0] &gt;= 42000 &amp;&amp; global.best_score[global.chrt, 0] &lt; 46000
+            rank = sprRankB; //B Rank
+        else if global.best_score[global.chrt, 0] &gt;= 46000 &amp;&amp; global.best_score[global.chrt, 0] &lt; 51000
+            rank = sprRankA; //A Rank
+        else
+            rank = sprRankS; //S Rank
+    }
+    else if global.actnumb == 1 &amp;&amp; global.chrt == 6
+    {
+        if global.best_score[global.chrt, global.actnumb] &lt; 36500
+            rank = sprRankD; //D Rank
+        else if global.best_score[global.chrt, 1] &gt;= 36500 &amp;&amp; global.best_score[global.chrt, 1] &lt; 44000
+            rank = sprRankC; //C Rank
+        else if global.best_score[global.chrt, 1] &gt;= 44000 &amp;&amp; global.best_score[global.chrt, 1] &lt; 49500
+            rank = sprRankB; //B Rank
+        else if global.best_score[global.chrt, 1] &gt;= 49500 &amp;&amp; global.best_score[global.chrt, 1] &lt; 53000
+            rank = sprRankA; //A Rank
+        else
+            rank = sprRankS; //S Rank
+    }
 }
 else
 {
@@ -106,7 +154,7 @@ else
             rank = sprRankB;
         else if global.best_time[global.chrt, 0] &gt;= 400000 &amp;&amp; global.best_time[global.chrt, 0] &lt; 430000
             rank = sprRankC;
-        else if global.best_time[global.chrt, 0] &gt;= 430000
+        else
             rank = sprRankD;
     }
     else if global.actnumb == 1
@@ -119,7 +167,7 @@ else
             rank = sprRankB;
         else if global.best_time[global.chrt, 1] &gt;= 900000 &amp;&amp; global.best_time[global.chrt, 1] &lt; 1200000
             rank = sprRankC;
-        else if global.best_time[global.chrt, 1] &gt;= 1200000
+        else
             rank = sprRankD;
     }
 }

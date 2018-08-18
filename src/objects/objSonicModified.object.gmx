@@ -904,6 +904,7 @@ if global.slide == true &amp;&amp; action == 0 &amp;&amp; ground &amp;&amp; (hsp
 //Boost Mode (NOT the boost, only activates if Sonic hits a high speed)
 if (place_meeting (x, y, objDashPad) &amp;&amp; ground &amp;&amp; action == 0) or powersneakers
 {
+    if !mach instance_create (x, y, objSoundBreak);
     mach = true;  
     machTimer = 0;
 }
@@ -918,11 +919,12 @@ else
         machTimer = 20000;
 }
 
-if machTimer &lt;= 0
+if machTimer &lt;= 0 &amp;&amp; !mach
 {
     mach = true;
+    instance_create (x, y, objSoundBreak);
 }
-else
+else if machTimer &gt; 0
 {
     mach = false;
 }
@@ -1151,6 +1153,7 @@ if other.sprite_index == sprCheckpoint
     global.secondsC = global.seconds;
     global.minutesC = global.minutes;
     global.milC = global.mil;
+    global.timeBonusC = global.timeBonus;
 }
 
 </string>

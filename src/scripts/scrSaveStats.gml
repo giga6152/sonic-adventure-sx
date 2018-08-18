@@ -3,27 +3,27 @@
 
 if global.savedata == 1
 {
-    if file_exists ("save.sav") file_delete ("save.sav");
+    if file_exists (global.dir+"save.sav") file_delete (global.dir+"save.sav");
     scrWriteStats1();
 }
 if global.savedata == 2
 {
-    if file_exists ("save2.sav") file_delete ("save2.sav");
+    if file_exists (global.dir+"save2.sav") file_delete (global.dir+"save2.sav");
     scrWriteStats2();
 }
 if global.savedata == 3
 {
-    if file_exists ("save3.sav") file_delete ("save3.sav");
+    if file_exists (global.dir+"save3.sav") file_delete (global.dir+"save3.sav");
     scrWriteStats3();
 }
 if global.savedata == 4
 {
-    if file_exists ("save4.sav") file_delete ("save4.sav");
+    if file_exists (global.dir+"save4.sav") file_delete (global.dir+"save4.sav");
     scrWriteStats4();
 }
 if global.savedata == 5
 {
-    if file_exists ("save5.sav") file_delete ("save5.sav");
+    if file_exists (global.dir+"save5.sav") file_delete (global.dir+"save5.sav");
     scrWriteStats5();
 }
 

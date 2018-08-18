@@ -142,35 +142,35 @@ else
     
 if fileN == 1
 {
-    if file_exists ("save.sav")
+    if file_exists (global.dir+"save.sav")
        sprite_index = sprSaveSlotBorder;
     else
         sprite_index = sprSaveSlotBorderN;
 }
 if fileN == 2
 {
-    if file_exists ("save2.sav")
+    if file_exists (global.dir+"save2.sav")
        sprite_index = sprSaveSlotBorder;
     else
         sprite_index = sprSaveSlotBorderN;
 }
 if fileN == 3
 {
-    if file_exists ("save3.sav")
+    if file_exists (global.dir+"save3.sav")
        sprite_index = sprSaveSlotBorder;
     else
         sprite_index = sprSaveSlotBorderN;
 }
 if fileN == 4
 {
-    if file_exists ("save4.sav")
+    if file_exists (global.dir+"save4.sav")
        sprite_index = sprSaveSlotBorder;
     else
         sprite_index = sprSaveSlotBorderN;
 }
 if fileN == 5
 {
-    if file_exists ("save5.sav")
+    if file_exists (global.dir+"save5.sav")
        sprite_index = sprSaveSlotBorder;
     else
         sprite_index = sprSaveSlotBorderN;

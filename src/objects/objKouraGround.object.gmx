@@ -30,6 +30,7 @@ hp = 1;
 hspeed = -1.5;
 alarm[0] = 90;
 invulnerable = false;
+points_award = 100;
 </string>
           </argument>
         </arguments>

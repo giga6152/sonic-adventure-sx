@@ -77,6 +77,11 @@ audio_play_sound (sndMagicSeal, 10, true);
             <string>if sealID == 0
     global.seal0[global.savedata] = true;
      
+global.millisecondsG = global.milliseconds;
+global.secondsG = global.seconds;
+global.minutesG = global.minutes;
+global.milG = global.mil;
+
 audio_stop_all();
 audio_play_sound (sndMagicSeal, 10, false);
 effect_create_above (ef_firework, x, y, 2, c_lime);

@@ -40,6 +40,7 @@ ledge = false;
 ledge_old = ledge;
 switch_xscale = false;
 display = 120;
+points_award = 300;
 </string>
           </argument>
         </arguments>

@@ -98,6 +98,7 @@ instance_create (0, 0, objFade);
             <kind>1</kind>
             <string>d = true;
 alarm[1] = 60*5;
+audio_stop_all();
 audio_play_sound (bgmGameOver, 10, false);
 </string>
           </argument>

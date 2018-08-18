@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_font (fntFont);
+            <string>/*draw_set_font (fntFont);
 scrDrawOutlines (x, y, "Bonus: "+string(global.ringBonus), c_black, c_white, 2);
 </string>
           </argument>

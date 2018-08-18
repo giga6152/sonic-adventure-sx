@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if file_exists ("save2.sav")
+            <string>if file_exists (global.dir+"save2.sav")
 {
     //Draw chaos emeralds
     if global.ch1[2] == false

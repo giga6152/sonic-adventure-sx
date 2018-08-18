@@ -52,9 +52,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if hp &lt;= 0
+            <string>if hp &lt;= 0 
 {
     instance_change (objEnemyDestroy, true);
+    global.points += 100;
+    
     if !instance_exists (objComboText)
     {
         global.combo += 1;
@@ -88,6 +90,8 @@ if instance_exists (objDarkBar) &amp;&amp; hp &lt;= 0 global.dark_energy += 5;
             <string>instance_destroy();
 global.combo += 1;
 global.combo_timer = 300;
+
+global.points += global.points_award;
 </string>
           </argument>
         </arguments>
@@ -338,12 +342,8 @@ if instance_exists (objDarkBar) &amp;&amp; hp &lt;= 0 global.dark_energy += 5;
 }
 
 if global.invincible == true or global.superstate &gt; 0
-{instance_change (objEnemyDestroy, true); 
-if !instance_exists (objComboText)
 {
-    global.combo += 1;
-    global.combo_timer = 300;
-}
+hp = 0;
 if instance_exists (objDarkBar) global.dark_energy += 5;}
 </string>
           </argument>

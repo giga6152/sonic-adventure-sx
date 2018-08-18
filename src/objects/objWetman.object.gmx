@@ -86,6 +86,76 @@ randomize();
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Collision with a wall
+//Allows the player to collide with walls
+
+//Floor
+var myWall = instance_place(x, y+yvel+1, objSolid2);
+if myWall &gt;= 0 &amp;&amp; yvel &gt; 0
+{
+    y = myWall.y - (sprite_get_height(sprite_index) - sprite_get_yoffset(sprite_index));
+    ground = true;
+    yvel = 0;
+
+    //Note: there used to be a system here that set MM's sprite to the walking sprite when landing
+    //However, due to complications such as climbing up ladders, it was a lot of work for such a minor feature
+    //Therefore, it has been removed
+}
+
+
+//Wall
+myWall = instance_place(x+vel, y, objSolid2);
+if myWall &gt;= 0 &amp;&amp; vel != 0
+{
+    if vel &lt; 0
+    {
+        x = myWall.bbox_right + sprite_get_xoffset(sprite_index) - sprite_get_bbox_left(sprite_index);
+        
+        //For some reason, the code above would work correctly half the time, but clip MM inside the wall the other half
+        //This while-loop fixes the issue by forcing MM out of the wall
+        while place_meeting(x, y, myWall)
+            x += 1;
+    }
+    else
+        x = myWall.x - (sprite_get_width(sprite_index) - sprite_get_xoffset(sprite_index)) + (sprite_get_width(sprite_index) - sprite_get_bbox_right(sprite_index)) - 1;
+        
+    vel = 0;
+}
+
+
+//Ceiling
+myWall = instance_place(x, y+yvel, objSolid2);
+if myWall &gt;= 0 &amp;&amp; yvel &lt; 0
+{
+    y = myWall.bbox_bottom + sprite_get_yoffset(sprite_index);
+    
+    //For some reason, the code above would work correctly half the time, but clip MM inside the ceiling the other half
+    //This while-loop fixes the issue by forcing MM out of the ceiling
+    while place_meeting(x, y, myWall)
+        y += 1;
+        
+    yvel = 0;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>//Set the frames and timers
 
 /*This code below is a series of checks to see if the wetman is opaque and what state the
@@ -214,30 +284,6 @@ if !enableguard
 
 x += vel;
 y += yvel;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="objSolid2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>move_contact_solid (direction, 12);
-yvel = 0;
 </string>
           </argument>
         </arguments>

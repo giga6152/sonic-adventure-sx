@@ -109,6 +109,8 @@ if instance_exists (objShantae)
     else if instance_place (x, y, objShantaeStandWhipBox) &amp;&amp; enableguard == false
         canHit = true;
 }
+
+if hpoints &lt;= 0 instance_change (objEnemyDestroy2, true);
 </string>
           </argument>
         </arguments>
@@ -512,9 +514,14 @@ else
         canHit = false;
         alarm[0] = 30;
         hpoints -= objShantae.attackStrength;
+        with other instance_destroy();
     }
     else if hpoints &lt;= objShantae.attackStrength &amp;&amp; canHit == true &amp;&amp; objShantae.sprite_index == sprShantaeJumpWhip &amp;&amp; instance_exists (objShantae)
+    {
+        canHit = false;
         instance_change (objEnemyDestroy, true);
+        with other instance_destroy();
+    }
 }
 else
     guarding = true;
@@ -549,9 +556,14 @@ with other instance_destroy();
         canHit = false;
         alarm[0] = 30;
         hpoints -= objShantae.attackStrength;
+        with other instance_destroy();
     }
     else if hpoints &lt;= objShantae.attackStrength &amp;&amp; canHit == true &amp;&amp; objShantae.sprite_index == sprShantaeDuckWhip &amp;&amp; instance_exists (objShantae)
+    {
+        canHit = false;
         instance_change (objEnemyDestroy, true);
+        with other instance_destroy();
+    }
 }
 else
     guarding = true;
@@ -586,9 +598,14 @@ with other instance_destroy();
         canHit = false;
         alarm[0] = 30;
         hpoints -= objShantae.attackStrength;
+        with other instance_destroy();
     }
     else if hpoints &lt;= objShantae.attackStrength &amp;&amp; canHit == true &amp;&amp; objShantae.sprite_index == sprShantaeStandWhip &amp;&amp; instance_exists (objShantae)
+    {
+        canHit = false;
         instance_change (objEnemyDestroy, true);
+        with other instance_destroy();
+    }
 }
 else
     guarding = true;
@@ -634,6 +651,16 @@ with other instance_destroy();
     {
         global.hearts = 0;
         with other instance_change (objShantaeHitDie, true);
+    }
+}
+else if other.sprite_index == sprMonkeyBullet
+{
+    if canHit
+    {
+        canHit = false;
+        alarm[0] = 30;
+        
+        if hpoints &gt; 3 hpoints -= 3; else instance_change(objEnemyDestroy2, true);
     }
 }
 else
@@ -694,8 +721,11 @@ else if other.sprite_index == sprShantaeStrike
 {
     if canHit
     {
-        other.vspeed = -8;
-        hpoints -= 4;
+        canHit = false;
+        other.yvel = -8;
+        alarm[0] = 30;
+        
+        if hpoints &gt; 4 hpoints -= 4; else instance_change(objEnemyDestroy2, true);
     }
 }
 else

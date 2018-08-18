@@ -58,7 +58,7 @@ global.milG1 = global.mil1;
             <kind>1</kind>
             <string>with objMusic instance_destroy();
 audio_stop_all();
-audio_play_sound (bgmStageClear, 10, false);
+audio_play_sound (bgmGameOver, 10, false);
 </string>
           </argument>
         </arguments>

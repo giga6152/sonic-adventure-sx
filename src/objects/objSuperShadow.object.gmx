@@ -1209,8 +1209,8 @@ if other.sprite_index == sprCheckpoint
     global.secondsC = global.seconds;
     global.minutesC = global.minutes;
     global.milC = global.mil;
+    global.timeBonusC = global.timeBonus;
 }
-
 </string>
           </argument>
         </arguments>

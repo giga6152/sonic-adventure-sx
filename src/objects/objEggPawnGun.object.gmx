@@ -44,6 +44,7 @@ attacking = false;
 sprite_old = sprite_index;
 t = 1;
 shots = 3;
+points_award = 400;
 </string>
           </argument>
         </arguments>

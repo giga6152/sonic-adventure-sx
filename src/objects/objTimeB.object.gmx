@@ -25,8 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_font (fntFont);
-scrDrawOutlines (x, y, "Bonus: "+string(global.timeBonus), c_black, c_white, 2);
+            <string>draw_sprite (sprResultsText, 4, view_xview[0]+19+25, view_yview[0]+195);
+draw_set_font (fntFont);
+scrDrawOutlines (view_xview[0]+274, view_yview[0]+195, string(global.timeBonus), c_black, c_white, 3);
 </string>
           </argument>
         </arguments>

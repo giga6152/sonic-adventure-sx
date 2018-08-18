@@ -973,9 +973,9 @@ if other.sprite_index == sprCheckpoint
     global.millisecondsC = global.milliseconds;
     global.secondsC = global.seconds;
     global.minutesC = global.minutes;
-
+    global.milC = global.mil;
+    global.timeBonusC = global.timeBonus;
 }
-
 </string>
           </argument>
         </arguments>
@@ -1276,6 +1276,7 @@ instance_create (0, 0, objDarkBar);
         animations_return=6;
         animations_speed=12+abs(hsp);
         atk=1
+        enable = 1;
     }
 
     // -&gt; Jump animation
@@ -1286,6 +1287,7 @@ instance_create (0, 0, objDarkBar);
         animations_return=8;
         animations_speed=18+abs(hsp);
         atk=1
+        enable = 1;
         if action == 1 {draw_sprite_ext(spr_darkcircle,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_darkcircle)}
     }
     
@@ -1297,6 +1299,7 @@ instance_create (0, 0, objDarkBar);
         animations_return=12;
         animations_speed=30;
         atk=1
+        enable = 1;
     }
     
     // -&gt; Roll animation
@@ -1307,6 +1310,7 @@ instance_create (0, 0, objDarkBar);
         animations_return=13;
         animations_speed=30;
         atk=1
+        enable = 1;
         draw_sprite_ext(spr_darkcircle,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_darkcircle)
     }
     
@@ -1319,6 +1323,7 @@ instance_create (0, 0, objDarkBar);
         animations_speed=30+abs(spin*4);
         atk=1
         hsp=0
+        enable = 1;
         if action==4 {draw_sprite_ext(spr_darkcircle,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_darkcircle)}
     }
     
@@ -1330,6 +1335,7 @@ instance_create (0, 0, objDarkBar);
         animations_return=21;
         animations_speed=30;
         atk=1
+        enable = 1;
         
     if  vsp&lt;4 &amp;&amp; ground=0
         {draw_sprite_ext(spr_darkcircle,0,x,y,1.4,1.4,0,c_white,0.5) instance_create(x,y,obj_darkcircle)}
@@ -1371,6 +1377,7 @@ instance_create (0, 0, objDarkBar);
         animations_return=36;
         animations_speed=30;
         atk=1
+        enable = 1;
         draw_sprite_ext(spr_darkcircle,0,x,y,1.4,1.4,0,c_white,0.5)
         
     if  ground
@@ -1385,6 +1392,7 @@ instance_create (0, 0, objDarkBar);
         animations_return=37;
         animations_speed=30+abs(hsp*2);
         atk=1
+        enable = 1;
                 
     if  abs(vsp)&gt;0
         {action=0}
@@ -1398,6 +1406,7 @@ instance_create (0, 0, objDarkBar);
         animations_return=95;
         animations_speed=30;
         atk=1
+        enable = 0;
         hsp=-xdir*2
         speed=0
                 
@@ -1439,6 +1448,7 @@ instance_create (0, 0, objDarkBar);
         animations_return=21;
         animations_speed=30;
         atk=1
+        enable = 1;
        }
        
 // -&gt; Skidding
@@ -1449,6 +1459,7 @@ instance_create (0, 0, objDarkBar);
         animations_return=6;
         animations_speed=20;
         atk=1
+        enable = 1;
        }
        
     // -&gt; Homing attack animation

@@ -51,7 +51,7 @@ audio_play_sound (sndDash, 10, false);
           <argument>
             <kind>1</kind>
             <string>other.xdir = 1;
-other.hsp = 12;
+if other.hsp &lt; 12 other.hsp = 12;
 audio_play_sound (sndDash, 10, false);
 
 /*if timer &lt;= 0

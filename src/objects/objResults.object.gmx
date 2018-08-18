@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>with objHUD instance_destroy();
+</string>
           </argument>
         </arguments>
       </action>
@@ -47,8 +48,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_font (fntFontBig);
-scrDrawOutlines (x, y, "RESULTS", c_black, c_white, 2);
+            <string>draw_sprite (sprResultsText, 0, view_xview[0]+135+25, view_yview[0]+18);
 </string>
           </argument>
         </arguments>

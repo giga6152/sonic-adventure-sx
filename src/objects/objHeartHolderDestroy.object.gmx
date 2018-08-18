@@ -57,10 +57,7 @@ global.hearts = global.maxHearts;
 /*Checks which heart holders to permanently be destroyed depending on the number that was
 assigned to that specific heart holder*/
 
-if assignedHeart == 0
-   global.getHeart0 = true;
-else if assignedHeart == 1
-     global.getHeart1 = true;
+global.getHeart[assignedHeart] = true;
      
 instance_destroy();
 </string>

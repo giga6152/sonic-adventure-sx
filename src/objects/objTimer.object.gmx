@@ -28,12 +28,13 @@
             <string>//If we are in a level, show the ingame time for how long we are currently in the level
 if !instance_exists (objTimeControl)
 {
-    if global.millisecondsC == 0 &amp;&amp; global.secondsC == 0 &amp;&amp; global.minutesC == 0 &amp;&amp; global.milC == 0
+    if global.millisecondsC == 0 &amp;&amp; global.secondsC == 0 &amp;&amp; global.minutesC == 0 &amp;&amp; global.milC == 0 &amp;&amp; global.timeBonusC == 50000
     {
         global.milliseconds = 0;
         global.seconds = 0;
         global.minutes = 0;
         global.mil = 0;
+        global.timeBonus = 50000;
     }
     else
     {
@@ -41,6 +42,7 @@ if !instance_exists (objTimeControl)
         global.seconds = global.secondsC;
         global.minutes = global.minutesC;
         global.mil = global.milC;
+        global.timeBonus = global.timeBonusC;
     }
     
     if instance_exists (objHub)
@@ -58,7 +60,6 @@ if !instance_exists (objTimeControl)
         global.milG = 0;
     }
     
-    global.timeBonus = 45000;
     global.rings = 0;
     global.points = 0;
 }
@@ -67,6 +68,8 @@ if !instance_exists (objTimeControl)
 worldsecond = date_get_second (date_current_datetime());
 worldminute = date_get_minute (date_current_datetime());
 worldhour = date_get_hour (date_current_datetime());
+
+deduct = 1000;
 </string>
           </argument>
         </arguments>
@@ -150,7 +153,7 @@ if instance_exists (objDeadPlayer) &amp;&amp; room != rmZ1_B
 if global.millisecondsG == 0
 {
     if !instance_exists (objHub)
-        global.milliseconds += 1000/60;
+        global.milliseconds += 1000 div 60;
     else
     {
         global.milliseconds = 0;
@@ -178,7 +181,7 @@ if global.seconds == 60
     global.minutes += 1;
 }
 
-if room == rmZ1_1rm2 or room == rmZ1_1Krm2M or room == rmZ1_1Shrm2 or room == rmZ1_1Slrm2 or room == rmZ1_1Trm2 or room == rmZ1_1Arm2M
+/*if room == rmZ1_1rm2 or room == rmZ1_1Krm2M or room == rmZ1_1Shrm2 or room == rmZ1_1Slrm2 or room == rmZ1_1Trm2 or room == rmZ1_1Arm2M
 {
     if global.mil &lt; 150000
         global.timeBonus = 35000;
@@ -252,7 +255,24 @@ if room = rmZ2_BK or room = rmZ2_BA
         global.timeBonus = 2500;
     else if global.mil &gt;= 420000
         global.timeBonus = 0;
+}*/
+
+//Deduct 60 points from the time bonus every second after a specific time frame
+if global.mil &gt;= 60000 &amp;&amp; global.milG == 0
+{
+    if global.timeBonus &gt; 0
+    {
+        deduct -= (1000/60);
+        if deduct &lt;= 0
+        {
+            deduct = 1000;
+            global.timeBonus -= 60;
+        }
+    }
+    else global.timeBonus = 0;
 }
+else deduct = 1000;
+
 
 worldsecond = date_get_second (date_current_datetime());
 worldminute = date_get_minute (date_current_datetime());
@@ -288,6 +308,7 @@ global.milliseconds = global.millisecondsC;
 global.seconds = global.secondsC;
 global.minutes = global.minutesC;
 global.mil = global.milC;
+global.timeBonus = global.timeBonusC;
 </string>
           </argument>
         </arguments>
@@ -375,6 +396,8 @@ else if instance_exists (objHub) //Draw the actual world time during the hubworl
     else
          scrDrawOutlines (view_xview[0]+150, view_yview[0]+5, string(worldhour)+"'"+string(worldminute)+"'"+string(worldsecond)+'"', c_navy, c_aqua, 2);
 }
+
+//draw_text (view_xview[0]+240, view_yview[0]+320, string(global.timeBonus));
 </string>
           </argument>
         </arguments>

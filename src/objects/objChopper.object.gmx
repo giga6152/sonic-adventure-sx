@@ -31,6 +31,7 @@ image_speed = 0.16;
 alarm[0] = irandom_range (135, 180);
 hp = 1;
 invulnerable = false;
+points_award = 200;
 </string>
           </argument>
         </arguments>

@@ -186,13 +186,12 @@ if option &gt; max_option option = max_option;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if !instance_exists (objFade) &amp;&amp; option == 0
+            <string>if !instance_exists (objFade)
 {
     audio_play_sound (sndMenuSelect, 10, false);
     alarm[0] = 40;
     instance_create (0, 0, objFade);
 }
-else audio_play_sound (sndMenuCancel, 10, false);
 </string>
           </argument>
         </arguments>

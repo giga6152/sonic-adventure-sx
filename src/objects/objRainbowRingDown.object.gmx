@@ -51,7 +51,7 @@ canGetPoints = true;
             <kind>1</kind>
             <string>if canGetPoints == true
 {
-    global.points += 2000;
+    global.points += 1000;
     canGetPoints = false;
 }
 
